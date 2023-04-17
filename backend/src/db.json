@@ -1,0 +1,18 @@
+{
+    "users" : [
+        {
+            "id" : 1,
+            "username" : "@Kingen",
+            "password" : "ändradettasen",
+            "tweets" :[
+                {
+                    "timestamp" : "14 Maj 2023",
+                    "tweet" : "Första tweeten ever!",
+                    "likes" : 0,
+                    "retweets" : 0,
+                    "comments" : []
+                }
+            ]
+        }
+    ]
+}
