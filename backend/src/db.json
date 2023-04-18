@@ -1,28 +1,34 @@
 {
-    "users": [
-        {
-            "id": 1,
-            "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-            "username": "@Kingen",
-            "password": "ändradettasen"
-        }
-    ],
-    "tweets": [
-        {
-            "username": "@Kingen",
-            "timestamp": "16:45 14 Maj 2022",
-            "tweet": "Första tweeten ever!",
-            "likes": 0,
-            "retweets": 0,
-            "comments": []
-        },
-        {
-            "username": "@Kingen",
-            "timestamp": "16:50 14 Maj 2022",
-            "tweet": "Whatever happens now?",
-            "likes": 0,
-            "retweets": 0,
-            "comments": []
-        }
-    ]
+  "users": [
+    {
+      "id": 1,
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+      "username": "@Kingen",
+      "password": "ändradettasen"
+    },
+    {
+      "id": 2,
+      "username": "@Kate",
+      "password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    }
+  ],
+  "tweets": [
+    {
+      "username": "@Kingen",
+      "timestamp": "16:45 14 Maj 2022",
+      "tweet": "Första tweeten ever!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "@Kingen",
+      "timestamp": "16:50 14 Maj 2022",
+      "tweet": "Whatever happens now?",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    }
+  ]
 }
