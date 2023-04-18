@@ -1,6 +1,6 @@
 import express from "express";
 
-import { users } from "./database.js";
+import { db } from "./database.js";
 
 import logRoutes from "./Routes/logRoutes.js";
 
@@ -11,7 +11,7 @@ app.use(express.json());
 app.use("/log", logRoutes);
 
 app.get("/users", (req, res) => {
-	res.send(users);
+	res.send(db.data.users);
 });
 
 export { app };

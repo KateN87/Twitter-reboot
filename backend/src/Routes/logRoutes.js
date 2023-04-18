@@ -1,7 +1,8 @@
 import express from "express";
 import validator from "validator";
+import bcrypt from "bcrypt";
 
-import { users } from "../database.js";
+import { db } from "../database.js";
 
 const router = express.Router();
 
@@ -14,9 +15,9 @@ router.post("/signup", async (req, res) => {
 	}
 
 	//checks if userName already exists
-	const exists = users.find((user) => username === user.username);
+	const maybeUser = db.data.users.find((user) => username === user.username);
 
-	if (exists) {
+	if (maybeUser) {
 		res.send("User name already taken");
 	}
 
@@ -25,28 +26,16 @@ router.post("/signup", async (req, res) => {
 			"Password needs to be at least 8 characters and contain lower case, upper case, number and special character"
 		);
 	}
+
+	const salt = await bcrypt.genSalt(10);
+	const hash = await bcrypt.hash(password, salt);
+
+	const newUser = { username, password: hash };
+
+	db.data.users.push(newUser);
+	db.write();
+
+	res.send(newUser);
 });
-
-/* signup = async function (userName, password) {
-
-    //check if userName already exists
-    const exists = await this.findOne({ userName });
-
-    if (exists) {
-        throw Error('User name already in use');
-    }
-
-    //Chcecks if password is strong enough
-    if (!validator.isStrongPassword(password)) {
-        throw Error(
-            'Password not strong enough. Needs to be at least 8 characters and contain lower case, upper case, number and special character'
-        );
-    }
-    const salt = await bcrypt.genSalt(10);
-    const hash = await bcrypt.hash(password, salt);
-    const user = await this.create({ userName, password: hash });
-
-    return user;
-}; */
 
 export default router;
