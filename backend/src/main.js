@@ -9,7 +9,6 @@ import cors from 'cors'
 import jwt from 'jwt'
 
 const app = express();
->>>>>>> 686f871db1266cdebfdd6f184474fd84353a9a59
 app.use(cors({
     origin: "http://localhost:3000"
 }))
