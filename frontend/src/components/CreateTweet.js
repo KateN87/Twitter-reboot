@@ -1,7 +1,8 @@
-import { useSelector } from "react-redux"
+import { useSelector, useDispatch } from "react-redux"
 
 export default function CreateTweet() {
-   const tweet = useSelector(state => state.tweet)
+   const tweet = useSelector(state => state.tweetReducer)
+   console.log('', tweet)
 
    function handleChange(event) {
 
@@ -13,6 +14,7 @@ export default function CreateTweet() {
 
    return (
       <div className="tweet-component">
+         <h1>tweetReducer: {tweet}</h1>
          <h2>Tweet something here</h2>
          <form onSubmit={submitMessage} className="tweet-form" action="">
             <textarea
