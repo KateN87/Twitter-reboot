@@ -1,10 +1,37 @@
 import { useState } from 'react';
 
+//TODO
+//1. Logga in användaren efter ok response
+
 const Signup = () => {
-    const handleSubmit = (e) => {
+    const [error, setError] = useState(null);
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const { username, password } = e.target;
-        console.log(username.value, password.value);
+        setError(null);
+        const username = `@${e.target.username.value}`;
+        const password = e.target.password.value;
+
+        const response = await fetch('http://localhost:3001/log/signup', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username, password }),
+        });
+
+        const json = await response.json();
+
+        if (!response.ok) {
+            //sätter error till felmeddelandet från backend
+            setError(json.error);
+        }
+        if (response.ok) {
+            //Sätter localstorage, innehåller username och token
+            localStorage.setItem('user', JSON.stringify(json));
+
+            //Logga in användaren
+
+            //nollställer formuläret
+            e.target.reset();
+        }
     };
 
     return (
@@ -20,6 +47,8 @@ const Signup = () => {
 
                 <br />
                 <button type='submit'>Sign up</button>
+                {/* Om error INTE är null visas denna*/}
+                {error && <div className='error'>{error}</div>}
             </form>
         </div>
     );
