@@ -1,14 +1,27 @@
 import { useSelector } from "react-redux"
 
 export default function CreateTweet() {
+   const tweet = useSelector(state => state.tweet)
+
+   function handleChange(event) {
+
+   }
+   function submitMessage() {
 
 
+   }
 
    return (
       <div className="tweet-component">
          <h2>Tweet something here</h2>
-         <form className="tweet-form" action="">
-            <textarea id="comment" name="comment" rows="5" maxLength="140" placeholder="Write tweet..."></textarea>
+         <form onSubmit={submitMessage} className="tweet-form" action="">
+            <textarea
+               onChange={handleChange}
+               id="comment"
+               name="comment"
+               rows="5"
+               maxLength="140"
+               placeholder="Write tweet..."></textarea>
             <button type="submit">Tweet</button>
          </form>
       </div>

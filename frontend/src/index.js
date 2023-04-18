@@ -5,15 +5,14 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux'
 
-import './index.css';
 import App from './App';
-import counter from './redux/counter'
+import tweetReducer from './redux/tweetReducer'
 
-const store = createStore(counter)
+const store = createStore(tweetReducer)
 
 console.log(store.getState());
 
-store.dispatch({ type: 'INCREMENT' });
+store.dispatch({ type: 'SEND_TWEET', payload: "test 2" });
 console.log(store.getState());
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
