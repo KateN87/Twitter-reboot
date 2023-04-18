@@ -6,10 +6,9 @@ import logRoutes from "./Routes/logRoutes.js";
 
 import cors from 'cors'
 
-import jwt from 'jwt'
+import jwt from 'jsonwebtoken'
 
 const app = express();
->>>>>>> 686f871db1266cdebfdd6f184474fd84353a9a59
 app.use(cors({
     origin: "http://localhost:3000"
 }))
