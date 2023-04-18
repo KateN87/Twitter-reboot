@@ -1,7 +1,9 @@
+import {Header} from './Header.js'
+
 export default function Home() {
    return (
       <div>
-         <h1>Homepage</h1>
+         <Header></Header>
       </div>
    )
 }
