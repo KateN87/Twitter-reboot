@@ -11,6 +11,18 @@
       "username": "@Kate",
       "password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
       "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 3,
+      "username": "@Lovisa",
+      "password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 4,
+      "username": "@Aylin",
+      "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
     }
   ],
   "tweets": [
