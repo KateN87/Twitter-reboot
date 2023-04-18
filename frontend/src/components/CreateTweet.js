@@ -2,9 +2,10 @@ import { useSelector, useDispatch } from "react-redux"
 
 export default function CreateTweet() {
    const tweet = useSelector(state => state.tweetReducer)
-   console.log('', tweet)
+   console.log('tweets', tweet)
 
    function handleChange(event) {
+      const inputText = event.target.tweet
 
    }
    function submitMessage() {
@@ -14,13 +15,14 @@ export default function CreateTweet() {
 
    return (
       <div className="tweet-component">
-         <h1>tweetReducer: {tweet}</h1>
+         <h1>reducer</h1>
+
          <h2>Tweet something here</h2>
          <form onSubmit={submitMessage} className="tweet-form" action="">
             <textarea
                onChange={handleChange}
-               id="comment"
-               name="comment"
+               id="tweet"
+               name="tweet"
                rows="5"
                maxLength="140"
                placeholder="Write tweet..."></textarea>

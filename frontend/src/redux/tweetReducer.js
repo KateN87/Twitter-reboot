@@ -1,10 +1,6 @@
-const tweets = [
-   {
-      tweet: 'hi followers',
-      timestamp: '14:39'
-   }]
+const tweet = [{ tweet: 'testing' }];
 
-const tweetReducer = (state = tweets, action) => {
+const tweetReducer = (state = tweet, action) => {
    switch (action.type) {
       case 'SEND_TWEET':
          return [...state, { tweet: action.payload }];
