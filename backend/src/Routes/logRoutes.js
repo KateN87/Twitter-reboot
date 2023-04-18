@@ -1,20 +1,33 @@
 import express from "express";
+import validator from "validator";
+
+import { users } from "../database.js";
 
 const router = express.Router();
 
-router.post("/", async (req, res) => {
-	const {userName, password} = req.body
-    //checks if userName and password is put in
-    if(!userName || password) {
-        throw Error ('Please fill in username and password')
-    }
+router.post("/signup", async (req, res) => {
+	const { username, password } = req.body;
 
-    //checks if userName already exists
-    const 
+	//checks if userName and password is put in
+	if (!username || !password) {
+		res.send("Please fill in username and password");
+	}
 
+	//checks if userName already exists
+	const exists = users.find((user) => username === user.username);
+
+	if (exists) {
+		res.send("User name already taken");
+	}
+
+	if (!validator.isStrongPassword(password)) {
+		res.send(
+			"Password needs to be at least 8 characters and contain lower case, upper case, number and special character"
+		);
+	}
 });
 
-signup = async function (userName, password) {
+/* signup = async function (userName, password) {
 
     //check if userName already exists
     const exists = await this.findOne({ userName });
@@ -34,6 +47,6 @@ signup = async function (userName, password) {
     const user = await this.create({ userName, password: hash });
 
     return user;
-};
+}; */
 
 export default router;
