@@ -1,6 +1,9 @@
 /* TWEET COMPONENT */
+.tweet-component {
+  text-align: center;
+}
 
-.tweet-component > form {
+.tweet-form {
   display: flex;
   flex-direction: column;
   max-width: 500px;

@@ -1,27 +1,21 @@
+import { useSelector } from "react-redux"
+
 export default function CreateTweet() {
 
-   /* const [tweet, setTweet] = (
-      {
-         timestamp: "14 Maj 2023",
-         tweet: "Första tweeten ever!",
-         likes: 0,
-         retweets: 0,
-         comments: []
-      }
-   ) */
+
 
    return (
       <div className="tweet-component">
          <h2>Tweet something here</h2>
-         <form action="">
-            <textarea id="comment" name="comment" rows="5" maxLength="140"></textarea>
-            {/* <div id="the-count_comment" style="">
-               <span id="current_comment">0</span>
-               <span id="maximum_comment"> / 500</span>
-            </div> */}
+         <form className="tweet-form" action="">
+            <textarea id="comment" name="comment" rows="5" maxLength="140" placeholder="Write tweet..."></textarea>
             <button type="submit">Tweet</button>
          </form>
       </div>
    )
 }
 
+// Character Count
+{/* <div id="the-count_comment" style="">
+   <p>0/140</p>
+</div> */} 
