@@ -6,6 +6,8 @@ import logRoutes from "./Routes/logRoutes.js";
 
 import cors from 'cors'
 
+import jwt from 'jwt'
+
 const app = express();
 app.use(cors({
     origin: "http://localhost:3000"
@@ -14,6 +16,24 @@ app.use(cors({
 app.use(express.json());
 
 app.use("/log", logRoutes);
+
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+
+
+    if (username === 'myusername' && password === 'mypassword') {
+
+        const token = jwt.sign({ username, password }, SECRET_KEY);
+
+        // spara token i local storage 
+        res.send({ token });
+    } else {
+        res.status(401).send({ error: 'Invalid username or password' });
+    }
+});
+
+
 
 app.get("/users", (req, res) => {
     res.send(db.data.users);
