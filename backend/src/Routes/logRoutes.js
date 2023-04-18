@@ -33,7 +33,7 @@ router.post("/signup", async (req, res) => {
 		const id = db.data.users.length + 1;
 		console.log(id);
 
-		const newUser = { id, username, password: hash, tweets: [] };
+		const newUser = { id, username, password: hash };
 
 		db.data.users.push(newUser);
 		db.write();
