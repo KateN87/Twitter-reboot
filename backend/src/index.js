@@ -1,12 +1,7 @@
-import {app} from './main.js'
-import {users} from './database.js'
+import { app } from "./main.js";
 
 const PORT = 3001;
 
-app.listen(PORT, ()=> {
-    console.log("Server is listening...")
-})
-
-app.get('/users', (req, res) => {
-    res.send(users)
-})
+app.listen(PORT, () => {
+	console.log("Server is listening...");
+});
