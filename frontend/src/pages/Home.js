@@ -1,5 +1,5 @@
 import { Header } from '../components/Header'
-import { ViewTweet } from '../components/ViewTweets'
+import { Searchbar, ViewTweet } from '../components/ViewTweets'
 import { useState, useEffect } from 'react';
 
 export default function Home() {
@@ -18,6 +18,7 @@ export default function Home() {
    return (
       <div>
          <Header></Header>
+         <Searchbar></Searchbar>
          <ViewTweet fetchedTweets={fetchedTweets} setFetchedTweets={setFetchedTweets}></ViewTweet>
       </div>
    )
