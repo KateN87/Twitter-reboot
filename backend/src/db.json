@@ -2,21 +2,33 @@
   "users": [
     {
       "id": 1,
+      "avatar" : "https://i.postimg.cc/4xw9qHxk/avatar.png",
       "username": "@Kingen",
-      "password": "ändradettasen",
-      "tweets": [
-        {
-          "timestamp": "14 Maj 2023",
-          "tweet": "Första tweeten ever!",
-          "likes": 0,
-          "retweets": 0,
-          "comments": []
-        }
-      ]
+      "password": "ändradettasen"
     },
     {
+      "id" : 2,
+      "avatar" : "https://i.postimg.cc/4xw9qHxk/avatar.png",
       "username": "@Kate",
       "password": "$2b$10$V/T3eRTuI57B7imj7DEzJObLwl/G9mnHlf1ouxUyuG7DlHHklgT3u"
+    }
+  ],
+  "tweets" : [
+    {
+      "username": "@Kingen",
+      "timestamp": "16:45 14 Maj 2022",
+      "tweet" : "Första tweeten ever!",
+      "likes" : 0,
+      "retweets" : 0,
+      "comments": []
+    },
+    {
+    "username": "@Kingen",
+      "timestamp": "16:50 14 Maj 2022",
+      "tweet" : "Whatever happens now?",
+      "likes" : 0,
+      "retweets" : 0,
+      "comments": []
     }
   ]
 }
