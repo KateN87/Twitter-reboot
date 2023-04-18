@@ -30,8 +30,10 @@ router.post("/signup", async (req, res) => {
 
 		const salt = await bcrypt.genSalt(10);
 		const hash = await bcrypt.hash(password, salt);
+		const id = db.data.users.length + 1;
+		console.log(id);
 
-		const newUser = { username, password: hash };
+		const newUser = { id, username, password: hash };
 
 		db.data.users.push(newUser);
 		db.write();
