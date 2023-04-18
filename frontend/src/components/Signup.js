@@ -1,10 +1,13 @@
 import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 
 //TODO
 //1. Logga in användaren efter ok response
 
 const Signup = () => {
     const [error, setError] = useState(null);
+    const dispatch = useDispatch();
+
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
@@ -28,6 +31,7 @@ const Signup = () => {
             localStorage.setItem('user', JSON.stringify(json));
 
             //Logga in användaren
+            dispatch({ type: 'LOGIN_USER', payload: json });
 
             //nollställer formuläret
             e.target.reset();
