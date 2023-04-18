@@ -11,5 +11,7 @@ const db = new Low(adapter);
 await db.read();
 
 const data = db.data;
+const users = db.data.users;
+const tweets = db.data.tweets
 
-export { db };
+export { db, users, tweets };
