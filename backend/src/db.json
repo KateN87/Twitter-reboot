@@ -1,34 +1,39 @@
 {
-	"users": [
-		{
-			"id": 1,
-			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-			"username": "@Kingen",
-			"password": "ändradettasen"
-		},
-		{
-			"id": 2,
-			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-			"username": "@Kate",
-			"password": "$2b$10$V/T3eRTuI57B7imj7DEzJObLwl/G9mnHlf1ouxUyuG7DlHHklgT3u"
-		}
-	],
-	"tweets": [
-		{
-			"username": "@Kingen",
-			"timestamp": "16:45 14 Maj 2022",
-			"tweet": "Första tweeten ever!",
-			"likes": 0,
-			"retweets": 0,
-			"comments": []
-		},
-		{
-			"username": "@Kingen",
-			"timestamp": "16:50 14 Maj 2022",
-			"tweet": "Whatever happens now?",
-			"likes": 0,
-			"retweets": 0,
-			"comments": []
-		}
-	]
+  "users": [
+    {
+      "id": 1,
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+      "username": "@Kingen",
+      "password": "ändradettasen"
+    },
+    {
+      "id": 2,
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+      "username": "@Kate",
+      "password": "$2b$10$V/T3eRTuI57B7imj7DEzJObLwl/G9mnHlf1ouxUyuG7DlHHklgT3u"
+    },
+    {
+      "id": 3,
+      "username": "@Lovisa",
+      "password": "$2b$10$qpty8ZOlHRfIyFNAydvFwuQyp9QIPbMsGpSuJ1C1fR1C5tYACoixu"
+    }
+  ],
+  "tweets": [
+    {
+      "username": "@Kingen",
+      "timestamp": "16:45 14 Maj 2022",
+      "tweet": "Första tweeten ever!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "@Kingen",
+      "timestamp": "16:50 14 Maj 2022",
+      "tweet": "Whatever happens now?",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    }
+  ]
 }

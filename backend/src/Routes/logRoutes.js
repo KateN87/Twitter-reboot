@@ -1,10 +1,15 @@
 import express from "express";
 import validator from "validator";
 import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
 
 import { db } from "../database.js";
 
 const router = express.Router();
+
+const createToken = (id) => {
+	return jwt.sign({ id }, process.env.SECRET, { expiresIn: "1d" });
+};
 
 router.post("/signup", async (req, res) => {
 	const { username, password } = req.body;
@@ -36,9 +41,10 @@ router.post("/signup", async (req, res) => {
 		const newUser = { id, username, password: hash };
 
 		db.data.users.push(newUser);
-		db.write();
+		await db.write();
+		const token = createToken(id);
 
-		res.status(200).json({ username });
+		res.status(200).json({ username, token });
 	} catch (error) {
 		console.error(error);
 		res.status(400).json({ error: error.message });
