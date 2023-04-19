@@ -8,20 +8,27 @@
     },
     {
       "id": 2,
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
       "username": "@Kate",
-      "password": "$2b$10$V/T3eRTuI57B7imj7DEzJObLwl/G9mnHlf1ouxUyuG7DlHHklgT3u"
+      "password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
     },
     {
       "id": 3,
       "username": "@Lovisa",
-      "password": "$2b$10$qpty8ZOlHRfIyFNAydvFwuQyp9QIPbMsGpSuJ1C1fR1C5tYACoixu"
+      "password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 4,
+      "username": "@Aylin",
+      "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
     }
   ],
   "tweets": [
     {
       "username": "@Kingen",
-      "timestamp": "16:45 14 Maj 2022",
+      "timestamp": "Wed Apr 19 2023 12:02:09",
       "tweet": "Första tweeten ever!",
       "likes": 0,
       "retweets": 0,
@@ -29,11 +36,19 @@
     },
     {
       "username": "@Kingen",
-      "timestamp": "16:50 14 Maj 2022",
+      "timestamp": "Wed Apr 19 2023 12:15:09",
       "tweet": "Whatever happens now?",
       "likes": 0,
       "retweets": 0,
       "comments": []
+    },
+    {
+      "username" : "@Lovisa",
+      "timestamp" : "Wed Apr 19 2023 11:15:09",
+      "tweet" :"Funkar detta?",
+      "likes" : 0,
+      "retweets" : 0,
+      "comments" : []
     }
   ]
 }

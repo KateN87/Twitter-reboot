@@ -1,0 +1,38 @@
+Home page
+- Se tweets från de man följer (listade)
+- Sidebar höger med sökfält (hashtags och personer)
+- sidebar  höger- lista med 5 utvalda trendande hastags
+- sidebar vänster - textfält för att göra tweet, 140tecken
+
+Profilsida
+- Followknapp
+- info - nickname, about, sysselsättning, hemstad, hemsida, datum för registrering.
+- Hur många följare
+- Hur många hen följer
+- Tweets i datumordning
+- Höger sidebar från startsida
+
+Login-page
+- Fält för att skriva epost eller användarnamn
+- OPTIONAL Har du glömt lösenord?
+- Nästa-knapp
+- Fält för lösenord
+-Logga in
+- Länk för sign up
+
+Sign up-page
+- Fält för Namn
+- Fält för E-post
+- Fält för lösenord
+- Fält för verifiera lösenord
+- Nickname
+- about
+- sysselättning
+- hemstad
+- hemsida
+- Datum för registrering? (Bör göras automatiskt)
+
+Footer
+- Liten avatar med namn
+- tre prickar 
+- popup - Log out of Twitter - Log out or cancel
