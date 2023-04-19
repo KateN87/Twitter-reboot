@@ -1,112 +1,54 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "username": "@Kingen",
-      "password": "ändradettasen"
-    },
-    {
-      "id": 2,
-      "username": "@Kate",
-      "password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 3,
-      "username": "@Lovisa",
-      "password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 4,
-      "username": "@Aylin",
-      "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 5,
-      "username": "@Lovisa",
-      "password": "$2b$10$5HpCy5ZveaUnSze4Hq81SezFN4gIhLGM2nQuiIxdfUuOZk4FqNZa6",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 6,
-      "username": "@Kate",
-      "password": "$2b$10$ffnJ5m589GOha1d/eMqk1OGtmg19WreM2DmhkSSJGWhHNnJCPtdEu",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "sdf",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:31.467Z"
-    },
-    {
-      "id": 7,
-      "username": "@Kate",
-      "password": "$2b$10$puwuByVGorl09chldLg99uW4Vf.00Ry5tMydPrIQxoEofzOrhAyFW",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:36.592Z"
-    },
-    {
-      "id": 8,
-      "username": "@Kate",
-      "password": "$2b$10$/w./gyUAdMP1AmiIPMIrJOXSq8b0sZcT5LghjmlADFJ1YjCNCDeUO",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:48.480Z"
-    },
-    {
-      "id": 9,
-      "username": "@Kate",
-      "password": "$2b$10$L2lVLqFvieLJW4N9R087U.xT8nxCHGWXI1yeKBZmbyGgYQ7AyIDty",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "wer",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:51.757Z"
-    }
-  ],
-  "tweets": [
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:02:09",
-      "tweet": "Första tweeten ever!",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:15:09",
-      "tweet": "Whatever happens now?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Lovisa",
-      "timestamp": "Wed Apr 19 2023 11:15:09",
-      "tweet": "Funkar detta?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    }
-  ]
+	"users": [
+		{
+			"id": 1,
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+			"username": "@Kingen",
+			"password": "ändradettasen"
+		},
+		{
+			"id": 2,
+			"username": "@Kate",
+			"password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		},
+		{
+			"id": 3,
+			"username": "@Lovisa",
+			"password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		},
+		{
+			"id": 4,
+			"username": "@Aylin",
+			"password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		}
+	],
+	"tweets": [
+		{
+			"username": "@Kingen",
+			"timestamp": "Wed Apr 19 2023 12:02:09",
+			"tweet": "Första tweeten ever!",
+			"likes": 0,
+			"retweets": 0,
+			"comments": []
+		},
+		{
+			"username": "@Kingen",
+			"timestamp": "Wed Apr 19 2023 12:15:09",
+			"tweet": "Whatever happens now?",
+			"likes": 0,
+			"retweets": 0,
+			"comments": []
+		},
+		{
+			"username": "@Lovisa",
+			"timestamp": "Wed Apr 19 2023 11:15:09",
+			"tweet": "Funkar detta?",
+			"likes": 0,
+			"retweets": 0,
+			"comments": []
+		}
+	]
 }
