@@ -1,7 +1,6 @@
 import logo from '../icons/twitter-logo-.png';
 import hashtag from '../icons/hashtagtwitter.png';
 import '../header.css';
-import { useSelector } from 'react-redux';
 
 export const Header = () => {
     return (

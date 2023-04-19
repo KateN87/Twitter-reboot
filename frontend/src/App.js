@@ -9,7 +9,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 
 function App() {
-    const user = useSelector((state) => state.userReducer);
+    /* const user = useSelector((state) => state.userReducer); */
 
     return (
         <div className='App'>
