@@ -58,4 +58,25 @@ router.post('/signup', async (req, res) => {
     }
 });
 
+router.post('/login', async (req, res) => {
+    const { username, password } = req.body;
+
+    try {
+        // kolllar om användare existerar 
+        const user = db.data.users.find((u) => u.username === username);
+        if (!user) throw Error('User not found');
+
+        // kollar om lösenordet stämmer check 
+        const isMatch = await bcrypt.compare(password, user.password);
+        if (!isMatch) throw Error('Invalid password');
+
+
+        const token = createToken(user.id);
+        res.status(200).json({ username: user.username, token });
+    } catch (error) {
+        console.error(error);
+        res.status(401).json({ error: error.message });
+    }
+});
+
 export default router;
