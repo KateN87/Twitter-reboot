@@ -43,12 +43,46 @@
       "comments": []
     },
     {
-      "username" : "@Lovisa",
-      "timestamp" : "Wed Apr 19 2023 11:15:09",
-      "tweet" :"Funkar detta?",
-      "likes" : 0,
-      "retweets" : 0,
-      "comments" : []
+      "username": "@Lovisa",
+      "timestamp": "Wed Apr 19 2023 11:15:09",
+      "tweet": "Funkar detta?",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "matmat",
+      "timestamp": "Wed Apr 19 2023 14:39",
+      "tweet": "TestTweet!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "katos",
+      "timestamp": "Wed Apr 19 2023 14:39",
+      "tweet": "TestTweet nummer 2!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "katos",
+      "timestamp": "Wed Apr 19 2023 14:39",
+      "tweet": "TestTweet nummer 3!!"
+    },
+    {
+      "username": "matte",
+      "timestamp": "Wed Apr 19 2023 14:39",
+      "tweet": "TestTweet nummer 4!!"
+    },
+    {
+      "username": "mattepatte",
+      "timestamp": "Wed Apr 19 2023 14:39",
+      "tweet": "TestTweet nummer 5!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": 0
     }
   ]
 }

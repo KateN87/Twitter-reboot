@@ -51,4 +51,28 @@ app.get('/tweets', (req, res) => {
    res.send(tweetslist);
 });
 
+
+// POST skapa ny tweet
+app.post('/tweets', async (req, res) => {
+   const { username, timestamp, tweet } = req.body;
+
+
+   tweets.push(
+      {
+         username,
+         timestamp,
+         tweet,
+         likes: 0,
+         retweets: 0,
+         comments: []
+      })
+
+   await db.write()
+   res.status(200).send(tweets)
+
+
+
+}
+)
+
 export { app };
