@@ -23,6 +23,30 @@
       "username": "@Aylin",
       "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
       "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 5,
+      "username": "@Lovisa",
+      "password": "$2b$10$5HpCy5ZveaUnSze4Hq81SezFN4gIhLGM2nQuiIxdfUuOZk4FqNZa6",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 6,
+      "username": "@Hello",
+      "password": "$2b$10$jgS4s7ZL.iR.ujjsl0x0aO5ifUEETntStIVMm3GkqpMsCakK5M.ue",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 7,
+      "username": "@Hello",
+      "password": "$2b$10$2vL/2LBLcqiTqCOdAvgepeiit/YSkS3/4p5QzNozV7rT0q3J40A6m",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 8,
+      "username": "@Hellon",
+      "password": "$2b$10$plFLtq/sXiC4zwtzVp/gvu9K/dk4PkV0jrDJoAQm9p.MZPzQ.rPyq",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
     }
   ],
   "tweets": [
