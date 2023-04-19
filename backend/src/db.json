@@ -1,112 +1,95 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "username": "@Kingen",
-      "password": "ändradettasen"
-    },
-    {
-      "id": 2,
-      "username": "@Kate",
-      "password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 3,
-      "username": "@Lovisa",
-      "password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 4,
-      "username": "@Aylin",
-      "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 5,
-      "username": "@Lovisa",
-      "password": "$2b$10$5HpCy5ZveaUnSze4Hq81SezFN4gIhLGM2nQuiIxdfUuOZk4FqNZa6",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 6,
-      "username": "@Kate",
-      "password": "$2b$10$ffnJ5m589GOha1d/eMqk1OGtmg19WreM2DmhkSSJGWhHNnJCPtdEu",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "sdf",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:31.467Z"
-    },
-    {
-      "id": 7,
-      "username": "@Kate",
-      "password": "$2b$10$puwuByVGorl09chldLg99uW4Vf.00Ry5tMydPrIQxoEofzOrhAyFW",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:36.592Z"
-    },
-    {
-      "id": 8,
-      "username": "@Kate",
-      "password": "$2b$10$/w./gyUAdMP1AmiIPMIrJOXSq8b0sZcT5LghjmlADFJ1YjCNCDeUO",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:48.480Z"
-    },
-    {
-      "id": 9,
-      "username": "@Kate",
-      "password": "$2b$10$L2lVLqFvieLJW4N9R087U.xT8nxCHGWXI1yeKBZmbyGgYQ7AyIDty",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "sdfsdff",
-      "nickname": "sdf",
-      "about": "sfd",
-      "occupation": "sfd",
-      "hometown": "wer",
-      "website": "sdf",
-      "joined": "2023-04-19T13:20:51.757Z"
-    }
-  ],
-  "tweets": [
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:02:09",
-      "tweet": "Första tweeten ever!",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:15:09",
-      "tweet": "Whatever happens now?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Lovisa",
-      "timestamp": "Wed Apr 19 2023 11:15:09",
-      "tweet": "Funkar detta?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    }
-  ]
+    "users": [
+        {
+            "id": 1,
+            "username": "@Kingen",
+            "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
+            "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+            "email": "kingen@kingen.se",
+            "nickname": "TheKing",
+            "about": "I am the king",
+            "occupation": "Being king",
+            "hometown": "Kingtown",
+            "website": "kingen.com",
+            "joined": "2023-04-19T17:12:55.652Z"
+        },
+        {
+            "id": 2,
+            "username": "@Kate",
+            "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
+            "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+            "email": "kate@kate.se",
+            "nickname": "TheKate",
+            "about": "I am Kate",
+            "occupation": "Student",
+            "hometown": "Katetown",
+            "website": "kate.com",
+            "joined": "2023-04-19T17:17:10.353Z"
+        },
+        {
+            "id": 3,
+            "username": "@Lovisa",
+            "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
+            "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+            "email": "lovisa@lovisa.com",
+            "nickname": "TheLovisa",
+            "about": "I am Lovisa",
+            "occupation": "Student",
+            "hometown": "Lovisatown",
+            "website": "lovisa.com",
+            "joined": "2023-04-19T17:18:07.080Z"
+        },
+        {
+            "id": 4,
+            "username": "@Matilda",
+            "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
+            "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+            "email": "matilda@matilda.se",
+            "nickname": "TheMatilda",
+            "about": "I am Matilda",
+            "occupation": "Being Matilda",
+            "hometown": "Matildatown",
+            "website": "matilda.com",
+            "joined": "2023-04-19T17:18:50.833Z"
+        },
+        {
+            "id": 5,
+            "username": "@Aylin",
+            "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
+            "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+            "email": "aylin@aylin.com",
+            "nickname": "TheAylin",
+            "about": "I am Aylin",
+            "occupation": "Student",
+            "hometown": "Aylintown",
+            "website": "aylin.com",
+            "joined": "2023-04-19T17:19:36.181Z"
+        }
+    ],
+    "tweets": [
+        {
+            "username": "@Kingen",
+            "timestamp": "Wed Apr 19 2023 12:02:09",
+            "tweet": "Första tweeten ever!",
+            "likes": 0,
+            "retweets": 0,
+            "comments": []
+        },
+        {
+            "username": "@Kingen",
+            "timestamp": "Wed Apr 19 2023 12:15:09",
+            "tweet": "Whatever happens now?",
+            "likes": 0,
+            "retweets": 0,
+            "comments": []
+        },
+        {
+            "username": "@Lovisa",
+            "timestamp": "Wed Apr 19 2023 11:15:09",
+            "tweet": "Funkar detta?",
+            "likes": 0,
+            "retweets": 0,
+            "comments": []
+        }
+    ]
 }
