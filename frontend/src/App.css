@@ -31,31 +31,65 @@
 .App-link {
     color: #61dafb;
 }
+
 /* LOGIN FORM */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
-}
-
-li {
-    list-style: none;
-}
 .login-form {
-    border: 1px solid black;
-    padding: 20px;
-    width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
 }
+
+.login-form h1 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.login-form label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.login-form button[type="submit"] {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0077ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.login-form button[type="submit"]:hover {
+  background-color: #0066cc;
+}
+
 
 /* TWEET COMPONENT */
 .tweet-component {
@@ -78,3 +112,4 @@ li {
     padding: 15px;
     margin: 10px;
 }
+
