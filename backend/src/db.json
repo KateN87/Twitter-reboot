@@ -32,21 +32,39 @@
     },
     {
       "id": 6,
-      "username": "@Hello",
-      "password": "$2b$10$jgS4s7ZL.iR.ujjsl0x0aO5ifUEETntStIVMm3GkqpMsCakK5M.ue",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+      "username": "@Matilda",
+      "password": "$2b$10$P/LBC7VblKc.Fh45RdnK9uQcmsMutdbXwSLCvPwAj42LOF6kaHk9i",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+      "email": "test@email.com",
+      "nickname": "Matte",
+      "about": "I like mat",
+      "occupation": "Student",
+      "hometown": "Gothenburg",
+      "website": "www.test.com"
     },
     {
       "id": 7,
-      "username": "@Hello",
-      "password": "$2b$10$2vL/2LBLcqiTqCOdAvgepeiit/YSkS3/4p5QzNozV7rT0q3J40A6m",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+      "username": "@Matilda",
+      "password": "$2b$10$KjCxAXVEN7i0i/uHnoMtCe.Z.AUNr.CfaKALm3URIUcgJwGotxKOC",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+      "email": "test@email.com",
+      "nickname": "Matte",
+      "about": "I like mat",
+      "occupation": "Student",
+      "hometown": "Gothenburg",
+      "website": "www.test.com"
     },
     {
       "id": 8,
-      "username": "@Hellon",
-      "password": "$2b$10$plFLtq/sXiC4zwtzVp/gvu9K/dk4PkV0jrDJoAQm9p.MZPzQ.rPyq",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+      "username": "@Matilda",
+      "password": "$2b$10$jBod49/ZuRr.Ha0BxDUJbudGQaA109NoQJmt1eM6J0xEBPcqV0tdG",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+      "email": "test@email.com",
+      "nickname": "Matte",
+      "about": "I like mat",
+      "occupation": "Student",
+      "hometown": "Gothenburg",
+      "website": "www.test.com"
     }
   ],
   "tweets": [
@@ -67,12 +85,12 @@
       "comments": []
     },
     {
-      "username" : "@Lovisa",
-      "timestamp" : "Wed Apr 19 2023 11:15:09",
-      "tweet" :"Funkar detta?",
-      "likes" : 0,
-      "retweets" : 0,
-      "comments" : []
+      "username": "@Lovisa",
+      "timestamp": "Wed Apr 19 2023 11:15:09",
+      "tweet": "Funkar detta?",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
     }
   ]
 }
