@@ -1,23 +1,28 @@
-import express from "express";
+import express from 'express';
+import cors from 'cors';
+import jwt from 'jsonwebtoken';
 
-import { db, users, tweets } from "./database.js";
-
-import logRoutes from "./Routes/logRoutes.js";
-
-import cors from 'cors'
-
-import jwt from 'jsonwebtoken'
+import { db, users, tweets } from './database.js';
+import logRoutes from './Routes/logRoutes.js';
 
 const app = express();
-app.use(cors({
-   origin: "http://localhost:3000"
-}))
 
+app.use(
+   cors({
+      origin: 'http://localhost:3000',
+   })
+);
+
+//middleware
 app.use(express.json());
+app.use((req, res, next) => {
+   console.log(req.path, req.method);
+   next();
+});
 
-app.use("/log", logRoutes);
+app.use('/log', logRoutes);
 
-
+//Routes
 app.post('/login', (req, res) => {
    const { username, password } = req.body;
 
@@ -33,19 +38,17 @@ app.post('/login', (req, res) => {
    }
 });
 
-
-
-app.get("/users", (req, res) => {
+app.get('/users', (req, res) => {
    res.send(db.data.users);
 });
 
 app.get('/tweets', (req, res) => {
-   let tweetslist = []
+   let tweetslist = [];
    for (let i = 0; i < tweets.length; i++) {
-      let tweet = tweets[i]
-      tweetslist.push(tweet)
+      let tweet = tweets[i];
+      tweetslist.push(tweet);
    }
-   res.send(tweetslist)
-})
+   res.send(tweetslist);
+});
 
 export { app };

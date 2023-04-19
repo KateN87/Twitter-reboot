@@ -1,66 +1,80 @@
 .App {
-  text-align: center;
+    text-align: center;
+}
+
+:root {
+    --error: rgb(197, 51, 51);
 }
 
 .App-logo {
-  height: 40vmin;
-  pointer-events: none;
+    height: 40vmin;
+    pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+    .App-logo {
+        animation: App-logo-spin infinite 20s linear;
+    }
 }
 
 .App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
 }
 
 .App-link {
-  color: #61dafb;
+    color: #61dafb;
 }
 /* LOGIN FORM */
 .login-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 li {
-  list-style: none;
+    list-style: none;
 }
 .login-form {
-  border: 1px solid black;
-  padding: 20px;
-  width: 400px;
+    border: 1px solid black;
+    padding: 20px;
+    width: 400px;
 }
 
 /* TWEET COMPONENT */
 .tweet-component {
-  text-align: center;
+    text-align: center;
 }
 
 .tweet-form {
-  display: flex;
-  flex-direction: column;
-  max-width: 500px;
-  margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    margin: auto;
+}
+
+/*error-box*/
+.error {
+    background: rgb(251, 234, 237);
+    color: var(--error);
+    border: 1px solid var(--error);
+    border-radius: 5px;
+    padding: 15px;
+    margin: 10px;
 }

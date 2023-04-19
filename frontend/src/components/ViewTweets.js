@@ -1,6 +1,20 @@
 import {useEffect, useState} from 'react'
+import { Link } from 'react-router-dom'
 
 import '../view.css'
+
+export const Footer = () => {
+    return(
+        <footer>
+            <h2>Missa inte vad som händer</h2>
+            <h4>Folk på twitter får reda på allt först.</h4>
+            <div id="buttons">
+                <button>Logga in</button>
+                <Link to="/signup"><button id="createuser">Skapa användare</button></Link>
+            </div>
+        </footer>
+    )
+}
 
 export const ViewTweet = ({fetchedTweets}) => {
   
