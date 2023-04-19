@@ -16,6 +16,7 @@ router.post("/signup", async (req, res) => {
 	const {
 		username,
 		password,
+		verifyPass,
 		email,
 		nickname,
 		about,
