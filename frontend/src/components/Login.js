@@ -1,13 +1,18 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [currentField, setCurrentField] = useState('username');
+  const [usernameError, setUsernameError] = useState('');
+  const [passwordError, setPasswordError] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch('http://localhost:3000/login', {
+    const response = await fetch('http://localhost:3001/log/login', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -18,28 +23,66 @@ export default function Login() {
     if (response.ok) {
       const data = await response.json();
       localStorage.setItem('token', data.token);
-
+      console.log("IS LOGGED IN")
+      navigate('/')
     } else {
-      console.log('Invalid username or password');
+      setPasswordError('Invalid username or password');
+    }
+  }
+
+  const handleUsernameSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`http://localhost:3001/users?username=${username}`);
+    const data = await response.json();
+
+    if (data.length > 0) {
+      setCurrentField('password');
+      setPasswordError('');
+    } else {
+      setUsernameError('Invalid username');
+    }
+  }
+
+  const renderCurrentField = () => {
+    switch (currentField) {
+      case 'username':
+        return (
+          <form className="login-form" onSubmit={handleUsernameSubmit}>
+            <h1>Login</h1>
+            <label>
+              Username:
+              <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
+            </label>
+            {usernameError && <div className="error">{usernameError}</div>}
+            <br />
+            <button type="submit">Next</button>
+          </form>
+        );
+      case 'password':
+        return (
+          <form className="login-form" onSubmit={handleSubmit}>
+            <h1>Login</h1>
+            <label>
+              Password:
+              <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            </label>
+            {passwordError && <div className="error">{passwordError}</div>}
+            <br />
+            <button type="submit">Login</button>
+          </form>
+        );
+      default:
+        return null;
     }
   }
 
   return (
     <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
+      {renderCurrentField()}
     </div>
   );
 }
+
+
+
