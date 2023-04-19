@@ -8,15 +8,13 @@ export default function CreateTweet() {
 
    function submitTweet(event) {
       event.preventDefault()
-
-      dispatch({ type: 'SEND_TWEET', payload: event.target.value });
-      console.log(tweets.getState());
-
-
-   }
-   function handleTextInputChange(event) {
-      const textInput = event.target.value;
+      const textInput = event.target.tweet.value;
       console.log('text input: ', textInput)
+
+      // fetch från backend och vänta på svar och skicka sedan in svaret
+
+      dispatch({ type: 'SEND_TWEET', payload: textInput });
+      console.log('tweets: ', tweets);
 
    }
 
@@ -25,13 +23,11 @@ export default function CreateTweet() {
          <h2>Tweet something here</h2>
          <form onSubmit={submitTweet} className="tweet-form" action="">
             <textarea
-               onChange={handleTextInputChange}
                id="tweet"
                name="tweet"
                rows="5"
                maxLength="140"
-               placeholder="Write tweet..."
-               value={tweets.text}>
+               placeholder="Write tweet...">
             </textarea>
             <button type="submit">Tweet</button>
          </form>
