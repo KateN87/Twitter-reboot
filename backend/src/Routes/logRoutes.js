@@ -46,6 +46,7 @@ router.post("/signup", async (req, res) => {
 		occupation,
 		hometown,
 		website,
+		joined: new Date(),
 	};
 
 	db.data.users.push(newUser);
