@@ -11,13 +11,33 @@ const Signup = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
-        const username = `@${e.target.username.value}`;
-        const password = e.target.password.value;
+        const {
+            username,
+            password,
+            verifyPass,
+            email,
+            nickname,
+            about,
+            occupation,
+            hometown,
+            website,
+        } = e.target;
+        const newUser = {
+            username: `@${username.value}`,
+            password: password.value,
+            verifyPass: verifyPass.value,
+            email: email.value,
+            nickname: nickname.value,
+            about: about.value,
+            occupation: occupation.value,
+            hometown: hometown.value,
+            website: website.value,
+        };
 
         const response = await fetch('http://localhost:3001/log/signup', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ username, password }),
+            body: JSON.stringify(newUser),
         });
 
         const json = await response.json();
@@ -39,7 +59,7 @@ const Signup = () => {
     };
 
     return (
-        <div className='login-container'>
+        <div className='login-container signup-container'>
             <form className='login-form' onSubmit={handleSubmit}>
                 <h1>Sign up</h1>
                 <label htmlFor='username'>Username:</label>
@@ -50,7 +70,37 @@ const Signup = () => {
                 <input type='password' id='password' />
 
                 <br />
+
+                <label htmlFor='verifyPass'>Verify password:</label>
+                <input type='password' id='verifyPass' />
+
+                <br />
+                <label htmlFor='email'>Email:</label>
+                <input type='text' id='email' />
+
+                <br />
+                <label htmlFor='nickname'>Nickname:</label>
+                <input type='text' id='nickname' />
+
+                <br />
+                <label htmlFor='about'>About:</label>
+                <input type='text' id='about' />
+
+                <br />
+                <label htmlFor='occupation'>Occupation:</label>
+                <input type='text' id='occupation' />
+
+                <br />
+                <label htmlFor='hometown'>Hometown:</label>
+                <input type='text' id='hometown' />
+
+                <br />
+                <label htmlFor='website'>Website:</label>
+                <input type='text' id='website' />
+
+                <br />
                 <button type='submit'>Sign up</button>
+
                 {/* Om error INTE är null visas denna*/}
                 {error && <div className='error'>{error}</div>}
             </form>
