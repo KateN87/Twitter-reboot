@@ -54,13 +54,13 @@ app.get('/tweets', (req, res) => {
 
 // POST skapa ny tweet
 app.post('/tweets', async (req, res) => {
-   const { username, timestamp, tweet } = req.body;
-
+   const { username, tweet } = req.body;
+   const date = new Date()
 
    tweets.push(
       {
          username,
-         timestamp,
+         timestamp: date,
          tweet,
          likes: 0,
          retweets: 0,
@@ -70,9 +70,6 @@ app.post('/tweets', async (req, res) => {
    await db.write()
    res.status(200).send(tweets)
 
-
-
-}
-)
+})
 
 export { app };

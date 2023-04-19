@@ -83,6 +83,68 @@
       "likes": 0,
       "retweets": 0,
       "comments": 0
+    },
+    {
+      "username": "mattepatte",
+      "timestamp": "Wed Apr 19 2023 14:39",
+      "tweet": "TestTweet nummer 5!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": 0
+    },
+    {
+      "username": "mattepatte",
+      "tweet": "TestTweet nummer 5!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": 0
+    },
+    {
+      "username": "mattete",
+      "tweet": "TestTweet nummer 7!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "mattete",
+      "timestamp": "april",
+      "tweet": "TestTweet nummer 8!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "mattete",
+      "timestamp": "aprilapril",
+      "tweet": "TestTweet nummer 9!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "mattete",
+      "timestamp": "2023-04-19T13:31:17.213Z",
+      "tweet": "TestTweet nummer 9!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "mattete",
+      "timestamp": "2023-04-19T13:34:06.543Z",
+      "tweet": "TestTweet nummer 10!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
+      "username": "mattete",
+      "timestamp": "2023-04-19T13:39:54.874Z",
+      "tweet": "TestTweet nummer 10!!",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
     }
   ]
 }
