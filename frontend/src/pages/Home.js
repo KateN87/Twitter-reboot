@@ -8,6 +8,12 @@ export default function Home() {
         const fetchTweets = async () => {
             const response = await fetch('http://localhost:3001/tweets');
             const tweets = await response.json();
+
+            tweets.sort(function(a, b) {
+           var c = new Date(a.timestamp);
+            var d = new Date(b.timestamp);
+            return d-c;
+            });
             setFetchedTweets(tweets);
         };
         fetchTweets();

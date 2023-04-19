@@ -28,7 +28,7 @@
   "tweets": [
     {
       "username": "@Kingen",
-      "timestamp": "16:45 14 Maj 2022",
+      "timestamp": "Wed Apr 19 2023 12:02:09",
       "tweet": "Första tweeten ever!",
       "likes": 0,
       "retweets": 0,
@@ -36,11 +36,19 @@
     },
     {
       "username": "@Kingen",
-      "timestamp": "16:50 14 Maj 2022",
+      "timestamp": "Wed Apr 19 2023 12:15:09",
       "tweet": "Whatever happens now?",
       "likes": 0,
       "retweets": 0,
       "comments": []
+    },
+    {
+      "username" : "@Lovisa",
+      "timestamp" : "Wed Apr 19 2023 11:15:09",
+      "tweet" :"Funkar detta?",
+      "likes" : 0,
+      "retweets" : 0,
+      "comments" : []
     }
   ]
 }
