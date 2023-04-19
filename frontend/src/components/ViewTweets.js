@@ -2,15 +2,16 @@ import {useEffect, useState} from 'react'
 
 import '../view.css'
 
-export const Searchbar = () => {
+export const Footer = () => {
     return(
-        <form id="search">
-        <input type="text" placeholder='Sök på twitter' id="searchbar"></input>
-        <div id="tabs">
-            <p className='trending'>För dig</p>
-            <p className='trending'>Trendar</p>
-        </div>
-        </form>
+        <footer>
+            <h2>Missa inte vad som händer</h2>
+            <h4>Folk på twitter får reda på allt först.</h4>
+            <div id="buttons">
+                <button>Logga in</button>
+                <button id="createuser">Skapa användare</button>
+            </div>
+        </footer>
     )
 }
 
