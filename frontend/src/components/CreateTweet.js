@@ -1,31 +1,38 @@
 import { useSelector, useDispatch } from "react-redux"
 
-export default function CreateTweet() {
-   const tweet = useSelector(state => state.tweetReducer)
-   console.log('tweets', tweet)
 
-   function handleChange(event) {
-      const inputText = event.target.tweet
+
+export default function CreateTweet() {
+   const dispatch = useDispatch()
+   const tweets = useSelector(state => state.tweetReducer)
+
+   function submitTweet(event) {
+      event.preventDefault()
+
+      dispatch({ type: 'SEND_TWEET', payload: event.target.value });
+      console.log(tweets.getState());
+
 
    }
-   function submitMessage() {
-
+   function handleTextInputChange(event) {
+      const textInput = event.target.value;
+      console.log('text input: ', textInput)
 
    }
 
    return (
       <div className="tweet-component">
-         <h1>reducer</h1>
-
          <h2>Tweet something here</h2>
-         <form onSubmit={submitMessage} className="tweet-form" action="">
+         <form onSubmit={submitTweet} className="tweet-form" action="">
             <textarea
-               onChange={handleChange}
+               onChange={handleTextInputChange}
                id="tweet"
                name="tweet"
                rows="5"
                maxLength="140"
-               placeholder="Write tweet..."></textarea>
+               placeholder="Write tweet..."
+               value={tweets.text}>
+            </textarea>
             <button type="submit">Tweet</button>
          </form>
       </div>
