@@ -6,10 +6,6 @@
     --error: rgb(197, 51, 51);
 }
 
-body {
-    overflow-y: hidden;
-}
-
 .App-logo {
     height: 40vmin;
     pointer-events: none;
