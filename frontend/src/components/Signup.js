@@ -11,13 +11,22 @@ const Signup = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setError(null);
-		const username = `@${e.target.username.value}`;
-		const password = e.target.password.value;
+		const newUser = {
+			username: `@${e.target.username.value}`,
+			password: e.target.password.value,
+			verifyPass: e.target.verifyPass.value,
+			email: e.target.email.value,
+			nickname: e.target.nickname.value,
+			about: e.target.about.value,
+			occupation: e.target.occupation.value,
+			hometown: e.target.hometown.value,
+			website: e.target.website.value,
+		};
 
 		const response = await fetch("http://localhost:3001/log/signup", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify({ username, password }),
+			body: JSON.stringify(newUser),
 		});
 
 		const json = await response.json();
