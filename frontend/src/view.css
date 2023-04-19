@@ -145,3 +145,8 @@ footer button {
     background-color: white;
     color: black;
 }
+
+#time {
+    color: rgb(157, 157, 157);
+    margin-left: 2%;
+}

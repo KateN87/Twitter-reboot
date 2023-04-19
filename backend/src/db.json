@@ -23,6 +23,18 @@
       "username": "@Aylin",
       "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
       "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 5,
+      "username": "@Badbitch",
+      "password": "$2b$10$00vfASQM.Fj3A72NTtfF9uJj5HH3v0wa.XhxS.lUdS1GtJlP1A1jK",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+    },
+    {
+      "id": 6,
+      "username": "@tjobre",
+      "password": "$2b$10$KqyGw10RULY.rvClARt8S.vyVk9EAzTyWzaGUA94fUPa3bvHpUwB2",
+      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
     }
   ],
   "tweets": [
@@ -43,10 +55,18 @@
       "comments": []
     },
     {
+      "username": "@Lovisa",
+      "timestamp": "Wed Apr 19 2023 11:15:09",
+      "tweet": "Funkar detta?",
+      "likes": 0,
+      "retweets": 0,
+      "comments": []
+    },
+    {
       "username" : "@Lovisa",
-      "timestamp" : "Wed Apr 19 2023 11:15:09",
-      "tweet" :"Funkar detta?",
-      "likes" : 0,
+      "timestamp" : "Thu Apr 18 2023 09:00:00",
+      "tweet" : "Tjobre",
+      "likes": 0,
       "retweets" : 0,
       "comments" : []
     }
