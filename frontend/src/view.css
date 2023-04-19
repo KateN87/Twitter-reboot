@@ -1,0 +1,31 @@
+#viewtweet {
+    border: 0.5px solid rgb(171, 171, 171);
+    width: 45vw;
+    padding: 0;
+    margin-left: 15%;
+    margin-top: 150px;
+}
+
+.tweet-container {
+    border-bottom: 1px solid grey;
+    text-align: left;
+    margin: 0;
+    font-family: "canada-type-gibson", sans-serif;
+font-weight: 200;
+font-style: normal;
+}
+
+#tweet-big-container {
+    display: flex;
+    justify-self: center;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border: none
+}
+
+.tweetp{
+    margin-left: 50px;
+}
