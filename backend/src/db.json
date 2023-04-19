@@ -1,96 +1,60 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "username": "@Kingen",
-      "password": "ändradettasen"
-    },
-    {
-      "id": 2,
-      "username": "@Kate",
-      "password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 3,
-      "username": "@Lovisa",
-      "password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 4,
-      "username": "@Aylin",
-      "password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 5,
-      "username": "@Lovisa",
-      "password": "$2b$10$5HpCy5ZveaUnSze4Hq81SezFN4gIhLGM2nQuiIxdfUuOZk4FqNZa6",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
-    },
-    {
-      "id": 6,
-      "username": "@Matilda",
-      "password": "$2b$10$P/LBC7VblKc.Fh45RdnK9uQcmsMutdbXwSLCvPwAj42LOF6kaHk9i",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "test@email.com",
-      "nickname": "Matte",
-      "about": "I like mat",
-      "occupation": "Student",
-      "hometown": "Gothenburg",
-      "website": "www.test.com"
-    },
-    {
-      "id": 7,
-      "username": "@Matilda",
-      "password": "$2b$10$KjCxAXVEN7i0i/uHnoMtCe.Z.AUNr.CfaKALm3URIUcgJwGotxKOC",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "test@email.com",
-      "nickname": "Matte",
-      "about": "I like mat",
-      "occupation": "Student",
-      "hometown": "Gothenburg",
-      "website": "www.test.com"
-    },
-    {
-      "id": 8,
-      "username": "@Matilda",
-      "password": "$2b$10$jBod49/ZuRr.Ha0BxDUJbudGQaA109NoQJmt1eM6J0xEBPcqV0tdG",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "test@email.com",
-      "nickname": "Matte",
-      "about": "I like mat",
-      "occupation": "Student",
-      "hometown": "Gothenburg",
-      "website": "www.test.com"
-    }
-  ],
-  "tweets": [
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:02:09",
-      "tweet": "Första tweeten ever!",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:15:09",
-      "tweet": "Whatever happens now?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Lovisa",
-      "timestamp": "Wed Apr 19 2023 11:15:09",
-      "tweet": "Funkar detta?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    }
-  ]
+	"users": [
+		{
+			"id": 1,
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+			"username": "@Kingen",
+			"password": "ändradettasen"
+		},
+		{
+			"id": 2,
+			"username": "@Kate",
+			"password": "$2b$10$t5Sk6VbRFfcn6pB9Qm/LjOQHgvk4XAY3HxY2NTm2QsGqE1io5JtjG",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		},
+		{
+			"id": 3,
+			"username": "@Lovisa",
+			"password": "$2b$10$5Lwvo24DvQq/Cg28RJ8cCuvPsuU6JCc/u5jv9Ggb0PSWpfgXUW.4O",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		},
+		{
+			"id": 4,
+			"username": "@Aylin",
+			"password": "$2b$10$CpPQx6xrJS5CQd8XslENP.UqRLK.K9S0EdLzY6J7uErIyv5eb2k4O",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		},
+		{
+			"id": 5,
+			"username": "@Lovisa",
+			"password": "$2b$10$5HpCy5ZveaUnSze4Hq81SezFN4gIhLGM2nQuiIxdfUuOZk4FqNZa6",
+			"avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png"
+		}
+	],
+	"tweets": [
+		{
+			"username": "@Kingen",
+			"timestamp": "Wed Apr 19 2023 12:02:09",
+			"tweet": "Första tweeten ever!",
+			"likes": 0,
+			"retweets": 0,
+			"comments": []
+		},
+		{
+			"username": "@Kingen",
+			"timestamp": "Wed Apr 19 2023 12:15:09",
+			"tweet": "Whatever happens now?",
+			"likes": 0,
+			"retweets": 0,
+			"comments": []
+		},
+		{
+			"username": "@Lovisa",
+			"timestamp": "Wed Apr 19 2023 11:15:09",
+			"tweet": "Funkar detta?",
+			"likes": 0,
+			"retweets": 0,
+			"comments": []
+		}
+	]
 }

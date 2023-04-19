@@ -16,7 +16,6 @@ router.post("/signup", async (req, res) => {
 	const {
 		username,
 		password,
-		verifyPass,
 		email,
 		nickname,
 		about,
@@ -41,6 +40,12 @@ router.post("/signup", async (req, res) => {
 		username,
 		password: hash,
 		avatar: "https://i.postimg.cc/4xw9qHxk/avatar.png",
+		email,
+		nickname,
+		about,
+		occupation,
+		hometown,
+		website,
 	};
 
 	db.data.users.push(newUser);
