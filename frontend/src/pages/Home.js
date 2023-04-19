@@ -1,6 +1,8 @@
 import { Header } from '../components/Header';
-import { Searchbar, ViewTweet } from '../components/ViewTweets';
+import { ViewTweet, Footer } from '../components/ViewTweets';
 import { useState, useEffect } from 'react';
+import { Searchbar } from '../components/Searchbar';
+import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 
 export default function Home() {
     const [fetchedTweets, setFetchedTweets] = useState([]);
@@ -23,10 +25,12 @@ export default function Home() {
         <div>
             <Header></Header>
             <Searchbar></Searchbar>
+            <RegisterLoginDialogue></RegisterLoginDialogue>
             <ViewTweet
                 fetchedTweets={fetchedTweets}
                 setFetchedTweets={setFetchedTweets}
             ></ViewTweet>
+            <Footer></Footer>
         </div>
     );
 }
