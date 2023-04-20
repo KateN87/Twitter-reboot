@@ -1,5 +1,5 @@
 import CreateTweet from "../components/CreateTweet";
-import ProfileInformation from "../components/porfileInformartion";
+import ProfileInformation from "../components/profileInformartion";
 import { OwnTweets } from "../components/OwnTweets";
 
 export default function Profile() {
