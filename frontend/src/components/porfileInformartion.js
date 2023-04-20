@@ -30,7 +30,7 @@ export default function ProfileInformation() {
     <div className="profile">
       <img src={profile.avatar} alt="Profile avatar" className="avatar" />
 
-      <stronger className="nickname">{profile.nickname}</stronger>
+      <h2 className="nickname">{profile.nickname}</h2>
 
       <div className="icon-container">
         <IoMdPerson className="icon" />

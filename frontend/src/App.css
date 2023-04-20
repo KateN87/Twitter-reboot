@@ -193,3 +193,9 @@ button {
 button:hover {
   background-color: #0c8ed9;
 }
+
+.profile{
+  font-family: "canada-type-gibson", sans-serif;
+font-weight: 300;
+font-style: normal;
+}

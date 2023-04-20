@@ -1,28 +1,23 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { formatDistanceToNow } from 'date-fns';
+import { useEffect, useState } from "react"
+import {formatDistanceToNow} from 'date-fns'
 
-import '../view.css';
+export const OwnTweets = () => {
+    const [ownTweets, setOwnTweets] = useState([])
+    useEffect(() => {
+        let username = "Kingen"
+        const fetchOwnTweets = async () => {
+            const response = await fetch('http://localhost:3001/tweets/' + username)
+            const tweets = await response.json()
+            tweets.sort(function (a, b) {
+                var c = new Date(a.timestamp);
+                var d = new Date(b.timestamp);
+                return d - c;
+            });
+            setOwnTweets(tweets);
+        }
+        fetchOwnTweets()
+    }, [])
 
-export const Footer = () => {
-    return (
-        <footer>
-            <h2>Missa inte vad som händer</h2>
-            <h4>Folk på twitter får reda på allt först.</h4>
-            <div id='buttons'>
-                <Link to='/login'>
-                    <button>Logga in</button>
-                </Link>
-                <Link to='/signup'>
-                    <button id='createuser'>Skapa användare</button>
-                </Link>
-            </div>
-        </footer>
-    );
-};
-
-
-export const ViewTweet = ({ fetchedTweets }) => {
     const returntimestamp = (tweet) => {
         let timestamp = formatDistanceToNow(new Date(tweet.timestamp));
         let time = timestamp.split(' ');
@@ -40,10 +35,10 @@ export const ViewTweet = ({ fetchedTweets }) => {
         }
     };
 
-    return (
+    return(
         <div id='tweet-big-container'>
             <ul id='viewtweet'>
-                {fetchedTweets.map((tweet, index) => (
+                {ownTweets.map((tweet, index) => (
                     <li className='tweet-container' key={index}>
                         <p className='tweetp'>
                             {tweet.username}{' '}
@@ -57,5 +52,5 @@ export const ViewTweet = ({ fetchedTweets }) => {
                 ))}
             </ul>
         </div>
-    );
-};
+    )
+}
