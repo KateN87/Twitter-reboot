@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux"
 export default function CreateTweet() {
    const dispatch = useDispatch()
    const tweets = useSelector(state => state.tweetReducer)
-   console.log(tweets)
 
    async function submitTweet(event) {
       event.preventDefault();
@@ -32,15 +31,15 @@ export default function CreateTweet() {
          }
       };
 
-      const response = await fetch('http://localhost:3001/locked/tweets', options);
-      const data = await response.json();
-
-
-
-      if (response.status === 200) {
+      try {
+         const response = await fetch('http://localhost:3001/locked/tweets', options);
+         if (!response.ok) {
+            throw new Error('Failed to send tweet');
+         }
+         const data = await response.json();
          dispatch({ type: 'SEND_TWEET', payload: data });
-      } else {
-         console.log('something went wrong');
+      } catch (error) {
+         console.error(error);
       }
    }
 
