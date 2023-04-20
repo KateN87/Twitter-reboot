@@ -7,8 +7,6 @@ import { IoIosPaperPlane } from 'react-icons/io'
 import { IoMdBriefcase } from 'react-icons/io'
 
 
-
-
 const profile = {
 
   id: 2,
@@ -65,6 +63,7 @@ export default function ProfileInformation() {
         <IoMdCalendar className="icon" />
         <p className="joined">{profile.joined}</p>
       </div>
+      <button type="submit">Follow</button>
 
     </div>
   );
