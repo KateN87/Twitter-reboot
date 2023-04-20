@@ -1,6 +1,7 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
 
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
@@ -9,8 +10,33 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 
 function App() {
+	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userReducer);
-	console.log(user);
+	console.log("THIS IS USER", user);
+	useEffect(() => {
+		const testcheckUser = JSON.parse(localStorage.getItem("user"));
+
+		console.log("THIS IS TEST", testcheckUser);
+		console.log("This is user.token", user.token);
+		const checkUser = JSON.parse(localStorage.getItem("user"));
+
+		if (user) {
+			console.log("usertoken", user.token);
+			const checkJwt = async () => {
+				const response = await fetch("http://localhost:3001/locked/test", {
+					headers: {
+						Authorization: `Bearer ${user.token}`,
+						"Content-Type": "application/json",
+					},
+				});
+				if (response.ok) {
+					console.log("OK");
+					dispatch({ type: "LOGIN_USER", payload: checkUser });
+				}
+			};
+			checkJwt();
+		}
+	}, []);
 
 	return (
 		<div className='App'>
