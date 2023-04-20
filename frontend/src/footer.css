@@ -1,5 +1,5 @@
 footer {
-    /*     position: fixed; */
+    position: fixed;
     transform: translateY(-175px);
     text-align: left;
     padding-left: 30%;
@@ -58,4 +58,16 @@ img {
 .threedots {
     margin: 30px 0 0 90px;
     font-size: 30px;
+}
+
+.logout-box {
+    position: absolute;
+    top: -60vh;
+    left: 35%;
+    border: 2px solid red;
+    height: 400px;
+    width: 300px;
+    background-color: white;
+    color: black;
+    text-align: center;
 }
