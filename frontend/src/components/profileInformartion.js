@@ -8,18 +8,25 @@ import { IoMdBriefcase } from 'react-icons/io'
 
 
 const profile = {
+  const checkUser = JSON.parse(localStorage.getItem("user"));
+  const response = await fetch("http://localhost:3001/locked/test", {
+    headers: {
+      Authorization: `Bearer ${checkUser.token}`,
+      "Content-Type": "application/json",
+    },
+  });
 
-  id: 2,
-  username: "@Kate",
-  password: "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
-  avatar: "https://i.postimg.cc/4xw9qHxk/avatar.png",
-  email: "kate@kate.se",
-  nickname: "TheKate",
-  about: "I am Kate",
-  occupation: "Student",
-  hometown: "Katetown",
-  website: "kate.com",
-  joined: "2023-04-19T17:17:10.353Z"
+  //   id: 2,
+  //   username: "@Kate",
+  //   password: "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
+  //   avatar: "https://i.postimg.cc/4xw9qHxk/avatar.png",
+  //   email: "kate@kate.se",
+  //   nickname: "TheKate",
+  //   about: "I am Kate",
+  //   occupation: "Student",
+  //   hometown: "Katetown",
+  //   website: "kate.com",
+  //   joined: "2023-04-19T17:17:10.353Z"
 
 }
 
