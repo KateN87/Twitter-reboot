@@ -31,7 +31,7 @@ router.post("/signup", async (req, res) => {
 		const id = db.data.users.length + 1;
 		console.log(id);
 
-		const newUser = {
+		const user = {
 			id,
 			username,
 			password: hash,
@@ -45,11 +45,11 @@ router.post("/signup", async (req, res) => {
 			joined: new Date(),
 		};
 
-		db.data.users.push(newUser);
+		db.data.users.push(user);
 		await db.write();
 		const token = createToken(id);
 
-		res.status(200).json({ username, token });
+		res.status(200).json({ ...user, token });
 	} catch (error) {
 		res.status(400).json({ error: error.message });
 	}
@@ -69,7 +69,7 @@ router.post("/login", async (req, res) => {
 		if (!isMatch) throw Error("Invalid password");
 
 		const token = createToken(user.id);
-		res.status(200).json({ username: user.username, token });
+		res.status(200).json({ ...user, token });
 	} catch (error) {
 		console.error(error);
 		res.status(401).json({ error: error.message });
