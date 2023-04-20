@@ -10,29 +10,38 @@ export default function CreateTweet() {
 
       const textInput = event.target.tweet.value;
 
+      const checkUser = JSON.parse(localStorage.getItem("user"));
+      console.log('username: ', checkUser.username)
+
+      if (!checkUser) {
+         console.log("User not authenticated");
+         return;
+      }
+
       const newTweet = {
          tweet: textInput,
-         username: `Matildis`
+         username: checkUser.username
       };
 
       const options = {
          method: 'POST',
          body: JSON.stringify(newTweet),
          headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${checkUser.token}`
          }
       };
 
-      const response = await fetch('http://localhost:3001/tweets', options);
+      const response = await fetch('http://localhost:3001/locked/tweets', options);
       const data = await response.json();
 
+
+
       if (response.status === 200) {
-         console.log('it worked ', data);
-         dispatch({ type: 'SEND_TWEET', payload: textInput });
+         dispatch({ type: 'SEND_TWEET', payload: data });
       } else {
          console.log('something went wrong');
       }
-      console.log('Tweets state: ', tweets)
    }
 
    return (
@@ -52,7 +61,4 @@ export default function CreateTweet() {
    )
 }
 
-// Character Count
-/* <div id="the-count_comment" style="">
-   <p>0/140</p>
-</div> */
+
