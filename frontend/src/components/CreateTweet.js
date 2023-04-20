@@ -1,21 +1,38 @@
 import { useSelector, useDispatch } from "react-redux"
 
-
-
 export default function CreateTweet() {
    const dispatch = useDispatch()
    const tweets = useSelector(state => state.tweetReducer)
+   console.log(tweets)
 
-   function submitTweet(event) {
-      event.preventDefault()
+   async function submitTweet(event) {
+      event.preventDefault();
+
       const textInput = event.target.tweet.value;
-      console.log('text input: ', textInput)
 
-      // fetch från backend och vänta på svar och skicka sedan in svaret
+      const newTweet = {
+         tweet: textInput,
+         username: `Matildis`
+      };
 
-      dispatch({ type: 'SEND_TWEET', payload: textInput });
-      console.log('tweets: ', tweets);
+      const options = {
+         method: 'POST',
+         body: JSON.stringify(newTweet),
+         headers: {
+            'Content-Type': 'application/json'
+         }
+      };
 
+      const response = await fetch('http://localhost:3001/tweets', options);
+      const data = await response.json();
+
+      if (response.status === 200) {
+         console.log('it worked ', data);
+         dispatch({ type: 'SEND_TWEET', payload: textInput });
+      } else {
+         console.log('something went wrong');
+      }
+      console.log('Tweets state: ', tweets)
    }
 
    return (
