@@ -13,7 +13,7 @@ const Footer = () => {
     const handleLogout = () => {
         setActive(false);
         localStorage.removeItem('user');
-        dispatch({ type: 'LOGOUT', payload: null });
+        dispatch({ type: 'LOGOUT_USER', payload: null });
     };
     return (
         <footer>
