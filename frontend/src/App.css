@@ -31,35 +31,75 @@
 .App-link {
     color: #61dafb;
 }
+
 /* LOGIN FORM */
 .login-container {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    background-color: #f8f8f8;
 }
 
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-    to {
-        transform: rotate(360deg);
-    }
+.signup-container {
+    height: auto;
 }
 
-li {
-    list-style: none;
-}
 .login-form {
-    border: 1px solid black;
-    padding: 20px;
-    width: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.login-form h1 {
+    margin-bottom: 30px;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.login-form label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+}
+
+.login-form input[type='text'],
+.login-form input[type='password'] {
+    width: 100%;
+    padding: 8px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+.login-form button[type='submit'] {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 4px;
+    background-color: #0077ff;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.login-form button[type='submit']:hover {
+    background-color: #0066cc;
 }
 
 /* TWEET COMPONENT */
+
 .tweet-component {
     text-align: center;
+    display: block;
+    width: 100%;
 }
 
 .tweet-form {
@@ -77,4 +117,79 @@ li {
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
+}
+
+/* container för både profil och tweet */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* STYLE PORIFLE*/
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e6ecf0;
+  padding: 20px;
+  margin-bottom: 20px;
+   width: 300px; 
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 200%;
+  margin-bottom: 20px;
+}
+
+.nickname {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 20px;
+}
+
+.email,
+.about {
+  font-size: 16px;
+}
+
+.occupation,
+.hometown {
+  font-size: 14px;
+}
+
+.website {
+  font-size: 14px;
+  color: #1da1f2;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0c8ed9;
 }

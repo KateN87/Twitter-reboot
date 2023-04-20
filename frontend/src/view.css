@@ -150,3 +150,7 @@ footer button {
     color: rgb(157, 157, 157);
     margin-left: 2%;
 }
+
+li {
+    list-style: none;
+}

@@ -2,7 +2,7 @@ import { Header } from '../components/Header';
 import { ViewTweet, Footer } from '../components/ViewTweets';
 import CreateTweet from '../components/CreateTweet';
 import { useState, useEffect } from 'react';
-import { Searchbar } from '../components/Searchbar';
+import { Searchbar } from '../icons/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 
 export default function Home() {

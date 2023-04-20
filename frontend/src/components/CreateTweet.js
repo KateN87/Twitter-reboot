@@ -53,6 +53,6 @@ export default function CreateTweet() {
 }
 
 // Character Count
-{/* <div id="the-count_comment" style="">
+/* <div id="the-count_comment" style="">
    <p>0/140</p>
-</div> */} 
+</div> */

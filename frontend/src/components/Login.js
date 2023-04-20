@@ -1,45 +1,94 @@
-import { useState } from 'react';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+	const [username, setUsername] = useState("");
+	const [password, setPassword] = useState("");
+	const [currentField, setCurrentField] = useState("username");
+	const [usernameError, setUsernameError] = useState("");
+	const [passwordError, setPasswordError] = useState("");
+	const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+	const dispatch = useDispatch();
 
-    const response = await fetch('http://localhost:3000/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ username, password })
-    });
+	const handleSubmit = async (e) => {
+		e.preventDefault();
 
-    if (response.ok) {
-      const data = await response.json();
-      localStorage.setItem('token', data.token);
+		const response = await fetch("http://localhost:3001/log/login", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({ username, password }),
+		});
 
-    } else {
-      console.log('Invalid username or password');
-    }
-  }
+		if (response.ok) {
+			const data = await response.json();
+			localStorage.setItem("user", JSON.stringify(data));
+			console.log("IS LOGGED IN");
+			dispatch({ type: "LOGIN_USER", payload: data });
+			navigate("/");
+		} else {
+			setPasswordError("Invalid username or password");
+		}
+	};
 
-  return (
-    <div className="login-container">
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label>
-          Username:
-          <input type="text" value={username} onChange={(e) => setUsername(e.target.value)} />
-        </label>
-        <br />
-        <label>
-          Password:
-          <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
-        </label>
-        <br />
-        <button type="submit">Login</button>
-      </form>
-    </div>
-  );
+	const handleUsernameSubmit = async (e) => {
+		e.preventDefault();
+		const response = await fetch(
+			`http://localhost:3001/users?username=${username}`
+		);
+		const data = await response.json();
+
+		if (data.length > 0) {
+			setCurrentField("password");
+			setPasswordError("");
+		} else {
+			setUsernameError("Invalid username");
+		}
+	};
+
+	const renderCurrentField = () => {
+		switch (currentField) {
+			case "username":
+				return (
+					<form className='login-form' onSubmit={handleUsernameSubmit}>
+						<h1>Login</h1>
+						<label>
+							Username:
+							<input
+								type='text'
+								value={username}
+								onChange={(e) => setUsername(e.target.value)}
+							/>
+						</label>
+						{usernameError && <div className='error'>{usernameError}</div>}
+						<br />
+						<button type='submit'>Next</button>
+					</form>
+				);
+			case "password":
+				return (
+					<form className='login-form' onSubmit={handleSubmit}>
+						<h1>Login</h1>
+						<label>
+							Password:
+							<input
+								type='password'
+								value={password}
+								onChange={(e) => setPassword(e.target.value)}
+							/>
+						</label>
+						{passwordError && <div className='error'>{passwordError}</div>}
+						<br />
+						<button type='submit'>Login</button>
+					</form>
+				);
+			default:
+				return null;
+		}
+	};
+
+	return <div className='login-container'>{renderCurrentField()}</div>;
 }
