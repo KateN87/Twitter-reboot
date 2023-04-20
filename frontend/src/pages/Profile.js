@@ -7,7 +7,5 @@ export default function Profile() {
          <OwnTweets></OwnTweets>
          <ProfileInformation />
       </div>
-
-   )
+   );
 }
-

@@ -1,26 +1,9 @@
-import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { formatDistanceToNow } from 'date-fns';
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { formatDistanceToNow } from "date-fns";
 
-import '../view.css';
-
-export const Footer = () => {
-   return (
-      <footer>
-         <h2>Missa inte vad som händer</h2>
-         <h4>Folk på twitter får reda på allt först.</h4>
-         <div id='buttons'>
-            <Link to='/login'>
-               <button>Logga in</button>
-            </Link>
-            <Link to='/signup'>
-               <button id='createuser'>Skapa användare</button>
-            </Link>
-         </div>
-      </footer>
-   );
-};
-
+import "../view.css";
+import { useSelector } from "react-redux";
 
 export const ViewTweet = ({ fetchedTweets }) => {
    const returntimestamp = (tweet) => {

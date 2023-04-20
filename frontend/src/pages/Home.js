@@ -1,15 +1,16 @@
-import { Header } from '../components/Header';
-import { ViewTweet, Footer } from '../components/ViewTweets';
+import { Header } from "../components/Header";
+import { ViewTweet } from "../components/ViewTweets";
 import CreateTweet from '../components/CreateTweet';
-import { useState, useEffect } from 'react';
-import { Searchbar } from '../icons/Searchbar';
-import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
+import { useState, useEffect } from "react";
+import { Searchbar } from "../icons/Searchbar";
+import { RegisterLoginDialogue } from "../components/RegisterLoginDialogue";
+import Footer from "../components/Footer";
 
 export default function Home() {
    const [fetchedTweets, setFetchedTweets] = useState([]);
    useEffect(() => {
       const fetchTweets = async () => {
-         const response = await fetch('http://localhost:3001/tweets');
+         const response = await fetch("http://localhost:3001/tweets");
          const tweets = await response.json();
 
          tweets.sort(function (a, b) {
