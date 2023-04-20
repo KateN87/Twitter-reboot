@@ -11,21 +11,16 @@ import Signup from "./components/Signup";
 
 function App() {
 	const dispatch = useDispatch();
-	const user = useSelector((state) => state.userReducer);
-	console.log("THIS IS USER", user);
-	useEffect(() => {
-		const testcheckUser = JSON.parse(localStorage.getItem("user"));
+	const user = useSelector((state) => state.userReducer.user);
 
-		console.log("THIS IS TEST", testcheckUser);
-		console.log("This is user.token", user.token);
+	useEffect(() => {
 		const checkUser = JSON.parse(localStorage.getItem("user"));
 
-		if (user) {
-			console.log("usertoken", user.token);
+		if (checkUser) {
 			const checkJwt = async () => {
 				const response = await fetch("http://localhost:3001/locked/test", {
 					headers: {
-						Authorization: `Bearer ${user.token}`,
+						Authorization: `Bearer ${checkUser.token}`,
 						"Content-Type": "application/json",
 					},
 				});

@@ -37,6 +37,19 @@ app.get('/tweets', (req, res) => {
     }
     res.send(tweetslist);
 });
+app.get('/tweets/:username', (req, res) => {
+   const poster= req.params.username;
+   const username = "@" + poster;
+   let newTweets = []
+      for(let i = 0; i < tweets.length; i++){
+         let tweet = tweets[i]
+         const tweetUser = tweet.username
+         if(tweetUser === username){
+            newTweets.push(tweet)
+         }
+      }
+   res.send(newTweets)
+})
 
 // POST skapa ny tweet
 app.post('/tweets', async (req, res) => {

@@ -21,6 +21,7 @@ export const Footer = () => {
    );
 };
 
+
 export const ViewTweet = ({ fetchedTweets }) => {
    const returntimestamp = (tweet) => {
       let timestamp = formatDistanceToNow(new Date(tweet.timestamp));

@@ -4,7 +4,7 @@ import "../header.css";
 import { useSelector } from "react-redux";
 
 export const Header = () => {
-	const user = useSelector((state) => state.userReducer);
+	const user = useSelector((state) => state.userReducer.user);
 
 	return (
 		<nav>
