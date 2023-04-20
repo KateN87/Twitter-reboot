@@ -12,7 +12,7 @@ import Signup from "./components/Signup";
 function App() {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userReducer.user);
-
+	console.log(user.about);
 	useEffect(() => {
 		const checkUser = JSON.parse(localStorage.getItem("user"));
 
@@ -25,8 +25,9 @@ function App() {
 					},
 				});
 				if (response.ok) {
+					const loggedUser = await response.json();
 					console.log("OK");
-					dispatch({ type: "LOGIN_USER", payload: checkUser });
+					dispatch({ type: "LOGIN_USER", payload: loggedUser });
 				}
 			};
 			checkJwt();
