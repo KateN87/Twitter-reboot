@@ -95,8 +95,11 @@
 }
 
 /* TWEET COMPONENT */
+
 .tweet-component {
     text-align: center;
+    display: block;
+    width: 100%;
 }
 
 .tweet-form {
@@ -114,4 +117,79 @@
     border-radius: 5px;
     padding: 15px;
     margin: 10px;
+}
+
+/* container för både profil och tweet */
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+/* STYLE PORIFLE*/
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  border: 1px solid #e6ecf0;
+  padding: 20px;
+  margin-bottom: 20px;
+   width: 300px; 
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 200%;
+  margin-bottom: 20px;
+}
+
+.nickname {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+}
+
+.username {
+  font-size: 20px;
+}
+
+.email,
+.about {
+  font-size: 16px;
+}
+
+.occupation,
+.hometown {
+  font-size: 14px;
+}
+
+.website {
+  font-size: 14px;
+  color: #1da1f2;
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #1da1f2;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0c8ed9;
 }

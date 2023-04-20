@@ -1,8 +1,13 @@
 import CreateTweet from "../components/CreateTweet";
+import ProfileInformation from "../components/porfileInformartion";
 
 export default function Profile() {
    return (
-      <CreateTweet />
+      <div className=" container">
+         <CreateTweet />
+         <ProfileInformation />
+      </div>
+
    )
 }
 
