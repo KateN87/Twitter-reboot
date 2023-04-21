@@ -17,7 +17,7 @@ export const ViewTweet = ({ fetchedTweets }) => {
          let secondremove = time.splice(remove2, 1);
          let realtime = `${time + ' h'}`;
          return realtime;
-      } else if(time[1] === "days") {
+      }  else if(time[1] === "days" || time[1] === "day") {
          let realtime = `${time[0] + ' d'}`;
          return realtime;
       } else if(time[1] === "minutes"){

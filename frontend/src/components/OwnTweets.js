@@ -5,7 +5,8 @@ export const OwnTweets = () => {
 	const [ownTweets, setOwnTweets] = useState([]);
 
 	useEffect(() => {
-		let username = "Kingen";
+		let user = localStorage.getItem("user")
+        let username = user.username
 		const fetchOwnTweets = async () => {
 			const response = await fetch("http://localhost:3001/tweets/" + username);
 			const tweets = await response.json();
@@ -30,7 +31,7 @@ export const OwnTweets = () => {
                let secondremove = time.splice(remove2, 1);
                let realtime = `${time + ' h'}`;
                return realtime;
-            } else if(time[1] === "days") {
+            } else if(time[1] === "days" || time[1] === "day") {
                let realtime = `${time[0] + ' d'}`;
                return realtime;
             } else if(time[1] === "minutes"){
