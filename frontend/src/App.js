@@ -14,6 +14,7 @@ import Footer from "./components/Footer";
 function App() {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userReducer.user);
+
 	useEffect(() => {
 		const checkUser = JSON.parse(localStorage.getItem("user"));
 
