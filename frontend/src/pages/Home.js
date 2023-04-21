@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Searchbar } from "../icons/Searchbar";
 import { RegisterLoginDialogue } from "../components/RegisterLoginDialogue";
 import { useSelector } from "react-redux";
+import CreateTweet from "../components/CreateTweet";
 
 export default function Home() {
 	const [fetchedTweets, setFetchedTweets] = useState([]);
@@ -27,6 +28,7 @@ export default function Home() {
 		<div>
 			<Header />
 			<Searchbar />
+			<CreateTweet />
 			{!user && <RegisterLoginDialogue />}
 			<ViewTweet
 				fetchedTweets={fetchedTweets}
