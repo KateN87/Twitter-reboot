@@ -9,7 +9,7 @@ export const ViewTweet = ({ fetchedTweets }) => {
 	const returntimestamp = (tweet) => {
 		let timestamp = formatDistanceToNow(new Date(tweet.timestamp));
 		let time = timestamp.split(" ");
-		console.log(time);
+
 		if (time[0] === "about") {
 			let remove = time.indexOf("about");
 			let firstremove = time.splice(remove, 1);

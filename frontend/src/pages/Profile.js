@@ -1,4 +1,4 @@
-import { default as ProfileInformation } from "../components/Profileinformation.js";
+import { default as ProfileInformation } from "../components/ProfileInformation.js";
 
 import { OwnTweets } from "../components/OwnTweets";
 
