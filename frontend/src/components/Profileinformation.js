@@ -28,7 +28,6 @@ const profile = {
 
 export default function ProfileInformation() {
   const currentUser = useSelector((state) => state.userReducer.user);
-  console.log(currentUser)
 
   if(currentUser === null){
     return(

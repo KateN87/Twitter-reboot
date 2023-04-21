@@ -1,6 +1,6 @@
 
 
-import ProfileInformation from "../components/profileInformartion";
+import {default as ProfileInformation} from '../components/Profileinformation.js'
 
 
 import { OwnTweets } from "../components/OwnTweets";
