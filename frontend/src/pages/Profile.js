@@ -1,8 +1,4 @@
-
-
-import ProfileInformation from "../components/profileInformartion";
-
-
+import ProfileInformation from "../components/ProfileInformation";
 import { OwnTweets } from "../components/OwnTweets";
 
 export default function Profile() {
