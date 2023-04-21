@@ -12,7 +12,7 @@ import Signup from "./components/Signup";
 function App() {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userReducer.user);
-	console.log(user.about);
+	
 	useEffect(() => {
 		const checkUser = JSON.parse(localStorage.getItem("user"));
 

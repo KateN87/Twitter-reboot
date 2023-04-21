@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import {formatDistanceToNow} from 'date-fns'
+import '../view.css'
+import {useSelector} from 'react-redux'
 
 export const OwnTweets = () => {
     const [ownTweets, setOwnTweets] = useState([])
-    useEffect(() => {
-        let username = "Kingen"
-        const fetchOwnTweets = async () => {
+    const currentUser = useSelector((state) => state.userReducer.user);
+    
+    const fetchTweets = async () => {
+        let username = currentUser.username
             const response = await fetch('http://localhost:3001/tweets/' + username)
             const tweets = await response.json()
             tweets.sort(function (a, b) {
@@ -14,10 +17,8 @@ export const OwnTweets = () => {
                 return d - c;
             });
             setOwnTweets(tweets);
-        }
-        fetchOwnTweets()
-    }, [])
-
+    }
+    
     const returntimestamp = (tweet) => {
         let timestamp = formatDistanceToNow(new Date(tweet.timestamp));
         let time = timestamp.split(' ');
@@ -34,9 +35,13 @@ export const OwnTweets = () => {
             return realtime;
         }
     };
-
+    if(currentUser === null){
+        return(<div>Loading...</div>)
+    } else {
+        fetchTweets()
+    }
     return(
-        <div id='tweet-big-container'>
+        <div id='tweet-big-container' classname="profiletweets" >
             <ul id='viewtweet'>
                 {ownTweets.map((tweet, index) => (
                     <li className='tweet-container' key={index}>
