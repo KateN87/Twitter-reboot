@@ -13,6 +13,11 @@ router.get('/test', (req, res) => {
 
 // POST skapa ny tweet
 router.post('/tweets', async (req, res) => {
+   console.log('req user: ', req.user)
+
+   //TODO 
+   // Kolla att det inte är en tom sträng
+
    const { username, tweet } = req.body;
    const date = new Date();
 

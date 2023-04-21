@@ -61,3 +61,4 @@ export default function CreateTweet() {
 }
 
 
+// Data listad även i frontend ifall databas kraschar, man ska fortf kunna se informationen

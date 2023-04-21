@@ -1,122 +1,125 @@
 .App {
-    text-align: center;
+  text-align: center;
 }
 
 :root {
-    --error: rgb(197, 51, 51);
+  --error: rgb(197, 51, 51);
 }
 
 .App-logo {
-    height: 40vmin;
-    pointer-events: none;
+  height: 40vmin;
+  pointer-events: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
 }
 
 .App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
-    color: #61dafb;
+  color: #61dafb;
 }
 
 /* LOGIN FORM */
 .login-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f8f8f8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f8f8;
 }
 
 .signup-container {
-    height: auto;
+  height: auto;
 }
 
 .login-form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 40px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
 }
 
 .login-form h1 {
-    margin-bottom: 30px;
-    font-size: 24px;
-    font-weight: bold;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: bold;
 }
 
 .login-form label {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 20px;
-    font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+  font-size: 18px;
 }
 
-.login-form input[type='text'],
-.login-form input[type='password'] {
-    width: 100%;
-    padding: 8px 16px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 100%;
+  padding: 8px 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
 }
 
-.login-form button[type='submit'] {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 4px;
-    background-color: #0077ff;
-    color: #fff;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.2s ease-in-out;
+.login-form button[type="submit"] {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 4px;
+  background-color: #0077ff;
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
 }
 
-.login-form button[type='submit']:hover {
-    background-color: #0066cc;
+.login-form button[type="submit"]:hover {
+  background-color: #0066cc;
 }
 
 /* TWEET COMPONENT */
 
 .tweet-component {
-    text-align: center;
-    display: block;
-    width: 100%;
+  position: fixed;
+  text-align: center;
+  display: block;
+  width: 100%;
 }
 
 .tweet-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 500px;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  margin-right: 10em;
+  margin: auto;
+  position: relative;
 }
 
 /*error-box*/
 .error {
-    background: rgb(251, 234, 237);
-    color: var(--error);
-    border: 1px solid var(--error);
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
+  background: rgb(251, 234, 237);
+  color: var(--error);
+  border: 1px solid var(--error);
+  border-radius: 5px;
+  padding: 15px;
+  margin: 10px;
 }
 
 /* container för både profil och tweet */
@@ -133,7 +136,7 @@
   border: 1px solid #e6ecf0;
   padding: 20px;
   margin-bottom: 20px;
-   width: 300px; 
+  width: 300px;
 }
 
 .avatar {
@@ -194,8 +197,8 @@ button:hover {
   background-color: #0c8ed9;
 }
 
-.profile{
+.profile {
   font-family: "canada-type-gibson", sans-serif;
-font-weight: 300;
-font-style: normal;
+  font-weight: 300;
+  font-style: normal;
 }
