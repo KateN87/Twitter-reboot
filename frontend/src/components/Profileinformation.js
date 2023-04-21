@@ -1,10 +1,11 @@
-import { React } from 'react';
+import { React, useEffect, useState } from 'react';
 import { IoMdPin } from 'react-icons/io'
 import { IoMdMail } from 'react-icons/io'
 import { IoMdPerson } from 'react-icons/io'
 import { IoMdCalendar } from 'react-icons/io'
 import { IoIosPaperPlane } from 'react-icons/io'
 import { IoMdBriefcase } from 'react-icons/io'
+import {useSelector} from 'react-redux'
 
 
 
@@ -26,44 +27,52 @@ const profile = {
 }
 
 export default function ProfileInformation() {
+  const currentUser = useSelector((state) => state.userReducer.user);
+
+  if(currentUser === null){
+    return(
+      <div>Loading...</div>
+    )
+  }
+
   return (
     <div className="profile">
-      <img src={profile.avatar} alt="Profile avatar" className="avatar" />
+      <img src={currentUser.avatar} alt="Profile avatar" className="avatar" />
 
-      <h2 className="nickname">{profile.nickname}</h2>
+      <h2 className="nickname">{currentUser.nickname}</h2>
 
       <div className="icon-container">
         <IoMdPerson className="icon" />
-        <p className="username">{profile.username}</p>
+        <p className="username">{currentUser.username}</p>
       </div>
 
       <div className="about-container">
-        <p className="about">{profile.about}</p>
+        <p className="about">{currentUser.about}</p>
       </div>
 
       <div className="icon-container">
         <IoMdMail className="icon" />
-        <p className="email">{profile.email}</p>
+        <p className="email">{currentUser.email}</p>
       </div>
 
       <div className="icon-container">
         <IoMdBriefcase className="icon" />
-        <p className="occupation">{profile.occupation}</p>
+        <p className="occupation">{currentUser.occupation}</p>
       </div>
 
       <div className="icon-container">
         <IoMdPin className="icon" />
-        <p className="hometown">{profile.hometown}</p>
+        <p className="hometown">{currentUser.hometown}</p>
       </div>
 
       <div className="icon-container">
         <IoIosPaperPlane className="icon" />
-        <a href={`https://${profile.website}`} className="website">{profile.website}</a>
+        <a href={`https://${currentUser.website}`} className="website">{currentUser.website}</a>
       </div>
 
       <div className="icon-container">
         <IoMdCalendar className="icon" />
-        <p className="joined">{profile.joined}</p>
+        <p className="joined">{currentUser.joined}</p>
       </div>
 
     </div>

@@ -8,16 +8,16 @@ import lockedRoutes from './Routes/lockedRoutes.js';
 const app = express();
 
 app.use(
-    cors({
-        origin: 'http://localhost:3000',
-    })
+   cors({
+      origin: 'http://localhost:3000',
+   })
 );
 
 //middleware
 app.use(express.json());
 app.use((req, res, next) => {
-    console.log(req.path, req.method);
-    next();
+   console.log(req.path, req.method);
+   next();
 });
 
 app.use('/log', logRoutes);
@@ -26,47 +26,31 @@ app.use('/locked', lockedRoutes);
 //Routes
 
 app.get('/users', (req, res) => {
-    res.send(db.data.users);
+   res.send(db.data.users);
 });
 
 app.get('/tweets', (req, res) => {
-    let tweetslist = [];
-    for (let i = 0; i < tweets.length; i++) {
-        let tweet = tweets[i];
-        tweetslist.push(tweet);
-    }
-    res.send(tweetslist);
+   let tweetslist = [];
+   for (let i = 0; i < tweets.length; i++) {
+      let tweet = tweets[i];
+      tweetslist.push(tweet);
+   }
+   res.send(tweetslist);
 });
+
 app.get('/tweets/:username', (req, res) => {
    const poster= req.params.username;
-   const username = "@" + poster;
+   //const username = "@" + poster;
+   const username = poster
    let newTweets = []
-      for(let i = 0; i < tweets.length; i++){
-         let tweet = tweets[i]
-         const tweetUser = tweet.username
-         if(tweetUser === username){
-            newTweets.push(tweet)
-         }
+   for (let i = 0; i < tweets.length; i++) {
+      let tweet = tweets[i]
+      const tweetUser = tweet.username
+      if (tweetUser === username) {
+         newTweets.push(tweet)
       }
+   }
    res.send(newTweets)
 })
-
-// POST skapa ny tweet
-app.post('/tweets', async (req, res) => {
-    const { username, tweet } = req.body;
-    const date = new Date();
-
-    tweets.push({
-        username,
-        timestamp: date,
-        tweet,
-        likes: 0,
-        retweets: 0,
-        comments: [],
-    });
-
-    await db.write();
-    res.status(200).send(tweets);
-});
 
 export { app };
