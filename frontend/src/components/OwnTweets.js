@@ -5,7 +5,7 @@ export const OwnTweets = () => {
 	const [ownTweets, setOwnTweets] = useState([]);
 
 	useEffect(() => {
-		let user = localStorage.getItem("user")
+		let user = JSON.parse(localStorage.getItem("user"))
         let username = user.username
 		const fetchOwnTweets = async () => {
 			const response = await fetch("http://localhost:3001/tweets/" + username);
