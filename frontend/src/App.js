@@ -17,6 +17,8 @@ function App() {
 
 	useEffect(() => {
 		const checkUser = JSON.parse(localStorage.getItem("user"));
+		console.log("checkUser", checkUser);
+		console.log("checkuser.id", checkUser.username);
 
 		if (checkUser) {
 			const checkJwt = async () => {
