@@ -41,6 +41,7 @@ const Footer = () => {
                     <HiDotsHorizontal className='threedots' />
                 </div>
             )}
+
             {active && (
                 <div className='logout-box'>
                     <h1>Log out {user.nickname}?</h1>

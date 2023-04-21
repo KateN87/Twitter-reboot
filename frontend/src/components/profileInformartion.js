@@ -1,4 +1,5 @@
-import { React } from 'react';
+import { React, useState, useEffect } from 'react';
+
 import { IoMdPin } from 'react-icons/io'
 import { IoMdMail } from 'react-icons/io'
 import { IoMdPerson } from 'react-icons/io'
@@ -6,34 +7,61 @@ import { IoMdCalendar } from 'react-icons/io'
 import { IoIosPaperPlane } from 'react-icons/io'
 import { IoMdBriefcase } from 'react-icons/io'
 
-
-const profile = {
-  const checkUser = JSON.parse(localStorage.getItem("user"));
-  const response = await fetch("http://localhost:3001/locked/test", {
-    headers: {
-      Authorization: `Bearer ${checkUser.token}`,
-      "Content-Type": "application/json",
-    },
+export default function ProfileInformation() {
+  const [profile, setProfile] = useState({
+    avatar: "",
+    nickname: "",
+    username: "",
+    about: "",
+    email: "",
+    occupation: "",
+    hometown: "",
+    website: "",
+    joined: "",
   });
 
-  //   id: 2,
-  //   username: "@Kate",
-  //   password: "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
-  //   avatar: "https://i.postimg.cc/4xw9qHxk/avatar.png",
-  //   email: "kate@kate.se",
-  //   nickname: "TheKate",
-  //   about: "I am Kate",
-  //   occupation: "Student",
-  //   hometown: "Katetown",
-  //   website: "kate.com",
-  //   joined: "2023-04-19T17:17:10.353Z"
+  useEffect(() => {
 
-}
+    const checkUser = JSON.parse(localStorage.getItem("user"));
+    console.log(checkUser);
+    const fetchData = async () => {
+      if (checkUser) {
+        try {
+          const response = await fetch("http://localhost:3001/locked/test", {
+            headers: {
+              Authorization: `Bearer ${checkUser.token}`,
+              "Content-Type": "application/json",
+            },
+          });
 
-export default function ProfileInformation() {
+          if (response.ok) {
+            const data = await response.json();
+            setProfile({
+              avatar: data.avatar,
+              nickname: data.nickname,
+              username: data.username,
+              about: data.about,
+              email: data.email,
+              occupation: data.occupation,
+              hometown: data.hometown,
+              website: data.website,
+              joined: data.joined,
+            });
+          }
+        } catch (error) {
+
+        }
+      }
+    };
+    fetchData();
+  }, []);
+
+  // 
+
   return (
     <div className="profile">
       <img src={profile.avatar} alt="Profile avatar" className="avatar" />
+
 
       <h2 className="nickname">{profile.nickname}</h2>
 
@@ -75,4 +103,7 @@ export default function ProfileInformation() {
     </div>
   );
 }
+
+
+
 
