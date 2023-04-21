@@ -1,5 +1,5 @@
 import { Header } from '../components/Header';
-import { ViewTweet, Footer } from '../components/ViewTweets';
+import { ViewTweet } from '../components/ViewTweets';
 import { useState, useEffect } from 'react';
 import { Searchbar } from '../icons/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
@@ -23,14 +23,13 @@ export default function Home() {
 
     return (
         <div>
-            <Header></Header>
-            <Searchbar></Searchbar>
-            <RegisterLoginDialogue></RegisterLoginDialogue>
+            <Header />
+            <Searchbar />
+            <RegisterLoginDialogue />
             <ViewTweet
                 fetchedTweets={fetchedTweets}
                 setFetchedTweets={setFetchedTweets}
-            ></ViewTweet>
-            <Footer></Footer>
+            />
         </div>
     );
 }
