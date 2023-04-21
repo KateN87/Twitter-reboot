@@ -1,7 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -14,6 +14,7 @@ import Footer from './components/Footer';
 function App() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer.user);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const checkUser = JSON.parse(localStorage.getItem('user'));
@@ -35,10 +36,17 @@ function App() {
 
                     dispatch({ type: 'LOGIN_USER', payload: loggedUser });
                 }
+                setIsLoading(false);
             };
             checkJwt();
+        } else {
+            setIsLoading(false);
         }
     }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
 
     return (
         <div className='App'>
