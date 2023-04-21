@@ -1,5 +1,5 @@
 import "./App.css";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 
@@ -14,12 +14,10 @@ import Footer from "./components/Footer";
 function App() {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userReducer.user);
-
+	console.log("This is user", user);
 	useEffect(() => {
 		const checkUser = JSON.parse(localStorage.getItem("user"));
-		console.log("checkUser", checkUser);
-		console.log("checkuser.id", checkUser.username);
-
+		console.log("This is checkUser", checkUser);
 		if (checkUser) {
 			const checkJwt = async () => {
 				const response = await fetch("http://localhost:3001/locked/test", {
@@ -28,6 +26,7 @@ function App() {
 						"Content-Type": "application/json",
 					},
 				});
+
 				if (response.ok) {
 					const loggedUser = await response.json();
 
@@ -43,10 +42,7 @@ function App() {
 			<Header />
 			<Routes>
 				<Route path='/' element={<Home />} />
-				<Route
-					path='/profile'
-					element={user ? <Profile /> : <Navigate to='/login' />}
-				/>
+				<Route path='/profile' element={<Profile />} />
 				<Route path='/login' element={<Login />} />
 				<Route path='/signup' element={<Signup />} />
 			</Routes>
