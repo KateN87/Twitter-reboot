@@ -8,7 +8,6 @@ import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
 
 export default function ProfileInformation() {
-    console.log('TEST');
     const [profile, setProfile] = useState({
         avatar: '',
         nickname: '',
@@ -23,7 +22,7 @@ export default function ProfileInformation() {
 
     useEffect(() => {
         const checkUser = JSON.parse(localStorage.getItem('user'));
-        console.log(checkUser);
+
         const fetchData = async () => {
             if (checkUser) {
                 try {

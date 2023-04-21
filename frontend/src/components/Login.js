@@ -77,6 +77,9 @@ export default function Login() {
                         )}
                         <br />
                         <button type='submit'>Next</button>
+                        <Link to='/signup'>
+                            Inte medlem? Skapa ett konto här!
+                        </Link>
                     </form>
                 );
             case 'password':
@@ -100,6 +103,9 @@ export default function Login() {
                         <button type='submit' onClick={handleReturn}>
                             Return
                         </button>
+                        <Link to='/signup'>
+                            Inte medlem? Skapa ett konto här!
+                        </Link>
                     </form>
                 );
             default:
