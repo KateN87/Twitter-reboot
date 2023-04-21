@@ -159,28 +159,34 @@
 }
 
 .icon {
-	margin-right: 10px;
+  margin-right: 10px;
+  color: rgb(91, 91, 91);
 }
 
 .username {
-	font-size: 20px;
+  font-size: 20px;
+  color: rgb(80, 80, 80);
 }
 
-.email,
+
 .about {
 	font-size: 16px;
 }
-
+.joined,
+.email,
 .occupation,
 .hometown {
-	font-size: 14px;
+
+  font-size: 16px;
+  color: rgb(80, 80, 80);
 }
 
 .website {
-	font-size: 14px;
-	color: #1da1f2;
-	text-decoration: none;
-	margin-bottom: 10px;
+  font-size: 17px;
+  color: #1b82c2;
+  text-decoration: none;
+  margin-bottom: 10px;
+
 }
 
 button {

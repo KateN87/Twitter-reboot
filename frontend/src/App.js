@@ -11,6 +11,7 @@ import Signup from "./components/Signup";
 import { Header } from "./components/Header";
 import Footer from "./components/Footer";
 
+
 function App() {
 	const dispatch = useDispatch();
 	const user = useSelector((state) => state.userReducer.user);
