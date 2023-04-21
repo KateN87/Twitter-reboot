@@ -1,11 +1,7 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-<<<<<<< HEAD
-import { useEffect, useState } from 'react';
-=======
 import { useEffect } from 'react';
->>>>>>> origin/Development
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
