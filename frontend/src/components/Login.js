@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 export default function Login() {
 	const [username, setUsername] = useState("");
@@ -66,6 +67,7 @@ export default function Login() {
 						{usernameError && <div className='error'>{usernameError}</div>}
 						<br />
 						<button type='submit'>Next</button>
+						<Link to='/signup'> Inte medlem? Skapa konto.</Link>
 					</form>
 				);
 			case "password":
@@ -83,6 +85,7 @@ export default function Login() {
 						{passwordError && <div className='error'>{passwordError}</div>}
 						<br />
 						<button type='submit'>Login</button>
+						<Link to='/signup'> Inte medlem? Skapa konto.</Link>
 					</form>
 				);
 			default:
