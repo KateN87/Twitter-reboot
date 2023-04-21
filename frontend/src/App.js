@@ -1,7 +1,11 @@
 import './App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+<<<<<<< HEAD
 import { useEffect, useState } from 'react';
+=======
+import { useEffect } from 'react';
+>>>>>>> origin/Development
 
 import Home from './pages/Home';
 import Profile from './pages/Profile';
@@ -12,13 +16,11 @@ import { Header } from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
-    const [isLoading, setIsLoading] = useState(true);
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer.user);
 
     useEffect(() => {
         const checkUser = JSON.parse(localStorage.getItem('user'));
-        console.log('This is checkUser', checkUser);
 
         if (checkUser) {
             const checkJwt = async () => {
@@ -37,17 +39,10 @@ function App() {
 
                     dispatch({ type: 'LOGIN_USER', payload: loggedUser });
                 }
-                setIsLoading(false);
             };
             checkJwt();
-        } else {
-            setIsLoading(false);
         }
     }, []);
-
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
 
     return (
         <div className='App'>
@@ -56,7 +51,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route
                     path='/profile'
-                    element={user ? <Profile /> : <Navigate to='/login' />}
+                    element={user ? <Profile /> : <Navigate to='/' />}
                 />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
