@@ -1,53 +1,68 @@
-import "./App.css";
-import { Routes, Route } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
+import './App.css';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect, useState } from 'react';
 
-import Home from "./pages/Home";
-import Profile from "./pages/Profile";
+import Home from './pages/Home';
+import Profile from './pages/Profile';
 
-import Login from "./components/Login";
-import Signup from "./components/Signup";
-import { Header } from "./components/Header";
-import Footer from "./components/Footer";
+import Login from './components/Login';
+import Signup from './components/Signup';
+import { Header } from './components/Header';
+import Footer from './components/Footer';
 
 function App() {
-	const dispatch = useDispatch();
-	const user = useSelector((state) => state.userReducer.user);
+    const dispatch = useDispatch();
+    const user = useSelector((state) => state.userReducer.user);
+    const [isLoading, setIsLoading] = useState(true);
 
-	useEffect(() => {
-		const checkUser = JSON.parse(localStorage.getItem("user"));
+    useEffect(() => {
+        const checkUser = JSON.parse(localStorage.getItem('user'));
 
-		if (checkUser) {
-			const checkJwt = async () => {
-				const response = await fetch("http://localhost:3001/locked/test", {
-					headers: {
-						Authorization: `Bearer ${checkUser.token}`,
-						"Content-Type": "application/json",
-					},
-				});
-				if (response.ok) {
-					const loggedUser = await response.json();
+        if (checkUser) {
+            const checkJwt = async () => {
+                const response = await fetch(
+                    'http://localhost:3001/locked/test',
+                    {
+                        headers: {
+                            Authorization: `Bearer ${checkUser.token}`,
+                            'Content-Type': 'application/json',
+                        },
+                    }
+                );
 
-					dispatch({ type: "LOGIN_USER", payload: loggedUser });
-				}
-			};
-			checkJwt();
-		}
-	}, []);
+                if (response.ok) {
+                    const loggedUser = await response.json();
 
-	return (
-		<div className='App'>
-			<Header />
-			<Routes>
-				<Route path='/' element={<Home />} />
-				<Route path='/profile' element={<Profile />} />
-				<Route path='/login' element={<Login />} />
-				<Route path='/signup' element={<Signup />} />
-			</Routes>
-			<Footer />
-		</div>
-	);
+                    dispatch({ type: 'LOGIN_USER', payload: loggedUser });
+                }
+                setIsLoading(false);
+            };
+            checkJwt();
+        } else {
+            setIsLoading(false);
+        }
+    }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    return (
+        <div className='App'>
+            <Header />
+            <Routes>
+                <Route path='/' element={<Home />} />
+                <Route
+                    path='/profile'
+                    element={user ? <Profile /> : <Navigate to='/' />}
+                />
+                <Route path='/login' element={<Login />} />
+                <Route path='/signup' element={<Signup />} />
+            </Routes>
+            <Footer />
+        </div>
+    );
 }
 
 export default App;

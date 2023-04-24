@@ -8,8 +8,6 @@ import { useSelector } from 'react-redux';
 
 export default function Home() {
    const [fetchedTweets, setFetchedTweets] = useState([]);
-   const [newTweet, setNewTweet] = useState(null);
-
    useEffect(() => {
       const fetchTweets = async () => {
          const response = await fetch('http://localhost:3001/tweets');
@@ -23,13 +21,13 @@ export default function Home() {
          setFetchedTweets(tweets);
       };
       fetchTweets();
-   }, [newTweet]);
+   }, []);
 
    return (
       <div>
          <Header />
          <Searchbar />
-         <CreateTweet newTweet={newTweet} setNewTweet={setNewTweet} />
+         <CreateTweet />
          <RegisterLoginDialogue />
          <ViewTweet
             fetchedTweets={fetchedTweets}

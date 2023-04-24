@@ -1,191 +1,103 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "@Kingen",
-      "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "kingen@kingen.se",
-      "nickname": "TheKing",
-      "about": "I am the king",
-      "occupation": "Being king",
-      "hometown": "Kingtown",
-      "website": "kingen.com",
-      "joined": "2023-04-19T17:12:55.652Z"
-    },
-    {
-      "id": 2,
-      "username": "@Kate",
-      "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "kate@kate.se",
-      "nickname": "TheKate",
-      "about": "I am Kate",
-      "occupation": "Student",
-      "hometown": "Katetown",
-      "website": "kate.com",
-      "joined": "2023-04-19T17:17:10.353Z"
-    },
-    {
-      "id": 3,
-      "username": "@Lovisa",
-      "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "lovisa@lovisa.com",
-      "nickname": "TheLovisa",
-      "about": "I am Lovisa",
-      "occupation": "Student",
-      "hometown": "Lovisatown",
-      "website": "lovisa.com",
-      "joined": "2023-04-19T17:18:07.080Z"
-    },
-    {
-      "id": 4,
-      "username": "@Matilda",
-      "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "matilda@matilda.se",
-      "nickname": "TheMatilda",
-      "about": "I am Matilda",
-      "occupation": "Being Matilda",
-      "hometown": "Matildatown",
-      "website": "matilda.com",
-      "joined": "2023-04-19T17:18:50.833Z"
-    },
-    {
-      "id": 5,
-      "username": "@Aylin",
-      "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "aylin@aylin.com",
-      "nickname": "TheAylin",
-      "about": "I am Aylin",
-      "occupation": "Student",
-      "hometown": "Aylintown",
-      "website": "aylin.com",
-      "joined": "2023-04-19T17:19:36.181Z"
-    }
-  ],
-  "tweets": [
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:02:09",
-      "tweet": "Första tweeten ever!",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:15:09",
-      "tweet": "Whatever happens now?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Lovisa",
-      "timestamp": "Wed Apr 19 2023 11:15:09",
-      "tweet": "Funkar detta?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Aylin",
-      "timestamp": "Fri Apr 21 2023 11:21:00",
-      "tweet": "Testar lite",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Aylin",
-      "timestamp": "Fri Apr 20 2023 12:21:00",
-      "tweet": "Testar lite mer",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-21T11:40:38.112Z",
-      "tweet": "testtest",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-21T11:41:36.593Z",
-      "tweet": "test2",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-21T11:41:52.779Z",
-      "tweet": "test2",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-21T11:41:53.874Z",
-      "tweet": "test2",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-21T12:11:39.174Z",
-      "tweet": "hejjjjj",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-21T12:12:08.575Z",
-      "tweet": "hejjjjj",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-24T15:45:39.677Z",
-      "tweet": "testar för femtielfte gången\n",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-24T16:05:41.701Z",
-      "tweet": "mkmk",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-24T16:17:30.542Z",
-      "tweet": "hej",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-24T16:26:21.848Z",
-      "tweet": " nn",
-      "likes": 0,
-      "retweets": 0,
-      "comments": []
-    }
-  ]
+   "users": [
+      {
+         "id": 1,
+         "username": "@Kingen",
+         "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "kingen@kingen.se",
+         "nickname": "TheKing",
+         "about": "I am the king",
+         "occupation": "Being king",
+         "hometown": "Kingtown",
+         "website": "kingen.com",
+         "joined": "2023-04-19T17:12:55.652Z"
+      },
+      {
+         "id": 2,
+         "username": "@Kate",
+         "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "kate@kate.se",
+         "nickname": "TheKate",
+         "about": "I am Kate",
+         "occupation": "Student",
+         "hometown": "Katetown",
+         "website": "kate.com",
+         "joined": "2023-04-19T17:17:10.353Z"
+      },
+      {
+         "id": 3,
+         "username": "@Lovisa",
+         "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "lovisa@lovisa.com",
+         "nickname": "TheLovisa",
+         "about": "I am Lovisa",
+         "occupation": "Student",
+         "hometown": "Lovisatown",
+         "website": "lovisa.com",
+         "joined": "2023-04-19T17:18:07.080Z"
+      },
+      {
+         "id": 4,
+         "username": "@Matilda",
+         "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "matilda@matilda.se",
+         "nickname": "TheMatilda",
+         "about": "I am Matilda",
+         "occupation": "Being Matilda",
+         "hometown": "Matildatown",
+         "website": "matilda.com",
+         "joined": "2023-04-19T17:18:50.833Z"
+      },
+      {
+         "id": 5,
+         "username": "@Aylin",
+         "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "aylin@aylin.com",
+         "nickname": "TheAylin",
+         "about": "I am Aylin",
+         "occupation": "Student",
+         "hometown": "Aylintown",
+         "website": "aylin.com",
+         "joined": "2023-04-19T17:19:36.181Z"
+      }
+   ],
+   "tweets": [
+      {
+         "username": "@Kingen",
+         "timestamp": "Wed Apr 19 2023 12:02:09",
+         "tweet": "Första tweeten ever!",
+         "likes": 0,
+         "retweets": 0,
+         "comments": []
+      },
+      {
+         "username": "@Kingen",
+         "timestamp": "Wed Apr 19 2023 12:15:09",
+         "tweet": "Whatever happens now?",
+         "likes": 0,
+         "retweets": 0,
+         "comments": []
+      },
+      {
+         "username": "@Lovisa",
+         "timestamp": "Wed Apr 19 2023 11:15:09",
+         "tweet": "Funkar detta?",
+         "likes": 0,
+         "retweets": 0,
+         "comments": []
+      },
+      {
+         "username": "@Aylin",
+         "timestamp": "Fri Apr 21 2023 11:21:00",
+         "tweet": "Testar lite",
+         "likes": 0,
+         "retweets": 0,
+         "comments": []
+      },
+   ]
 }
