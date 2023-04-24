@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from "react-redux"
 
-export default function CreateTweet() {
+export default function CreateTweet({ newTweet, setNewTweet }) {
    const dispatch = useDispatch()
    const tweets = useSelector(state => state.tweetReducer)
 
@@ -17,14 +17,14 @@ export default function CreateTweet() {
          return;
       }
 
-      const newTweet = {
+      const newTweetReq = {
          tweet: textInput,
          username: checkUser.username
       };
 
       const options = {
          method: 'POST',
-         body: JSON.stringify(newTweet),
+         body: JSON.stringify(newTweetReq),
          headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${checkUser.token}`
@@ -36,8 +36,10 @@ export default function CreateTweet() {
          if (!response.ok) {
             throw new Error('Failed to send tweet');
          }
-         const data = await response.json();
-         dispatch({ type: 'SEND_TWEET', payload: data });
+         const newTweet = await response.json();
+         setNewTweet(newTweet)
+
+         dispatch({ type: 'SEND_TWEET', payload: newTweet });
       } catch (error) {
          console.error(error);
       }
@@ -61,3 +63,4 @@ export default function CreateTweet() {
 }
 
 
+// Data listad även i frontend ifall databas kraschar, man ska fortf kunna se informationen
