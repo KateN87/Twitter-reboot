@@ -4,9 +4,12 @@ import { useState, useEffect } from 'react';
 import { Searchbar } from '../icons/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
+import { useSelector } from 'react-redux';
 
 export default function Home() {
    const [fetchedTweets, setFetchedTweets] = useState([]);
+   const [newTweet, setNewTweet] = useState(null);
+
    useEffect(() => {
       const fetchTweets = async () => {
          const response = await fetch('http://localhost:3001/tweets');
@@ -20,13 +23,13 @@ export default function Home() {
          setFetchedTweets(tweets);
       };
       fetchTweets();
-   }, []);
+   }, [newTweet]);
 
    return (
       <div>
          <Header />
          <Searchbar />
-         <CreateTweet />
+         <CreateTweet newTweet={newTweet} setNewTweet={setNewTweet} />
          <RegisterLoginDialogue />
          <ViewTweet
             fetchedTweets={fetchedTweets}
