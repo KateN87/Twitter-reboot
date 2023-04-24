@@ -8,7 +8,9 @@ import { useSelector } from 'react-redux';
 
 export default function Home() {
    const [fetchedTweets, setFetchedTweets] = useState([]);
-   const checkUser = JSON.parse(localStorage.getItem("user"));
+   const [newTweet, setNewTweet] = useState(null);
+   const user = JSON.parse(localStorage.getItem("user"));
+   // Lägg till isloading för att vänta på user
 
    useEffect(() => {
       const fetchTweets = async () => {
@@ -23,13 +25,12 @@ export default function Home() {
          setFetchedTweets(tweets);
       };
       fetchTweets();
-   }, []);
-
+   }, [newTweet]);
    return (
       <div>
          <Header />
          <Searchbar />
-         {checkUser && (<CreateTweet />)}
+         {user && (<CreateTweet newTweet={newTweet} setNewTweet={setNewTweet} />)}
          <RegisterLoginDialogue />
          <ViewTweet
             fetchedTweets={fetchedTweets}
@@ -38,3 +39,5 @@ export default function Home() {
       </div>
    );
 }
+
+
