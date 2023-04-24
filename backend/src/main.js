@@ -39,7 +39,7 @@ app.get('/tweets', (req, res) => {
 });
 
 app.get('/tweets/:username', (req, res) => {
-   const poster= req.params.username;
+   const poster = req.params.username;
    //const username = "@" + poster;
    const username = poster
    let newTweets = []
