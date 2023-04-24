@@ -40,8 +40,8 @@ router.get('/followtweet', (req, res) => {
     const following = req.user.following;
     const tweetList = [];
     try {
-        following.forEach((user) =>
-            tweetList.push(tweets.filter((tweet) => tweet.username === user))
+        tweetList.push(
+            ...tweets.filter((tweet) => following.includes(tweet.username))
         );
 
         res.status(200).send(tweetList);
