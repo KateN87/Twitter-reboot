@@ -8,6 +8,8 @@ import { useSelector } from 'react-redux';
 
 export default function Home() {
    const [fetchedTweets, setFetchedTweets] = useState([]);
+   const checkUser = JSON.parse(localStorage.getItem("user"));
+
    useEffect(() => {
       const fetchTweets = async () => {
          const response = await fetch('http://localhost:3001/tweets');
@@ -27,7 +29,7 @@ export default function Home() {
       <div>
          <Header />
          <Searchbar />
-         <CreateTweet />
+         {checkUser && (<CreateTweet />)}
          <RegisterLoginDialogue />
          <ViewTweet
             fetchedTweets={fetchedTweets}

@@ -8,9 +8,7 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
       event.preventDefault();
 
       const textInput = event.target.tweet.value;
-
       const checkUser = JSON.parse(localStorage.getItem("user"));
-      console.log('username: ', checkUser.username)
 
       if (!checkUser) {
          console.log("User not authenticated");
