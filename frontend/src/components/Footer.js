@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { HiDotsHorizontal } from 'react-icons/hi';
 
 import '../footer.css';
@@ -9,11 +9,13 @@ const Footer = () => {
     const user = useSelector((state) => state.userReducer.user);
     const [active, setActive] = useState(false);
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const handleLogout = () => {
         setActive(false);
         localStorage.removeItem('user');
         dispatch({ type: 'LOGOUT_USER', payload: null });
+        navigate('/');
     };
     return (
         <footer>
@@ -41,6 +43,7 @@ const Footer = () => {
                     <HiDotsHorizontal className='threedots' />
                 </div>
             )}
+
             {active && (
                 <div className='logout-box'>
                     <h1>Log out {user.nickname}?</h1>
