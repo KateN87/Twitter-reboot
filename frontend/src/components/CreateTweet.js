@@ -9,6 +9,8 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
 
       const textInput = event.target.tweet.value;
       const checkUser = JSON.parse(localStorage.getItem("user"));
+      const wordsArray = textInput.split(/[\s\n]+/)
+      const foundHashtag = wordsArray.filter(word => word.startsWith('#'));
 
 
       if (!checkUser) {
@@ -19,7 +21,7 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
       const newTweetReq = {
          tweet: textInput,
          username: checkUser.username,
-         hashtags: "#thisIsAHashtag"
+         hashtags: foundHashtag
       };
 
       const options = {
@@ -38,6 +40,7 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
          }
          const newTweet = await response.json();
          setNewTweet(newTweet)
+         console.log(newTweet)
 
          dispatch({ type: 'SEND_TWEET', payload: newTweet });
       } catch (error) {

@@ -116,6 +116,131 @@
       "retweets": 0,
       "comments": [],
       "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:42:16.079Z",
+      "tweet": "split test",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:42:51.767Z",
+      "tweet": "split test2",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:44:28.613Z",
+      "tweet": "#split test3",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:46:47.250Z",
+      "tweet": "#split test4\n",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:47:29.243Z",
+      "tweet": "#split test4\n",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:47:52.231Z",
+      "tweet": "#split #test6\n",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": "#thisIsAHashtag"
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:48:52.570Z",
+      "tweet": "#split #test6\nhejjjj",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": [
+        "#split",
+        "#test6\nhejjjj"
+      ]
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:49:20.492Z",
+      "tweet": "#split #test hejhej",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": [
+        "#split",
+        "#test"
+      ]
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:49:57.448Z",
+      "tweet": "#split #test \nhejhej",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": [
+        "#split",
+        "#test"
+      ]
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:50:09.425Z",
+      "tweet": "#split #test\nhejhej",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": [
+        "#split",
+        "#test\nhejhej"
+      ]
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:50:50.928Z",
+      "tweet": "#split #test\nhejhej12123",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
+    },
+    {
+      "username": "@Matilda",
+      "timestamp": "2023-04-25T13:54:03.213Z",
+      "tweet": "okej nu testar vi igen #test1 #test2\ntest3 #test4\n#test5",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": [
+        "#test1",
+        "#test2",
+        "#test4",
+        "#test5"
+      ]
     }
   ]
 }
