@@ -101,14 +101,15 @@
 	text-align: center;
 	display: block;
 	width: 100%;
+	max-width: 200px;
 }
 
 .tweet-form {
 	display: flex;
 	flex-direction: column;
 	max-width: 400px;
-	margin-right: 10em;
-	margin: auto;
+	
+	
 	position: relative;
 }
 
