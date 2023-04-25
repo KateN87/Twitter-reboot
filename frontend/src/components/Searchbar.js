@@ -6,6 +6,7 @@ export const Searchbar = () => {
                 placeholder='Sök på twitter'
                 id='searchbar'
             ></input>
+            <div id='tabs'></div>
         </form>
     );
 };
