@@ -6,15 +6,23 @@
 	--error: rgb(197, 51, 51);
 }
 
-.App-logo {
-	height: 40vmin;
-	pointer-events: none;
+:root {
+	background-color: #2B303A;
+	color: #F7F7F2;
+	font-family: 'canada-type-gibson', sans-serif;
+    font-weight: 200;
+    font-style: normal;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-	.App-logo {
-		animation: App-logo-spin infinite 20s linear;
-	}
+.link {
+	text-decoration: none;
+	color: #F7F7F2;
+	font-weight: 400;
+}
+
+.body {
+	background-color: #2B303A;
+	color: #F7F7F2;
 }
 
 .App-header {
@@ -38,7 +46,6 @@
 	justify-content: center;
 	align-items: center;
 	height: 100vh;
-	background-color: #f8f8f8;
 }
 
 .signup-container {
@@ -52,7 +59,6 @@
 	padding: 40px;
 	border: 1px solid #ddd;
 	border-radius: 8px;
-	background-color: #fff;
 }
 
 .login-form h1 {

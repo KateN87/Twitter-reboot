@@ -7,7 +7,7 @@ import { IoMdCalendar } from 'react-icons/io';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
 
-export default function ProfileInformation() {
+export default function ProfileInformation({id, setId}) {
     const [profile, setProfile] = useState({
         avatar: '',
         nickname: '',
@@ -21,25 +21,12 @@ export default function ProfileInformation() {
     });
 
     useEffect(() => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
 
-        const fetchData = async () => {
-            if (checkUser) {
-                try {
-                    const response = await fetch(
-                        'http://localhost:3001/locked/test',
-                        {
-                            headers: {
-                                Authorization: `Bearer ${checkUser.token}`,
-                                'Content-Type': 'application/json',
-                            },
-                        }
-                    );
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        setProfile({
-                            avatar: data.avatar,
+        const fetchProfile = async () => {
+          const response = await fetch('http://localhost:3001/users/' + id)
+          const data = await response.json()
+            setProfile({
+              avatar: data.avatar,
                             nickname: data.nickname,
                             username: data.username,
                             about: data.about,
@@ -48,12 +35,10 @@ export default function ProfileInformation() {
                             hometown: data.hometown,
                             website: data.website,
                             joined: data.joined,
-                        });
-                    }
-                } catch (error) {}
-            }
-        };
-        fetchData();
+            })
+
+        }
+        fetchProfile()
     }, []);
 
     //

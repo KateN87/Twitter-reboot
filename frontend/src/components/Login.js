@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import '../App.css'
 
 export default function Login() {
     const [username, setUsername] = useState('');
@@ -77,8 +78,9 @@ export default function Login() {
                         )}
                         <br />
                         <button type='submit'>Next</button>
-                        <Link to='/signup'>
-                            Inte medlem? Skapa ett konto här!
+                        <p>Don't have an account?</p>
+                        <Link className="link" to='/signup'>
+                            <p>Sign Up Now</p>
                         </Link>
                     </form>
                 );
@@ -103,8 +105,9 @@ export default function Login() {
                         <button type='submit' onClick={handleReturn}>
                             Return
                         </button>
-                        <Link to='/signup'>
-                            Inte medlem? Skapa ett konto här!
+                        <p>Don't have an account?</p>
+                        <Link className='link' to='/signup'>
+                            Sign Up Now
                         </Link>
                     </form>
                 );

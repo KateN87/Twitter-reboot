@@ -6,7 +6,7 @@ import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
 import { useSelector } from 'react-redux';
 
-export default function Home() {
+export default function Home({setId,id}) {
    const [fetchedTweets, setFetchedTweets] = useState([]);
    const [newTweet, setNewTweet] = useState(null);
    const user = JSON.parse(localStorage.getItem("user"));
@@ -35,6 +35,8 @@ export default function Home() {
          <ViewTweet
             fetchedTweets={fetchedTweets}
             setFetchedTweets={setFetchedTweets}
+            setId={setId}
+            id={id}
          />
       </div>
    );
