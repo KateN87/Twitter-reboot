@@ -1,11 +1,12 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 import { formatDistanceToNow } from "date-fns";
 
 import "../view.css";
 import { useSelector } from "react-redux";
 
-export const ViewTweet = ({ fetchedTweets }) => {
+export const ViewTweet = ({ fetchedTweets, id, setId}) => {
+    const navigate = useNavigate()
    const returntimestamp = (tweet) => {
       let timestamp = formatDistanceToNow(new Date(tweet.timestamp));
       let time = timestamp.split(" ");
@@ -29,12 +30,25 @@ export const ViewTweet = ({ fetchedTweets }) => {
       }
    };
 
+   const goToProfile = (tweet) => {
+    const username = tweet.username
+    const fetchId = async () => {
+        const response = await fetch('http://localhost:3001/' + username)
+        const user = await response.json()
+        const foundId = user.id
+        setId(foundId)
+        navigate('/profile/' + foundId)
+    }
+    fetchId()
+    
+   }
+
    return (
       <div id='tweet-big-container'>
          <ul id='viewtweet'>
             {fetchedTweets.map((tweet, index) => (
                <li className='tweet-container' key={index}>
-                  <p className='tweetp'>
+                  <p className='tweetp' onClick={() => goToProfile(tweet)} >
                      {tweet.username} <span id='time'>{returntimestamp(tweet)}</span>
                   </p>
                   <p className='tweetp'>{tweet.tweet}</p>

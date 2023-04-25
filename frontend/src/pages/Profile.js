@@ -3,11 +3,12 @@ import { default as ProfileInformation } from "../components/ProfileInformation.
 import { OwnTweets } from "../components/OwnTweets";
 
 
-export default function Profile() {
+export default function Profile({id, setId}) {
+
    return (
       <div className=' container'>
-         <OwnTweets></OwnTweets>
-         <ProfileInformation />
+         <OwnTweets id={id}></OwnTweets>
+         <ProfileInformation id={id} setId={setId} />
       </div>
    );
 }
