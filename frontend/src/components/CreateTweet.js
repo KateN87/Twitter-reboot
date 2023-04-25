@@ -37,6 +37,7 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
          const response = await fetch('http://localhost:3001/locked/tweets', options);
          if (!response.ok) {
             throw new Error('Failed to send tweet');
+            // Do something here (show on webpage)
          }
          const newTweet = await response.json();
          setNewTweet(newTweet)
@@ -63,6 +64,3 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
       </div>
    )
 }
-
-
-// Data listad även i frontend ifall databas kraschar, man ska fortf kunna se informationen

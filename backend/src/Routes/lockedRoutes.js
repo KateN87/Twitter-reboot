@@ -13,11 +13,14 @@ router.get('/test', (req, res) => {
 
 // POST skapa ny tweet
 router.post('/tweets', async (req, res) => {
-   //TODO 
-
-   // Kolla att det inte är en tom sträng
    const { username, tweet, hashtags } = req.body;
    const date = new Date();
+
+   // Validate tweet
+   if (!tweet || tweet.length > 140) {
+      res.status(400).send("Tweet cannot be empty or more than 140 characters");
+      return;
+   }
 
    const newTweet = {
       username,
