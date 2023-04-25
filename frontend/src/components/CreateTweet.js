@@ -10,6 +10,7 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
       const textInput = event.target.tweet.value;
       const checkUser = JSON.parse(localStorage.getItem("user"));
 
+
       if (!checkUser) {
          console.log("User not authenticated");
          return;
@@ -17,7 +18,8 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
 
       const newTweetReq = {
          tweet: textInput,
-         username: checkUser.username
+         username: checkUser.username,
+         hashtags: "#thisIsAHashtag"
       };
 
       const options = {
@@ -45,7 +47,6 @@ export default function CreateTweet({ newTweet, setNewTweet }) {
 
    return (
       <div className="tweet-component">
-         <h2>Tweet something here</h2>
          <form onSubmit={submitTweet} className="tweet-form" action="">
             <textarea
                id="tweet"
