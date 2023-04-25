@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Link, useNavigate } from 'react-router-dom';
 import { HiDotsHorizontal } from 'react-icons/hi';
 
-import '../footer.css';
 import { useState } from 'react';
 
 const Footer = () => {
