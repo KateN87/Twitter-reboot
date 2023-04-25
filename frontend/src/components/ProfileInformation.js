@@ -7,6 +7,15 @@ import { IoMdCalendar } from 'react-icons/io';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
 
+export const Button = ({ownProfile}) => {
+  switch(ownProfile){
+    case false:
+      return <button>Follow</button>;
+      default:
+        return <button>Redigera profil</button>
+  }
+}
+
 export default function ProfileInformation({id, setId}) {
     const [profile, setProfile] = useState({
         avatar: '',
@@ -19,6 +28,8 @@ export default function ProfileInformation({id, setId}) {
         website: '',
         joined: '',
     });
+
+    const[ownProfile, setOwnProfile] = useState(false)
 
     useEffect(() => {
 
@@ -36,7 +47,11 @@ export default function ProfileInformation({id, setId}) {
                             website: data.website,
                             joined: data.joined,
             })
-
+            const checkUser = JSON.parse(localStorage.getItem('user'));
+            const loggedinId= checkUser.id
+            if(loggedinId === data.id){
+              setOwnProfile(true)
+            }
         }
         fetchProfile()
     }, []);
@@ -84,7 +99,7 @@ export default function ProfileInformation({id, setId}) {
                 <IoMdCalendar className='icon' />
                 <p className='joined'>{profile.joined}</p>
             </div>
-            <button type='submit'>Follow</button>
+            <Button ownProfile={ownProfile}></Button>
         </div>
     );
 }

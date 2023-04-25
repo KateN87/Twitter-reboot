@@ -241,6 +241,15 @@
         "#test4",
         "#test5"
       ]
+    },
+    {
+      "username": "@Lovisa",
+      "timestamp": "2023-04-25T16:08:38.103Z",
+      "tweet": "Hallå där",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
     }
   ]
 }
