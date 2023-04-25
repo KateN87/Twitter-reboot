@@ -50,7 +50,7 @@ export default function ProfileInformation() {
                             joined: data.joined,
                         });
                     }
-                } catch (error) {}
+                } catch (error) { }
             }
         };
         fetchData();
