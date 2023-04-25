@@ -1,14 +1,16 @@
 import { Header } from '../components/Header';
 import { ViewTweet } from '../components/ViewTweets';
 import { useState, useEffect } from 'react';
-import { Searchbar } from '../icons/Searchbar';
+import { Searchbar } from '../components/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
 import { useSelector } from 'react-redux';
 
-export default function Home() {
+export default function Home({ setId, id }) {
     const [fetchedTweets, setFetchedTweets] = useState([]);
-    const checkUser = JSON.parse(localStorage.getItem('user'));
+    const [newTweet, setNewTweet] = useState(null);
+    const user = JSON.parse(localStorage.getItem('user'));
+    // Lägg till isloading för att vänta på user
 
     useEffect(() => {
         const fetchTweets = async () => {
@@ -28,21 +30,23 @@ export default function Home() {
                 var d = new Date(b.timestamp);
                 return d - c;
             });
-            console.log(tweets);
             setFetchedTweets(tweets);
         };
         fetchTweets();
-    }, []);
-
+    }, [newTweet]);
     return (
         <div>
             <Header />
             <Searchbar />
-            {checkUser && <CreateTweet />}
+            {user && (
+                <CreateTweet newTweet={newTweet} setNewTweet={setNewTweet} />
+            )}
             <RegisterLoginDialogue />
             <ViewTweet
                 fetchedTweets={fetchedTweets}
                 setFetchedTweets={setFetchedTweets}
+                setId={setId}
+                id={id}
             />
         </div>
     );

@@ -15,6 +15,7 @@ function App() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer.user);
     const [isLoading, setIsLoading] = useState(true);
+    const [id, setId] = useState(0)
 
     useEffect(() => {
         const checkUser = JSON.parse(localStorage.getItem('user'));
@@ -52,10 +53,10 @@ function App() {
         <div className='App'>
             <Header />
             <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<Home setId={setId} id={id} />} />
                 <Route
-                    path='/profile'
-                    element={user ? <Profile /> : <Navigate to='/' />}
+                    path='/profile/:id'
+                    element={user ? <Profile id={id} setId={setId}/> : <Navigate to='/' />}
                 />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />

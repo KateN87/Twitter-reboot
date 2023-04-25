@@ -53,4 +53,28 @@ app.get('/tweets/:username', (req, res) => {
    res.send(newTweets)
 })
 
+app.get('/users/:id', (req, res) => {
+   const id = +req.params.id 
+   const i = users.findIndex((i) => i.id === id)
+   if(i >= 0){
+      res.status(200).send(users[i])  
+    } else{
+        res.status(400).send("User not found");
+    }
+})
+
+app.get('/:username', (req, res) => {
+   const username = req.params.username;
+   console.log(username)
+   let user = {};
+   for(let i = 0; i < users.length; i++){
+      const dbUsername = users[i].username
+      if(dbUsername === username){
+         user = users[i]
+         //user.push(users[i])
+      }
+   }
+   res.status(200).send(user)
+})
+
 export { app };
