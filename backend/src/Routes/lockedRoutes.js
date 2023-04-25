@@ -1,7 +1,7 @@
 import express from 'express';
 
 import requireAuth from '../middleware/authorization.js';
-import { db, users, tweets } from '../database.js';
+import { db, users, tweets, allHashtags } from '../database.js';
 
 const router = express.Router();
 
@@ -13,11 +13,9 @@ router.get('/test', (req, res) => {
 
 // POST skapa ny tweet
 router.post('/tweets', async (req, res) => {
-   console.log('req user: ', req.user)
-
    //TODO 
-   // Kolla att det inte är en tom sträng
 
+   // Kolla att det inte är en tom sträng
    const { username, tweet, hashtags } = req.body;
    const date = new Date();
 
@@ -32,8 +30,10 @@ router.post('/tweets', async (req, res) => {
    };
 
    tweets.push(newTweet);
+   allHashtags.push(...hashtags)
 
    await db.write();
+   console.log('allHasttags: ', allHashtags)
    res.status(200).send(newTweet);
 });
 

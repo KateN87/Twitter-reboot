@@ -13,5 +13,6 @@ await db.read();
 const data = db.data;
 const users = db.data.users;
 const tweets = db.data.tweets
+const allHashtags = db.data.allHashtags;
 
-export { db, users, tweets };
+export { db, users, tweets, allHashtags };
