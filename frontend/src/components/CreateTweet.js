@@ -40,7 +40,6 @@ export default function CreateTweet() {
                 throw new Error('Failed to send tweet');
             }
             const newTweet = await response.json();
-            /* setNewTweet(newTweet) */
             console.log(newTweet);
 
             dispatch({ type: 'SEND_TWEET', payload: newTweet });
