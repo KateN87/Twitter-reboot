@@ -1,6 +1,7 @@
 import logo from '../icons/twitter-logo-.png';
 import hashtag from '../icons/hashtagtwitter.png';
 import { useSelector } from 'react-redux';
+import '../styles/Header.css';
 
 export const Header = () => {
     const user = useSelector((state) => state.userReducer.user);

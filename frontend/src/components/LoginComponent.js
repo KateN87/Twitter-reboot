@@ -2,9 +2,8 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import '../App.css'
 
-export default function Login() {
+export default function LoginComponent() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [currentField, setCurrentField] = useState('username');
@@ -79,7 +78,7 @@ export default function Login() {
                         <br />
                         <button type='submit'>Next</button>
                         <p>Don't have an account?</p>
-                        <Link className="link" to='/signup'>
+                        <Link className='link' to='/signup'>
                             <p>Sign Up Now</p>
                         </Link>
                     </form>

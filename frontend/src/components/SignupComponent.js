@@ -5,7 +5,7 @@ import { Link, useNavigate } from 'react-router-dom';
 //TODO
 //1. Logga in användaren efter ok response
 
-const Signup = () => {
+const SignupComponent = () => {
     const [error, setError] = useState(null);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -114,4 +114,4 @@ const Signup = () => {
     );
 };
 
-export default Signup;
+export default SignupComponent;
