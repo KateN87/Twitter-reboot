@@ -18,7 +18,7 @@ router.post('/tweets', async (req, res) => {
    //TODO 
    // Kolla att det inte är en tom sträng
 
-   const { username, tweet } = req.body;
+   const { username, tweet, hashtags } = req.body;
    const date = new Date();
 
    const newTweet = {
@@ -28,6 +28,7 @@ router.post('/tweets', async (req, res) => {
       likes: 0,
       retweets: 0,
       comments: [],
+      hashtags
    };
 
    tweets.push(newTweet);
