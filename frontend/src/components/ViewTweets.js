@@ -4,6 +4,8 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
 import { useDispatch, useSelector } from 'react-redux';
 
+import '../styles/ViewTweets.css';
+
 export const ViewTweet = ({ id, setId }) => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
@@ -59,7 +61,7 @@ export const ViewTweet = ({ id, setId }) => {
 
     const ShowTweets = () => {};
 
-    return (
+    /* return (
         <div className='main-tweet-container'>
             <div className='header-container'>
                 <HeaderComponent view='FOR YOU' />
@@ -68,30 +70,26 @@ export const ViewTweet = ({ id, setId }) => {
             </div>
             <ShowTweets view={view}></ShowTweets>
         </div>
+    ); */
+    return (
+        <div className='tweet-big-container'>
+            <ul id='viewtweet'>
+                {tweetsList.map((tweet, index) => (
+                    <li className='tweet-container' key={index}>
+                        <p
+                            className='tweetp'
+                            onClick={() => goToProfile(tweet)}
+                        >
+                            {tweet.username}{' '}
+                            <span id='time'>{returntimestamp(tweet)}</span>
+                        </p>
+                        <p className='tweetp'>{tweet.tweet}</p>
+                        <ul id='tweetfeatures'>
+                            <li></li>
+                        </ul>
+                    </li>
+                ))}
+            </ul>
+        </div>
     );
 };
-
-{
-    /* <div id='tweet-big-container'> */
-}
-{
-    /*  <ul id='viewtweet'>
-                    {tweetsList.map((tweet, index) => (
-                        <li className='tweet-container' key={index}>
-                            <p
-                                className='tweetp'
-                                onClick={() => goToProfile(tweet)}
-                            >
-                                {tweet.username}{' '}
-                                <span id='time'>{returntimestamp(tweet)}</span>
-                            </p>
-                            <p className='tweetp'>{tweet.tweet}</p>
-                            <ul id='tweetfeatures'>
-                                <li></li>
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        </div> */
-}
