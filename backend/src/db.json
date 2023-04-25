@@ -98,6 +98,15 @@
          "likes": 0,
          "retweets": 0,
          "comments": []
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T10:14:48.546Z",
+         "tweet": "hashtag test2\n",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": "#thisIsAHashtag"
       }
    ]
 }
