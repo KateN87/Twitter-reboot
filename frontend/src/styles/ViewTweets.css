@@ -2,3 +2,22 @@
     height: 100vh;
     overflow-y: scroll;
 }
+
+.nav-container {
+    display: inline-flex;
+    width: 200px;
+    margin: 0 auto;
+    height: 60px;
+}
+
+.nav-link {
+    width: 150px;
+    background-color: var(--background);
+    color: var(--color);
+    border: none;
+    cursor: pointer;
+}
+
+.active {
+    text-decoration: underline 2px var(--error);
+}

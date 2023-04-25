@@ -14,6 +14,45 @@ export const ViewTweet = ({ id, setId }) => {
     const tweetsList = useSelector((state) => state.tweetReducer);
     /* const [tweets, setTweets] = useState([]); */
 
+    const HeaderComponent = (props) => {
+        console.log(props.view);
+        return (
+            <button
+                className={`nav-link ${view === props.view ? 'active' : ''}`}
+                onClick={() => setView(props.view)}
+            >
+                {props.view}
+            </button>
+        );
+    };
+    if (tweetsList.length === 0) {
+        return <div>Loading...</div>;
+    }
+
+    const ShowTweets = () => {
+        return (
+            <div className='tweet-big-container'>
+                <ul id='viewtweet'>
+                    {tweetsList.map((tweet, index) => (
+                        <li className='tweet-container' key={index}>
+                            <p
+                                className='tweetp'
+                                onClick={() => goToProfile(tweet)}
+                            >
+                                {tweet.username}{' '}
+                                <span id='time'>{returntimestamp(tweet)}</span>
+                            </p>
+                            <p className='tweetp'>{tweet.tweet}</p>
+                            <ul id='tweetfeatures'>
+                                <li></li>
+                            </ul>
+                        </li>
+                    ))}
+                </ul>
+            </div>
+        );
+    };
+
     const goToProfile = (tweet) => {
         const username = tweet.username;
         const fetchId = async () => {
@@ -26,25 +65,7 @@ export const ViewTweet = ({ id, setId }) => {
         fetchId();
     };
 
-    /* const viewComponent = (props) => { */
-    /* return (
-            <li className='nav-item' key={props.season}>
-                <button
-                    className={`nav-link ${
-                        season === props.season ? 'active' : ''
-                    }`}
-                    onClick={() => setSeason(props.season)}
-                >
-                    {props.season}
-                </button>
-            </li>
-        );
-    }; */
-    if (tweetsList.length === 0) {
-        return <div>Loading...</div>;
-    }
-
-    const HeaderComponent = (props) => {
+    /*     const HeaderComponent = (props) => {
         return (
             <li className='nav-item' key={view}>
                 <button
@@ -57,39 +78,15 @@ export const ViewTweet = ({ id, setId }) => {
                 </button>
             </li>
         );
-    };
+    }; */
 
-    const ShowTweets = () => {};
-
-    /* return (
+    return (
         <div className='main-tweet-container'>
-            <div className='header-container'>
+            <div className='nav-container'>
                 <HeaderComponent view='FOR YOU' />
                 <HeaderComponent view='TRENDING' />
-                <HeaderComponent view='MY TWEETS' />
             </div>
-            <ShowTweets view={view}></ShowTweets>
-        </div>
-    ); */
-    return (
-        <div className='tweet-big-container'>
-            <ul id='viewtweet'>
-                {tweetsList.map((tweet, index) => (
-                    <li className='tweet-container' key={index}>
-                        <p
-                            className='tweetp'
-                            onClick={() => goToProfile(tweet)}
-                        >
-                            {tweet.username}{' '}
-                            <span id='time'>{returntimestamp(tweet)}</span>
-                        </p>
-                        <p className='tweetp'>{tweet.tweet}</p>
-                        <ul id='tweetfeatures'>
-                            <li></li>
-                        </ul>
-                    </li>
-                ))}
-            </ul>
+            <ShowTweets tweetsList={tweetsList}></ShowTweets>
         </div>
     );
 };
