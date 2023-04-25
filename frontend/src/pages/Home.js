@@ -1,7 +1,7 @@
 import { Header } from '../components/Header';
 import { ViewTweet } from '../components/ViewTweets';
 import { useState, useEffect } from 'react';
-import { Searchbar } from '../icons/Searchbar';
+import { Searchbar } from '../components/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
 import { useSelector } from 'react-redux';
