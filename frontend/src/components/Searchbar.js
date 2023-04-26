@@ -43,6 +43,7 @@ export const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
             placeholder='Sök på twitter'
             id='searchbar'
          ></input>
+
          <button>Sök</button>
 
       </form>

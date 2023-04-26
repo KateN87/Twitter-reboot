@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { Link, Navigate, useNavigate } from 'react-router-dom';
-import { formatDistanceToNow } from 'date-fns';
+import { formatDistanceToNow, set } from 'date-fns';
 
 import { useSelector } from 'react-redux';
 
-export const ViewTweet = ({ fetchedTweets, id, setId }) => {
+export const ViewTweet = ({ setFetchedTweets, fetchedTweets, id, setId }) => {
    const navigate = useNavigate();
    const returntimestamp = (tweet) => {
       let timestamp = formatDistanceToNow(new Date(tweet.timestamp));
