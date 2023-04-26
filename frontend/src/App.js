@@ -12,66 +12,66 @@ import { Header } from './components/Header';
 import Footer from './components/Footer';
 
 function App() {
-    const dispatch = useDispatch();
-    const user = useSelector((state) => state.userReducer.user);
-    const [isLoading, setIsLoading] = useState(true);
-    const [id, setId] = useState(0);
+   const dispatch = useDispatch();
+   const user = useSelector((state) => state.userReducer.user);
+   const [isLoading, setIsLoading] = useState(true);
+   const [id, setId] = useState(0);
 
-    useEffect(() => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
+   useEffect(() => {
+      const checkUser = JSON.parse(localStorage.getItem('user'));
 
-        if (checkUser) {
-            const checkJwt = async () => {
-                const response = await fetch(
-                    'http://localhost:3001/locked/test',
-                    {
-                        headers: {
-                            Authorization: `Bearer ${checkUser.token}`,
-                            'Content-Type': 'application/json',
-                        },
-                    }
-                );
+      if (checkUser) {
+         const checkJwt = async () => {
+            const response = await fetch(
+               'http://localhost:3001/locked/test',
+               {
+                  headers: {
+                     Authorization: `Bearer ${checkUser.token}`,
+                     'Content-Type': 'application/json',
+                  },
+               }
+            );
 
-                if (response.ok) {
-                    const loggedUser = await response.json();
+            if (response.ok) {
+               const loggedUser = await response.json();
 
-                    dispatch({ type: 'LOGIN_USER', payload: loggedUser });
-                }
-                setIsLoading(false);
-            };
-            checkJwt();
-        } else {
+               dispatch({ type: 'LOGIN_USER', payload: loggedUser });
+            }
             setIsLoading(false);
-        }
-    }, []);
+         };
+         checkJwt();
+      } else {
+         setIsLoading(false);
+      }
+   }, []);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
+   if (isLoading) {
+      return <div>Loading...</div>;
+   }
 
-    return (
-        <div className='App'>
-            <div className='left-main-container'>
-                <Header />
-            </div>
-            <Routes>
-                <Route path='/' element={<Home setId={setId} id={id} />} />
-                <Route
-                    path='/profile/:id'
-                    element={
-                        user ? (
-                            <Profile id={id} setId={setId} />
-                        ) : (
-                            <Navigate to='/' />
-                        )
-                    }
-                />
-                <Route path='/login' element={<Login />} />
-                <Route path='/signup' element={<Signup />} />
-            </Routes>
-            {/* <Footer /> */}
-        </div>
-    );
+   return (
+      <div className='App'>
+         <div className='left-main-container'>
+            <Header />
+         </div>
+         <Routes>
+            <Route path='/' element={<Home setId={setId} id={id} />} />
+            <Route
+               path='/profile/:id'
+               element={
+                  user ? (
+                     <Profile id={id} setId={setId} />
+                  ) : (
+                     <Navigate to='/' />
+                  )
+               }
+            />
+            <Route path='/login' element={<Login />} />
+            <Route path='/signup' element={<Signup />} />
+         </Routes>
+         {/* <Footer /> */}
+      </div>
+   );
 }
 
 export default App;

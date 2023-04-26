@@ -1,7 +1,9 @@
+import { set } from "date-fns";
 import { useEffect, useState } from "react";
 
-export const Searchbar = () => {
+export const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
    const [matchingHashtags, setMatchingHashtags] = useState([])
+   const [matchingTweets, setMatchingTweets] = useState([])
    const [searchInput, setSearchInput] = useState('');
 
    useEffect(() => {
@@ -19,9 +21,16 @@ export const Searchbar = () => {
       // Filter the hashtags based on the searchInput value
       const filteredHashtags = matchingHashtags.filter(hashtag => hashtag.includes(event.target.value));
       setMatchingHashtags(filteredHashtags)
-      console.log('filtered hashtags: ', filteredHashtags)
-   }
 
+      // Filter the tweets based on the matching hashtags
+      const filteredTweets = fetchedTweets.filter(tweet => tweet.hashtags.some(h => filteredHashtags.includes(h)));
+      setMatchingTweets(filteredTweets)
+
+      setFetchedTweets(matchingTweets)
+
+      console.log('matching hashtags: ', filteredHashtags)
+      console.log('matching tweets: ', filteredTweets)
+   }
 
    return (
       // TODO
@@ -39,3 +48,4 @@ export const Searchbar = () => {
       </form>
    );
 };
+
