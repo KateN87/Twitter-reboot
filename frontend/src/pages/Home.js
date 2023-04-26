@@ -1,4 +1,5 @@
 import { Header } from '../components/Header';
+import Footer from '../components/Footer'
 import { ViewTweet } from '../components/ViewTweets';
 import { useState, useEffect } from 'react';
 import { Searchbar } from '../components/Searchbar';
@@ -48,6 +49,7 @@ export default function Home({ setId, id }) {
          <div className='right-main-container'>
             <RegisterLoginDialogue />
          </div>
+         <Footer />
       </>
    );
 }
