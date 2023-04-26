@@ -84,22 +84,20 @@
          "comments": []
       },
       {
-         "username": "@Matilda",
-         "timestamp": "2023-04-25T17:18:16.176Z",
-         "tweet": "det funkade jag testar igen #test #igen #ochigen",
+         "username": "@Lovisa",
+         "timestamp": "Wed Apr 19 2023 11:15:09",
+         "tweet": "Funkar detta?",
          "likes": 0,
          "retweets": 0,
-         "comments": [],
-         "hashtags": [
-            "#test",
-            "#igen",
-            "#ochigen"
-         ]
+         "comments": []
+      },
+      {
+         "username": "@Aylin",
+         "timestamp": "Fri Apr 21 2023 11:21:00",
+         "tweet": "Testar lite",
+         "likes": 0,
+         "retweets": 0,
+         "comments": []
       }
-   ],
-   "allHashtags": [
-      "#test",
-      "#igen",
-      "#ochigen"
    ]
 }
