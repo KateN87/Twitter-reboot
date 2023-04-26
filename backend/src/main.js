@@ -25,6 +25,8 @@ app.use('/locked', lockedRoutes);
 
 //Routes
 
+let lastId
+
 app.get('/users', (req, res) => {
    res.send(db.data.users);
 });
@@ -61,6 +63,8 @@ app.get('/users/:id', (req, res) => {
    const i = users.findIndex((i) => i.id === id)
    if (i >= 0) {
       res.status(200).send(users[i])
+   } else if (id === 0 || id === undefined) {
+      res.status(200).send(users[lastId - 1])
    } else {
       res.status(400).send("User not found");
    }
@@ -68,14 +72,15 @@ app.get('/users/:id', (req, res) => {
 
 app.get('/:username', (req, res) => {
    const username = req.params.username;
-   console.log(username)
    let user = {};
    for (let i = 0; i < users.length; i++) {
       const dbUsername = users[i].username
       if (dbUsername === username) {
          user = users[i]
+         lastId = users[i].id
       }
    }
+
    res.status(200).send(user)
 })
 
