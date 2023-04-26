@@ -39,7 +39,8 @@
       "nickname": "TheLovisa",
       "about": "I am Lovisa",
       "following": [
-        "@Aylin"
+        "@Aylin",
+        "@Matilda"
       ],
       "followers": 0,
       "occupation": "Student",
@@ -56,7 +57,7 @@
       "nickname": "TheMatilda",
       "about": "I am Matilda",
       "following": [],
-      "followers": 0,
+      "followers": 1,
       "occupation": "Being Matilda",
       "hometown": "Matildatown",
       "website": "matilda.com",

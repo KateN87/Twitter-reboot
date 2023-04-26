@@ -6,6 +6,7 @@ import { IoMdPerson } from 'react-icons/io';
 import { IoMdCalendar } from 'react-icons/io';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
+import { useParams } from 'react-router-dom';
 
 export const Button = ({ownProfile, following, setFollowing, profile}) => {
 
@@ -59,8 +60,8 @@ export default function ProfileInformation({id, setId}) {
     });
 
     const[ownProfile, setOwnProfile] = useState(false)
-
     useEffect(() => {
+      
 
         const fetchProfile = async () => {
           const response = await fetch('http://localhost:3001/users/' + id)

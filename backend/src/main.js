@@ -25,6 +25,8 @@ app.use('/locked', lockedRoutes);
 
 //Routes
 
+let lastId 
+
 app.get('/users', (req, res) => {
    res.send(db.data.users);
 });
@@ -58,21 +60,24 @@ app.get('/users/:id', (req, res) => {
    const i = users.findIndex((i) => i.id === id)
    if(i >= 0){
       res.status(200).send(users[i])  
-    } else{
-        res.status(400).send("User not found");
+    } else if(id === 0 || id === undefined){
+        res.status(200).send(users[lastId-1])
+    } else {
+      res.status(400).send("User not found");
     }
 })
 
 app.get('/:username', (req, res) => {
    const username = req.params.username;
-   console.log(username)
    let user = {};
    for(let i = 0; i < users.length; i++){
       const dbUsername = users[i].username
       if(dbUsername === username){
          user = users[i]
+         lastId = users[i].id
       }
    }
+   
    res.status(200).send(user)
 })
 
@@ -82,7 +87,7 @@ app.post('/users/:id', async (req, res) =>{
     const username = "@" + req.body.username
     let following = users[i].following
     let found = following.includes(username)
-    
+
     if(i != undefined && !found ){
       let followlist = users[i].following
       followlist.push(username)
