@@ -5,8 +5,46 @@ import { IoMdPerson } from 'react-icons/io';
 import { IoMdCalendar } from 'react-icons/io';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
-import jwt from 'jsonwebtoken';
-export default function ProfileInformation({ user }) {
+
+export const Button = ({ ownProfile, following, setFollowing, profile }) => {
+
+    /*const followingFunction = async () => {
+  
+    }
+  
+    const handleChecker = () => {
+      setFollowing(!following)
+        followingFunction()
+    }*/
+
+    const followUser = async () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const id = user.id
+        const acc = profile.username
+        let username = acc.replace('@', "")
+        console.log(username)
+        const options = {
+            method: 'POST',
+            body: JSON.stringify({ username }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        const response = await fetch('http://localhost:3001/users/' + id, options)
+        if (response.status === 201) {
+            console.log("FOllowing!")
+        }
+    }
+
+    switch (ownProfile) {
+        case false:
+            return <button onClick={() => followUser()}>Follow</button>
+        default:
+            return <button>Redigera profil</button>
+    }
+}
+
+export default function ProfileInformation({ id, setId }) {
     const [profile, setProfile] = useState({
         avatar: '',
         nickname: '',
@@ -19,41 +57,32 @@ export default function ProfileInformation({ user }) {
         joined: '',
     });
 
+    const [ownProfile, setOwnProfile] = useState(false)
+
     useEffect(() => {
 
-        const checkUser = JSON.parse(localStorage.getItem('user'));
 
-        const fetchData = async () => {
-            if (checkUser) {
-                try {
-                    const response = await fetch(
-                        'http://localhost:3001/locked/test',
-                        {
-                            headers: {
-                                Authorization: `Bearer ${checkUser.token}`,
-                                'Content-Type': 'application/json',
-                            },
-                        }
-                    );
-
-                    if (response.ok) {
-                        const data = await response.json();
-                        setProfile({
-                            avatar: data.avatar,
-                            nickname: data.nickname,
-                            username: data.username,
-                            about: data.about,
-                            email: data.email,
-                            occupation: data.occupation,
-                            hometown: data.hometown,
-                            website: data.website,
-                            joined: data.joined,
-                        });
-                    }
-                } catch (error) { }
+        const fetchProfile = async () => {
+            const response = await fetch('http://localhost:3001/users/' + id)
+            const data = await response.json()
+            setProfile({
+                avatar: data.avatar,
+                nickname: data.nickname,
+                username: data.username,
+                about: data.about,
+                email: data.email,
+                occupation: data.occupation,
+                hometown: data.hometown,
+                website: data.website,
+                joined: data.joined,
+            })
+            const checkUser = JSON.parse(localStorage.getItem('user'));
+            const loggedinId = checkUser.id
+            if (loggedinId === data.id) {
+                setOwnProfile(true)
             }
-        };
-        fetchData();
+        }
+        fetchProfile()
     }, []);
     const [selectedUser, setSelectedUser] = useState(null);
     //
@@ -117,7 +146,7 @@ export default function ProfileInformation({ user }) {
                 <IoMdCalendar className='icon' />
                 <p className='joined'>{profile.joined}</p>
             </div>
-            <button type='submit'>Follow</button>
+            <Button ownProfile={ownProfile} profile={profile}></Button>
         </div>
     );
 }

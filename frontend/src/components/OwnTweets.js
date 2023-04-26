@@ -1,18 +1,20 @@
 import { useEffect, useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
 
-export const OwnTweets = () => {
+export const OwnTweets = ({id}) => {
     const [ownTweets, setOwnTweets] = useState([]);
 
     useEffect(() => {
-        let user = JSON.parse(localStorage.getItem('user'));
-        let username = user.username;
 
         const fetchOwnTweets = async () => {
-            const response = await fetch(
+            const response1 = await fetch('http://localhost:3001/users/' + id)
+            const user = await response1.json()
+            const username = user.username
+
+            const response2 = await fetch(
                 'http://localhost:3001/tweets/' + username
             );
-            const tweets = await response.json();
+            const tweets = await response2.json();
             tweets.sort(function (a, b) {
                 var c = new Date(a.timestamp);
                 var d = new Date(b.timestamp);
@@ -26,7 +28,6 @@ export const OwnTweets = () => {
     const returntimestamp = (tweet) => {
         let timestamp = formatDistanceToNow(new Date(tweet.timestamp));
         let time = timestamp.split(' ');
-        /* console.log(time); */
         if (time[0] === 'about') {
             let remove = time.indexOf('about');
             let firstremove = time.splice(remove, 1);

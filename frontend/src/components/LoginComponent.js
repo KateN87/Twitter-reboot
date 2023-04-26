@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
-export default function Login() {
+export default function LoginComponent() {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [currentField, setCurrentField] = useState('username');
@@ -77,8 +77,9 @@ export default function Login() {
                         )}
                         <br />
                         <button type='submit'>Next</button>
-                        <Link to='/signup'>
-                            Inte medlem? Skapa ett konto här!
+                        <p>Don't have an account?</p>
+                        <Link className='link' to='/signup'>
+                            <p>Sign Up Now</p>
                         </Link>
                     </form>
                 );
@@ -103,8 +104,9 @@ export default function Login() {
                         <button type='submit' onClick={handleReturn}>
                             Return
                         </button>
-                        <Link to='/signup'>
-                            Inte medlem? Skapa ett konto här!
+                        <p>Don't have an account?</p>
+                        <Link className='link' to='/signup'>
+                            Sign Up Now
                         </Link>
                     </form>
                 );

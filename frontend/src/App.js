@@ -1,4 +1,4 @@
-import './App.css';
+import './styles/App.css';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
@@ -6,8 +6,8 @@ import { useEffect, useState } from 'react';
 import Home from './pages/Home';
 import Profile from './pages/Profile';
 
-import Login from './components/Login';
-import Signup from './components/Signup';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import { Header } from './components/Header';
 import Footer from './components/Footer';
 
@@ -15,6 +15,7 @@ function App() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer.user);
     const [isLoading, setIsLoading] = useState(true);
+    const [id, setId] = useState(0);
 
     useEffect(() => {
         const checkUser = JSON.parse(localStorage.getItem('user'));
@@ -50,17 +51,25 @@ function App() {
 
     return (
         <div className='App'>
-            <Header />
+            <div className='left-main-container'>
+                <Header />
+            </div>
             <Routes>
-                <Route path='/' element={<Home />} />
+                <Route path='/' element={<Home setId={setId} id={id} />} />
                 <Route
-                    path='/profile'
-                    element={user ? <Profile /> : <Navigate to='/' />}
+                    path='/profile/:id'
+                    element={
+                        user ? (
+                            <Profile id={id} setId={setId} />
+                        ) : (
+                            <Navigate to='/' />
+                        )
+                    }
                 />
                 <Route path='/login' element={<Login />} />
                 <Route path='/signup' element={<Signup />} />
             </Routes>
-            <Footer />
+            {/* <Footer /> */}
         </div>
     );
 }
