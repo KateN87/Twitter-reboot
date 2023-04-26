@@ -1,13 +1,12 @@
 import { React, useState, useEffect } from 'react';
-
 import { IoMdPin } from 'react-icons/io';
 import { IoMdMail } from 'react-icons/io';
 import { IoMdPerson } from 'react-icons/io';
 import { IoMdCalendar } from 'react-icons/io';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
-
-export default function ProfileInformation() {
+import jwt from 'jsonwebtoken';
+export default function ProfileInformation({ user }) {
     const [profile, setProfile] = useState({
         avatar: '',
         nickname: '',
@@ -21,6 +20,7 @@ export default function ProfileInformation() {
     });
 
     useEffect(() => {
+
         const checkUser = JSON.parse(localStorage.getItem('user'));
 
         const fetchData = async () => {
@@ -55,8 +55,26 @@ export default function ProfileInformation() {
         };
         fetchData();
     }, []);
-
+    const [selectedUser, setSelectedUser] = useState(null);
     //
+    useEffect(() => {
+        const token = localStorage.getItem('token');
+        if (token) {
+            const decodedToken = jwt.verify(token, process.env.SECRET);
+            const userId = decodedToken.id;
+            fetch(`http://localhost:3001/users/${userId}`)
+                .then(response => response.json())
+                .then(data => setSelectedUser(data))
+                .catch(error => console.error(error));
+        }
+    }, []);
+
+    if (!selectedUser) {
+        return <p>Loading...</p>;
+    }
+
+
+
 
     return (
         <div className='profile'>
