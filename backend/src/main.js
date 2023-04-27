@@ -62,8 +62,6 @@ app.get('/users/:id', (req, res) => {
    const i = users.findIndex((i) => i.id === id)
    if (i >= 0) {
       res.status(200).send(users[i])
-   } else if (id === 0 || id === undefined) {
-      res.status(200).send(users[lastId - 1])
    } else {
       res.status(400).send("User not found");
    }
