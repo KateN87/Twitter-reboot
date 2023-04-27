@@ -87,6 +87,9 @@ export default function ProfileInformation({ id, setId }) {
                 <IoMdPerson className='icon' />
                 <p className='username'>{profile.username}</p>
             </div>
+            <div>
+              <p>Followers {profile.followers}</p>
+            </div>
 
             <div className='about-container'>
                 <p className='about'>{profile.about}</p>
