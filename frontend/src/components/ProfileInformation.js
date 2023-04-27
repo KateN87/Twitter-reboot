@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react';
-
 import { IoMdPin } from 'react-icons/io';
 import { IoMdMail } from 'react-icons/io';
 import { IoMdPerson } from 'react-icons/io';
@@ -65,7 +64,6 @@ export default function ProfileInformation({ id, setId, idparam }) {
       fetchProfile()
    }, []);
 
-   //
 
    return (
       <div className='profile'>
@@ -76,6 +74,9 @@ export default function ProfileInformation({ id, setId, idparam }) {
          <div className='icon-container'>
             <IoMdPerson className='icon' />
             <p className='username'>{profile.username}</p>
+         </div>
+         <div>
+            <p>Followers {profile.followers}</p>
          </div>
 
          <div className='about-container'>

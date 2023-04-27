@@ -1,55 +1,120 @@
-import { set } from "date-fns";
-import { useEffect, useState } from "react";
+import { useState } from 'react';
 
-export const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
-   const [matchingHashtags, setMatchingHashtags] = useState([])
-   const [matchingTweets, setMatchingTweets] = useState([])
-   const [searchInput, setSearchInput] = useState('');
+import { Link, Navigate, useNavigate } from 'react-router-dom';
 
-   useEffect(() => {
-      const fetchHashtags = async () => {
-         const response = await fetch('http://localhost:3001/hashtags')
-         const data = await response.json()
-         // Set all hashtags as matching hashtags initially
-         setMatchingHashtags(data)
+export const Searchbar = (setId, id) => {
+   const [users, setUsers] = useState([]);
+   const [selectedUser, setSelectedUser] = useState(null);
+   const [errorMessage, setErrorMessage] = useState(null);
+
+
+   const handleSubmit = async (event) => {
+      event.preventDefault();
+      const searchQuery = event.target.elements.searchbar.value;
+      const response = await fetch('http://localhost:3001/users');
+      const data = await response.json();
+      const matchingUsers = data.filter((user) =>
+         user.username.toLowerCase().includes(searchQuery.toLowerCase())
+
+      );
+      if (matchingUsers.length === 0) {
+         setErrorMessage(`No user found with the name ${searchQuery}`);
+         setUsers([]);
+         setSelectedUser(null);
+      } else {
+         setUsers(matchingUsers);
+         setSelectedUser(null);
+         setErrorMessage(null);
       }
-      fetchHashtags()
-   }, []);
 
-   const handleSearchInputChange = (event) => {
-      setSearchInput(event.target.value)
-      // Filter the hashtags based on the searchInput value
-      const filteredHashtags = matchingHashtags.filter(hashtag => hashtag.includes(event.target.value));
-      setMatchingHashtags(filteredHashtags)
-
-      // Filter the tweets based on the matching hashtags
-      const filteredTweets = fetchedTweets.filter(tweet => tweet.hashtags.some(h => filteredHashtags.includes(h)));
-      setMatchingTweets(filteredTweets)
-
-      setFetchedTweets(matchingTweets)
-
-      console.log('matching hashtags: ', filteredHashtags)
-      console.log('matching tweets: ', filteredTweets)
-   }
-
-   const handleSearchInputSubmit = () => {
+      console.log(matchingUsers)
+   };
 
 
-   }
+
 
    return (
-      // Gör en dropdown med alla matching hashtags
-      <form onsubmit={handleSearchInputSubmit} id='search'>
-         <input
-            onChange={handleSearchInputChange}
-            value={searchInput}
-            type='text'
-            placeholder='Sök på twitter'
-            id='searchbar'
-         ></input>
-         <button type="submit">Sök</button>
+      <div>
+         <form id='submit' onSubmit={handleSubmit}>
+            <input type="text" placeholder="Sök på twitter" name="searchbar" />
+            <button type="submit">Sök</button>
 
-      </form>
+         </form>
+         <ul>
+            {users.map((user) => (
+               <div key={user.id}>
+                  <p> <Link className='link' to={`/profile/${user.id}`}>
+                     {user.username}
+                  </Link></p>
+               </div>
+            ))}
+
+         </ul>
+
+
+
+         {errorMessage && <p>{errorMessage}</p>}
+
+
+
+         <div id="tabs">
+            <p className='trending'>För dig</p>
+            <p className='trending'>Trendar</p>
+         </div>
+      </div>
    );
-};
+   import { set } from "date-fns";
+   import { useEffect, useState } from "react";
+
+   export const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
+      const [matchingHashtags, setMatchingHashtags] = useState([])
+      const [matchingTweets, setMatchingTweets] = useState([])
+      const [searchInput, setSearchInput] = useState('');
+
+      useEffect(() => {
+         const fetchHashtags = async () => {
+            const response = await fetch('http://localhost:3001/hashtags')
+            const data = await response.json()
+            // Set all hashtags as matching hashtags initially
+            setMatchingHashtags(data)
+         }
+         fetchHashtags()
+      }, []);
+
+      const handleSearchInputChange = (event) => {
+         setSearchInput(event.target.value)
+         // Filter the hashtags based on the searchInput value
+         const filteredHashtags = matchingHashtags.filter(hashtag => hashtag.includes(event.target.value));
+         setMatchingHashtags(filteredHashtags)
+
+         // Filter the tweets based on the matching hashtags
+         const filteredTweets = fetchedTweets.filter(tweet => tweet.hashtags.some(h => filteredHashtags.includes(h)));
+         setMatchingTweets(filteredTweets)
+
+         setFetchedTweets(matchingTweets)
+
+         console.log('matching hashtags: ', filteredHashtags)
+         console.log('matching tweets: ', filteredTweets)
+      }
+
+      const handleSearchInputSubmit = () => {
+
+
+      }
+
+      return (
+         // Gör en dropdown med alla matching hashtags
+         <form onsubmit={handleSearchInputSubmit} id='search'>
+            <input
+               onChange={handleSearchInputChange}
+               value={searchInput}
+               type='text'
+               placeholder='Sök på twitter'
+               id='searchbar'
+            ></input>
+            <button type="submit">Sök</button>
+
+         </form>
+      );
+   };
 
