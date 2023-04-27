@@ -32,10 +32,14 @@ export const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
       console.log('matching tweets: ', filteredTweets)
    }
 
+   const handleSearchInputSubmit = () => {
+
+
+   }
+
    return (
-      // TODO
       // Gör en dropdown med alla matching hashtags
-      <form id='search'>
+      <form onsubmit={handleSearchInputSubmit} id='search'>
          <input
             onChange={handleSearchInputChange}
             value={searchInput}
@@ -43,8 +47,7 @@ export const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
             placeholder='Sök på twitter'
             id='searchbar'
          ></input>
-
-         <button>Sök</button>
+         <button type="submit">Sök</button>
 
       </form>
    );

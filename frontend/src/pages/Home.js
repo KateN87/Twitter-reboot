@@ -11,6 +11,8 @@ export default function Home({ setId, id }) {
    const [fetchedTweets, setFetchedTweets] = useState([]);
    const [newTweet, setNewTweet] = useState(null);
    const user = JSON.parse(localStorage.getItem('user'));
+
+
    // Lägg till isloading för att vänta på user
 
    useEffect(() => {

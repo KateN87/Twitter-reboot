@@ -27,7 +27,6 @@
       "about": "I am Kate",
       "following": [
         "@Aylin",
-        "@Matilda",
         "@Kingen"
       ],
       "followers": 0,
@@ -64,7 +63,7 @@
       "following": [
         "@Kingen"
       ],
-      "followers": 2,
+      "followers": 1,
       "occupation": "Being Matilda",
       "hometown": "Matildatown",
       "website": "matilda.com",
