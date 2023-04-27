@@ -4,9 +4,9 @@ const Login = () => {
     return (
         <div className='middle-main-container'>
             <LoginComponent />
-        </div>
-
-    )
+        </div>)
 };
+
+
 
 export default Login;

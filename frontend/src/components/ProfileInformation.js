@@ -5,17 +5,10 @@ import { IoMdPerson } from 'react-icons/io';
 import { IoMdCalendar } from 'react-icons/io';
 import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
+import { useParams } from 'react-router-dom';
 
 export const Button = ({ ownProfile, following, setFollowing, profile }) => {
 
-    /*const followingFunction = async () => {
-  
-    }
-  
-    const handleChecker = () => {
-      setFollowing(!following)
-        followingFunction()
-    }*/
 
     const followUser = async () => {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -59,9 +52,7 @@ export default function ProfileInformation({ id, setId }) {
 
     const [ownProfile, setOwnProfile] = useState(false)
 
-
     useEffect(() => {
-
         const fetchProfile = async () => {
             const response = await fetch('http://localhost:3001/users/' + id)
             const data = await response.json()

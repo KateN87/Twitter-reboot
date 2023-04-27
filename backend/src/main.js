@@ -25,6 +25,8 @@ app.use('/locked', lockedRoutes);
 
 //Routes
 
+let lastId
+
 app.get('/users', (req, res) => {
    res.send(db.data.users);
 });
@@ -40,7 +42,6 @@ app.get('/tweets', (req, res) => {
 
 app.get('/tweets/:username', (req, res) => {
    const poster = req.params.username;
-   //const username = "@" + poster;
    const username = poster
    let newTweets = []
    for (let i = 0; i < tweets.length; i++) {
@@ -65,16 +66,18 @@ app.get('/users/:id', (req, res) => {
    }
 })
 
+//kollar id:et på användaren med det användarnamnet
 app.get('/:username', (req, res) => {
    const username = req.params.username;
-   console.log(username)
    let user = {};
    for (let i = 0; i < users.length; i++) {
       const dbUsername = users[i].username
       if (dbUsername === username) {
          user = users[i]
+         lastId = users[i].id
       }
    }
+
    res.status(200).send(user)
 })
 

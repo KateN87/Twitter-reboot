@@ -5,18 +5,18 @@
 }
 
 .App {
-	text-align: center;
-	font-family: 'canada-type-gibson', sans-serif;
-	font-weight: 200;
-	font-style: normal;
-	display: grid;
-	grid-template-columns: 1fr 2fr 1fr;
-	background-color: var(--background);
-	color: var(--fontcolor);
-	box-sizing: border-box;
-	margin: 0;
-	padding: 0;
-	height: 100%;
+    text-align: center;
+    font-family: 'canada-type-gibson', sans-serif;
+    font-weight: 200;
+    font-style: normal;
+    display: grid;
+    grid-template-columns: 0.5fr 2fr 1fr;
+    background-color: var(--background);
+    color: var(--fontcolor);
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
 }
 
 li {
@@ -29,7 +29,7 @@ img {
 
 .left-main-container,
 .right-main-container {
-	border: 2px solid red;
-	display: flex;
-	flex-direction: column;
+    border: 2px solid red;
+    display: flex;
+    flex-direction: column;
 }

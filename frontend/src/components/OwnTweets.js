@@ -1,16 +1,23 @@
 import { useEffect, useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
+import { useParams } from 'react-router-dom';
 
-export const OwnTweets = ({id}) => {
+export const OwnTweets = ({id, idparam}) => {
     const [ownTweets, setOwnTweets] = useState([]);
-
+    idparam = useParams().id
     useEffect(() => {
 
         const fetchOwnTweets = async () => {
-            const response1 = await fetch('http://localhost:3001/users/' + id)
-            const user = await response1.json()
-            const username = user.username
-
+            let username
+            if(id === 0){
+                const response = await fetch('http://localhost:3001/users/' + idparam)
+                const user = await response.json()
+                username = user.username
+            } else {
+                const response = await fetch('http://localhost:3001/users/' + id)
+            const user = await response.json()
+            username = user.username
+            }
             const response2 = await fetch(
                 'http://localhost:3001/tweets/' + username
             );
