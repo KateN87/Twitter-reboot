@@ -41,6 +41,8 @@ export const Button = ({ownProfile, following, setFollowing, profile}) => {
 export default function ProfileInformation({id, setId, idparam}) {
 
     const [profile, setProfile] = useState({})
+    const [following, setFollowers] = useState([])
+    const [followList, setFollowlist] = useState(false)
       idparam = useParams().id
     
 
@@ -56,6 +58,7 @@ export default function ProfileInformation({id, setId, idparam}) {
            data = await response.json()
           }
             setProfile(data)
+            setFollowers(data.following)
             const checkUser = JSON.parse(localStorage.getItem('user'));
             const loggedinId= checkUser.id
             if(loggedinId === data.id){
@@ -66,6 +69,13 @@ export default function ProfileInformation({id, setId, idparam}) {
     }, []);
 
     //
+
+    const checkFollowing = (profile) => {
+      let followList = profile.following
+      const following = followList?.length
+      return following
+    
+    }
 
     return (
         <div className='profile'>
@@ -79,6 +89,10 @@ export default function ProfileInformation({id, setId, idparam}) {
             </div>
             <div>
               <p>Followers {profile.followers}</p>
+              <p onClick={() => setFollowlist(!followList)}>Following {checkFollowing(profile)}</p>
+              <ul>
+                {followList && following.map((follow, index)=> <li>{follow}</li>)}
+              </ul>
             </div>
 
             <div className='about-container'>
