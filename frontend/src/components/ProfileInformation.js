@@ -10,14 +10,6 @@ import { useParams } from 'react-router-dom';
 
 export const Button = ({ ownProfile, following, setFollowing, profile }) => {
 
-   /*const followingFunction = async () => {
- 
-   }
- 
-   const handleChecker = () => {
-     setFollowing(!following)
-       followingFunction()
-   }*/
 
    const followUser = async () => {
       const user = JSON.parse(localStorage.getItem("user"));
@@ -46,37 +38,24 @@ export const Button = ({ ownProfile, following, setFollowing, profile }) => {
    }
 }
 
-export default function ProfileInformation({ id, setId }) {
-   const [profile, setProfile] = useState({
-      avatar: '',
-      nickname: '',
-      username: '',
-      about: '',
-      email: '',
-      occupation: '',
-      hometown: '',
-      website: '',
-      joined: '',
-   });
+export default function ProfileInformation({ id, setId, idparam }) {
+
+   const [profile, setProfile] = useState({})
+   idparam = useParams().id
+
 
    const [ownProfile, setOwnProfile] = useState(false)
    useEffect(() => {
-
-
       const fetchProfile = async () => {
-         const response = await fetch('http://localhost:3001/users/' + id)
-         const data = await response.json()
-         setProfile({
-            avatar: data.avatar,
-            nickname: data.nickname,
-            username: data.username,
-            about: data.about,
-            email: data.email,
-            occupation: data.occupation,
-            hometown: data.hometown,
-            website: data.website,
-            joined: data.joined,
-         })
+         let data
+         if (id === 0) {
+            const response = await fetch('http://localhost:3001/users/' + idparam)
+            data = await response.json()
+         } else {
+            const response = await fetch('http://localhost:3001/users/' + id)
+            data = await response.json()
+         }
+         setProfile(data)
          const checkUser = JSON.parse(localStorage.getItem('user'));
          const loggedinId = checkUser.id
          if (loggedinId === data.id) {

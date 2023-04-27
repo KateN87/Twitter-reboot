@@ -1,137 +1,138 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "@Kingen",
-      "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "kingen@kingen.se",
-      "nickname": "TheKing",
-      "about": "I am the king",
-      "following": [
-        "@Matilda"
-      ],
-      "followers": 3,
-      "occupation": "Being king",
-      "hometown": "Kingtown",
-      "website": "kingen.com",
-      "joined": "2023-04-19T17:12:55.652Z"
-    },
-    {
-      "id": 2,
-      "username": "@Kate",
-      "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "kate@kate.se",
-      "nickname": "TheKate",
-      "about": "I am Kate",
-      "following": [
-        "@Aylin",
-        "@Kingen"
-      ],
-      "followers": 0,
-      "occupation": "Student",
-      "hometown": "Katetown",
-      "website": "kate.com",
-      "joined": "2023-04-19T17:17:10.353Z"
-    },
-    {
-      "id": 3,
-      "username": "@Lovisa",
-      "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "lovisa@lovisa.com",
-      "nickname": "TheLovisa",
-      "about": "I am Lovisa",
-      "following": [
-        "@Aylin"
-      ],
-      "followers": 0,
-      "occupation": "Student",
-      "hometown": "Lovisatown",
-      "website": "lovisa.com",
-      "joined": "2023-04-19T17:18:07.080Z"
-    },
-    {
-      "id": 4,
-      "username": "@Matilda",
-      "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "matilda@matilda.se",
-      "nickname": "TheMatilda",
-      "about": "I am Matilda",
-      "following": [
-        "@Kingen"
-      ],
-      "followers": 1,
-      "occupation": "Being Matilda",
-      "hometown": "Matildatown",
-      "website": "matilda.com",
-      "joined": "2023-04-19T17:18:50.833Z"
-    },
-    {
-      "id": 5,
-      "username": "@Aylin",
-      "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
-      "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
-      "email": "aylin@aylin.com",
-      "nickname": "TheAylin",
-      "about": "I am Aylin",
-      "occupation": "Student",
-      "hometown": "Aylintown",
-      "website": "aylin.com",
-      "joined": "2023-04-19T17:19:36.181Z"
-    }
-  ],
-  "tweets": [
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:02:09",
-      "tweet": "Första tweeten ever!",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-26T09:30:19.883Z",
-      "tweet": "hellooooo #whatsup",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#whatsup"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-26T12:05:31.381Z",
-      "tweet": "testar med hashtags #hash #tag",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#hash",
-        "#tag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-26T12:08:44.939Z",
-      "tweet": "testar igen hashtags #hash ",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#hash"
-      ]
-    }
-  ],
-  "allHashtags": [
-    "#whatsup",
-    "#hash",
-    "#tag",
-    "#hash"
-  ]
+   "users": [
+      {
+         "id": 1,
+         "username": "@Kingen",
+         "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "kingen@kingen.se",
+         "nickname": "TheKing",
+         "about": "I am the king",
+         "following": [
+            "@Matilda"
+         ],
+         "followers": 3,
+         "occupation": "Being king",
+         "hometown": "Kingtown",
+         "website": "kingen.com",
+         "joined": "2023-04-19T17:12:55.652Z"
+      },
+      {
+         "id": 2,
+         "username": "@Kate",
+         "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "kate@kate.se",
+         "nickname": "TheKate",
+         "about": "I am Kate",
+         "following": [
+            "@Aylin",
+            "@Kingen"
+         ],
+         "followers": 0,
+         "occupation": "Student",
+         "hometown": "Katetown",
+         "website": "kate.com",
+         "joined": "2023-04-19T17:17:10.353Z"
+      },
+      {
+         "id": 3,
+         "username": "@Lovisa",
+         "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "lovisa@lovisa.com",
+         "nickname": "TheLovisa",
+         "about": "I am Lovisa",
+         "following": [
+            "@Aylin",
+            "@Matilda"
+         ],
+         "followers": 0,
+         "occupation": "Student",
+         "hometown": "Lovisatown",
+         "website": "lovisa.com",
+         "joined": "2023-04-19T17:18:07.080Z"
+      },
+      {
+         "id": 4,
+         "username": "@Matilda",
+         "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "matilda@matilda.se",
+         "nickname": "TheMatilda",
+         "about": "I am Matilda",
+         "following": [
+            "@Kingen"
+         ],
+         "followers": 1,
+         "occupation": "Being Matilda",
+         "hometown": "Matildatown",
+         "website": "matilda.com",
+         "joined": "2023-04-19T17:18:50.833Z"
+      },
+      {
+         "id": 5,
+         "username": "@Aylin",
+         "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
+         "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
+         "email": "aylin@aylin.com",
+         "nickname": "TheAylin",
+         "about": "I am Aylin",
+         "occupation": "Student",
+         "hometown": "Aylintown",
+         "website": "aylin.com",
+         "joined": "2023-04-19T17:19:36.181Z"
+      }
+   ],
+   "tweets": [
+      {
+         "username": "@Kingen",
+         "timestamp": "Wed Apr 19 2023 12:02:09",
+         "tweet": "Första tweeten ever!",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-26T09:30:19.883Z",
+         "tweet": "hellooooo #whatsup",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "#whatsup"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-26T12:05:31.381Z",
+         "tweet": "testar med hashtags #hash #tag",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "#hash",
+            "#tag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-26T12:08:44.939Z",
+         "tweet": "testar igen hashtags #hash ",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "#hash"
+         ]
+      }
+   ],
+   "allHashtags": [
+      "#whatsup",
+      "#hash",
+      "#tag",
+      "#hash"
+   ]
 }
