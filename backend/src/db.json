@@ -24,7 +24,7 @@
       "nickname": "TheKate",
       "about": "I am Kate",
       "following": [],
-      "followers": 0,
+      "followers": 1,
       "occupation": "Student",
       "hometown": "Katetown",
       "website": "kate.com",
@@ -39,9 +39,9 @@
       "nickname": "TheLovisa",
       "about": "I am Lovisa",
       "following": [
+        "@Kingen",
         "@Aylin",
-        "@Matilda",
-        "@Kingen"
+        "@Kate"
       ],
       "followers": 0,
       "occupation": "Student",
@@ -58,7 +58,7 @@
       "nickname": "TheMatilda",
       "about": "I am Matilda",
       "following": [],
-      "followers": 1,
+      "followers": 0,
       "occupation": "Being Matilda",
       "hometown": "Matildatown",
       "website": "matilda.com",

@@ -81,6 +81,19 @@ app.get('/:username', (req, res) => {
    res.status(200).send(user)
 })
 
+app.get('/users/:id/:username', (req, res) => {
+   const id = +req.params.id
+   const username = req.params.username
+   console.log(username)
+   const i = users.findIndex((i) => i.id === id)
+   const followList = users[i].following
+   if(followList.includes(username)){
+      res.sendStatus(200)
+   } else {
+      res.sendStatus(404)
+   }
+})
+
 app.post('/users/:id', async (req, res) => {
    const id = +req.params.id;
    const i = users.findIndex((i) => i.id === id)
