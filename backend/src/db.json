@@ -9,7 +9,7 @@
       "nickname": "TheKing",
       "about": "I am the king",
       "following": [],
-      "followers": 0,
+      "followers": 1,
       "occupation": "Being king",
       "hometown": "Kingtown",
       "website": "kingen.com",
@@ -40,7 +40,8 @@
       "about": "I am Lovisa",
       "following": [
         "@Aylin",
-        "@Matilda"
+        "@Matilda",
+        "@Kingen"
       ],
       "followers": 0,
       "occupation": "Student",

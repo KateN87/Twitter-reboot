@@ -42,7 +42,6 @@ app.get('/tweets', (req, res) => {
 
 app.get('/tweets/:username', (req, res) => {
    const poster = req.params.username;
-   //const username = "@" + poster;
    const username = poster
    let newTweets = []
    for (let i = 0; i < tweets.length; i++) {
@@ -60,13 +59,12 @@ app.get('/users/:id', (req, res) => {
    const i = users.findIndex((i) => i.id === id)
    if(i >= 0){
       res.status(200).send(users[i])  
-    } else if(id === 0 || id === undefined){
-        res.status(200).send(users[lastId-1])
     } else {
       res.status(400).send("User not found");
     }
 })
 
+//kollar id:et på användaren med det användarnamnet
 app.get('/:username', (req, res) => {
    const username = req.params.username;
    let user = {};

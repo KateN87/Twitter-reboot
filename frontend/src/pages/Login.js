@@ -1,9 +1,12 @@
 import LoginComponent from '../components/LoginComponent';
 
 const Login = () => {
-    <div className='middle-main-container'>
+    return(
+       <div className='middle-main-container'>
         <LoginComponent />
-    </div>;
-};
+    </div>)
+}; 
+    
+    
 
 export default Login;
