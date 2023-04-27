@@ -59,8 +59,8 @@ export default function ProfileInformation({ id, setId }) {
 
     const [ownProfile, setOwnProfile] = useState(false)
 
-    useEffect(() => {
 
+    useEffect(() => {
 
         const fetchProfile = async () => {
             const response = await fetch('http://localhost:3001/users/' + id)
@@ -84,25 +84,6 @@ export default function ProfileInformation({ id, setId }) {
         }
         fetchProfile()
     }, []);
-    const [selectedUser, setSelectedUser] = useState(null);
-    //
-    useEffect(() => {
-        const token = localStorage.getItem('token');
-        if (token) {
-            const decodedToken = jwt.verify(token, process.env.SECRET);
-            const userId = decodedToken.id;
-            fetch(`http://localhost:3001/users/${userId}`)
-                .then(response => response.json())
-                .then(data => setSelectedUser(data))
-                .catch(error => console.error(error));
-        }
-    }, []);
-
-    if (!selectedUser) {
-        return <p>Loading...</p>;
-    }
-
-
 
 
     return (
