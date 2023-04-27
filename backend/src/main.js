@@ -25,7 +25,7 @@ app.use('/locked', lockedRoutes);
 
 //Routes
 
-let lastId 
+let lastId
 
 app.get('/users', (req, res) => {
    res.send(db.data.users);
@@ -54,73 +54,75 @@ app.get('/tweets/:username', (req, res) => {
    res.send(newTweets)
 })
 
+
+
 app.get('/users/:id', (req, res) => {
-   const id = +req.params.id 
+   const id = +req.params.id
    const i = users.findIndex((i) => i.id === id)
-   if(i >= 0){
-      res.status(200).send(users[i])  
-    } else {
+   if (i >= 0) {
+      res.status(200).send(users[i])
+   } else {
       res.status(400).send("User not found");
-    }
+   }
 })
 
 //kollar id:et på användaren med det användarnamnet
 app.get('/:username', (req, res) => {
    const username = req.params.username;
    let user = {};
-   for(let i = 0; i < users.length; i++){
+   for (let i = 0; i < users.length; i++) {
       const dbUsername = users[i].username
-      if(dbUsername === username){
+      if (dbUsername === username) {
          user = users[i]
          lastId = users[i].id
       }
    }
-   
+
    res.status(200).send(user)
 })
 
-app.post('/users/:id', async (req, res) =>{
+app.post('/users/:id', async (req, res) => {
    const id = +req.params.id;
-    const i = users.findIndex((i) => i.id === id)
-    const username = "@" + req.body.username
-    let following = users[i].following
-    let found = following.includes(username)
+   const i = users.findIndex((i) => i.id === id)
+   const username = "@" + req.body.username
+   let following = users[i].following
+   let found = following.includes(username)
 
-    if(i != undefined && !found ){
+   if (i != undefined && !found) {
       let followlist = users[i].following
       followlist.push(username)
 
-      for(let index = 0; index < users.length; index++){
-         if(users[index].username === username){
+      for (let index = 0; index < users.length; index++) {
+         if (users[index].username === username) {
             let followers = users[index].followers
-               users[index].followers += 1
-               console.log(followers)
-               await db.write()
-               return followers
+            users[index].followers += 1
+            console.log(followers)
+            await db.write()
+            return followers
          }
-          await db.write() 
+         await db.write()
       }
-      
-   res.status(201).send("Updated!")
 
-  } else if(found){
+      res.status(201).send("Updated!")
+
+   } else if (found) {
       let followList = users[i].following
       let found = followList.indexOf(username)
 
       followList.splice(found, 1)
-      for(let index = 0; index < users.length; index++){
-         if(users[index].username === username){
+      for (let index = 0; index < users.length; index++) {
+         if (users[index].username === username) {
             let followers = users[index].followers
-               users[index].followers -= 1
-               console.log(followers)
-               await db.write()
-               return followers
+            users[index].followers -= 1
+            console.log(followers)
+            await db.write()
+            return followers
          }
       }
       await db.write()
-  } else {
-    res.status(400).send("Bad request")
-  }
+   } else {
+      res.status(400).send("Bad request")
+   }
 })
 
 export { app };
