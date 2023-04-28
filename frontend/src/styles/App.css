@@ -33,3 +33,7 @@ img {
     display: flex;
     flex-direction: column;
 }
+
+.link{
+    color: #f7f7f2;
+}

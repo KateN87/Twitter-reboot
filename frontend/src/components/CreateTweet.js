@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 
 export default function CreateTweet() {
    const dispatch = useDispatch();
@@ -13,7 +13,7 @@ export default function CreateTweet() {
       const hashtagsWithout = foundHashtag.map(hashtag => hashtag.replace(/^#/, ""))
 
       if (!checkUser) {
-         console.log('User not authenticated');
+         console.log("User not authenticated");
          return;
       }
 
@@ -24,21 +24,25 @@ export default function CreateTweet() {
       };
 
       const options = {
-         method: 'POST',
+         method: "POST",
          body: JSON.stringify(newTweetReq),
          headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
             Authorization: `Bearer ${checkUser.token}`,
          },
       };
 
       try {
-         const response = await fetch('http://localhost:3001/locked/tweets', options);
+         const response = await fetch(
+            "http://localhost:3001/locked/tweets",
+            options
+         );
          if (!response.ok) {
-            throw new Error('Failed to send tweet');
+            throw new Error("Failed to send tweet");
          }
          const newTweet = await response.json();
-         dispatch({ type: 'SEND_TWEET', payload: newTweet });
+
+         dispatch({ type: "SEND_TWEET", payload: newTweet });
       } catch (error) {
          console.error(error);
       }

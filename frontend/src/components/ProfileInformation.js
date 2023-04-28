@@ -11,45 +11,44 @@ export const Button = ({ ownProfile, profile, isFollowing, setIsFollowing }) => 
    let username = profile.username
    useEffect(() => {
       const checkUser = JSON.parse(localStorage.getItem('user'));
-      const loggedinId = checkUser.id
-      const checkFollowing = async () => {
-         const response = await fetch('http://localhost:3001/users/' + loggedinId + "/" + username)
-         const followingOrNot = response.status
-         if (followingOrNot === 200) {
-            setIsFollowing(true)
-         } else {
-            setIsFollowing(false)
-         }
-      }
-      checkFollowing()
+            const loggedinId = checkUser.id       
+        const checkFollowing = async ()=>{
+            const response = await fetch('http://localhost:3001/users/' + loggedinId + "/" + username)
+            const followingOrNot = response.status
+            if(followingOrNot === 200){
+              setIsFollowing(true)
+            } else {
+              setIsFollowing(false)
+            }
+        }    
+        checkFollowing()
+            
+      })
 
-   })
+    const followUser = async () => {
+        const user = JSON.parse(localStorage.getItem("user"));
+        const id = user.id
+        const acc = profile.username
+        let username = acc.replace('@', "")
+        const options = {
+            method: 'POST',
+            body: JSON.stringify({ username }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        }
+        const response = await fetch('http://localhost:3001/users/' + id, options)
+        if (response.status === 201) {
+            console.log("FOllowing!")
+        }
+    }
 
-   const followUser = async () => {
-      const user = JSON.parse(localStorage.getItem("user"));
-      const id = user.id
-      const acc = profile.username
-      let username = acc.replace('@', "")
-      console.log(username)
-      const options = {
-         method: 'POST',
-         body: JSON.stringify({ username }),
-         headers: {
-            "Content-Type": "application/json"
-         }
-      }
-      const response = await fetch('http://localhost:3001/users/' + id, options)
-      if (response.status === 201) {
-         console.log("FOllowing!")
-      }
-   }
-
-   switch (ownProfile) {
-      case false:
-         return <button onClick={() => followUser()}>{isFollowing ? "Following" : "Follow"}</button>
-      default:
-         return <button>Redigera profil</button>
-   }
+    switch (ownProfile) {
+        case false:
+            return <button onClick={() => followUser()}>{isFollowing ? "Following" : "Follow"}</button>
+        default:
+            return <button>Redigera profil</button>
+    }
 }
 
 export default function ProfileInformation({ id, setId, idparam }) {
