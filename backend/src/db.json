@@ -303,6 +303,16 @@
       "retweets": 0,
       "comments": [],
       "hashtags": []
+    },
+    {
+      "username": "@Kate",
+      "timestamp": "2023-04-28T08:48:05.845Z",
+      "tweet": "Ny tweet",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
     }
-  ]
+  ],
+  "allHashtags": []
 }

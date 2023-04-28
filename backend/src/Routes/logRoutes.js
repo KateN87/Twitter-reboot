@@ -29,7 +29,6 @@ router.post("/signup", async (req, res) => {
 		const salt = await bcrypt.genSalt(10);
 		const hash = await bcrypt.hash(password, salt);
 		const id = db.data.users.length + 1;
-		console.log(id);
 
 		const user = {
 			id,
