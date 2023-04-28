@@ -6,9 +6,9 @@ const returntimestamp = (tweet) => {
 
 	if (time[0] === "about") {
 		let remove = time.indexOf("about");
-		/* let firstremove = time.splice(remove, 1); */
+		let firstremove = time.splice(remove, 1);
 		let remove2 = time.indexOf("hours");
-		/* let secondremove = time.splice(remove2, 1); */
+		let secondremove = time.splice(remove2, 1);
 		let realtime = `${time + " h"}`;
 		return realtime;
 	} else if (time[1] === "days" || time[1] === "day") {
