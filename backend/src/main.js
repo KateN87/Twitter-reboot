@@ -42,20 +42,26 @@ app.get('/tweets', (req, res) => {
 });
 
 app.get('/tweets/:user', (req, res) => {
-    const poster = req.params.username;
-
-    const user = users.find(
-        (u) => u.username === poster || u.id === Number(poster)
-    );
-    let newTweets = [];
-    for (let i = 0; i < tweets.length; i++) {
-        let tweet = tweets[i];
-        const tweetUser = tweet.username;
-        if (tweetUser === user) {
-            newTweets.push(tweet);
+    const poster = req.params.user;
+    try {
+        const user = users.find(
+            (u) => u.username === poster || u.id === Number(poster)
+        );
+        if (!user) {
+            throw Error('No user with that name/id');
         }
+        let newTweets = [];
+        for (let i = 0; i < tweets.length; i++) {
+            let tweet = tweets[i];
+            const tweetUser = tweet.username;
+            if (tweetUser === user.username) {
+                newTweets.push(tweet);
+            }
+        }
+        res.send(newTweets);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
     }
-    res.send(newTweets);
 });
 
 app.get('/users/:user', (req, res) => {
