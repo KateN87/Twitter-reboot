@@ -7,34 +7,23 @@ import {
     IoIosPaperPlane,
     IoMdBriefcase,
 } from 'react-icons/io';
+import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-export const Button = ({
-    ownProfile,
-    profile,
-    isFollowing,
-    setIsFollowing,
-}) => {
-    let username = profile.username;
-    useEffect(() => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
-        const loggedinId = checkUser.id;
-        const checkFollowing = async () => {
-            const response = await fetch(
-                'http://localhost:3001/users/' + loggedinId + '/' + username
-            );
-            const followingOrNot = response.status;
-            if (followingOrNot === 200) {
-                setIsFollowing(true);
-            } else {
-                setIsFollowing(false);
-            }
-        };
-        checkFollowing();
-    });
+//TODO: dispatch when follow
+
+export const Button = ({ profile, isFollowing, setIsFollowing }) => {
+    const user = useSelector((state) => state.userReducer.user);
+
+    const findFollowing = user.following.includes(profile.username);
+    if (findFollowing) {
+        setIsFollowing(true);
+    } else {
+        setIsFollowing(false);
+    }
 
     const followUser = async () => {
-        const user = JSON.parse(localStorage.getItem('user'));
+        const checkUser = JSON.parse(localStorage.getItem('user'));
         const id = user.id;
         const acc = profile.username;
         let username = acc.replace('@', '');
@@ -44,61 +33,54 @@ export const Button = ({
             body: JSON.stringify({ username }),
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${checkUser.token}`,
             },
         };
         const response = await fetch(
-            'http://localhost:3001/users/' + id,
+            'http://localhost:3001/locked/' + id,
             options
         );
         if (response.status === 201) {
-            console.log('FOllowing!');
+            dispatchEvent();
         }
     };
 
-    switch (ownProfile) {
-        case false:
-            return (
-                <button onClick={() => followUser()}>
-                    {isFollowing ? 'Following' : 'Follow'}
-                </button>
-            );
-        default:
-            return <button>Redigera profil</button>;
-    }
+    return (
+        <button onClick={() => followUser()}>
+            {isFollowing ? 'Following' : 'Follow'}
+        </button>
+    );
 };
 
-export default function ProfileInformation({ id, setId }) {
+export default function ProfileInformation() {
     const [profile, setProfile] = useState({});
+
     const [following, setFollowers] = useState([]);
     const [followList, setFollowlist] = useState(false);
     const [isFollowing, setIsFollowing] = useState(false);
+
+    const user = useSelector((state) => state.userReducer.user);
     const idparam = useParams().id;
 
     const [ownProfile, setOwnProfile] = useState(false);
+
     useEffect(() => {
-        let data;
         const fetchProfile = async () => {
-            if (id === 0) {
-                const response = await fetch(
-                    'http://localhost:3001/users/' + idparam
-                );
-                data = await response.json();
-            } else {
-                const response = await fetch(
-                    'http://localhost:3001/users/' + id
-                );
-                data = await response.json();
-            }
+            const response = await fetch(
+                'http://localhost:3001/users/' + idparam
+            );
+            const data = await response.json();
+
             setProfile(data);
             setFollowers(data.following);
-            const checkUser = JSON.parse(localStorage.getItem('user'));
-            const loggedinId = checkUser.id;
-            if (loggedinId === data.id) {
+            /*             const checkUser = JSON.parse(localStorage.getItem('user'));
+            const loggedinId = checkUser.id; */
+            if (user.id === data.id) {
                 setOwnProfile(true);
             }
         };
         fetchProfile();
-    }, []);
+    }, [user]);
 
     const checkFollowing = (profile) => {
         let followList = profile.following;
@@ -109,6 +91,7 @@ export default function ProfileInformation({ id, setId }) {
     if (profile.username === undefined) {
         return <div>Loading...</div>;
     }
+
     return (
         <div className='profile'>
             <img src={profile.avatar} alt='Profile avatar' className='avatar' />
@@ -160,8 +143,14 @@ export default function ProfileInformation({ id, setId }) {
                 <IoMdCalendar className='icon' />
                 <p className='joined'>{profile.joined}</p>
             </div>
-            <Button /* ownProfile={ownProfile} profile={profile} isFollowing={isFollowing} setIsFollowing={setIsFollowing} */
-            ></Button>
+            {!ownProfile && (
+                <Button
+                    ownProfile={ownProfile}
+                    profile={profile}
+                    isFollowing={isFollowing}
+                    setIsFollowing={setIsFollowing}
+                ></Button>
+            )}
         </div>
     );
 }

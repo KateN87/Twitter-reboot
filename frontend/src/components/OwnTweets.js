@@ -48,14 +48,3 @@ export const OwnTweets = () => {
         </div>
     );
 };
-
-/*             let username
-            if(id === 0){
-                const response = await fetch('http://localhost:3001/users/' + idparam)
-                const user = await response.json()
-                username = user.username
-            } else {
-                const response = await fetch('http://localhost:3001/users/' + id)
-            const user = await response.json()
-            username = user.username
-            } */
