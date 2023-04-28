@@ -9,6 +9,8 @@ export default function LoginComponent() {
     const [currentField, setCurrentField] = useState('username');
     const [usernameError, setUsernameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
+
+
     const navigate = useNavigate();
 
     const dispatch = useDispatch();
@@ -55,6 +57,8 @@ export default function LoginComponent() {
         setCurrentField('username');
     };
 
+
+
     const renderCurrentField = () => {
         switch (currentField) {
             case 'username':
@@ -65,7 +69,7 @@ export default function LoginComponent() {
                     >
                         <h1>Login</h1>
                         <label>
-                            Username:
+                            Username or Email:
                             <input
                                 type='text'
                                 value={username}

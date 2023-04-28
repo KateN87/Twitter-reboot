@@ -1,4 +1,6 @@
+
 import { useState } from "react";
+import "../style/searchbar";
 
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
@@ -6,6 +8,7 @@ export const Searchbar = (setId, id) => {
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
+    const [searchQuery, setSearchQuery] = useState("");
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -28,32 +31,42 @@ export const Searchbar = (setId, id) => {
         console.log(matchingUsers);
     };
 
+    const handleInputChange = (event) => {
+        setSearchQuery(event.target.value);
+    };
 
+    const isSearchDisabled = searchQuery.trim().length === 0;
 
     return (
         <div>
-            <form id='submit' onSubmit={handleSubmit}>
-                <input type="text" placeholder="Sök på twitter" name="searchbar" />
-                <button type="submit">Sök</button>
-
+            <form id="submit" onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    placeholder="Sök på twitter"
+                    name="searchbar"
+                    value={searchQuery}
+                    onChange={handleInputChange}
+                />
+                <button type="submit" disabled={isSearchDisabled}>
+                    Sök
+                </button>
             </form>
             <ul>
                 {users.map((user) => (
                     <div key={user.id}>
-                        <p> <Link className='link' to={`/profile/${user.id}`}>
-                            {user.username}
-                        </Link></p>
+                        <p>
+                            <Link className="link" to={`/profile/${user.id}`}>
+                                {user.username}
+                            </Link>
+                        </p>
                     </div>
                 ))}
-
             </ul>
-
             {errorMessage && <p>{errorMessage}</p>}
 
-            <div id="tabs">
-                <p className='trending'>För dig</p>
-                <p className='trending'>Trendar</p>
-            </div>
         </div>
     );
 };
+
+
+
