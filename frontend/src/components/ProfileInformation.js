@@ -30,7 +30,6 @@ export const Button = ({ ownProfile, profile, isFollowing, setIsFollowing }) => 
         const id = user.id
         const acc = profile.username
         let username = acc.replace('@', "")
-        console.log(username)
         const options = {
             method: 'POST',
             body: JSON.stringify({ username }),
