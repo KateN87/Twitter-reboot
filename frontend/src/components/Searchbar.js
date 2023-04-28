@@ -23,7 +23,7 @@ const Searchbar = () => {
       }
    };
 
-
+   // --------------- FETCH HASHTAGS -----------------
    /*    useEffect(() => {
          const fetchHashtags = async () => {
             try {
@@ -57,6 +57,7 @@ const Searchbar = () => {
          setUsers([]);
       } else {
          setUsers(matchingUsers);
+         setErrorMessage('')
       }
    };
 
