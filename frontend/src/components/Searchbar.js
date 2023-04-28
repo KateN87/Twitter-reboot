@@ -51,11 +51,7 @@ export const Searchbar = (setId, id) => {
 
             </ul>
 
-
-
             {errorMessage && <p>{errorMessage}</p>}
-
-
 
             <div id="tabs">
                 <p className='trending'>För dig</p>
