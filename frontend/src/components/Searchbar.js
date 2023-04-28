@@ -5,7 +5,6 @@ import { Link } from "react-router-dom";
 const Searchbar = () => {
    const [users, setUsers] = useState([]);
    const [errorMessage, setErrorMessage] = useState(null);
-   const [hashtags, setHashtags] = useState([]);
    const fetchedTweets = useSelector((state) => state.tweetReducer);
 
    const fetchMatchingUsers = async (searchQuery) => {
@@ -21,23 +20,7 @@ const Searchbar = () => {
          setErrorMessage("Failed to fetch users.");
          return [];
       }
-   };
-
-   // --------------- FETCH HASHTAGS -----------------
-   /*    useEffect(() => {
-         const fetchHashtags = async () => {
-            try {
-               const response = await fetch("http://localhost:3001/hashtags");
-               const data = await response.json();
-               setHashtags(data);
-            } catch (error) {
-               console.error(error);
-               setErrorMessage("Failed to fetch hashtags.");
-            }
-         };
-         fetchHashtags();
-      }, []); */
-
+   }
 
 
    const handleSubmit = async (event) => {
@@ -65,8 +48,6 @@ const Searchbar = () => {
       <div>
          <form id='submit' onSubmit={handleSubmit}>
             <input
-               /*                onChange={handleSearchInputChange}
-                */              /*  value={searchInput} */
                type='text'
                placeholder='Search on Twitter'
                id='searchbar'
