@@ -1,7 +1,9 @@
-import logo from '../icons/twitter-logo-.png';
-import hashtag from '../icons/hashtagtwitter.png';
 import { useSelector } from 'react-redux';
 import '../styles/Header.css';
+
+import logo from '../icons/twitter-logo-.png';
+import hashtag from '../icons/hashtagtwitter.png';
+import MiniUserInfo from './MiniUserInfo.js';
 
 export const Header = () => {
     const user = useSelector((state) => state.userReducer.user);
@@ -13,7 +15,7 @@ export const Header = () => {
             <h3 className='hashtag' id='explore'>
                 Utforska
             </h3>
-            {user && <h2>{user.username}</h2>}
+            {user && <MiniUserInfo />}
         </nav>
     );
 };

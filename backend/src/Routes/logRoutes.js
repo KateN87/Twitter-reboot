@@ -29,7 +29,6 @@ router.post("/signup", async (req, res) => {
 		const salt = await bcrypt.genSalt(10);
 		const hash = await bcrypt.hash(password, salt);
 		const id = db.data.users.length + 1;
-		console.log(id);
 
 		const user = {
 			id,
@@ -55,14 +54,22 @@ router.post("/signup", async (req, res) => {
 	}
 });
 
+
+
+
 router.post("/login", async (req, res) => {
+
 	const { username, password } = req.body;
-	const addedUsername = `@${username}`;
+	let addedUsername = username
+	if (!username.includes("@")) {
+		addedUsername = `@${username}`;
+	}
 
 	try {
-		// kolllar om användare existerar
-		const user = db.data.users.find((u) => u.username === addedUsername);
-		if (!user) throw Error("User not found");
+		// kollar om användare existerar
+		let user = db.data.users.find((u) => u.username === addedUsername || u.email === addedUsername);
+		if (!user) throw new Error("User not found");
+
 
 		// kollar om lösenordet stämmer check
 		const isMatch = await bcrypt.compare(password, user.password);

@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import { db, users, tweets } from './database.js';
+import { db, users, tweets, allHashtags } from './database.js';
 import logRoutes from './Routes/logRoutes.js';
 import lockedRoutes from './Routes/lockedRoutes.js';
 
@@ -29,6 +29,9 @@ let lastId
 
 app.get('/users', (req, res) => {
    res.send(db.data.users);
+});
+app.get('/hashtags', (req, res) => {
+   res.send(allHashtags);
 });
 
 app.get('/tweets', (req, res) => {

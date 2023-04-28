@@ -1,7 +1,7 @@
 :root {
-	--error: rgb(197, 51, 51);
-	--background: #2b303a;
-	--fontcolor: #f7f7f2;
+    --error: rgb(197, 51, 51);
+    --background: #2b303a;
+    --fontcolor: #f7f7f2;
 }
 
 .App {
@@ -20,11 +20,11 @@
 }
 
 li {
-	list-style: none;
+    list-style: none;
 }
 
 img {
-	width: 30px;
+    width: 30px;
 }
 
 .left-main-container,
@@ -32,4 +32,8 @@ img {
     border: 2px solid red;
     display: flex;
     flex-direction: column;
+}
+
+.link{
+    color: #f7f7f2;
 }
