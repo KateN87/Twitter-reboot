@@ -4,11 +4,10 @@ import { useState, useEffect } from 'react';
 import { Searchbar } from '../components/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 export default function Home({ setId, id }) {
-    const [fetchedTweets, setFetchedTweets] = useState([]);
-    const [newTweet, setNewTweet] = useState(null);
+    const dispatch = useDispatch();
     const user = JSON.parse(localStorage.getItem('user'));
     // Lägg till isloading för att vänta på user
 
@@ -22,28 +21,18 @@ export default function Home({ setId, id }) {
                 var d = new Date(b.timestamp);
                 return d - c;
             });
-            setFetchedTweets(tweets);
+            dispatch({ type: 'GET_TWEETS', payload: tweets });
         };
         fetchTweets();
-    }, [newTweet]);
+    }, []);
     return (
         <>
             <div className='middle-main-container'>
                 <Searchbar />
 
-                {user && (
-                    <CreateTweet
-                        newTweet={newTweet}
-                        setNewTweet={setNewTweet}
-                    />
-                )}
+                {user && <CreateTweet />}
 
-                <ViewTweet
-                    fetchedTweets={fetchedTweets}
-                    setFetchedTweets={setFetchedTweets}
-                    setId={setId}
-                    id={id}
-                />
+                <ViewTweet setId={setId} id={id} />
             </div>
             <div className='right-main-container'>
                 <RegisterLoginDialogue />

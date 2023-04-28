@@ -1,13 +1,13 @@
-const tweet = [{ tweet: 'testing' }];
-
-const tweetReducer = (state = tweet, action) => {
-   switch (action.type) {
-      case 'SEND_TWEET':
-         return [...state, { tweet: action.payload }];
-      default:
-         return state;
-   }
-}
-
+const tweetReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'GET_TWEETS':
+            return action.payload;
+        case 'SEND_TWEET':
+            /* return [action.payload, ...state]; */
+            return [action.payload, ...state];
+        default:
+            return state;
+    }
+};
 
 export default tweetReducer;

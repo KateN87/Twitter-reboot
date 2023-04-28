@@ -7,8 +7,23 @@ import { IoIosPaperPlane } from 'react-icons/io';
 import { IoMdBriefcase } from 'react-icons/io';
 import { useParams } from 'react-router-dom';
 
-export const Button = ({ ownProfile, following, setFollowing, profile }) => {
-
+export const Button = ({ ownProfile, profile, isFollowing, setIsFollowing }) => {
+  let username = profile.username
+    useEffect(() => {
+      const checkUser = JSON.parse(localStorage.getItem('user'));
+            const loggedinId = checkUser.id       
+        const checkFollowing = async ()=>{
+            const response = await fetch('http://localhost:3001/users/' + loggedinId + "/" + username)
+            const followingOrNot = response.status
+            if(followingOrNot === 200){
+              setIsFollowing(true)
+            } else {
+              setIsFollowing(false)
+            }
+        }    
+        checkFollowing()
+            
+      })
 
     const followUser = async () => {
         const user = JSON.parse(localStorage.getItem("user"));
@@ -31,7 +46,7 @@ export const Button = ({ ownProfile, following, setFollowing, profile }) => {
 
     switch (ownProfile) {
         case false:
-            return <button onClick={() => followUser()}>Follow</button>
+            return <button onClick={() => followUser()}>{isFollowing ? "Following" : "Follow"}</button>
         default:
             return <button>Redigera profil</button>
     }
@@ -40,8 +55,10 @@ export const Button = ({ ownProfile, following, setFollowing, profile }) => {
 export default function ProfileInformation({ id, setId, idparam }) {
 
     const [profile, setProfile] = useState({})
-    idparam = useParams().id
-
+    const [following, setFollowers] = useState([])
+    const [followList, setFollowlist] = useState(false)
+    const [isFollowing, setIsFollowing] = useState(false)
+      idparam = useParams().id
 
     const [ownProfile, setOwnProfile] = useState(false)
     useEffect(() => {
@@ -55,6 +72,7 @@ export default function ProfileInformation({ id, setId, idparam }) {
                 data = await response.json()
             }
             setProfile(data)
+            setFollowers(data.following)
             const checkUser = JSON.parse(localStorage.getItem('user'));
             const loggedinId = checkUser.id
             if (loggedinId === data.id) {
@@ -62,9 +80,18 @@ export default function ProfileInformation({ id, setId, idparam }) {
             }
         }
         fetchProfile()
-    }, []);
+    },[]);
 
 
+    const checkFollowing = (profile) => {
+      let followList = profile.following
+      const following = followList?.length
+      return following
+    
+    }
+    if(profile.username === undefined){
+      return <div>Loading...</div>
+    }
     return (
         <div className='profile'>
             <img src={profile.avatar} alt='Profile avatar' className='avatar' />
@@ -74,6 +101,13 @@ export default function ProfileInformation({ id, setId, idparam }) {
             <div className='icon-container'>
                 <IoMdPerson className='icon' />
                 <p className='username'>{profile.username}</p>
+            </div>
+            <div>
+              <p>Followers {profile.followers}</p>
+              <p onClick={() => setFollowlist(!followList)}>Following {checkFollowing(profile)}</p>
+              <ul>
+                {followList && following.map((follow, index)=> <li>{follow}</li>)}
+              </ul>
             </div>
 
             <div className='about-container'>
@@ -106,7 +140,7 @@ export default function ProfileInformation({ id, setId, idparam }) {
                 <IoMdCalendar className='icon' />
                 <p className='joined'>{profile.joined}</p>
             </div>
-            <Button ownProfile={ownProfile} profile={profile}></Button>
+            <Button ownProfile={ownProfile} profile={profile} isFollowing={isFollowing} setIsFollowing={setIsFollowing}></Button>
         </div>
     );
 }

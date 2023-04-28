@@ -1,21 +1,19 @@
-import { useState } from 'react';
+import { useState } from "react";
 
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 export const Searchbar = (setId, id) => {
     const [users, setUsers] = useState([]);
     const [selectedUser, setSelectedUser] = useState(null);
     const [errorMessage, setErrorMessage] = useState(null);
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const searchQuery = event.target.elements.searchbar.value;
-        const response = await fetch('http://localhost:3001/users');
+        const response = await fetch("http://localhost:3001/users");
         const data = await response.json();
         const matchingUsers = data.filter((user) =>
             user.username.toLowerCase().includes(searchQuery.toLowerCase())
-
         );
         if (matchingUsers.length === 0) {
             setErrorMessage(`No user found with the name ${searchQuery}`);
@@ -27,9 +25,8 @@ export const Searchbar = (setId, id) => {
             setErrorMessage(null);
         }
 
-        console.log(matchingUsers)
+        console.log(matchingUsers);
     };
-
 
 
 

@@ -8,7 +8,10 @@
       "email": "kingen@kingen.se",
       "nickname": "TheKing",
       "about": "I am the king",
-      "following": [],
+      "following": [
+        "@Lovisa",
+        "@Aylin"
+      ],
       "followers": 1,
       "occupation": "Being king",
       "hometown": "Kingtown",
@@ -23,8 +26,11 @@
       "email": "kate@kate.se",
       "nickname": "TheKate",
       "about": "I am Kate",
-      "following": [],
-      "followers": 0,
+      "following": [
+        "@Aylin",
+        "@Lovisa"
+      ],
+      "followers": 1,
       "occupation": "Student",
       "hometown": "Katetown",
       "website": "kate.com",
@@ -39,9 +45,9 @@
       "nickname": "TheLovisa",
       "about": "I am Lovisa",
       "following": [
+        "@Kingen",
         "@Aylin",
-        "@Matilda",
-        "@Kingen"
+        "@Kate"
       ],
       "followers": 0,
       "occupation": "Student",
@@ -57,8 +63,11 @@
       "email": "matilda@matilda.se",
       "nickname": "TheMatilda",
       "about": "I am Matilda",
-      "following": [],
-      "followers": 1,
+      "following": [
+        "@Kingen",
+        "@Kate"
+      ],
+      "followers": 0,
       "occupation": "Being Matilda",
       "hometown": "Matildatown",
       "website": "matilda.com",
@@ -71,7 +80,10 @@
       "avatar": "https://i.postimg.cc/4xw9qHxk/avatar.png",
       "email": "aylin@aylin.com",
       "nickname": "TheAylin",
-      "following": [],
+      "following": [
+        "@Lovisa",
+        "@Kate"
+      ],
       "followers": 1,
       "about": "I am Aylin",
       "occupation": "Student",
@@ -269,6 +281,24 @@
       "username": "@Aylin",
       "timestamp": "2023-04-27T12:29:53.009Z",
       "tweet": "hejsansvensjan",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
+    },
+    {
+      "username": "@Kate",
+      "timestamp": "2023-04-27T19:23:44.662Z",
+      "tweet": "Skriver något här",
+      "likes": 0,
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
+    },
+    {
+      "username": "@Kate",
+      "timestamp": "2023-04-27T19:23:54.313Z",
+      "tweet": "skriver en sak till",
       "likes": 0,
       "retweets": 0,
       "comments": [],

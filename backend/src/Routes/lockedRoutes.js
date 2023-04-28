@@ -8,33 +8,47 @@ const router = express.Router();
 router.use(requireAuth);
 
 router.get('/test', (req, res) => {
-   res.status(200).send(req.user);
+    res.status(200).send(req.user);
 });
 
 // POST skapa ny tweet
 router.post('/tweets', async (req, res) => {
-   console.log('req user: ', req.user)
+    console.log('req user: ', req.user);
 
-   //TODO 
-   // Kolla att det inte är en tom sträng
+    //TODO
+    // Kolla att det inte är en tom sträng
 
-   const { username, tweet, hashtags } = req.body;
-   const date = new Date();
+    const { username, tweet, hashtags } = req.body;
+    const date = new Date();
 
-   const newTweet = {
-      username,
-      timestamp: date,
-      tweet,
-      likes: 0,
-      retweets: 0,
-      comments: [],
-      hashtags
-   };
+    const newTweet = {
+        username,
+        timestamp: date,
+        tweet,
+        likes: 0,
+        retweets: 0,
+        comments: [],
+        hashtags,
+    };
 
-   tweets.push(newTweet);
+    tweets.push(newTweet);
 
-   await db.write();
-   res.status(200).send(newTweet);
+    await db.write();
+    res.status(200).send(newTweet);
+});
+
+router.get('/followtweet', (req, res) => {
+    const following = req.user.following;
+    const tweetList = [];
+    try {
+        tweetList.push(
+            ...tweets.filter((tweet) => following.includes(tweet.username))
+        );
+
+        res.status(200).send(tweetList);
+    } catch (error) {
+        res.send(res.status(401).json({ error: error.message }));
+    }
 });
 
 export default router;
