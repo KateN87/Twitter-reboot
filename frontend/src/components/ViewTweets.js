@@ -44,6 +44,8 @@ export const ViewTweet = ({ setFetchedTweets, fetchedTweets, id, setId }) => {
    return (
       <div id='tweet-big-container'>
          <ul id='viewtweet'>
+            {/* HÄR GÖR EN TURNERY GREJ OCH HA MATCHING TWEETS OM SÖKT PÅ HASHTAG
+         KANSKE GÖR EN FUNKTION DÄR MAN RETURNAR ANTINGEN FETCHEDTWEETS ELR MATCHING TWEETS */}
             {fetchedTweets.map((tweet, index) => (
                <li className='tweet-container' key={index}>
                   <p
