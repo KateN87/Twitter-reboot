@@ -87,10 +87,6 @@ const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
             ))}
          </ul>
          {errorMessage && <p>{errorMessage}</p>}
-         <div id="tabs">
-            <p className="trending">For you</p>
-            <p className="trending">Trending</p>
-         </div>
       </div>
    );
 };
