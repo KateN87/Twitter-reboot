@@ -1,12 +1,16 @@
 import { useState, useEffect } from "react";
+import { useSelector } from "react-redux";
 import { Link, } from "react-router-dom";
 
-const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
+const Searchbar = () => {
+   const [hashtags, setHashtags] = useState([])
    const [matchingHashtags, setMatchingHashtags] = useState([]);
    const [matchingTweets, setMatchingTweets] = useState([]);
+
    const [searchInput, setSearchInput] = useState("");
    const [users, setUsers] = useState([]);
    const [errorMessage, setErrorMessage] = useState(null);
+   const fetchedTweets = useSelector(state => state.tweetReducer) || [];
 
    const fetchMatchingUsers = async (searchQuery) => {
       try {
@@ -25,17 +29,45 @@ const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
 
    const handleSearchInputChange = (event) => {
       const input = event.target.value;
-      setSearchInput(input);
-      const filteredHashtags = matchingHashtags.filter((hashtag) =>
-         hashtag.includes(input)
-      );
-      setMatchingHashtags(filteredHashtags);
-      const filteredTweets = fetchedTweets.filter((tweet) =>
-         tweet.hashtags.some((h) => filteredHashtags.includes(h))
-      );
-      setMatchingTweets(filteredTweets);
-      setFetchedTweets(filteredTweets);
+      setSearchInput(input)
+
+      fetchedTweets.map(tweet => console.log('Hashtags in every tweet', tweet.hashtags))
+      // const filteredTweets = fetchedTweets.filter(tweet => tweet.hashtags.includes(searchInput))
+
+      //console.log('filtered tweets: ', filteredTweets)
+
+      //console.log('searchinput: ', searchInput);
+
+
+
+
+
+      /*       const input = event.target.value;
+            setSearchInput(input);
+            const filteredHashtags = hashtags.filter((hashtag) =>
+               hashtag.includes(input)
+            );
+            setHashtags(...filteredHashtags);
+            const filteredTweets = fetchedTweets.filter((tweet) =>
+               tweet.hashtags.some((ht) => filteredHashtags.includes(ht))
+            );
+      
+            setMatchingTweets(filteredTweets); */
    };
+
+   useEffect(() => {
+      const fetchHashtags = async () => {
+         try {
+            const response = await fetch("http://localhost:3001/hashtags");
+            const data = await response.json();
+            setHashtags(data);
+         } catch (error) {
+            console.error(error);
+            setErrorMessage("Failed to fetch hashtags.");
+         }
+      };
+      fetchHashtags();
+   }, []);
 
    const handleSubmit = async (event) => {
       event.preventDefault();
@@ -48,20 +80,6 @@ const Searchbar = ({ fetchedTweets, setFetchedTweets }) => {
          setUsers(matchingUsers);
       }
    };
-
-   useEffect(() => {
-      const fetchHashtags = async () => {
-         try {
-            const response = await fetch("http://localhost:3001/hashtags");
-            const data = await response.json();
-            setMatchingHashtags(data);
-         } catch (error) {
-            console.error(error);
-            setErrorMessage("Failed to fetch hashtags.");
-         }
-      };
-      fetchHashtags();
-   }, []);
 
    return (
       <div>

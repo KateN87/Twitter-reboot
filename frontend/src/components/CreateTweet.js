@@ -10,6 +10,7 @@ export default function CreateTweet() {
       const checkUser = JSON.parse(localStorage.getItem('user'));
       const wordsArray = textInput.split(/[\s\n]+/);
       const foundHashtag = wordsArray.filter((word) => word.startsWith('#'));
+      const hashtagsWithout = foundHashtag.map(hashtag => hashtag.replace(/^#/, ""))
 
       if (!checkUser) {
          console.log('User not authenticated');
@@ -19,7 +20,7 @@ export default function CreateTweet() {
       const newTweetReq = {
          tweet: textInput,
          username: checkUser.username,
-         hashtags: foundHashtag,
+         hashtags: hashtagsWithout,
       };
 
       const options = {
@@ -37,7 +38,6 @@ export default function CreateTweet() {
             throw new Error('Failed to send tweet');
          }
          const newTweet = await response.json();
-         setNewTweet(newTweet)
          dispatch({ type: 'SEND_TWEET', payload: newTweet });
       } catch (error) {
          console.error(error);
