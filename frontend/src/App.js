@@ -12,7 +12,7 @@ import { Header } from './components/Header';
 
 function App() {
     const dispatch = useDispatch();
-    const user = useSelector((state) => state.userReducer.user);
+    const user = useSelector((state) => state.userReducer);
     const [isLoading, setIsLoading] = useState(true);
     /* const [id, setId] = useState(0); */
 

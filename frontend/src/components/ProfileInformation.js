@@ -7,65 +7,25 @@ import {
     IoIosPaperPlane,
     IoMdBriefcase,
 } from 'react-icons/io';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 
-//TODO: dispatch when follow
-
-export const Button = ({ profile, isFollowing, setIsFollowing }) => {
-    const user = useSelector((state) => state.userReducer.user);
-
-    const findFollowing = user.following.includes(profile.username);
-    if (findFollowing) {
-        setIsFollowing(true);
-    } else {
-        setIsFollowing(false);
-    }
-
-    const followUser = async () => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
-        const id = user.id;
-        const acc = profile.username;
-        let username = acc.replace('@', '');
-        console.log(username);
-        const options = {
-            method: 'POST',
-            body: JSON.stringify({ username }),
-            headers: {
-                'Content-Type': 'application/json',
-                Authorization: `Bearer ${checkUser.token}`,
-            },
-        };
-        const response = await fetch(
-            'http://localhost:3001/locked/' + id,
-            options
-        );
-        if (response.status === 201) {
-            dispatchEvent();
-        }
-    };
-
-    return (
-        <button onClick={() => followUser()}>
-            {isFollowing ? 'Following' : 'Follow'}
-        </button>
-    );
-};
-
 export default function ProfileInformation() {
+    const dispatch = useDispatch();
     const [profile, setProfile] = useState({});
 
     const [following, setFollowers] = useState([]);
     const [followList, setFollowlist] = useState(false);
     const [isFollowing, setIsFollowing] = useState(false);
 
-    const user = useSelector((state) => state.userReducer.user);
+    const user = useSelector((state) => state.userReducer);
     const idparam = useParams().id;
 
     const [ownProfile, setOwnProfile] = useState(false);
 
     useEffect(() => {
         const fetchProfile = async () => {
+            console.log(user);
             const response = await fetch(
                 'http://localhost:3001/users/' + idparam
             );
@@ -78,9 +38,41 @@ export default function ProfileInformation() {
             if (user.id === data.id) {
                 setOwnProfile(true);
             }
+
+            if (data.username) {
+                const findFollowing = user.following.includes(data.username);
+                if (findFollowing) {
+                    setIsFollowing(true);
+                } else {
+                    setIsFollowing(false);
+                }
+            }
         };
         fetchProfile();
     }, [user]);
+
+    const followUser = async () => {
+        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const username = profile.username;
+
+        const options = {
+            method: 'POST',
+            body: JSON.stringify({ username }),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${checkUser.token}`,
+            },
+        };
+        const response = await fetch(
+            'http://localhost:3001/locked/follow/',
+            options
+        );
+        const data = await response.json();
+        console.log('This is response', response.status);
+        if (response.status === 201) {
+            dispatch({ type: 'ADD_FOLLOWING', payload: data });
+        }
+    };
 
     const checkFollowing = (profile) => {
         let followList = profile.following;
@@ -144,13 +136,39 @@ export default function ProfileInformation() {
                 <p className='joined'>{profile.joined}</p>
             </div>
             {!ownProfile && (
-                <Button
-                    ownProfile={ownProfile}
-                    profile={profile}
-                    isFollowing={isFollowing}
-                    setIsFollowing={setIsFollowing}
-                ></Button>
+                <button onClick={() => followUser()}>
+                    {isFollowing ? 'Following' : 'Follow'}
+                </button>
             )}
         </div>
     );
 }
+
+//TODO: dispatch when follow
+
+/* const followUser = async () => {
+    const checkUser = JSON.parse(localStorage.getItem('user'));
+    const id = user.id;
+    const acc = profile.username;
+    let username = acc.replace('@', '');
+    console.log(username);
+    const options = {
+        method: 'POST',
+        body: JSON.stringify({ username }),
+        headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ${checkUser.token}`,
+        },
+    };
+    const response = await fetch('http://localhost:3001/locked/' + id, options);
+    const data = await response.json();
+    if (response.status === 201) {
+        dispatch({ type: 'ADD_FOLLOWING', paylaod: data });
+    }
+}; */
+
+/* {!ownProfile && (
+    <button >
+        {isFollowing ? 'Following' : 'Follow'}
+    </button>
+)} */

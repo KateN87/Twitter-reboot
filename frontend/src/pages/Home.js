@@ -8,7 +8,8 @@ import { useDispatch, useSelector } from 'react-redux';
 
 export default function Home({ setId, id }) {
     const dispatch = useDispatch();
-    const user = JSON.parse(localStorage.getItem('user'));
+    /* const user = JSON.parse(localStorage.getItem('user')); */
+    const user = useSelector((state) => state.userReducer);
     // Lägg till isloading för att vänta på user
 
     useEffect(() => {

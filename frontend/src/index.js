@@ -10,19 +10,19 @@ import tweetReducer from './redux/tweetReducer';
 import userReducer from './redux/userReducer';
 
 const store = configureStore({
-   reducer: {
-      tweetReducer: tweetReducer,
-      userReducer: userReducer,
-   },
+    reducer: {
+        tweetReducer: tweetReducer,
+        userReducer: userReducer,
+    },
 });
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-   <Router>
-      <React.StrictMode>
-         <Provider store={store}>
-            <App />
-         </Provider>
-      </React.StrictMode>
-   </Router>
+    <Router>
+        <React.StrictMode>
+            <Provider store={store}>
+                <App />
+            </Provider>
+        </React.StrictMode>
+    </Router>
 );

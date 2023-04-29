@@ -52,11 +52,42 @@ router.get('/followtweet', (req, res) => {
 
         res.status(200).send(tweetList);
     } catch (error) {
-        res.send(res.status(401).json({ error: error.message }));
+        res.status(401).json({ error: error.message });
     }
 });
 
-app.post('/users/:id', async (req, res) => {
+router.post('/follow/:id', async (req, res) => {
+    //Get loggedin-users id från authorization middleware
+    const mainId = req.user.id;
+    //The name of the person you want to follow
+    const followingUsername = req.body.username;
+    try {
+        let followListUser = users.find((user) => user.id === mainId);
+
+        if (!followListUser) {
+            throw Error('User not found');
+        }
+
+        // check if logged in user is already following - might not need this
+        const isFollowing =
+            followListUser.following.includes(followingUsername);
+
+        if (isFollowing) {
+            throw Error('Already following user');
+        }
+        if (!isFollowing) {
+            // Add the target user's username to the following array
+            followListUser.following.push(followingUsername);
+        }
+
+        res.json(followingUsername);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+export default router;
+
+/*
     const id = +req.params.id;
     const i = users.findIndex((i) => i.id === id);
     const username = req.body.username;
@@ -78,7 +109,7 @@ app.post('/users/:id', async (req, res) => {
             await db.write();
         }
 
-        res.status(201).send(username);
+        res.status(201).send('updated');
     } else if (found) {
         let followList = users[i].following;
         let found = followList.indexOf(username);
@@ -96,6 +127,4 @@ app.post('/users/:id', async (req, res) => {
         await db.write();
     } else {
         res.status(400).send('Bad request');
-    }
-});
-export default router;
+    } */

@@ -15,7 +15,7 @@ export const ViewTweet = ({ id, setId }) => {
     const trendingTweets = useSelector((state) => state.tweetReducer);
     //state för tweets som användaren följer
     const [forYouTweets, setForYouTweets] = useState([]);
-    const user = useSelector((state) => state.userReducer.user);
+    const user = useSelector((state) => state.userReducer);
 
     //Useeffect som hämtar tweets som användaren följer. Dependency är på när view ändras.
     useEffect(() => {
