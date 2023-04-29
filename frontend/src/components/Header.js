@@ -6,7 +6,7 @@ import hashtag from '../icons/hashtagtwitter.png';
 import MiniUserInfo from './MiniUserInfo.js';
 
 export const Header = () => {
-    const user = useSelector((state) => state.userReducer.user);
+    const user = useSelector((state) => state.userReducer);
 
     return (
         <nav>
@@ -15,7 +15,7 @@ export const Header = () => {
             <h3 className='hashtag' id='explore'>
                 Utforska
             </h3>
-            {user && <MiniUserInfo />}
+            {user !== undefined && <MiniUserInfo />}
         </nav>
     );
 };

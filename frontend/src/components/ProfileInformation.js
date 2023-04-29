@@ -1,163 +1,150 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect } from 'react';
 import {
-	IoMdPin,
-	IoMdMail,
-	IoMdPerson,
-	IoMdCalendar,
-	IoIosPaperPlane,
-	IoMdBriefcase,
-} from "react-icons/io";
+    IoMdPin,
+    IoMdMail,
+    IoMdPerson,
+    IoMdCalendar,
+    IoIosPaperPlane,
+    IoMdBriefcase,
+} from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
-import { useParams } from "react-router-dom";
+export default function ProfileInformation() {
+    const dispatch = useDispatch();
+    const [profile, setProfile] = useState({});
 
-export const Button = ({
-	ownProfile,
-	profile,
-	isFollowing,
-	setIsFollowing,
-}) => {
-	let username = profile.username;
-	useEffect(() => {
-		const checkUser = JSON.parse(localStorage.getItem("user"));
-		const loggedinId = checkUser.id;
-		const checkFollowing = async () => {
-			const response = await fetch(
-				"http://localhost:3001/users/" + loggedinId + "/" + username
-			);
-			const followingOrNot = response.status;
-			if (followingOrNot === 200) {
-				setIsFollowing(true);
-			} else {
-				setIsFollowing(false);
-			}
-		};
-		checkFollowing();
-	});
+    const [following, setFollowers] = useState([]);
+    const [followList, setFollowlist] = useState(false);
+    const [isFollowing, setIsFollowing] = useState(false);
 
-	const followUser = async () => {
-		const user = JSON.parse(localStorage.getItem("user"));
-		const id = user.id;
-		const acc = profile.username;
-		let username = acc.replace("@", "");
-		console.log(username);
-		const options = {
-			method: "POST",
-			body: JSON.stringify({ username }),
-			headers: {
-				"Content-Type": "application/json",
-			},
-		};
-		const response = await fetch("http://localhost:3001/users/" + id, options);
-		if (response.status === 201) {
-			console.log("FOllowing!");
-		}
-	};
+    const user = useSelector((state) => state.userReducer);
+    const idparam = useParams().id;
 
-	switch (ownProfile) {
-		case false:
-			return (
-				<button onClick={() => followUser()}>
-					{isFollowing ? "Following" : "Follow"}
-				</button>
-			);
-		default:
-			return <button>Redigera profil</button>;
-	}
-};
+    const [ownProfile, setOwnProfile] = useState(false);
 
-export default function ProfileInformation({ id, setId, idparam }) {
-	const [profile, setProfile] = useState({});
-	const [following, setFollowers] = useState([]);
-	const [followList, setFollowlist] = useState(false);
-	const [isFollowing, setIsFollowing] = useState(false);
-	idparam = useParams().id;
+    useEffect(() => {
+        const fetchProfile = async () => {
+            console.log(user);
+            const response = await fetch(
+                'http://localhost:3001/users/' + idparam
+            );
+            const data = await response.json();
 
-	const [ownProfile, setOwnProfile] = useState(false);
-	useEffect(() => {
-		const fetchProfile = async () => {
-			let data;
-			if (id === 0) {
-				const response = await fetch("http://localhost:3001/users/" + idparam);
-				data = await response.json();
-			} else {
-				const response = await fetch("http://localhost:3001/users/" + id);
-				data = await response.json();
-			}
-			setProfile(data);
-			setFollowers(data.following);
-			const checkUser = JSON.parse(localStorage.getItem("user"));
-			const loggedinId = checkUser.id;
-			if (loggedinId === data.id) {
-				setOwnProfile(true);
-			}
-		};
-		fetchProfile();
-	}, []);
+            setProfile(data);
+            setFollowers(data.following);
+            /*             const checkUser = JSON.parse(localStorage.getItem('user'));
+            const loggedinId = checkUser.id; */
+            if (user.id === data.id) {
+                setOwnProfile(true);
+            }
 
-	const checkFollowing = (profile) => {
-		let followList = profile.following;
-		const following = followList?.length;
-		return following;
-	};
-	if (profile.username === undefined) {
-		return <div>Loading...</div>;
-	}
-	return (
-		<div className='profile'>
-			<img src={profile.avatar} alt='Profile avatar' className='avatar' />
+            if (data.username) {
+                const findFollowing = user.following.includes(data.username);
+                if (findFollowing) {
+                    setIsFollowing(true);
+                } else {
+                    setIsFollowing(false);
+                }
+            }
+        };
+        fetchProfile();
+    }, [user]);
 
-			<h2 className='nickname'>{profile.nickname}</h2>
+    const followUser = async () => {
+        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const username = profile.username;
 
-			<div className='icon-container'>
-				<IoMdPerson className='icon' />
-				<p className='username'>{profile.username}</p>
-			</div>
-			<div>
-				<p>Followers {profile.followers}</p>
-				<p onClick={() => setFollowlist(!followList)}>
-					Following {checkFollowing(profile)}
-				</p>
-				<ul>
-					{followList && following.map((follow, index) => <li>{follow}</li>)}
-				</ul>
-			</div>
+        const options = {
+            method: 'PATCH',
+            body: JSON.stringify({ username }),
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${checkUser.token}`,
+            },
+        };
+        const response = await fetch(
+            'http://localhost:3001/locked/follow/',
+            options
+        );
+        const data = await response.json();
+        console.log('This is response', response);
+        if (response.status === 201) {
+            dispatch({ type: 'ADD_FOLLOWING', payload: data });
+        }
+        if (response.status === 200) {
+            dispatch({ type: 'DELETE_FOLLOWING', payload: data });
+        }
+    };
 
-			<div className='about-container'>
-				<p className='about'>{profile.about}</p>
-			</div>
+    const checkFollowing = (profile) => {
+        let followList = profile.following;
+        const following = followList?.length;
+        return following;
+    };
 
-			<div className='icon-container'>
-				<IoMdMail className='icon' />
-				<p className='email'>{profile.email}</p>
-			</div>
+    if (profile.username === undefined) {
+        return <div>Loading...</div>;
+    }
 
-			<div className='icon-container'>
-				<IoMdBriefcase className='icon' />
-				<p className='occupation'>{profile.occupation}</p>
-			</div>
+    return (
+        <div className='profile'>
+            <img src={profile.avatar} alt='Profile avatar' className='avatar' />
 
-			<div className='icon-container'>
-				<IoMdPin className='icon' />
-				<p className='hometown'>{profile.hometown}</p>
-			</div>
+            <h2 className='nickname'>{profile.nickname}</h2>
 
-			<div className='icon-container'>
-				<IoIosPaperPlane className='icon' />
-				<a href={`https://${profile.website}`} className='website'>
-					{profile.website}
-				</a>
-			</div>
+            <div className='icon-container'>
+                <IoMdPerson className='icon' />
+                <p className='username'>{profile.username}</p>
+            </div>
+            <div>
+                <p>Followers {profile.followers}</p>
+                <p onClick={() => setFollowlist(!followList)}>
+                    Following {checkFollowing(profile)}
+                </p>
+                <ul>
+                    {followList &&
+                        following.map((follow) => (
+                            <li key={follow}>{follow}</li>
+                        ))}
+                </ul>
+            </div>
 
-			<div className='icon-container'>
-				<IoMdCalendar className='icon' />
-				<p className='joined'>{profile.joined}</p>
-			</div>
-			<Button
-				ownProfile={ownProfile}
-				profile={profile}
-				isFollowing={isFollowing}
-				setIsFollowing={setIsFollowing}
-			></Button>
-		</div>
-	);
+            <div className='about-container'>
+                <p className='about'>{profile.about}</p>
+            </div>
+
+            <div className='icon-container'>
+                <IoMdMail className='icon' />
+                <p className='email'>{profile.email}</p>
+            </div>
+
+            <div className='icon-container'>
+                <IoMdBriefcase className='icon' />
+                <p className='occupation'>{profile.occupation}</p>
+            </div>
+
+            <div className='icon-container'>
+                <IoMdPin className='icon' />
+                <p className='hometown'>{profile.hometown}</p>
+            </div>
+
+            <div className='icon-container'>
+                <IoIosPaperPlane className='icon' />
+                <a href={`https://${profile.website}`} className='website'>
+                    {profile.website}
+                </a>
+            </div>
+
+            <div className='icon-container'>
+                <IoMdCalendar className='icon' />
+                <p className='joined'>{profile.joined}</p>
+            </div>
+            {!ownProfile && (
+                <button onClick={() => followUser()}>
+                    {isFollowing ? 'Unfollow' : 'Follow'}
+                </button>
+            )}
+        </div>
+    );
 }
