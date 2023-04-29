@@ -38,7 +38,6 @@ router.post('/tweets', async (req, res) => {
     allHashtags.push(...hashtags);
 
     await db.write();
-    console.log('allHasttags: ', allHashtags);
     res.status(200).send(newTweet);
 });
 
