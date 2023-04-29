@@ -25,7 +25,6 @@ export default function ProfileInformation() {
 
     useEffect(() => {
         const fetchProfile = async () => {
-            console.log(user);
             const response = await fetch(
                 'http://localhost:3001/users/' + idparam
             );
