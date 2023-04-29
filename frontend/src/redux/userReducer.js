@@ -5,7 +5,15 @@ const userReducer = (state = null, action) => {
         case 'LOGOUT_USER':
             return null;
         case 'ADD_FOLLOWING':
-            return [...state.following, action.payload];
+            return {
+                ...state,
+                following: [...state.following, action.payload],
+            };
+        case 'DELETE_FOLLOWING':
+            return {
+                ...state,
+                following: state.following.filter((u) => u !== action.payload),
+            };
         default:
             return state;
     }

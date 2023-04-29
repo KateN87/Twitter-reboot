@@ -56,7 +56,7 @@ export default function ProfileInformation() {
         const username = profile.username;
 
         const options = {
-            method: 'POST',
+            method: 'PATCH',
             body: JSON.stringify({ username }),
             headers: {
                 'Content-Type': 'application/json',
@@ -68,9 +68,12 @@ export default function ProfileInformation() {
             options
         );
         const data = await response.json();
-        console.log('This is response', response.status);
+        console.log('This is response', response);
         if (response.status === 201) {
             dispatch({ type: 'ADD_FOLLOWING', payload: data });
+        }
+        if (response.status === 200) {
+            dispatch({ type: 'DELETE_FOLLOWING', payload: data });
         }
     };
 
@@ -101,7 +104,9 @@ export default function ProfileInformation() {
                 </p>
                 <ul>
                     {followList &&
-                        following.map((follow, index) => <li>{follow}</li>)}
+                        following.map((follow) => (
+                            <li key={follow}>{follow}</li>
+                        ))}
                 </ul>
             </div>
 
@@ -137,38 +142,9 @@ export default function ProfileInformation() {
             </div>
             {!ownProfile && (
                 <button onClick={() => followUser()}>
-                    {isFollowing ? 'Following' : 'Follow'}
+                    {isFollowing ? 'Unfollow' : 'Follow'}
                 </button>
             )}
         </div>
     );
 }
-
-//TODO: dispatch when follow
-
-/* const followUser = async () => {
-    const checkUser = JSON.parse(localStorage.getItem('user'));
-    const id = user.id;
-    const acc = profile.username;
-    let username = acc.replace('@', '');
-    console.log(username);
-    const options = {
-        method: 'POST',
-        body: JSON.stringify({ username }),
-        headers: {
-            'Content-Type': 'application/json',
-            Authorization: `Bearer ${checkUser.token}`,
-        },
-    };
-    const response = await fetch('http://localhost:3001/locked/' + id, options);
-    const data = await response.json();
-    if (response.status === 201) {
-        dispatch({ type: 'ADD_FOLLOWING', paylaod: data });
-    }
-}; */
-
-/* {!ownProfile && (
-    <button >
-        {isFollowing ? 'Following' : 'Follow'}
-    </button>
-)} */

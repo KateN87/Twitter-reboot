@@ -56,11 +56,12 @@ router.get('/followtweet', (req, res) => {
     }
 });
 
-router.post('/follow/:id', async (req, res) => {
+router.patch('/follow', async (req, res) => {
     //Get loggedin-users id från authorization middleware
     const mainId = req.user.id;
     //The name of the person you want to follow
     const followingUsername = req.body.username;
+    const followedUserObj = users.find((u) => u.username === followingUsername);
     try {
         let followListUser = users.find((user) => user.id === mainId);
 
@@ -69,18 +70,23 @@ router.post('/follow/:id', async (req, res) => {
         }
 
         // check if logged in user is already following - might not need this
-        const isFollowing =
-            followListUser.following.includes(followingUsername);
+        const isFollowingIndex =
+            followListUser.following.indexOf(followingUsername);
 
-        if (isFollowing) {
-            throw Error('Already following user');
-        }
-        if (!isFollowing) {
-            // Add the target user's username to the following array
-            followListUser.following.push(followingUsername);
+        if (isFollowingIndex !== -1) {
+            followListUser.following.splice(isFollowingIndex, 1);
+            followedUserObj.followers--;
+            await db.write();
+            return res.status(200).json(followingUsername);
         }
 
-        res.json(followingUsername);
+        // Add requested follow to logged in users following-array
+        followListUser.following.push(followingUsername);
+        //Add one extra to followers
+        followedUserObj.followers++;
+        await db.write();
+
+        res.status(201).json(followingUsername);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
