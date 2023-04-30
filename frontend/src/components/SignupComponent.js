@@ -12,6 +12,7 @@ const SignupComponent = () => {
 
         //Säkerställer att error alltid börjar som null
         setError(null);
+        console.log(e.target.image.value);
         let formData = new FormData();
         let imageFile = e.target.image.files[0];
 
@@ -37,14 +38,11 @@ const SignupComponent = () => {
             hometown: hometown.value,
             website: website.value,
         };
-
-        formData.append('imageFile', imageFile);
         formData.append('newUser', newUser);
-        console.lgo(formData);
-
+        formData.append('imageFile', imageFile);
         const response = await fetch('http://localhost:3001/log/signup', {
             method: 'POST',
-            /* headers: { "Content-Type": "application/json" }, */
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(formData),
         });
 
@@ -66,6 +64,8 @@ const SignupComponent = () => {
             //nollställer formuläret
             e.target.reset();
         }
+
+        console.log(imageFile);
     };
 
     return (
@@ -107,6 +107,9 @@ const SignupComponent = () => {
                 <br />
                 <label htmlFor='website'>Website:</label>
                 <input type='text' id='website' />
+                <br />
+                <label htmlFor='image'>Image:</label>
+                <input type='file' id='image' />
 
                 <br />
                 <button type='submit'>Sign up</button>
