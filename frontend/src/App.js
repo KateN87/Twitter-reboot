@@ -30,7 +30,7 @@ function App() {
                         },
                     }
                 );
-
+                console.log(response);
                 if (response.ok) {
                     const loggedUser = await response.json();
 
