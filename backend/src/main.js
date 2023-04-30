@@ -6,7 +6,7 @@ import logRoutes from './Routes/logRoutes.js';
 import lockedRoutes from './Routes/lockedRoutes.js';
 
 const app = express();
-
+app.use(express.static('frontend/public'));
 app.use(
     cors({
         origin: 'http://localhost:3000',

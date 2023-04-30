@@ -1,19 +1,18 @@
 import express from 'express';
-import validator from 'validator';
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-
+import fileUpload from 'express-fileupload';
 import { db } from '../database.js';
 import validateSignup from '../../validate/validateSignup.js';
 
 const router = express.Router();
-
+router.use(fileUpload());
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.SECRET, { expiresIn: '1d' });
 };
 
 router.post('/signup', async (req, res) => {
-    console.log;
+    /* console.log('THIS IS FILE', imageFile.name); */
     const {
         username,
         password,
@@ -31,11 +30,18 @@ router.post('/signup', async (req, res) => {
         const hash = await bcrypt.hash(password, salt);
         const id = db.data.users.length + 1;
 
+        const { image } = req.files;
+        if (!image) {
+            image.name = 'default-user-avatar.jpg';
+        } else {
+            image.mv('../frontend/public/upload/' + image.name);
+        }
+
         const user = {
             id,
             username,
             password: hash,
-            avatar: 'https://i.postimg.cc/4xw9qHxk/avatar.png',
+            avatar: image.name,
             email,
             nickname,
             about,
@@ -51,6 +57,7 @@ router.post('/signup', async (req, res) => {
 
         res.status(200).json({ ...user, token });
     } catch (error) {
+        console.log('THIS IS ERROR', error);
         res.status(400).json({ error: error.message });
     }
 });
