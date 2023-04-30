@@ -13,6 +13,7 @@ const createToken = (id) => {
 };
 
 router.post('/signup', async (req, res) => {
+    console.log;
     const {
         username,
         password,
