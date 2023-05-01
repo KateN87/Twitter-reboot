@@ -8,7 +8,6 @@ const SignupComponent = () => {
     const navigate = useNavigate();
 
     const handleSubmit = async (form, e) => {
-        console.log('Form Data:', form.image.files[0]);
         setError(null);
 
         const formData = new FormData();
