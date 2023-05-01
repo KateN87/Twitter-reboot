@@ -32,7 +32,6 @@ function App() {
                 );
                 if (response.ok) {
                     const loggedUser = await response.json();
-
                     dispatch({ type: 'LOGIN_USER', payload: loggedUser });
                 }
                 setIsLoading(false);

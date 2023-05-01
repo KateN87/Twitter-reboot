@@ -11,7 +11,6 @@ export default function LoginComponent() {
     const [passwordError, setPasswordError] = useState('');
 
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {

@@ -34,6 +34,9 @@ router.post('/signup', async (req, res) => {
         if (!image) {
             image.name = 'default-user-avatar.jpg';
         } else {
+            /*             if (image.mimetype !== 'image/jpeg' && 'image/jpg') {
+                throw Error('Image must be in format .jpeg/.jpg or .png');
+            } */
             image.mv('../frontend/public/upload/' + image.name);
         }
 
