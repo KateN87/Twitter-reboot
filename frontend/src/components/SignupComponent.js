@@ -10,6 +10,7 @@ const SignupComponent = () => {
     const handleSubmit = async (form, e) => {
         setError(null);
 
+        //Adding info from form
         const formData = new FormData();
         formData.append('username', form.username.value);
         formData.append('password', form.password.value);
@@ -31,9 +32,12 @@ const SignupComponent = () => {
 
         if (!response.ok) {
             setError(json.error);
+            //Needed return false, since preventDefault doesnt seem to be working with enctype
             return false;
         } else {
+            //Adds user with token to localstorage
             localStorage.setItem('user', JSON.stringify(json));
+            //Login user to reducer-state
             dispatch({ type: 'LOGIN_USER', payload: json });
             navigate('/');
             form.reset();
@@ -42,6 +46,7 @@ const SignupComponent = () => {
 
     return (
         <div className='login-container signup-container'>
+            {/*added enctype to send form with both text and file */}
             <form
                 className='login-form'
                 onSubmit={(e) => {

@@ -6,7 +6,10 @@ import { db } from '../database.js';
 import validateSignup from '../../validate/validateSignup.js';
 
 const router = express.Router();
+
+//Middleware for handling uploaded files
 router.use(fileUpload());
+
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.SECRET, { expiresIn: '1d' });
 };
@@ -25,18 +28,23 @@ router.post('/signup', async (req, res) => {
     } = req.body;
 
     try {
+        //Validates info
         validateSignup(req);
+        //Encrypt password
         const salt = await bcrypt.genSalt(10);
         const hash = await bcrypt.hash(password, salt);
         const id = db.data.users.length + 1;
 
+        //Gets image-objekt from req.files(by middleware)
         const { image } = req.files;
         if (!image) {
+            //If no image, set default image
             image.name = 'default-user-avatar.jpg';
         } else {
-            /*             if (image.mimetype !== 'image/jpeg' && 'image/jpg') {
+            /* if (image.mimetype !== 'image/jpeg' && 'image/jpg') {
                 throw Error('Image must be in format .jpeg/.jpg or .png');
             } */
+            //If uploaded image, place in upload-folder and the name from image-object
             image.mv('../frontend/public/upload/' + image.name);
         }
 
@@ -54,6 +62,7 @@ router.post('/signup', async (req, res) => {
             joined: new Date(),
         };
 
+        //add user to db
         db.data.users.push(user);
         await db.write();
         const token = createToken(id);
