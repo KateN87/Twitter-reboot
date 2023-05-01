@@ -67,7 +67,7 @@ export default function ProfileInformation() {
             options
         );
         const data = await response.json();
-        console.log('This is response', response);
+
         if (response.status === 201) {
             dispatch({ type: 'ADD_FOLLOWING', payload: data });
         }
