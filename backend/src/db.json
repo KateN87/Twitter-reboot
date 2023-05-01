@@ -83,7 +83,8 @@
             "tweet": "Första tweeten ever!",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Kingen",
@@ -91,7 +92,8 @@
             "tweet": "Whatever happens now?",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Lovisa",
@@ -99,7 +101,8 @@
             "tweet": "Funkar detta?",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Aylin",
@@ -107,7 +110,8 @@
             "tweet": "Testar lite",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Matilda",
@@ -116,7 +120,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -125,7 +129,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -134,7 +138,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -143,7 +147,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -152,7 +156,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -161,7 +165,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -170,7 +174,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -179,7 +183,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
