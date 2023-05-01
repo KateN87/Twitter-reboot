@@ -32,8 +32,8 @@ export default function ProfileInformation() {
 
             setProfile(data);
             setFollowers(data.following);
-            /*             const checkUser = JSON.parse(localStorage.getItem('user'));
-            const loggedinId = checkUser.id; */
+            /* const checkUser = JSON.parse(localStorage.getItem('user')); */
+            /* const loggedinId = checkUser.id; */
             if (user.id === data.id) {
                 setOwnProfile(true);
             }
@@ -48,7 +48,7 @@ export default function ProfileInformation() {
             }
         };
         fetchProfile();
-    }, [user]);
+    }, [idparam, user]);
 
     const followUser = async () => {
         const checkUser = JSON.parse(localStorage.getItem('user'));
