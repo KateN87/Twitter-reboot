@@ -92,17 +92,24 @@ app.get('/trending', (req, res) => {
                 if (occuringHashtags.hasOwnProperty(hashtag.toLowerCase())) {
                     occuringHashtags[hashtag.toLowerCase()]++;
                 } else {
-                    //If the hashtag is not, add the hashtag and set it to one
+                    //If the hashtag is already there, add the hashtag and set it to one
                     occuringHashtags[hashtag.toLowerCase()] = 1;
                 }
             }
         }
-        // Make object to array
-        const occuringHashtagsArray = Object.entries(occuringHashtags);
+        // Takes each hashtag from occuringHashtags, and makes it into an array with objects
+        const occuringHashtagsArray = Object.keys(occuringHashtags).map(
+            (hashtag) => {
+                return {
+                    hashtag: hashtag,
+                    occurance: occuringHashtags[hashtag],
+                };
+            }
+        );
         //Sort the array based on number, if b[1] is greater than a[1], then b is placed before a
         occuringHashtagsArray.sort((a, b) => b[1] - a[1]);
         const topFive = occuringHashtagsArray.slice(0, 5);
-        res.status(200).json({ topFive });
+        res.status(200).send(topFive);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

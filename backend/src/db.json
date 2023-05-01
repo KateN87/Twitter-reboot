@@ -192,7 +192,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": ["#split", "#test6\nhejjjj"]
+            "hashtags": ["#split", "#test6"]
         },
         {
             "username": "@Matilda",
@@ -219,7 +219,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": ["#split", "#test\nhejhej"]
+            "hashtags": ["#split", "#test"]
         },
         {
             "username": "@Matilda",
@@ -265,7 +265,34 @@
             "retweets": 0,
             "comments": [],
             "hashtags": []
+        },
+        {
+            "username": "@Kate",
+            "timestamp": "2023-05-01T18:15:16.949Z",
+            "tweet": "Testar",
+            "likes": 0,
+            "retweets": 0,
+            "comments": [],
+            "hashtags": []
+        },
+        {
+            "username": "@Kate",
+            "timestamp": "2023-05-01T18:15:30.088Z",
+            "tweet": "Testar igen",
+            "likes": 0,
+            "retweets": 0,
+            "comments": [],
+            "hashtags": []
+        },
+        {
+            "username": "@Kate",
+            "timestamp": "2023-05-01T18:47:15.960Z",
+            "tweet": "Testar hashtags #test1",
+            "likes": 0,
+            "retweets": 0,
+            "comments": [],
+            "hashtags": ["#test1"]
         }
     ],
-    "allHashtags": []
+    "allHashtags": ["test1"]
 }
