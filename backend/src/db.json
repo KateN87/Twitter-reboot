@@ -4,7 +4,7 @@
             "id": 1,
             "username": "@Kingen",
             "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
-            "avatar": "default-user-avatar.jpg",
+            "avatar": "default-user-avatar.png",
             "email": "kingen@kingen.com",
             "nickname": "TheKing",
             "about": "I am the king",
@@ -19,7 +19,7 @@
             "id": 2,
             "username": "@Kate",
             "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
-            "avatar": "default-user-avatar.jpg",
+            "avatar": "default-user-avatar.png",
             "email": "kate@kate.com",
             "nickname": "TheKate",
             "about": "I am Kate",
@@ -34,7 +34,7 @@
             "id": 3,
             "username": "@Lovisa",
             "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
-            "avatar": "default-user-avatar.jpg",
+            "avatar": "default-user-avatar.png",
             "email": "lovisa@lovisa.com",
             "nickname": "TheLovisa",
             "about": "I am Lovisa",
@@ -49,7 +49,7 @@
             "id": 4,
             "username": "@Matilda",
             "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
-            "avatar": "default-user-avatar.jpg",
+            "avatar": "default-user-avatar.png",
             "email": "matilda@matilda.se",
             "nickname": "TheMatilda",
             "about": "I am Matilda",
@@ -64,7 +64,7 @@
             "id": 5,
             "username": "@Aylin",
             "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
-            "avatar": "default-user-avatar.jpg",
+            "avatar": "default-user-avatar.png",
             "email": "aylin@aylin.com",
             "nickname": "TheAylin",
             "following": ["@Lovisa", "@Kate"],
@@ -83,7 +83,8 @@
             "tweet": "Första tweeten ever!",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Kingen",
@@ -91,7 +92,8 @@
             "tweet": "Whatever happens now?",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Lovisa",
@@ -99,7 +101,8 @@
             "tweet": "Funkar detta?",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Aylin",
@@ -107,7 +110,8 @@
             "tweet": "Testar lite",
             "likes": 0,
             "retweets": 0,
-            "comments": []
+            "comments": [],
+            "hashtags": []
         },
         {
             "username": "@Matilda",
@@ -116,7 +120,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -125,7 +129,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -134,7 +138,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -143,7 +147,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -152,7 +156,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -161,7 +165,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -170,7 +174,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
@@ -179,7 +183,7 @@
             "likes": 0,
             "retweets": 0,
             "comments": [],
-            "hashtags": "#thisIsAHashtag"
+            "hashtags": ["#thisIsAHashtag"]
         },
         {
             "username": "@Matilda",
