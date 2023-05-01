@@ -39,7 +39,7 @@ router.post('/signup', async (req, res) => {
         const { image } = req.files;
         if (!image) {
             //If no image, set default image
-            image.name = 'default-user-avatar.jpg';
+            image.name = 'default-user-avatar.png';
         } else {
             /* if (image.mimetype !== 'image/jpeg' && 'image/jpg') {
                 throw Error('Image must be in format .jpeg/.jpg or .png');
