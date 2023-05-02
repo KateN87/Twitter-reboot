@@ -34,18 +34,19 @@ router.post("/signup", async (req, res) => {
 		const salt = await bcrypt.genSalt(10);
 		const hash = await bcrypt.hash(password, salt);
 		const id = db.data.users.length + 1;
-
+		let image = {};
 		//Gets image-objekt from req.files(by middleware)
-		const { image } = req.files;
-		if (!image) {
+
+		if (req.files === null) {
 			//If no image, set default image
 			image.name = "default-user-avatar.png";
 		} else {
-			if (image.mimetype !== "image/jpeg" && "image/jpg") {
+			image = req.files.image;
+			if (image.mimetype !== "image/jpeg" && "image/jpg" && "image/png") {
 				throw Error("Image must be in format .jpeg/.jpg or .png");
 			}
 			//If uploaded image, place in upload-folder and the name from image-object
-			image.mv("../frontend/public/upload/" + image.name);
+			image.mv("public/images/" + image.name);
 		}
 
 		const user = {

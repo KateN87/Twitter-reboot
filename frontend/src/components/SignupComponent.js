@@ -8,6 +8,7 @@ const SignupComponent = () => {
 	const navigate = useNavigate();
 
 	const handleSubmit = async (form, e) => {
+		e.preventDefault();
 		setError(null);
 
 		//Adding info from form
@@ -21,8 +22,9 @@ const SignupComponent = () => {
 		formData.append("occupation", form.occupation.value);
 		formData.append("hometown", form.hometown.value);
 		formData.append("website", form.website.value);
-		formData.append("image", form.image.files[0]);
-
+		if (form.image && form.image.files) {
+			formData.append("image", form.image.files[0]);
+		}
 		const response = await fetch("http://localhost:3001/log/signup", {
 			method: "POST",
 			body: formData,
@@ -32,16 +34,14 @@ const SignupComponent = () => {
 
 		if (!response.ok) {
 			setError(json.error);
-			//Needed return false, since preventDefault doesnt seem to be working with enctype
-			return false;
 		} else {
 			//Adds user with token to localstorage
 			localStorage.setItem("user", JSON.stringify(json));
 			//Login user to reducer-state
 			dispatch({ type: "LOGIN_USER", payload: json });
 			navigate("/");
-			form.reset();
 		}
+		return false;
 	};
 
 	return (
@@ -50,8 +50,8 @@ const SignupComponent = () => {
 			<form
 				className='login-form'
 				onSubmit={(e) => {
-					e.preventDefault();
 					handleSubmit(e.target, e);
+					return false;
 				}}
 				encType='multipart/form'
 			>
