@@ -70,7 +70,7 @@ const Searchbar = () => {
                <div key={user.id} className='user-info'>
                   <p>
                      <img
-                        src={`http://localhost:3000/upload/${user.avatar}`}
+                        src={`http://localhost:3001/images/${user.avatar}`}
                         alt='Profile avatar'
                         className='avatar'
                      />
