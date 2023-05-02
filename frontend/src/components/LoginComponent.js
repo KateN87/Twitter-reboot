@@ -10,9 +10,7 @@ export default function LoginComponent() {
     const [usernameError, setUsernameError] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
-
     const navigate = useNavigate();
-
     const dispatch = useDispatch();
 
     const handleSubmit = async (e) => {
@@ -56,8 +54,6 @@ export default function LoginComponent() {
         e.preventDefault();
         setCurrentField('username');
     };
-
-
 
     const renderCurrentField = () => {
         switch (currentField) {
