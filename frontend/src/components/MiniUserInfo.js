@@ -20,7 +20,7 @@ const MiniUserInfo = () => {
 		<div className='Mini-userinfo'>
 			{user && (
 				<div className='userinfo' onClick={() => setActive(true)}>
-					<img src={`http://localhost:3001/images/${user.avatar}`} />
+					<img className="avatar" src={`http://localhost:3001/images/${user.avatar}`} />
 					<div className='names'>
 						<h2>{user.nickname}</h2>
 						<h3>{user.username}</h3>

@@ -87,7 +87,7 @@ export default function ProfileInformation() {
 	return (
 		<div className='profile'>
 			<img
-				src={`http://localhost:3001/images/${user.avatar}`}
+				src={`http://localhost:3001/images/${profile.avatar}`}
 				alt='Profile avatar'
 				className='avatar'
 			/>
