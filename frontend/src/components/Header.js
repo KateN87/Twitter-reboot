@@ -10,7 +10,6 @@ import Trending from "./Trending";
 
 export const Header = () => {
 	const user = useSelector((state) => state.userReducer);
-	console.log(user);
 	return (
 		<nav>
 			<img src={logo} id='logga'></img>
@@ -22,13 +21,13 @@ export const Header = () => {
 			<Link to={`/`}>
 				<button>Home</button>
 			</Link>
-			{user !== null && (
+			{user && (
 				<Link to={`/profile/${user.id}`}>
 					<button>My profile</button>
 				</Link>
 			)}
 
-			{user !== null && <MiniUserInfo />}
+			{user && <MiniUserInfo />}
 		</nav>
 	);
 };
