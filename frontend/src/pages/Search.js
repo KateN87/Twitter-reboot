@@ -1,14 +1,11 @@
 import { Searchbar } from "../components/Searchbar"
-import { useState } from "react"
-import { ViewTweet } from "../components/ViewTweets"
 
 const Search = () => {
 
    return (
-      <>
+      <div>
          <Searchbar />
-         <ViewTweet />
-      </>
+      </div>
    )
 }
 

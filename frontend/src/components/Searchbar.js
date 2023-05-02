@@ -37,8 +37,12 @@ const Searchbar = () => {
       const matchingHashtags = fetchedTweets.filter((tweet) =>
          tweet.hashtags.includes(searchQuery.toLowerCase())
       );
+      console.log("matching hashtags", matchingHashtags)
+
       // Fetch matching users
       const matchingUsers = await fetchMatchingUsers(searchQuery);
+      console.log("matching users", matchingUsers)
+
 
       if (matchingUsers.length === 0 && matchingHashtags.length === 0) {
          // If there are no matching users or hashtags, set the error message state and clear the users state
@@ -48,6 +52,7 @@ const Searchbar = () => {
          // Otherwise, set the users state to the matching users and the matching tweets state to the matching hashtags's tweets
          setUsers(matchingUsers);
          setMatchingTweets(...[matchingHashtags])
+         console.log('matching hashtags: ', matchingHashtags)
          setErrorMessage('')
 
       }

@@ -17,6 +17,22 @@ function App() {
    const [isLoading, setIsLoading] = useState(true);
    const [id, setId] = useState(0);
 
+
+   useEffect(() => {
+      const fetchTweets = async () => {
+         const response = await fetch('http://localhost:3001/tweets');
+         const tweets = await response.json();
+
+         tweets.sort(function (a, b) {
+            var c = new Date(a.timestamp);
+            var d = new Date(b.timestamp);
+            return d - c;
+         });
+         dispatch({ type: 'GET_TWEETS', payload: tweets });
+      };
+      fetchTweets();
+   }, []);
+
    useEffect(() => {
       const checkUser = JSON.parse(localStorage.getItem("user"));
 
