@@ -82,13 +82,13 @@ router.post('/login', async (req, res) => {
     }
 
     try {
-        // kollar om användare existerar
+        // checks if the username exists 
         let user = db.data.users.find(
             (u) => u.username === addedUsername || u.email === addedUsername
         );
         if (!user) throw new Error('User not found');
 
-        // kollar om lösenordet stämmer check
+        // checks if the password is correct s
         const isMatch = await bcrypt.compare(password, user.password);
         if (!isMatch) throw Error('Invalid password');
 
