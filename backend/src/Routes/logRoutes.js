@@ -55,7 +55,7 @@ router.post("/signup", async (req, res) => {
 
 		const user = {
 			id,
-			username,
+			username: `@${username}`,
 			password: hash,
 			avatar: image.name,
 			email,
