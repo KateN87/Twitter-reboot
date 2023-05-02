@@ -60,6 +60,8 @@ router.post("/signup", async (req, res) => {
 			avatar: image.name,
 			email,
 			nickname,
+			following: [],
+			followers: 0,
 			about,
 			occupation,
 			hometown,
