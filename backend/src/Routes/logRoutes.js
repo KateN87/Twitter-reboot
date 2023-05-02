@@ -42,7 +42,11 @@ router.post("/signup", async (req, res) => {
 			image.name = "default-user-avatar.png";
 		} else {
 			image = req.files.image;
-			if (image.mimetype !== "image/jpeg" && "image/jpg" && "image/png") {
+			if (
+				image.mimetype !== "image/jpeg" &&
+				image.mimetype !== "image/jpg" &&
+				image.mimetype !== "image/png"
+			) {
 				throw Error("Image must be in format .jpeg/.jpg or .png");
 			}
 			//If uploaded image, place in upload-folder and the name from image-object
