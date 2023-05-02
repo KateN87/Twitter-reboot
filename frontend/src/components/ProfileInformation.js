@@ -18,6 +18,7 @@ export default function ProfileInformation() {
     const [followList, setFollowlist] = useState(false);
     const [isFollowing, setIsFollowing] = useState(false);
     const [isLoading, setIsLoading] = useState(null);
+    const [showFollowers, setShowFollowers] = useState(false);
 
     const user = useSelector((state) => state.userReducer);
     const idparam = useParams().id;
@@ -104,7 +105,15 @@ export default function ProfileInformation() {
                 <p className='username'>{profile.username}</p>
             </div>
             <div>
-                <p>Followers {profile.followers.length}</p>
+                <p onClick={() => setShowFollowers(!showFollowers)}>
+                    Followers {profile.followers.length}
+                </p>
+                <ul>
+                    {showFollowers &&
+                        profile.followers.map((follow) => (
+                            <li key={follow}>{follow}</li>
+                        ))}
+                </ul>
                 <p onClick={() => setFollowlist(!followList)}>
                     Following {checkFollowing(profile)}
                 </p>
