@@ -104,7 +104,7 @@ export default function ProfileInformation() {
                 <p className='username'>{profile.username}</p>
             </div>
             <div>
-                <p>Followers {profile.followers}</p>
+                <p>Followers {profile.followers.length}</p>
                 <p onClick={() => setFollowlist(!followList)}>
                     Following {checkFollowing(profile)}
                 </p>
