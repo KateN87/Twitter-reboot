@@ -22,7 +22,7 @@ export const OwnTweets = () => {
             setOwnTweets(tweets);
         };
         fetchOwnTweets();
-    }, [tweetsList]);
+    }, [idparam, tweetsList]);
 
     if (idparam === undefined) {
         console.log('TEST');
