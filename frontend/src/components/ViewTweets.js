@@ -73,23 +73,31 @@ export const ViewTweet = ({ id, setId }) => {
     const ShowTweets = () => {
         return (
             <div className='tweet-big-container'>
-                <ul id='viewtweet'>
-                    {tweetsList.map((tweet, index) => (
-                        <li className='tweet-container' key={index}>
-                            <p
-                                className='tweetp'
-                                onClick={() => goToProfile(tweet)}
-                            >
-                                {tweet.username}{' '}
-                                <span id='time'>{returntimestamp(tweet)}</span>
-                            </p>
-                            <p className='tweetp'>{tweet.tweet}</p>
-                            <ul id='tweetfeatures'>
-                                <li></li>
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
+                {tweetsList.length === 0 ? (
+                    <div>
+                        <p>No tweets to display. </p>
+                    </div>
+                ) : (
+                    <ul id='viewtweet'>
+                        {tweetsList.map((tweet, index) => (
+                            <li className='tweet-container' key={index}>
+                                <p
+                                    className='tweetp'
+                                    onClick={() => goToProfile(tweet)}
+                                >
+                                    {tweet.username}{' '}
+                                    <span id='time'>
+                                        {returntimestamp(tweet)}
+                                    </span>
+                                </p>
+                                <p className='tweetp'>{tweet.tweet}</p>
+                                <ul id='tweetfeatures'>
+                                    <li></li>
+                                </ul>
+                            </li>
+                        ))}
+                    </ul>
+                )}
             </div>
         );
     };
