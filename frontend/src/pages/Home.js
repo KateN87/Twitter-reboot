@@ -28,12 +28,13 @@ export default function Home({ setId, id }) {
     return (
         <>
             <div className='middle-main-container'>
-                <Searchbar />
+
                 {user && <CreateTweet />}
 
                 <ViewTweet setId={setId} id={id} />
             </div>
             <div className='right-main-container'>
+                <Searchbar />
                 {!user && <RegisterLoginDialogue />}
             </div>
         </>

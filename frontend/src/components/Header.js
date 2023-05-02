@@ -3,7 +3,7 @@ import "../styles/Header.css";
 
 import logo from "../icons/twitter-logo-.png";
 import hashtag from "../icons/hashtagtwitter.png";
-import MiniUserInfo from "./MiniUserInfo";
+import MiniUserInfo from "./MiniUserInfo.js";
 
 export const Header = () => {
 	const user = useSelector((state) => state.userReducer.user);
