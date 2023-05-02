@@ -154,7 +154,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -165,7 +165,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -176,7 +176,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -187,7 +187,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -198,7 +198,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -209,7 +209,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -220,7 +220,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -231,7 +231,7 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#thisIsAHashtag"
+        "thisIsAHashtag"
       ]
     },
     {
@@ -242,8 +242,8 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#split",
-        "#test6"
+        "split",
+        "test6"
       ]
     },
     {
@@ -254,8 +254,8 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#split",
-        "#test"
+        "split",
+        "test"
       ]
     },
     {
@@ -266,8 +266,8 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#split",
-        "#test"
+        "split",
+        "test"
       ]
     },
     {
@@ -278,8 +278,8 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#split",
-        "#test"
+        "split",
+        "test"
       ]
     },
     {
@@ -299,10 +299,10 @@
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#test1",
-        "#test2",
-        "#test4",
-        "#test5"
+        "test1",
+        "test2",
+        "test4",
+        "test5"
       ]
     },
     {
@@ -325,44 +325,23 @@
     },
     {
       "username": "@Kate",
-      "timestamp": "2023-04-27T19:23:44.662Z",
-      "tweet": "Skriver något här",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-05-01T18:15:16.949Z",
-      "tweet": "Testar",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-05-01T18:15:30.088Z",
-      "tweet": "Testar igen",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-05-01T18:47:15.960Z",
-      "tweet": "Testar hashtags #test1",
+      "timestamp": "2023-05-02T18:28:12.580Z",
+      "tweet": "This is a tweet #test1",
       "likes": 0,
       "retweets": 0,
       "comments": [],
       "hashtags": [
-        "#test1"
+        "test1"
       ]
     }
   ],
   "allHashtags": [
+    "test1",
+    "test1",
+    "test1",
+    "test1",
+    "test2",
+    "test1",
     "test1"
   ]
 }

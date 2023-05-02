@@ -17,9 +17,7 @@ const Trending = () => {
     return (
         <ul>
             {trendingList.map((trend) => (
-                <li key={trend.hashtag}>
-                    {trend.hashtag} {trend.occurance}
-                </li>
+                <li key={trend.hashtag}>{trend.hashtag}</li>
             ))}
         </ul>
     );

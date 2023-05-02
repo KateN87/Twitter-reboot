@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import returntimestamp from '../formatTimestamp';
 import { useSelector } from 'react-redux';
+import ShowTweets from './showTweetContainer';
 
 export const OwnTweets = () => {
-    const [ownTweets, setOwnTweets] = useState([]);
-    const tweetsList = useSelector((state) => state.tweetReducer);
+    const [tweetsList, setTweetsList] = useState([]);
+    const allTweets = useSelector((state) => state.tweetReducer);
     const idparam = useParams().id;
 
     useEffect(() => {
@@ -19,32 +19,14 @@ export const OwnTweets = () => {
                 var d = new Date(b.timestamp);
                 return d - c;
             });
-            setOwnTweets(tweets);
+            setTweetsList(tweets);
         };
         fetchOwnTweets();
-    }, [idparam, tweetsList]);
+    }, [idparam, allTweets]);
 
     if (idparam === undefined) {
         console.log('TEST');
         return <div>Loading...</div>;
     }
-
-    return (
-        <div id='tweet-big-container'>
-            <ul id='viewtweet'>
-                {ownTweets.map((tweet, index) => (
-                    <li className='tweet-container' key={index}>
-                        <p className='tweetp'>
-                            {tweet.username}{' '}
-                            <span id='time'>{returntimestamp(tweet)}</span>
-                        </p>
-                        <p className='tweetp'>{tweet.tweet}</p>
-                        <ul id='tweetfeatures'>
-                            <li></li>
-                        </ul>
-                    </li>
-                ))}
-            </ul>
-        </div>
-    );
+    return <ShowTweets tweetsList={tweetsList}></ShowTweets>;
 };
