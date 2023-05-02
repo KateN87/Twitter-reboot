@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import '../styles/ViewTweets.css';
-import ShowTweetsContainer from './showTweetsContainer';
+import ShowTweetsContainer from './showTweetsContainer.js';
 
 export const ViewTweet = () => {
     //State för om TRENDING-tweets eller FOR YOU-tweets ska visas
