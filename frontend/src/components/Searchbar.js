@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import '../styles/searchbar.css';
+
 
 const Searchbar = () => {
    const [users, setUsers] = useState([]);
    const [errorMessage, setErrorMessage] = useState(null);
    const fetchedTweets = useSelector((state) => state.tweetReducer);
+   const [searchQuery, setSearchQuery] = useState("");
 
    const fetchMatchingUsers = async (searchQuery) => {
       try {
@@ -42,12 +45,17 @@ const Searchbar = () => {
          setUsers(matchingUsers);
          setErrorMessage('')
       }
-      const isSearchDisabled = searchQuery.trim().length === 0;
+
+
    };
+   const handleInputChange = (event) => {
+      setSearchQuery(event.target.value);
+   };
+   const isSearchDisabled = searchQuery.trim().length === 0;
 
    return (
       <div>
-         <form id='submit' onSubmit={handleSubmit}>
+         <form id='submit' onSubmit={handleSubmit} onChange={handleInputChange}>
             <input
                type='text'
                placeholder='Search on Twitter'
@@ -59,8 +67,13 @@ const Searchbar = () => {
          </form>
          <ul>
             {users.map((user) => (
-               <div key={user.id}>
+               <div key={user.id} className='user-info'>
                   <p>
+                     <img
+                        src={`http://localhost:3000/upload/${user.avatar}`}
+                        alt='Profile avatar'
+                        className='avatar'
+                     />
                      <Link className='link' to={`/profile/${user.id}`}>
                         {user.username}
                      </Link>
