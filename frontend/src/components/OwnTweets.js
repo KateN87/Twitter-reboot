@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import ShowTweets from './showTweetContainer';
+import ShowTweetsContainer from './showTweetsContainer';
 
 export const OwnTweets = () => {
     const [tweetsList, setTweetsList] = useState([]);
@@ -28,5 +28,5 @@ export const OwnTweets = () => {
         console.log('TEST');
         return <div>Loading...</div>;
     }
-    return <ShowTweets tweetsList={tweetsList}></ShowTweets>;
+    return <ShowTweetsContainer tweetsList={tweetsList} />;
 };

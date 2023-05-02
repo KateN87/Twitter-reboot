@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import '../styles/ViewTweets.css';
-import ShowTweets from './showTweetContainer';
+import ShowTweetsContainer from './showTweetsContainer';
 
 export const ViewTweet = () => {
     //State för om TRENDING-tweets eller FOR YOU-tweets ska visas
@@ -63,7 +63,7 @@ export const ViewTweet = () => {
                 <HeaderComponent view='TRENDING' />
                 {user && <HeaderComponent view='FOR YOU' />}
             </div>
-            <ShowTweets tweetsList={tweetsList}></ShowTweets>
+            <ShowTweetsContainer tweetsList={tweetsList} />
         </div>
     );
 };

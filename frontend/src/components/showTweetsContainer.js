@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
 
 //Containern som visar tweets
-const ShowTweets = ({ tweetsList }) => {
+const ShowTweetsContainer = ({ tweetsList }) => {
     const navigate = useNavigate();
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
@@ -42,4 +42,4 @@ const ShowTweets = ({ tweetsList }) => {
     );
 };
 
-export default ShowTweets;
+export default ShowTweetsContainer;
