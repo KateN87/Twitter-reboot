@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import '../styles/searchbar.css';
+
 
 const Searchbar = () => {
    const [users, setUsers] = useState([]);
@@ -9,6 +11,7 @@ const Searchbar = () => {
 
    // Get the list of fetched tweets from the store
    const fetchedTweets = useSelector((state) => state.tweetReducer);
+   const [searchQuery, setSearchQuery] = useState("");
 
 
    // Fetch users that match the search query
@@ -26,7 +29,24 @@ const Searchbar = () => {
          setErrorMessage("Failed to fetch users.");
          return [];
       }
-   }
+   };
+
+   // --------------- FETCH HASHTAGS -----------------
+   /*    useEffect(() => {
+         const fetchHashtags = async () => {
+            try {
+               const response = await fetch("http://localhost:3001/hashtags");
+               const data = await response.json();
+               setHashtags(data);
+            } catch (error) {
+               console.error(error);
+               setErrorMessage("Failed to fetch hashtags.");
+            }
+         };
+         fetchHashtags();
+      }, []); */
+
+
 
    const handleSubmit = async (event) => {
       event.preventDefault();
@@ -37,11 +57,8 @@ const Searchbar = () => {
       const matchingHashtags = fetchedTweets.filter((tweet) =>
          tweet.hashtags.includes(searchQuery.toLowerCase())
       );
-      console.log("matching hashtags", matchingHashtags)
-
       // Fetch matching users
       const matchingUsers = await fetchMatchingUsers(searchQuery);
-      console.log("matching users", matchingUsers)
 
 
       if (matchingUsers.length === 0 && matchingHashtags.length === 0) {
@@ -56,22 +73,35 @@ const Searchbar = () => {
          setErrorMessage('')
 
       }
+
+
    };
+   const handleInputChange = (event) => {
+      setSearchQuery(event.target.value);
+   };
+   const isSearchDisabled = searchQuery.trim().length === 0;
 
    return (
       <div>
-         <form id='submit' onSubmit={handleSubmit}>
+         <form id='submit' onSubmit={handleSubmit} onChange={handleInputChange}>
             <input
                type='text'
                placeholder='Search on Twitter'
                id='searchbar'
             ></input>
-            <button type='submit'>Search</button>
+            <button type="submit" disabled={isSearchDisabled}>
+               search
+            </button>
          </form>
          <ul>
             {users.map((user) => (
-               <div key={user.id}>
+               <div key={user.id} className='user-info'>
                   <p>
+                     <img
+                        src={`http://localhost:3001/images/${user.avatar}`}
+                        alt='Profile avatar'
+                        className='avatar'
+                     />
                      <Link className='link' to={`/profile/${user.id}`}>
                         {user.username}
                      </Link>
@@ -82,6 +112,7 @@ const Searchbar = () => {
          {errorMessage && <p>{errorMessage}</p>}
       </div>
    );
+
 };
 
 export { Searchbar };

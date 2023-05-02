@@ -5,7 +5,7 @@ import { HiDotsHorizontal } from "react-icons/hi";
 import { useState } from "react";
 
 const MiniUserInfo = () => {
-	const user = useSelector((state) => state.userReducer.user);
+	const user = useSelector((state) => state.userReducer);
 	const [active, setActive] = useState(false);
 	const dispatch = useDispatch();
 	const navigate = useNavigate();
@@ -20,7 +20,7 @@ const MiniUserInfo = () => {
 		<div className='Mini-userinfo'>
 			{user && (
 				<div className='userinfo' onClick={() => setActive(true)}>
-					<img src={user.avatar} />
+					<img src={`http://localhost:3001/images/${user.avatar}`} />
 					<div className='names'>
 						<h2>{user.nickname}</h2>
 						<h3>{user.username}</h3>

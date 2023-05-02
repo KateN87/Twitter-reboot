@@ -13,9 +13,9 @@ import Search from "./pages/Search";
 
 function App() {
    const dispatch = useDispatch();
-   const user = useSelector((state) => state.userReducer.user);
+   const user = useSelector((state) => state.userReducer);
    const [isLoading, setIsLoading] = useState(true);
-   const [id, setId] = useState(0);
+   /* const [id, setId] = useState(0); */
 
 
    useEffect(() => {
@@ -44,10 +44,8 @@ function App() {
                   "Content-Type": "application/json",
                },
             });
-
             if (response.ok) {
                const loggedUser = await response.json();
-
                dispatch({ type: "LOGIN_USER", payload: loggedUser });
             }
             setIsLoading(false);
@@ -68,17 +66,13 @@ function App() {
             <Header />
          </div>
          <Routes>
-            <Route path='/' element={<Home setId={setId} id={id} />} />
+            <Route path='/' element={<Home />} />
             <Route
                path='/profile/:id'
-               element={
-                  user ? <Profile id={id} setId={setId} /> : <Navigate to='/' />
-               }
+               element={user ? <Profile /> : <Navigate to='/' />}
             />
             <Route path='/login' element={<Login />} />
             <Route path='/signup' element={<Signup />} />
-            <Route path='/search' element={<Search />} />
-
          </Routes>
       </div>
    );

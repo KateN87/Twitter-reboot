@@ -6,6 +6,8 @@ import CreateTweet from '../components/CreateTweet';
 
 export default function Home({ setId, id }) {
    const user = JSON.parse(localStorage.getItem('user'));
+   // Lägg till isloading för att vänta på user
+
 
    return (
       <>
