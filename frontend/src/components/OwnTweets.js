@@ -23,7 +23,6 @@ export const OwnTweets = () => {
 	}, [idparam, allTweets]);
 
 	if (idparam === undefined) {
-		console.log("TEST");
 		return <div>Loading...</div>;
 	}
 	return <ShowTweetsContainer tweetsList={tweetsList} />;
