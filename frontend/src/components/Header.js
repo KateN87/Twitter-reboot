@@ -12,8 +12,6 @@ export const Header = () => {
 	const user = useSelector((state) => state.userReducer);
 	return (
 		<nav>
-			<img src={logo} id='logga'></img>
-			<img src={hashtag} className='hashtag'></img>
 			<h3 className='hashtag' id='explore'>
 				Trending hashtags
 			</h3>
