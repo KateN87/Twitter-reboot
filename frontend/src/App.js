@@ -17,7 +17,7 @@ function App() {
    const [isLoading, setIsLoading] = useState(true);
    /* const [id, setId] = useState(0); */
 
-
+   // Fetch tweets and dispatch state to tweetReducer
    useEffect(() => {
       const fetchTweets = async () => {
          const response = await fetch('http://localhost:3001/tweets');
