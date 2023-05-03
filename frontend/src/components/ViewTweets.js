@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 
-import returntimestamp from '../formatTimestamp';
 import { useSelector } from 'react-redux';
 
 import '../styles/ViewTweets.css';
+import ShowTweetsContainer from './showTweetsContainer.js';
 
-export const ViewTweet = ({ id, setId }) => {
-    const navigate = useNavigate();
-
+export const ViewTweet = () => {
     //State för om TRENDING-tweets eller FOR YOU-tweets ska visas
     const [view, setView] = useState('TRENDING');
     //trending tweets hämtas från tweetsReducer(är just nu alla tweets)
@@ -59,44 +56,6 @@ export const ViewTweet = ({ id, setId }) => {
         );
     };
 
-    //Funktion för att gå till en profil
-    const goToProfile = async (tweet) => {
-        const username = tweet.username;
-        /* const fetchId = async () => { */
-        const response = await fetch('http://localhost:3001/users/' + username);
-        const user = await response.json();
-        const foundId = user.id;
-        navigate('/profile/' + foundId);
-    };
-
-    //Containern som visar tweets
-    const ShowTweets = () => {
-        return (
-            <div className='tweet-big-container'>
-                <ul id='viewtweet'>
-                    {tweetsList.map((tweet, index) => (
-                        <li className='tweet-container' key={index}>
-                            <p
-                                className='tweetp'
-                                onClick={() => goToProfile(tweet)}
-                            >
-                                {tweet.username}{' '}
-                                <span id='time'>{returntimestamp(tweet)}</span>
-                            </p>
-                            <p className='tweetp'>{tweet.tweet}</p>
-                            <ul id='tweetfeatures'>
-                                <li></li>
-                            </ul>
-                        </li>
-                    ))}
-                </ul>
-            </div>
-        );
-    };
-
-    /* if (tweetsList.length === 0) {
-      return <div>Loading...</div>;
-   } */
     //Headercomponenter ("knapparna") som bestämmer vilket view som ska visas
     return (
         <div className='main-tweet-container'>
@@ -104,7 +63,7 @@ export const ViewTweet = ({ id, setId }) => {
                 <HeaderComponent view='TRENDING' />
                 {user && <HeaderComponent view='FOR YOU' />}
             </div>
-            <ShowTweets tweetsList={tweetsList}></ShowTweets>
+            <ShowTweetsContainer tweetsList={tweetsList} />
         </div>
     );
 };

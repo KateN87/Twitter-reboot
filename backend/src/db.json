@@ -1,388 +1,345 @@
 {
-  "users": [
-    {
-      "id": 1,
-      "username": "@Kingen",
-      "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
-      "avatar": "default-user-avatar.png",
-      "email": "kingen@kingen.com",
-      "nickname": "TheKing",
-      "about": "I am the king",
-      "following": [
-        "@Lovisa",
-        "@Aylin"
-      ],
-      "followers": 2,
-      "occupation": "Being king",
-      "hometown": "Kingtown",
-      "website": "kingen.com",
-      "joined": "2023-04-19T17:12:55.652Z"
-    },
-    {
-      "id": 2,
-      "username": "@Kate",
-      "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
-      "avatar": "default-user-avatar.png",
-      "email": "kate@kate.com",
-      "nickname": "TheKate",
-      "about": "I am Kate",
-      "following": [
-        "@Aylin",
-        "@Lovisa"
-      ],
-      "followers": 3,
-      "occupation": "Student",
-      "hometown": "Katetown",
-      "website": "kate.com",
-      "joined": "2023-04-19T17:17:10.353Z"
-    },
-    {
-      "id": 3,
-      "username": "@Lovisa",
-      "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
-      "avatar": "default-user-avatar.png",
-      "email": "lovisa@lovisa.com",
-      "nickname": "TheLovisa",
-      "about": "I am Lovisa",
-      "following": [
-        "@Kingen",
-        "@Aylin",
-        "@Kate"
-      ],
-      "followers": 3,
-      "occupation": "Student",
-      "hometown": "Lovisatown",
-      "website": "lovisa.com",
-      "joined": "2023-04-19T17:18:07.080Z"
-    },
-    {
-      "id": 4,
-      "username": "@Matilda",
-      "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
-      "avatar": "default-user-avatar.png",
-      "email": "matilda@matilda.se",
-      "nickname": "TheMatilda",
-      "about": "I am Matilda",
-      "following": [
-        "@Kingen",
-        "@Kate"
-      ],
-      "followers": 1,
-      "occupation": "Being Matilda",
-      "hometown": "Matildatown",
-      "website": "matilda.com",
-      "joined": "2023-04-19T17:18:50.833Z"
-    },
-    {
-      "id": 5,
-      "username": "@Aylin",
-      "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
-      "avatar": "default-user-avatar.png",
-      "email": "aylin@aylin.com",
-      "nickname": "TheAylin",
-      "following": [
-        "@Lovisa",
-        "@Kate"
-      ],
-      "followers": 3,
-      "about": "I am Aylin",
-      "occupation": "Student",
-      "hometown": "Aylintown",
-      "website": "aylin.com",
-      "joined": "2023-04-19T17:19:36.181Z"
-    },
-    {
-      "id": 6,
-      "username": "arian",
-      "password": "$2b$10$BYAX.Xb7IuUmpFZ04cKDs.QXJQ8DenhEC9udA1TR5V5Jm8tVBtRrW",
-      "avatar": "token.png",
-      "email": "arian@arian.com",
-      "nickname": "arre",
-      "about": "bäst",
-      "occupation": "stcokholm",
-      "hometown": "upplandväsby",
-      "website": "arian",
-      "joined": "2023-05-02T13:41:16.644Z"
-    },
-    {
-      "id": 7,
-      "username": "@Elma",
-      "password": "$2b$10$Kf7.1T5su/VH9VUAvWu9h.SfZ9tInYlVuTIZ5lM3py9mUpSF4D0h.",
-      "avatar": "kuva.png",
-      "email": "arian@arian.com",
-      "nickname": "arre",
-      "following": [],
-      "followers": 0,
-      "about": "bäst",
-      "occupation": "stcokholm",
-      "hometown": "upplandväsby",
-      "website": "arian",
-      "joined": "2023-05-02T14:45:28.665Z"
-    }
-  ],
-  "tweets": [
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:02:09",
-      "tweet": "Första tweeten ever!",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kingen",
-      "timestamp": "Wed Apr 19 2023 12:15:09",
-      "tweet": "Whatever happens now?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Lovisa",
-      "timestamp": "Wed Apr 19 2023 11:15:09",
-      "tweet": "Funkar detta?",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Aylin",
-      "timestamp": "Fri Apr 21 2023 11:21:00",
-      "tweet": "Testar lite",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T10:14:48.546Z",
-      "tweet": "hashtag test2\n",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T11:15:40.384Z",
-      "tweet": "as",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:42:16.079Z",
-      "tweet": "split test",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:42:51.767Z",
-      "tweet": "split test2",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:44:28.613Z",
-      "tweet": "#split test3",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:46:47.250Z",
-      "tweet": "#split test4\n",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:47:29.243Z",
-      "tweet": "#split test4\n",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:47:52.231Z",
-      "tweet": "#split #test6\n",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#thisIsAHashtag"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:48:52.570Z",
-      "tweet": "#split #test6\nhejjjj",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#split",
-        "#test6"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:49:20.492Z",
-      "tweet": "#split #test hejhej",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#split",
-        "#test"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:49:57.448Z",
-      "tweet": "#split #test \nhejhej",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#split",
-        "#test"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:50:09.425Z",
-      "tweet": "#split #test\nhejhej",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#split",
-        "#test"
-      ]
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:50:50.928Z",
-      "tweet": "#split #test\nhejhej12123",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Matilda",
-      "timestamp": "2023-04-25T13:54:03.213Z",
-      "tweet": "okej nu testar vi igen #test1 #test2\ntest3 #test4\n#test5",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#test1",
-        "#test2",
-        "#test4",
-        "#test5"
-      ]
-    },
-    {
-      "username": "@Lovisa",
-      "timestamp": "2023-04-25T16:08:38.103Z",
-      "tweet": "Hallå där",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Aylin",
-      "timestamp": "2023-04-27T12:29:53.009Z",
-      "tweet": "hejsansvensjan",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-04-27T19:23:44.662Z",
-      "tweet": "Skriver något här",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-05-01T18:15:16.949Z",
-      "tweet": "Testar",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-05-01T18:15:30.088Z",
-      "tweet": "Testar igen",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    },
-    {
-      "username": "@Kate",
-      "timestamp": "2023-05-01T18:47:15.960Z",
-      "tweet": "Testar hashtags #test1",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": [
-        "#test1"
-      ]
-    },
-    {
-      "username": "arian",
-      "timestamp": "2023-05-02T14:41:41.909Z",
-      "tweet": "hej chatt",
-      "likes": 0,
-      "retweets": 0,
-      "comments": [],
-      "hashtags": []
-    }
-  ],
-  "allHashtags": [
-    "test1"
-  ]
+   "users": [
+      {
+         "id": 1,
+         "username": "@Kingen",
+         "password": "$2b$10$nV.vJ.jhk5ooukbZD4tKweURhTRrLTirRK.DxIKNnZRrDW7sGYeOC",
+         "avatar": "default-user-avatar.png",
+         "email": "kingen@kingen.com",
+         "nickname": "TheKing",
+         "about": "I am the king",
+         "following": [
+            "@Lovisa",
+            "@Aylin"
+         ],
+         "followers": [
+            "@Lovisa",
+            "@Matilda"
+         ],
+         "occupation": "Being king",
+         "hometown": "Kingtown",
+         "website": "kingen.com",
+         "joined": "2023-04-19T17:12:55.652Z"
+      },
+      {
+         "id": 2,
+         "username": "@Kate",
+         "password": "$2b$10$Vw/fyEBVIAu4WcmzTAlO4.t9Dr0Pez6Y8Eypx2qZy5FQq3/jEgCae",
+         "avatar": "default-user-avatar.png",
+         "email": "kate@kate.com",
+         "nickname": "TheKate",
+         "about": "I am Kate",
+         "following": [
+            "@Aylin",
+            "@Lovisa"
+         ],
+         "followers": [
+            "@Lovisa",
+            "@Matilda",
+            "@Kingen",
+            "@Aylin"
+         ],
+         "occupation": "Student",
+         "hometown": "Katetown",
+         "website": "kate.com",
+         "joined": "2023-04-19T17:17:10.353Z"
+      },
+      {
+         "id": 3,
+         "username": "@Lovisa",
+         "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
+         "avatar": "default-user-avatar.png",
+         "email": "lovisa@lovisa.com",
+         "nickname": "TheLovisa",
+         "about": "I am Lovisa",
+         "following": [
+            "@Kingen",
+            "@Aylin",
+            "@Kate"
+         ],
+         "followers": [
+            "@Aylin",
+            "@Kate"
+         ],
+         "occupation": "Student",
+         "hometown": "Lovisatown",
+         "website": "lovisa.com",
+         "joined": "2023-04-19T17:18:07.080Z"
+      },
+      {
+         "id": 4,
+         "username": "@Matilda",
+         "password": "$2b$10$4QWq/5j0o.vQtDr8z7eYierFpgy2yPTQvhYEo/ZzWbtvKluD5skqS",
+         "avatar": "default-user-avatar.png",
+         "email": "matilda@matilda.se",
+         "nickname": "TheMatilda",
+         "about": "I am Matilda",
+         "following": [
+            "@Kingen",
+            "@Kate"
+         ],
+         "followers": [],
+         "occupation": "Being Matilda",
+         "hometown": "Matildatown",
+         "website": "matilda.com",
+         "joined": "2023-04-19T17:18:50.833Z"
+      },
+      {
+         "id": 5,
+         "username": "@Aylin",
+         "password": "$2b$10$zbW.cUNP9Ye7dvtGckg6wuQBgXy0kjPVbjQd9zwzRosiRaKfC7WQK",
+         "avatar": "default-user-avatar.png",
+         "email": "aylin@aylin.com",
+         "nickname": "TheAylin",
+         "following": [
+            "@Lovisa",
+            "@Kate"
+         ],
+         "followers": [
+            "@Lovisa",
+            "@Kate",
+            "@Kingen"
+         ],
+         "about": "I am Aylin",
+         "occupation": "Student",
+         "hometown": "Aylintown",
+         "website": "aylin.com",
+         "joined": "2023-04-19T17:19:36.181Z"
+      }
+   ],
+   "tweets": [
+      {
+         "username": "@Kingen",
+         "timestamp": "Wed Apr 19 2023 12:02:09",
+         "tweet": "Första tweeten ever!",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Kingen",
+         "timestamp": "Wed Apr 19 2023 12:15:09",
+         "tweet": "Whatever happens now?",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Lovisa",
+         "timestamp": "Wed Apr 19 2023 11:15:09",
+         "tweet": "Funkar detta?",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Aylin",
+         "timestamp": "Fri Apr 21 2023 11:21:00",
+         "tweet": "Testar lite",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T10:14:48.546Z",
+         "tweet": "hashtag test2\n",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T11:15:40.384Z",
+         "tweet": "as",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:42:16.079Z",
+         "tweet": "split test",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:42:51.767Z",
+         "tweet": "split test2",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:44:28.613Z",
+         "tweet": "#split test3",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:46:47.250Z",
+         "tweet": "#split test4\n",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:47:29.243Z",
+         "tweet": "#split test4\n",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:47:52.231Z",
+         "tweet": "#split #test6\n",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "thisIsAHashtag"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:48:52.570Z",
+         "tweet": "#split #test6\nhejjjj",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "split",
+            "test6"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:49:20.492Z",
+         "tweet": "#split #test hejhej",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "split",
+            "test"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:49:57.448Z",
+         "tweet": "#split #test \nhejhej",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "split",
+            "test"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:50:09.425Z",
+         "tweet": "#split #test\nhejhej",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "split",
+            "test"
+         ]
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:50:50.928Z",
+         "tweet": "#split #test\nhejhej12123",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Matilda",
+         "timestamp": "2023-04-25T13:54:03.213Z",
+         "tweet": "okej nu testar vi igen #test1 #test2\ntest3 #test4\n#test5",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "test1",
+            "test2",
+            "test4",
+            "test5"
+         ]
+      },
+      {
+         "username": "@Lovisa",
+         "timestamp": "2023-04-25T16:08:38.103Z",
+         "tweet": "Hallå där",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Aylin",
+         "timestamp": "2023-04-27T12:29:53.009Z",
+         "tweet": "hejsansvensjan",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": []
+      },
+      {
+         "username": "@Kate",
+         "timestamp": "2023-05-02T18:28:12.580Z",
+         "tweet": "This is a tweet #test1",
+         "likes": 0,
+         "retweets": 0,
+         "comments": [],
+         "hashtags": [
+            "test1"
+         ]
+      }
+   ],
+   "allHashtags": [
+      "test1",
+      "test1",
+      "test1",
+      "test1",
+      "test2",
+      "test1",
+      "test1"
+   ]
 }

@@ -20,7 +20,7 @@ export default function CreateTweet() {
       const newTweetReq = {
          tweet: textInput,
          username: checkUser.username,
-         hashtags: hashtagsWithout,
+         hashtags: hashtagsWithout.toLowerCase(),
       };
 
       const options = {

@@ -71,10 +71,12 @@ router.patch('/follow', async (req, res) => {
         // check if logged in user is already following - might not need this
         const isFollowingIndex =
             followListUser.following.indexOf(followingUsername);
+        const followersIndex =
+            followListUser.following.indexOf(followingUsername);
 
         if (isFollowingIndex !== -1) {
             followListUser.following.splice(isFollowingIndex, 1);
-            followedUserObj.followers--;
+            followedUserObj.followers.splice(followersIndex, 1);
             await db.write();
             return res.status(200).json(followingUsername);
         }
@@ -82,7 +84,7 @@ router.patch('/follow', async (req, res) => {
         // Add requested follow to logged in users following-array
         followListUser.following.push(followingUsername);
         //Add one extra to followers
-        followedUserObj.followers++;
+        followedUserObj.followers.push(req.user.username);
         await db.write();
 
         res.status(201).json(followingUsername);

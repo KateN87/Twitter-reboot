@@ -1,12 +1,14 @@
-import { useState, useEffect } from "react";
-import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from 'react';
+import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import '../styles/searchbar.css';
-
 
 const Searchbar = () => {
    const [users, setUsers] = useState([]);
    const [errorMessage, setErrorMessage] = useState(null);
+   const [matchingTweets, setMatchingTweets] = useState([])
+
+   // Get the list of fetched tweets from the store
    const fetchedTweets = useSelector((state) => state.tweetReducer);
    const [searchQuery, setSearchQuery] = useState("");
 
@@ -55,13 +57,17 @@ const Searchbar = () => {
 
    return (
       <div>
-         <form id='submit' onSubmit={handleSubmit} onChange={handleInputChange}>
+         <form
+            id='submit'
+            onSubmit={handleSubmit}
+            onChange={handleInputChange}
+         >
             <input
                type='text'
                placeholder='Search on Twitter'
                id='searchbar'
             ></input>
-            <button type="submit" disabled={isSearchDisabled}>
+            <button type='submit' disabled={isSearchDisabled}>
                search
             </button>
          </form>
@@ -84,7 +90,7 @@ const Searchbar = () => {
          {errorMessage && <p>{errorMessage}</p>}
       </div>
    );
-
 };
 
 export { Searchbar };
+
