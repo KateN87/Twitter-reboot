@@ -21,3 +21,8 @@
 .active {
     text-decoration: underline 2px var(--error);
 }
+
+#viewtweet {
+   height: 500px;
+   overflow-y: scroll;
+}
