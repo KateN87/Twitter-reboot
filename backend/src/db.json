@@ -103,6 +103,21 @@
       "hometown": "upplandväsby",
       "website": "arian",
       "joined": "2023-05-02T13:41:16.644Z"
+    },
+    {
+      "id": 7,
+      "username": "@Elma",
+      "password": "$2b$10$Kf7.1T5su/VH9VUAvWu9h.SfZ9tInYlVuTIZ5lM3py9mUpSF4D0h.",
+      "avatar": "kuva.png",
+      "email": "arian@arian.com",
+      "nickname": "arre",
+      "following": [],
+      "followers": 0,
+      "about": "bäst",
+      "occupation": "stcokholm",
+      "hometown": "upplandväsby",
+      "website": "arian",
+      "joined": "2023-05-02T14:45:28.665Z"
     }
   ],
   "tweets": [
