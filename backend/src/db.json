@@ -68,7 +68,7 @@
             "email": "aylin@aylin.com",
             "nickname": "TheAylin",
             "following": ["@Lovisa", "@Kate"],
-            "followers": [],
+            "followers": ["@Lovisa", "@Kingen"],
             "about": "I am Aylin",
             "occupation": "Student",
             "hometown": "Aylintown",
@@ -267,13 +267,5 @@
             "hashtags": ["test1"]
         }
     ],
-    "allHashtags": [
-        "test1",
-        "test1",
-        "test1",
-        "test1",
-        "test2",
-        "test1",
-        "test1"
-    ]
+    "allHashtags": []
 }
