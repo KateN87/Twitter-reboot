@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../icons/twitter-logo-.png";
 import hashtag from "../icons/hashtagtwitter.png";
 import MiniUserInfo from "./MiniUserInfo.js";
-import Trending from "./Trending";
+import TrendingHash from "./TrendingHash.js";
 
 export const Header = () => {
 	const user = useSelector((state) => state.userReducer);
@@ -17,7 +17,7 @@ export const Header = () => {
 			<h3 className='hashtag' id='explore'>
 				Trending hashtags
 			</h3>
-			<Trending />
+			<TrendingHash />
 			<Link to={`/`}>
 				<button>Home</button>
 			</Link>
