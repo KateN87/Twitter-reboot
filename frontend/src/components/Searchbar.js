@@ -1,16 +1,17 @@
 import { useState, useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import '../styles/searchbar.css';
 
 const Searchbar = () => {
+   const dispatch = useDispatch()
    const [users, setUsers] = useState([]);
    const [errorMessage, setErrorMessage] = useState(null);
-   const [matchingTweets, setMatchingTweets] = useState([])
 
    // Get the list of fetched tweets from the store
    const fetchedTweets = useSelector((state) => state.tweetReducer);
    const [searchQuery, setSearchQuery] = useState("");
+
 
    const fetchMatchingUsers = async (searchQuery) => {
       try {
@@ -36,7 +37,6 @@ const Searchbar = () => {
       const matchingHashtags = fetchedTweets.filter((tweet) =>
          tweet.hashtags.includes(searchQuery.toLowerCase())
       );
-
       const matchingUsers = await fetchMatchingUsers(searchQuery);
 
       if (matchingUsers.length === 0 && matchingHashtags.length === 0) {
@@ -44,6 +44,7 @@ const Searchbar = () => {
          setUsers([]);
       } else {
          setUsers(matchingUsers);
+         dispatch({ type: "SET_MATCHING_TWEETS", payload: matchingHashtags }); // Dispatch the matching tweets to the store 
          setErrorMessage('')
       }
    };
@@ -90,5 +91,5 @@ const Searchbar = () => {
    );
 };
 
-export { Searchbar };
+export default Searchbar;
 
