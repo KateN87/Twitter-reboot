@@ -72,7 +72,7 @@ router.patch('/follow', async (req, res) => {
         const isFollowingIndex =
             followListUser.following.indexOf(followingUsername);
         const followersIndex =
-            followListUser.following.indexOf(followingUsername);
+            followedUserObj.followers.indexOf(followingUsername);
 
         if (isFollowingIndex !== -1) {
             followListUser.following.splice(isFollowingIndex, 1);
