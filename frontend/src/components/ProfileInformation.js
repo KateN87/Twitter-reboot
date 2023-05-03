@@ -73,12 +73,10 @@ export default function ProfileInformation() {
         if (response.status === 201) {
             dispatch({ type: 'ADD_FOLLOWING', payload: data });
             setIsLoading(false);
-            console.log('USER', user);
         }
         if (response.status === 200) {
             dispatch({ type: 'DELETE_FOLLOWING', payload: data });
             setIsLoading(false);
-            console.log('USER2', user);
         }
     };
 
