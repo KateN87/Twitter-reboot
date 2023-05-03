@@ -17,6 +17,7 @@
     margin: 0;
     padding: 0;
     height: 100vh;
+    overflow-y: hidden;
 }
 
 li {
@@ -36,4 +37,8 @@ img {
 
 .link{
     color: #f7f7f2;
+}
+
+.viewtweet {
+    height: 80vh;
 }

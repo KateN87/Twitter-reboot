@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import returntimestamp from '../formatTimestamp';
 import { useSelector } from 'react-redux';
+import ShowTweetsContainer from './showTweetsContainer';
 
 export const OwnTweets = () => {
-   const [ownTweets, setOwnTweets] = useState([]);
-   const tweetsList = useSelector((state) => state.tweetReducer);
+   const [tweetsList, setTweetsList] = useState([]);
+   const allTweets = useSelector((state) => state.tweetReducer);
    const idparam = useParams().id;
 
    useEffect(() => {
@@ -32,12 +32,13 @@ export const OwnTweets = () => {
    return (
       <div id='tweet-big-container'>
          <ul id='viewtweet'>
-            {ownTweets.map(({ username, timestamp, tweet }, index) => (
+            {ownTweets.map((tweet, index) => (
                <li className='tweet-container' key={index}>
                   <p className='tweetp'>
-                     {username} <span id='time'>{returntimestamp(timestamp)}</span>
+                     {tweet.username}{' '}
+                     <span id='time'>{returntimestamp(tweet)}</span>
                   </p>
-                  <p className='tweetp'>{tweet}</p>
+                  <p className='tweetp'>{tweet.tweet}</p>
                   <ul id='tweetfeatures'>
                      <li></li>
                   </ul>
