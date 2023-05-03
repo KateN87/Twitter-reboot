@@ -31,23 +31,6 @@ const Searchbar = () => {
       }
    };
 
-   // --------------- FETCH HASHTAGS -----------------
-   /*    useEffect(() => {
-         const fetchHashtags = async () => {
-            try {
-               const response = await fetch("http://localhost:3001/hashtags");
-               const data = await response.json();
-               setHashtags(data);
-            } catch (error) {
-               console.error(error);
-               setErrorMessage("Failed to fetch hashtags.");
-            }
-         };
-         fetchHashtags();
-      }, []); */
-
-
-
    const handleSubmit = async (event) => {
       event.preventDefault();
       // Get the search query from the input field
@@ -117,17 +100,3 @@ const Searchbar = () => {
 
 export { Searchbar };
 
-// --------------- FETCH HASHTAGS -----------------
-/*    useEffect(() => {
-      const fetchHashtags = async () => {
-         try {
-            const response = await fetch("http://localhost:3001/hashtags");
-            const data = await response.json();
-            setHashtags(data);
-         } catch (error) {
-            console.error(error);
-            setErrorMessage("Failed to fetch hashtags.");
-         }
-      };
-      fetchHashtags();
-   }, []); */

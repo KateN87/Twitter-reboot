@@ -35,7 +35,7 @@ export const OwnTweets = () => {
             {ownTweets.map(({ username, timestamp, tweet }, index) => (
                <li className='tweet-container' key={index}>
                   <p className='tweetp'>
-                     {username} <span id='time'>{getTimeFromNow(timestamp)}</span>
+                     {username} <span id='time'>{returntimestamp(timestamp)}</span>
                   </p>
                   <p className='tweetp'>{tweet}</p>
                   <ul id='tweetfeatures'>
