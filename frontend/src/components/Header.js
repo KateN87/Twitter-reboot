@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
-import '../styles/Header.css';
-
 import { Link } from 'react-router-dom';
 
+import '../styles/Header.css';
 import logo from '../icons/twitter-logo-.png';
 import hashtag from '../icons/hashtagtwitter.png';
 import MiniUserInfo from './MiniUserInfo.js';
+import TrendingHash from './TrendingHash.js';
 
 export const Header = () => {
     const user = useSelector((state) => state.userReducer);
