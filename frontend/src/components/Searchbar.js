@@ -36,7 +36,6 @@ const Searchbar = () => {
       const matchingHashtags = fetchedTweets.filter((tweet) =>
          tweet.hashtags.includes(searchQuery.toLowerCase())
       );
-      console.log('aaaaaaa', matchingHashtags)
 
       const matchingUsers = await fetchMatchingUsers(searchQuery);
 
@@ -47,9 +46,8 @@ const Searchbar = () => {
          setUsers(matchingUsers);
          setErrorMessage('')
       }
-
-
    };
+
    const handleInputChange = (event) => {
       setSearchQuery(event.target.value);
    };
