@@ -7,7 +7,7 @@ import ShowTweetsContainer from './showTweetsContainer.js';
 
 export const ViewTweet = () => {
     //State för om TRENDING-tweets eller FOR YOU-tweets ska visas
-    const [view, setView] = useState('TRENDING');
+    const [view, setView] = useState('DISCOVER');
     //trending tweets hämtas från tweetsReducer(är just nu alla tweets)
     const trendingTweets = useSelector((state) => state.tweetReducer);
     //state för tweets som användaren följer
@@ -41,7 +41,7 @@ export const ViewTweet = () => {
     }, [view]);
 
     //Om view är trending är tweetsList trendingTweets, annars forYouTweets
-    const tweetsList = view === 'TRENDING' ? trendingTweets : forYouTweets;
+    const tweetsList = view === 'DISCOVER' ? trendingTweets : forYouTweets;
 
     //"Knapparna" för for you eller trending
     const HeaderComponent = (props) => {
@@ -60,7 +60,7 @@ export const ViewTweet = () => {
     return (
         <div className='main-tweet-container'>
             <div className='nav-container'>
-                <HeaderComponent view='TRENDING' />
+                <HeaderComponent view='DISCOVER' />
                 {user && <HeaderComponent view='FOR YOU' />}
             </div>
             <ShowTweetsContainer tweetsList={tweetsList} />

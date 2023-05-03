@@ -2,6 +2,7 @@
     --error: rgb(197, 51, 51);
     --background: #2b303a;
     --fontcolor: #f7f7f2;
+    overflow: hidden;
 }
 
 .App {
@@ -41,4 +42,18 @@ img {
 
 .viewtweet {
     height: 80vh;
+}
+@media only screen and (max-width: 800px) {
+    .right-main-container{
+        display: none
+    }
+    .left-main-container{
+        border-right: 0.5px solid white;
+        border-left: none;
+        border-top: none;
+    }
+    .middle-main-container {
+        width: 100vw;
+        text-align: left;
+    }
 }
