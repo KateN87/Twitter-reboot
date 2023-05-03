@@ -28,3 +28,5 @@ export const OwnTweets = () => {
 	}
 	return <ShowTweetsContainer tweetsList={tweetsList} />;
 };
+
+export default OwnTweets;
