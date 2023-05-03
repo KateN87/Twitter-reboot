@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react';
+import '../styles/profile.css'
 import {
 	IoMdPin,
 	IoMdMail,
@@ -105,7 +106,7 @@ export default function ProfileInformation() {
 				<p className='username'>{profile.username}</p>
 			</div>
 			<div>
-				<p onClick={() => setShowFollowers(!showFollowers)}>
+				<p className='followers' onClick={() => setShowFollowers(!showFollowers)}>
 					Followers {profile.followers.length}
 				</p>
 				<ul>
@@ -114,7 +115,7 @@ export default function ProfileInformation() {
 							<li key={follow}>{follow}</li>
 						))}
 				</ul>
-				<p onClick={() => setFollowlist(!followList)}>
+				<p className='following' onClick={() => setFollowlist(!followList)}>
 					Following {checkFollowing(profile)}
 				</p>
 				<ul>
