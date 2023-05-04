@@ -11,10 +11,6 @@ export const Header = () => {
     const user = useSelector((state) => state.userReducer);
     return (
         <nav>
-            <h3 className='hashtag' id='explore'>
-                Trending hashtags
-            </h3>
-            <TrendingHash />
             <Link to={`/`}>
                 <button>Home</button>
             </Link>
