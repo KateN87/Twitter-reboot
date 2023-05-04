@@ -2,6 +2,7 @@ import express from 'express';
 
 import requireAuth from '../middleware/authorization.js';
 import { db, users, tweets, allHashtags } from '../database.js';
+import User from '../models/userModel.js';
 
 const router = express.Router();
 
@@ -35,7 +36,6 @@ router.post('/tweets', async (req, res) => {
     };
 
     tweets.push(newTweet);
-    allHashtags.push(...hashtags);
 
     await db.write();
     res.status(200).send(newTweet);
@@ -55,37 +55,57 @@ router.get('/followtweet', (req, res) => {
     }
 });
 
+//DENNA KLAR GÄLLANDE MONGODB
 router.patch('/follow', async (req, res) => {
     //Get loggedin-users id från authorization middleware
-    const mainId = req.user.id;
+    const loggedInUsername = req.user.username;
+
     //The name of the person you want to follow
     const followingUsername = req.body.username;
-    const followedUserObj = users.find((u) => u.username === followingUsername);
+    /* const followedUserObj = users.find((u) => u.username === followingUsername); */
     try {
-        let followListUser = users.find((user) => user.id === mainId);
+        const { following } = await User.findOne({
+            username: loggedInUsername,
+        });
 
-        if (!followListUser) {
-            throw Error('User not found');
-        }
-
-        // check if logged in user is already following - might not need this
-        const isFollowingIndex =
-            followListUser.following.indexOf(followingUsername);
-        const followersIndex =
-            followedUserObj.followers.indexOf(followingUsername);
+        // check if logged in user is already following
+        const isFollowingIndex = following.indexOf(followingUsername);
 
         if (isFollowingIndex !== -1) {
-            followListUser.following.splice(isFollowingIndex, 1);
-            followedUserObj.followers.splice(followersIndex, 1);
-            await db.write();
+            await User.findOneAndUpdate(
+                { username: loggedInUsername },
+                { $pull: { following: followingUsername } },
+                { new: true }
+            );
+            await User.findOneAndUpdate(
+                { username: followingUsername },
+                { $pull: { followers: loggedInUsername } },
+                { new: true }
+            );
             return res.status(200).json(followingUsername);
         }
 
         // Add requested follow to logged in users following-array
-        followListUser.following.push(followingUsername);
-        //Add one extra to followers
-        followedUserObj.followers.push(req.user.username);
-        await db.write();
+        const updatedList = [...following, followingUsername];
+
+        //Update the user in db
+        await User.findOneAndUpdate(
+            { username: loggedInUsername },
+            { following: updatedList },
+            { new: true }
+        );
+        //Updated followingUsernames followed-list with loggedIn-user
+        const { followers } = await User.findOne({
+            username: followingUsername,
+        });
+
+        const updatedFollowersList = [...followers, loggedInUsername];
+
+        await User.findOneAndUpdate(
+            { username: followingUsername },
+            { followers: updatedFollowersList },
+            { new: true }
+        );
 
         res.status(201).json(followingUsername);
     } catch (error) {
@@ -93,45 +113,3 @@ router.patch('/follow', async (req, res) => {
     }
 });
 export default router;
-
-/*
-    const id = +req.params.id;
-    const i = users.findIndex((i) => i.id === id);
-    const username = req.body.username;
-    let following = users[i].following;
-    let found = following.includes(username);
-
-    if (i != undefined && !found) {
-        let followlist = users[i].following;
-        followlist.push(username);
-
-        for (let index = 0; index < users.length; index++) {
-            if (users[index].username === username) {
-                let followers = users[index].followers;
-                users[index].followers += 1;
-                console.log(followers);
-                await db.write();
-                return followers;
-            }
-            await db.write();
-        }
-
-        res.status(201).send('updated');
-    } else if (found) {
-        let followList = users[i].following;
-        let found = followList.indexOf(username);
-
-        followList.splice(found, 1);
-        for (let index = 0; index < users.length; index++) {
-            if (users[index].username === username) {
-                let followers = users[index].followers;
-                users[index].followers -= 1;
-                console.log(followers);
-                await db.write();
-                return followers;
-            }
-        }
-        await db.write();
-    } else {
-        res.status(400).send('Bad request');
-    } */
