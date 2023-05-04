@@ -32,6 +32,12 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         }
     }
 
+    const seeLikes = (tweet) => {
+        const likedByList = tweet.likedBy
+        const likes = likedByList?.length
+        return likes
+    }
+
     return (
         <div className='tweet-big-container'>
             {tweetsList.length === 0 ? (
@@ -53,7 +59,6 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                             <ul id='tweetfeatures'>
                                 <li>
                                     <i className='fas fa-comment'></i>
-                                    0
                                 </li>
                                 <li>
                                     <i className='fas fa-retweet'></i>
@@ -61,8 +66,9 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                                 </li>
                                 <li>
                                     <i className='fas fa-heart' onClick={() => likeTweet(tweet)}></i>
-                                    0
+                                    <span>{seeLikes(tweet)}</span>
                                 </li>
+                                
                                 <li>
                                     <i className='fas fa-share'></i>
                                 </li>
