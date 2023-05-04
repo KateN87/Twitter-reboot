@@ -130,7 +130,7 @@ app.patch('/liketweet/:id', async (req, res) => {
 		let remove = likedByList.indexOf(username)
 		likedByList.splice(remove, 1)
 		await db.write()
-		res.sendStatus(400)
+		res.sendStatus(200)
 	}
 })
 
