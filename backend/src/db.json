@@ -316,7 +316,8 @@
       "timestamp": "2023-04-25T13:54:03.213Z",
       "tweet": "okej nu testar vi igen #test1 #test2\ntest3 #test4\n#test5",
       "likedBy": [
-        "@Lovisa"
+        "@Lovisa",
+        "@Kate"
       ],
       "retweets": 0,
       "comments": [],
@@ -333,7 +334,8 @@
       "timestamp": "2023-04-25T16:08:38.103Z",
       "tweet": "Hallå där",
       "likedBy": [
-        "@Lovisa"
+        "@Lovisa",
+        "@Kate"
       ],
       "retweets": 0,
       "comments": [],

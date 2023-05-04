@@ -5,7 +5,6 @@ import '../styles/showTweets.css';
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
-    console.log('TWEETSLIST', tweetsList);
     const navigate = useNavigate();
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
@@ -18,7 +17,6 @@ const ShowTweetsContainer = ({ tweetsList }) => {
     };
 
     const likeTweet = async (tweet) => {
-        console.log('tweet', tweet);
         const user = JSON.parse(localStorage.getItem('user'));
         const username = user.username;
         const options = {
