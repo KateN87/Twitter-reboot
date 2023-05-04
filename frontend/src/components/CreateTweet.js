@@ -13,7 +13,7 @@ export default function CreateTweet() {
         const wordsArray = textInput.split(/[\s\n]+/);
         const foundHashtag = wordsArray.filter((word) => word.startsWith('#'));
         const hashtagsWithout = foundHashtag.map((hashtag) =>
-            hashtag.replace(/^#/, '')
+            hashtag.replace(/^#/, '').toLowerCase()
         );
 
         if (!checkUser) {
@@ -24,7 +24,7 @@ export default function CreateTweet() {
         const newTweetReq = {
             tweet: textInput,
             username: user.username,
-            hashtags: hashtagsWithout.toLowerCase(),
+            hashtags: hashtagsWithout /* .toLowerCase() */,
         };
 
         const options = {
