@@ -3,7 +3,6 @@ import { ViewTweet } from '../components/ViewTweets';
 import Searchbar from '../components/Searchbar';
 import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
-import { useState } from 'react';
 
 export default function Home({ setId, id }) {
    const user = JSON.parse(localStorage.getItem('user'));

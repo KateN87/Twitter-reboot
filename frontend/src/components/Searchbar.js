@@ -12,7 +12,7 @@ const Searchbar = () => {
    const fetchedTweets = useSelector((state) => state.tweetReducer);
    const [searchQuery, setSearchQuery] = useState("");
 
-
+   // Function to fetch users matching the search query
    const fetchMatchingUsers = async (searchQuery) => {
       try {
          const response = await fetch("http://localhost:3001/users");
@@ -28,23 +28,28 @@ const Searchbar = () => {
       }
    }
 
-
+   // Function to handle the form submission
    const handleSubmit = async (event) => {
       event.preventDefault();
+      // Get the search query from the input field
       const searchQuery = event.target.elements.searchbar.value;
 
-      // Fetch matching hashtags
+      // Find matching hashtags from the tweets fetched from the store
       const matchingHashtags = fetchedTweets.filter((tweet) =>
          tweet.hashtags.includes(searchQuery.toLowerCase())
       );
+      // Fetch matching users from the backend
       const matchingUsers = await fetchMatchingUsers(searchQuery);
 
+      // If no matching users or hashtags found, set the error message and clear the user list
       if (matchingUsers.length === 0 && matchingHashtags.length === 0) {
          setErrorMessage(`No user or hashtag found with the name ${searchQuery}`);
          setUsers([]);
+         // Otherwise, update the user list with the matching users and dispatch the matching hashtags to the store
       } else {
          setUsers(matchingUsers);
-         dispatch({ type: "SET_MATCHING_TWEETS", payload: matchingHashtags }); // Dispatch the matching tweets to the store 
+         // Dispatch the matching tweets to the store 
+         dispatch({ type: "SET_MATCHING_TWEETS", payload: matchingHashtags });
          setErrorMessage('')
       }
    };
@@ -54,6 +59,7 @@ const Searchbar = () => {
    };
    const isSearchDisabled = searchQuery.trim().length === 0;
 
+   // Render the search bar and the list of matching users
    return (
       <div>
          <form
