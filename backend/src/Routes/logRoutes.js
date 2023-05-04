@@ -82,10 +82,6 @@ router.post('/signup', async (req, res) => {
 
         res.status(200).json({ ...user, token });
     } catch (error) {
-<<<<<<< HEAD
-        console.log("THIS IS ERROR", error);
-=======
->>>>>>> bb2e44709fc4c75cbdbb1d10e1723da7d884be05
         res.status(400).json({ error: error.message });
     }
 });
