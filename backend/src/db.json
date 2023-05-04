@@ -344,7 +344,9 @@
       "username": "@Aylin",
       "timestamp": "2023-04-27T12:29:53.009Z",
       "tweet": "hejsansvensjan",
-      "likedBy": [],
+      "likedBy": [
+        "@Kate"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": []
