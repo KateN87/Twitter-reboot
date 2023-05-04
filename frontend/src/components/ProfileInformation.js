@@ -15,7 +15,7 @@ export default function ProfileInformation() {
 	const dispatch = useDispatch();
 	const [profile, setProfile] = useState({});
 
-	const [following, setFollowers] = useState([]);
+	const [following, setFollowing] = useState([]);
 	const [followList, setFollowlist] = useState(false);
 	const [isFollowing, setIsFollowing] = useState(false);
 	const [isLoading, setIsLoading] = useState(null);
@@ -34,7 +34,7 @@ export default function ProfileInformation() {
 			const data = await response.json();
 
 			setProfile(data);
-			setFollowers(data.following);
+			setFollowing(data.following);
 			/* const checkUser = JSON.parse(localStorage.getItem('user')); */
 			/* const loggedinId = checkUser.id; */
 			if (user.id === data.id) {

@@ -14,8 +14,10 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         const foundId = user.id;
         navigate('/profile/' + foundId);
     };
+
     return (
         <div className='tweet-big-container'>
+
             {tweetsList.length === 0 ? (
                 <div>
                     <p>No tweets to display. </p>
@@ -25,29 +27,15 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                     {tweetsList.map((tweet, index) => (
                         <li className='tweet-container' key={index}>
                             <p
-                                className='tweetName'
+                                className='tweetp'
                                 onClick={() => goToProfile(tweet)}
                             >
-                                {tweet.username}{tweet.nickname}{' '}
+                                {tweet.username}{' '}
                                 <span id='time'>{returntimestamp(tweet)}</span>
                             </p>
                             <p className='tweetp'>{tweet.tweet}</p>
                             <ul id='tweetfeatures'>
-                                <li>
-                                    <i className='fas fa-comment'></i>
-                                    0
-                                </li>
-                                <li>
-                                    <i className='fas fa-retweet'></i>
-                                    0
-                                </li>
-                                <li>
-                                    <i className='fas fa-heart'></i>
-                                    0
-                                </li>
-                                <li>
-                                    <i className='fas fa-share'></i>
-                                </li>
+                                <li></li>
                             </ul>
                         </li>
                     ))}
