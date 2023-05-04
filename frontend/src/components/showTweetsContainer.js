@@ -1,10 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import '../styles/showTweets.css';
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
@@ -30,8 +31,9 @@ const ShowTweetsContainer = ({ tweetsList }) => {
             'http://localhost:3001/liketweet/' + tweet.id,
             options
         );
+        const data = await response.json();
         if (response.status === 200) {
-            console.log('liked tweet!');
+            dispatch({ type: 'CHANGE_LIKE', payload: data });
         }
     };
 
