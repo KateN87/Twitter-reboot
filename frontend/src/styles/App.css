@@ -31,7 +31,7 @@ img {
 
 .left-main-container,
 .right-main-container {
-    border: 2px solid red;
+    border-right: 0.5px solid grey;
     display: flex;
     flex-direction: column;
 }
@@ -48,7 +48,7 @@ img {
         display: none
     }
     .left-main-container{
-        border-right: 0.5px solid white;
+        border-right: 0.5px solid grey;
         border-left: none;
         border-top: none;
     }
@@ -56,4 +56,8 @@ img {
         width: 100vw;
         text-align: left;
     }
+}
+
+.middle-main-container{
+    text-align: left;
 }
