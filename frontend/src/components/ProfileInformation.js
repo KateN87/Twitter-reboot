@@ -37,8 +37,7 @@ export default function ProfileInformation() {
 
             setProfile(data);
             setFollowing(data.following);
-            /* const checkUser = JSON.parse(localStorage.getItem('user')); */
-            /* const loggedinId = checkUser.id; */
+
             if (user.id === data.id) {
                 setOwnProfile(true);
             }
