@@ -4,14 +4,11 @@
 }
 
 .nav-container {
-    display: inline-flex;
-    width: 200px;
-    margin: 0 auto;
-    height: 60px;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .nav-link {
-    width: 150px;
     background-color: var(--background);
     color: var(--color);
     border: none;
@@ -23,6 +20,13 @@
 }
 
 #viewtweet {
-   height: 500px;
+   height: 550px;
    overflow-y: scroll;
+   
+}
+@media only screen and (max-width:800px) {
+    .tweet-container{
+    border-bottom: 0.5px solid white;
+    padding-left: 10%;
+}
 }
