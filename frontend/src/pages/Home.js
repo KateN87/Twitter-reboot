@@ -11,7 +11,6 @@ import { useSelector } from 'react-redux';
 export default function Home({ setId, id }) {
     const user = JSON.parse(localStorage.getItem('user'));
     const tweetsList = useSelector((state) => state.matchingTweetsReducer);
-    console.log('tweetlist: ', tweetsList);
 
     return (
         <>
