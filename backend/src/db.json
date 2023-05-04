@@ -35,9 +35,7 @@
       ],
       "followers": [
         "@Lovisa",
-        "@Kingen",
-        "@Aylin",
-        "@Aylin"
+        "@Matilda"
       ],
       "occupation": "Student",
       "hometown": "Katetown",
@@ -54,8 +52,8 @@
       "about": "I am Lovisa",
       "following": [
         "@Kingen",
-        "@Aylin",
-        "@Kate"
+        "@Kate",
+        "@Aylin"
       ],
       "followers": [
         "@Aylin",
@@ -97,8 +95,8 @@
       ],
       "followers": [
         "@Lovisa",
-        "@Kate",
-        "@Kingen"
+        "@Kingen",
+        "@Lovisa"
       ],
       "about": "I am Aylin",
       "occupation": "Student",
@@ -109,46 +107,53 @@
   ],
   "tweets": [
     {
+      "id": 1,
       "username": "@Kingen",
       "timestamp": "Wed Apr 19 2023 12:02:09",
       "tweet": "Första tweeten ever!",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 2,
       "username": "@Kingen",
       "timestamp": "Wed Apr 19 2023 12:15:09",
       "tweet": "Whatever happens now?",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 3,
       "username": "@Lovisa",
       "timestamp": "Wed Apr 19 2023 11:15:09",
       "tweet": "Funkar detta?",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 4,
       "username": "@Aylin",
       "timestamp": "Fri Apr 21 2023 11:21:00",
       "tweet": "Testar lite",
-      "likes": 0,
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 5,
       "username": "@Matilda",
       "timestamp": "2023-04-25T10:14:48.546Z",
       "tweet": "hashtag test2\n",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -156,10 +161,13 @@
       ]
     },
     {
+      "id": 6,
       "username": "@Matilda",
       "timestamp": "2023-04-25T11:15:40.384Z",
       "tweet": "as",
-      "likes": 0,
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -167,10 +175,11 @@
       ]
     },
     {
+      "id": 7,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:42:16.079Z",
       "tweet": "split test",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -178,10 +187,11 @@
       ]
     },
     {
+      "id": 8,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:42:51.767Z",
       "tweet": "split test2",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -189,10 +199,11 @@
       ]
     },
     {
+      "id": 9,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:44:28.613Z",
       "tweet": "#split test3",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -200,10 +211,11 @@
       ]
     },
     {
+      "id": 10,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:46:47.250Z",
       "tweet": "#split test4\n",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -211,10 +223,11 @@
       ]
     },
     {
+      "id:": 10,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:47:29.243Z",
       "tweet": "#split test4\n",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -222,10 +235,11 @@
       ]
     },
     {
+      "id ": 11,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:47:52.231Z",
       "tweet": "#split #test6\n",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -233,10 +247,11 @@
       ]
     },
     {
+      "id": 12,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:48:52.570Z",
       "tweet": "#split #test6\nhejjjj",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -245,10 +260,11 @@
       ]
     },
     {
+      "id ": 13,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:49:20.492Z",
       "tweet": "#split #test hejhej",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -257,10 +273,11 @@
       ]
     },
     {
+      "id": 14,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:49:57.448Z",
       "tweet": "#split #test \nhejhej",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -269,10 +286,11 @@
       ]
     },
     {
+      "id": 15,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:50:09.425Z",
       "tweet": "#split #test\nhejhej",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -281,19 +299,25 @@
       ]
     },
     {
+      "id": 16,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:50:50.928Z",
       "tweet": "#split #test\nhejhej12123",
-      "likes": 0,
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 17,
       "username": "@Matilda",
       "timestamp": "2023-04-25T13:54:03.213Z",
       "tweet": "okej nu testar vi igen #test1 #test2\ntest3 #test4\n#test5",
-      "likes": 0,
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -304,28 +328,35 @@
       ]
     },
     {
+      "id": 18,
       "username": "@Lovisa",
       "timestamp": "2023-04-25T16:08:38.103Z",
       "tweet": "Hallå där",
-      "likes": 0,
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 19,
       "username": "@Aylin",
       "timestamp": "2023-04-27T12:29:53.009Z",
       "tweet": "hejsansvensjan",
-      "likes": 0,
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": []
     },
     {
+      "id": 20,
       "username": "@Kate",
       "timestamp": "2023-05-02T18:28:12.580Z",
       "tweet": "This is a tweet #test1",
-      "likes": 0,
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": [

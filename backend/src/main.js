@@ -115,6 +115,25 @@ app.get('/trending', (req, res) => {
     }
 });
 
+app.patch('/liketweet/:id', async (req, res) => {
+	const id = +req.params.id
+	const username = req.body.username
+	const i = tweets.findIndex((i) => i.id === id)
+	const tweetToLike = tweets[i]
+	let likedByList = tweetToLike.likedBy
+	let found = likedByList.includes(username)
+	if(!found){
+		likedByList.push(username)
+		await db.write()
+		res.sendStatus(200)
+	} else {
+		let remove = likedByList.indexOf(username)
+		likedByList.splice(remove, 1)
+		await db.write()
+		res.sendStatus(200)
+	}
+})
+
 //kollar id:et på användaren med det användarnamnet
 /* app.get('/:username', (req, res) => {
     const username = req.params.username;

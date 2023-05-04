@@ -28,7 +28,7 @@ router.post('/tweets', async (req, res) => {
         username,
         timestamp: date,
         tweet,
-        likes: 0,
+        likedBy: [],
         retweets: 0,
         comments: [],
         hashtags,

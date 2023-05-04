@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
+import {useSelector} from 'react-redux'
 import "../styles/showTweets.css"
 
 //Containern som visar tweets
@@ -14,6 +15,29 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         const foundId = user.id;
         navigate('/profile/' + foundId);
     };
+
+    const likeTweet = async (tweet) => {
+        const user = JSON.parse(localStorage.getItem("user"))
+        const username = user.username
+        const options = {
+            method: 'PATCH',
+            body: JSON.stringify({username}),
+            headers:{
+                "Content-Type" : "application/json",
+            }
+        }
+        const response = await fetch('http://localhost:3001/liketweet/' + tweet.id, options)
+        if(response.status === 200){
+            console.log("liked tweet!")
+        }
+    }
+
+    const seeLikes = (tweet) => {
+        const likedByList = tweet.likedBy
+        const likes = likedByList?.length
+        return likes
+    }
+
     return (
         <div className='tweet-big-container'>
             {tweetsList.length === 0 ? (
@@ -35,16 +59,16 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                             <ul id='tweetfeatures'>
                                 <li>
                                     <i className='fas fa-comment'></i>
-                                    0
                                 </li>
                                 <li>
                                     <i className='fas fa-retweet'></i>
                                     0
                                 </li>
                                 <li>
-                                    <i className='fas fa-heart'></i>
-                                    0
+                                    <i className='fas fa-heart' onClick={() => likeTweet(tweet)}></i>
+                                    <span>{seeLikes(tweet)}</span>
                                 </li>
+                                
                                 <li>
                                     <i className='fas fa-share'></i>
                                 </li>
