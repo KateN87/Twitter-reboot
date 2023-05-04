@@ -1,6 +1,10 @@
 import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
+<<<<<<< HEAD
 import {useSelector} from 'react-redux'
+=======
+import "../styles/showTweets.css"
+>>>>>>> 55c644cb91bff90cb226f15fc32a9497c4ecbe83
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
@@ -42,15 +46,33 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                     {tweetsList.map((tweet, index) => (
                         <li className='tweet-container' key={index}>
                             <p
-                                className='tweetp'
+                                className='tweetName'
                                 onClick={() => goToProfile(tweet)}
                             >
-                                {tweet.username}{' '}
+                                {tweet.username}{tweet.nickname}{' '}
                                 <span id='time'>{returntimestamp(tweet)}</span>
                             </p>
                             <p className='tweetp'>{tweet.tweet}</p>
                             <ul id='tweetfeatures'>
+<<<<<<< HEAD
                                 <li><label>Like</label><input type="checkbox" onChange={() => likeTweet(tweet)}></input></li>
+=======
+                                <li>
+                                    <i className='fas fa-comment'></i>
+                                    0
+                                </li>
+                                <li>
+                                    <i className='fas fa-retweet'></i>
+                                    0
+                                </li>
+                                <li>
+                                    <i className='fas fa-heart'></i>
+                                    0
+                                </li>
+                                <li>
+                                    <i className='fas fa-share'></i>
+                                </li>
+>>>>>>> 55c644cb91bff90cb226f15fc32a9497c4ecbe83
                             </ul>
                         </li>
                     ))}

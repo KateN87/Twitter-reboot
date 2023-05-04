@@ -1,4 +1,5 @@
 import { useDispatch } from "react-redux";
+import "../styles/createTweet.css"
 
 export default function CreateTweet() {
    const dispatch = useDispatch();
@@ -51,7 +52,7 @@ export default function CreateTweet() {
    return (
       <div className='tweet-component'>
          <form onSubmit={submitTweet} className='tweet-form' action=''>
-            <textarea
+            <textarea className="textarea"
                id='tweet'
                name='tweet'
                rows='5'

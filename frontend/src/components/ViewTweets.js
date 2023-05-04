@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 
 import { useSelector } from 'react-redux';
-
 import '../styles/ViewTweets.css';
 import ShowTweetsContainer from './showTweetsContainer.js';
 
@@ -57,6 +56,8 @@ export const ViewTweet = () => {
     };
 
     //Headercomponenter ("knapparna") som bestämmer vilket view som ska visas
+
+
     return (
         <div className='main-tweet-container'>
             <div className='nav-container'>
@@ -66,4 +67,5 @@ export const ViewTweet = () => {
             <ShowTweetsContainer tweetsList={tweetsList} />
         </div>
     );
+
 };

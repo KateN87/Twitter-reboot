@@ -1,4 +1,5 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect } from 'react';
+import '../styles/profile.css'
 import {
 	IoMdPin,
 	IoMdMail,
@@ -6,9 +7,9 @@ import {
 	IoMdCalendar,
 	IoIosPaperPlane,
 	IoMdBriefcase,
-} from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
-import { useParams } from "react-router-dom";
+} from 'react-icons/io';
+import { useDispatch, useSelector } from 'react-redux';
+import { useParams } from 'react-router-dom';
 
 export default function ProfileInformation() {
 	const dispatch = useDispatch();
@@ -27,7 +28,9 @@ export default function ProfileInformation() {
 
 	useEffect(() => {
 		const fetchProfile = async () => {
-			const response = await fetch("http://localhost:3001/users/" + idparam);
+			const response = await fetch(
+				'http://localhost:3001/users/' + idparam
+			);
 			const data = await response.json();
 
 			setProfile(data);
@@ -51,29 +54,29 @@ export default function ProfileInformation() {
 	}, [idparam, user]);
 
 	const followUser = async () => {
-		const checkUser = JSON.parse(localStorage.getItem("user"));
+		const checkUser = JSON.parse(localStorage.getItem('user'));
 		const username = profile.username;
 		setIsLoading(true);
 		const options = {
-			method: "PATCH",
+			method: 'PATCH',
 			body: JSON.stringify({ username }),
 			headers: {
-				"Content-Type": "application/json",
+				'Content-Type': 'application/json',
 				Authorization: `Bearer ${checkUser.token}`,
 			},
 		};
 		const response = await fetch(
-			"http://localhost:3001/locked/follow/",
+			'http://localhost:3001/locked/follow/',
 			options
 		);
 		const data = await response.json();
 
 		if (response.status === 201) {
-			dispatch({ type: "ADD_FOLLOWING", payload: data });
+			dispatch({ type: 'ADD_FOLLOWING', payload: data });
 			setIsLoading(false);
 		}
 		if (response.status === 200) {
-			dispatch({ type: "DELETE_FOLLOWING", payload: data });
+			dispatch({ type: 'DELETE_FOLLOWING', payload: data });
 			setIsLoading(false);
 		}
 	};
@@ -103,19 +106,23 @@ export default function ProfileInformation() {
 				<p className='username'>{profile.username}</p>
 			</div>
 			<div>
-				<p onClick={() => setShowFollowers(!showFollowers)}>
+				<p className='followers' onClick={() => setShowFollowers(!showFollowers)}>
 					Followers {profile.followers.length}
 				</p>
 				<ul>
 					{showFollowers &&
-						profile.followers.map((follow) => <li key={follow}>{follow}</li>)}
+						profile.followers.map((follow) => (
+							<li key={follow}>{follow}</li>
+						))}
 				</ul>
-				<p onClick={() => setFollowlist(!followList)}>
+				<p className='following' onClick={() => setFollowlist(!followList)}>
 					Following {checkFollowing(profile)}
 				</p>
 				<ul>
 					{followList &&
-						following.map((follow) => <li key={follow}>{follow}</li>)}
+						following.map((follow) => (
+							<li key={follow}>{follow}</li>
+						))}
 				</ul>
 			</div>
 
@@ -151,7 +158,7 @@ export default function ProfileInformation() {
 			</div>
 			{!ownProfile && (
 				<button onClick={() => followUser()} disabled={isLoading}>
-					{isFollowing ? "Unfollow" : "Follow"}
+					{isFollowing ? 'Unfollow' : 'Follow'}
 				</button>
 			)}
 		</div>
