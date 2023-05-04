@@ -50,6 +50,7 @@ const Searchbar = () => {
          setUsers(matchingUsers);
          // Dispatch the matching tweets to the store 
          dispatch({ type: "SET_MATCHING_TWEETS", payload: matchingHashtags });
+
          setErrorMessage('')
       }
    };

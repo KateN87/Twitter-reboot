@@ -5,9 +5,13 @@ import { RegisterLoginDialogue } from "../components/RegisterLoginDialogue";
 import CreateTweet from "../components/CreateTweet";
 import TrendingHash from "../components/TrendingHash";
 
+import ShowTweetsContainer from "../components/showTweetsContainer";
+import { useSelector } from "react-redux";
+
 export default function Home({ setId, id }) {
    const user = JSON.parse(localStorage.getItem("user"));
-   // Lägg till isloading för att vänta på user
+   const tweetsList = useSelector((state) => state.matchingTweetsReducer);
+   console.log('tweetlist: ', tweetsList)
 
    return (
       <>
@@ -22,7 +26,7 @@ export default function Home({ setId, id }) {
             <h3 className='hashtag' id='explore'>
                Trending hashtags
             </h3>
-            <TrendingHash />
+            {tweetsList !== undefined && tweetsList.length !== 0 ? <ShowTweetsContainer tweetsList={tweetsList} /> : <TrendingHash />}
          </div>
       </>
    );
