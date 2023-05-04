@@ -13,7 +13,6 @@ const validateSignup = (req) => {
         hometown,
         website,
     } = req.body;
-    console.log('THIS IS NEW', req.body);
     //checks if userName and password is put in
     if (
         !username ||

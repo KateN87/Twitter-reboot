@@ -1,14 +1,21 @@
-import express from "express";
-import bcrypt from "bcrypt";
-import jwt from "jsonwebtoken";
-import fileUpload from "express-fileupload";
-import { db } from "../database.js";
-import validateSignup from "../../validate/validateSignup.js";
+import express from 'express';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
+import fileUpload from 'express-fileupload';
+import { db } from '../database.js';
+import validateSignup from '../../validate/validateSignup.js';
 
 const router = express.Router();
 
 //Middleware for handling uploaded files
-router.use(fileUpload());
+router.use(
+    fileUpload({
+        limits: {
+            fileSize: 10000000,
+        },
+        abortOnLimit: true,
+    })
+);
 
 const createToken = (id) => {
     return jwt.sign({ id }, process.env.SECRET, { expiresIn: "1d" });
