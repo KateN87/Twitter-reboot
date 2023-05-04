@@ -1,51 +1,47 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
 
 const EditProfile = ({ setEditMode }) => {
     const [error, setError] = useState(null);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
+    const checkUser = JSON.parse(localStorage.getItem('user'));
 
-    const handleSubmit = async (form, e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError(null);
+        const { email, nickname, about, occupation, hometown, website } =
+            e.target;
+        const editedUser = {
+            email: email.value,
+            nickname: nickname.value,
+            about: about.value,
+            occupation: occupation.value,
+            hometown: hometown.value,
+            website: website.value,
+        };
 
         //Adding info from form
-        const formData = new FormData();
-        formData.append('username', form.username.value);
-        formData.append('password', form.password.value);
-        formData.append('verifyPass', form.verifyPass.value);
-        formData.append('email', form.email.value);
-        formData.append('nickname', form.nickname.value);
-        formData.append('about', form.about.value);
-        formData.append('occupation', form.occupation.value);
-        formData.append('hometown', form.hometown.value);
-        formData.append('website', form.website.value);
-        if (form.image && form.image.files) {
-            formData.append('image', form.image.files[0]);
-        }
-        const response = await fetch('http://localhost:3001/log/signup', {
-            method: 'POST',
-            body: formData,
-        });
-
-        if (response.status === 413) {
-            return setError('Image too big, must be 10MB or less');
-        }
+        const response = await fetch(
+            'http://localhost:3001/locked/editprofile',
+            {
+                method: 'PATCH',
+                body: JSON.stringify(editedUser),
+                headers: {
+                    'Content-Type': 'application/json',
+                    Authorization: `Bearer ${checkUser.token}`,
+                },
+            }
+        );
 
         const json = await response.json();
 
         if (!response.ok) {
             setError(json.error);
         } else {
-            //Adds user with token to localstorage
-            localStorage.setItem('user', JSON.stringify(json));
             //Login user to reducer-state
             dispatch({ type: 'LOGIN_USER', payload: json });
-            navigate('/');
+            setEditMode(false);
         }
-        return false;
     };
 
     return (
@@ -53,53 +49,60 @@ const EditProfile = ({ setEditMode }) => {
             {/*added enctype to send form with both text and file */}
             <form
                 className='login-form'
-                onSubmit={(e) => {
-                    handleSubmit(e.target, e);
-                    return false;
-                }}
+                onSubmit={handleSubmit}
                 encType='multipart/form'
             >
-                <h1>Sign up</h1>
-                <label htmlFor='username'>Username:</label>
-                <input type='text' name='username' />
-
-                <br />
-                <label htmlFor='password'>Password:</label>
-                <input type='password' name='password' />
-
-                <br />
-
-                <label htmlFor='verifyPass'>Verify password:</label>
-                <input type='password' name='verifyPass' />
+                <h1>Edit your info</h1>
 
                 <br />
                 <label htmlFor='email'>Email:</label>
-                <input type='text' name='email' />
+                <input
+                    type='text'
+                    name='email'
+                    defaultValue={checkUser.email}
+                />
 
                 <br />
                 <label htmlFor='nickname'>Nickname:</label>
-                <input type='text' name='nickname' />
+                <input
+                    type='text'
+                    name='nickname'
+                    defaultValue={checkUser.nickname}
+                />
 
                 <br />
                 <label htmlFor='about'>About:</label>
-                <input type='text' name='about' />
+                <input
+                    type='text'
+                    name='about'
+                    defaultValue={checkUser.about}
+                />
 
                 <br />
                 <label htmlFor='occupation'>Occupation:</label>
-                <input type='text' name='occupation' />
+                <input
+                    type='text'
+                    name='occupation'
+                    defaultValue={checkUser.occupation}
+                />
 
                 <br />
                 <label htmlFor='hometown'>Hometown:</label>
-                <input type='text' name='hometown' />
+                <input
+                    type='text'
+                    name='hometown'
+                    defaultValue={checkUser.hometown}
+                />
 
                 <br />
                 <label htmlFor='website'>Website:</label>
-                <input type='text' name='website' />
+                <input
+                    type='text'
+                    name='website'
+                    defaultValue={checkUser.website}
+                />
                 <br />
-                <label htmlFor='image'>Image:</label>
-                <input type='file' id='image' name='image' />
 
-                <br />
                 <button type='submit'>Save Edit</button>
                 <button onClick={() => setEditMode(false)}>Cancel</button>
                 {/* Om error INTE är null visas denna*/}
