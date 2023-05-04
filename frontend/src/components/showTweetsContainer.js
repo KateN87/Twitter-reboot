@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
+import "../styles/showTweets.css"
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
@@ -24,15 +25,29 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                     {tweetsList.map((tweet, index) => (
                         <li className='tweet-container' key={index}>
                             <p
-                                className='tweetp'
+                                className='tweetName'
                                 onClick={() => goToProfile(tweet)}
                             >
-                                {tweet.username}{' '}
+                                {tweet.username}{tweet.nickname}{' '}
                                 <span id='time'>{returntimestamp(tweet)}</span>
                             </p>
                             <p className='tweetp'>{tweet.tweet}</p>
                             <ul id='tweetfeatures'>
-                                <li></li>
+                                <li>
+                                    <i className='fas fa-comment'></i>
+                                    0
+                                </li>
+                                <li>
+                                    <i className='fas fa-retweet'></i>
+                                    0
+                                </li>
+                                <li>
+                                    <i className='fas fa-heart'></i>
+                                    0
+                                </li>
+                                <li>
+                                    <i className='fas fa-share'></i>
+                                </li>
                             </ul>
                         </li>
                     ))}

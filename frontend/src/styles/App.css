@@ -30,9 +30,12 @@ img {
 
 .left-main-container,
 .right-main-container {
-    border: 2px solid red;
+    /* border: 2px solid red; */
     display: flex;
     flex-direction: column;
+}
+.middle-main-container{
+    border: 2px solid wheat;
 }
 
 .link{

@@ -9,14 +9,14 @@ export default function Profile(/* { id, setId } */) {
    return (
       <>
          <div className='middle-main-container'>
-            <ProfileInformation /* id={id} setId={setId} idparam={idparam} */
-            />
+
 
             <CreateTweet />
             <OwnTweets /* id={id} idparam={idparam} */></OwnTweets>
          </div>
          <div className='right-main-container'>
-            <Searchbar />
+            <ProfileInformation /* id={id} setId={setId} idparam={idparam} */
+            />
          </div>
       </>
    );
