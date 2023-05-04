@@ -1,10 +1,11 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const EditProfile = ({ setEditMode }) => {
     const [error, setError] = useState(null);
     const dispatch = useDispatch();
     const checkUser = JSON.parse(localStorage.getItem('user'));
+    const user = useSelector((state) => state.userReducer);
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -56,34 +57,26 @@ const EditProfile = ({ setEditMode }) => {
 
                 <br />
                 <label htmlFor='email'>Email:</label>
-                <input
-                    type='text'
-                    name='email'
-                    defaultValue={checkUser.email}
-                />
+                <input type='text' name='email' defaultValue={user.email} />
 
                 <br />
                 <label htmlFor='nickname'>Nickname:</label>
                 <input
                     type='text'
                     name='nickname'
-                    defaultValue={checkUser.nickname}
+                    defaultValue={user.nickname}
                 />
 
                 <br />
                 <label htmlFor='about'>About:</label>
-                <input
-                    type='text'
-                    name='about'
-                    defaultValue={checkUser.about}
-                />
+                <input type='text' name='about' defaultValue={user.about} />
 
                 <br />
                 <label htmlFor='occupation'>Occupation:</label>
                 <input
                     type='text'
                     name='occupation'
-                    defaultValue={checkUser.occupation}
+                    defaultValue={user.occupation}
                 />
 
                 <br />
@@ -91,16 +84,12 @@ const EditProfile = ({ setEditMode }) => {
                 <input
                     type='text'
                     name='hometown'
-                    defaultValue={checkUser.hometown}
+                    defaultValue={user.hometown}
                 />
 
                 <br />
                 <label htmlFor='website'>Website:</label>
-                <input
-                    type='text'
-                    name='website'
-                    defaultValue={checkUser.website}
-                />
+                <input type='text' name='website' defaultValue={user.website} />
                 <br />
 
                 <button type='submit'>Save Edit</button>
