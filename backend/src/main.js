@@ -6,6 +6,7 @@ import User from './models/userModel.js'
 import Tweets from './models/tweetModel.js'
 import logRoutes from './Routes/logRoutes.js';
 import lockedRoutes from './Routes/lockedRoutes.js';
+import Tweet from './models/tweetModel.js';
 
 const app = express();
 app.use(express.static('public'));
@@ -77,22 +78,27 @@ app.get('/users/:user', (req, res) => {
    }
 });
 
-app.get('/trending', (req, res) => {
-   const occuringHashtags = {};
+//KLAR GÄLLANDE MONGODB
+app.get('/trending', async (req, res) => {
    try {
-      //Iterate over each tweet
-      for (const tweet of tweets) {
-         //Iterate over each hashtag in hashtag-array
-         for (const hashtag of tweet.hashtags) {
-            //If the hashtag is already in occuringHashtags, add one to the count
-            if (occuringHashtags.hasOwnProperty(hashtag.toLowerCase())) {
-               occuringHashtags[hashtag.toLowerCase()]++;
+      const tweets = await Tweet.find();
+      const occuringHashtags = {};
+
+      // Iterate over each tweet
+      tweets.forEach(function (tweet) {
+         // Iterate over each hashtag in hashtag-array
+         tweet.hashtags.forEach(function (hashtag) {
+            const lowercaseHashtag = hashtag.toLowerCase();
+            // If the hashtag is already in occuringHashtags, add one to the count
+            if (occuringHashtags.hasOwnProperty(lowercaseHashtag)) {
+               occuringHashtags[lowercaseHashtag]++;
             } else {
-               //If the hashtag is already there, add the hashtag and set it to one
-               occuringHashtags[hashtag.toLowerCase()] = 1;
+               // If the hashtag is not there, add the hashtag and set it to one
+               occuringHashtags[lowercaseHashtag] = 1;
             }
-         }
-      }
+         });
+      });
+
       // Takes each hashtag from occuringHashtags, and makes it into an array with objects
       const occuringHashtagsArray = Object.keys(occuringHashtags).map(
          (hashtag) => {
@@ -102,8 +108,9 @@ app.get('/trending', (req, res) => {
             };
          }
       );
+
       //Sort the array based on number, if b[1] is greater than a[1], then b is placed before a
-      occuringHashtagsArray.sort((a, b) => b[1] - a[1]);
+      occuringHashtagsArray.sort((a, b) => b.occurance - a.occurance);
       const topFive = occuringHashtagsArray.slice(0, 5);
       res.status(200).send(topFive);
    } catch (error) {
@@ -111,21 +118,6 @@ app.get('/trending', (req, res) => {
    }
 });
 
-//kollar id:et på användaren med det användarnamnet
-/* app.get('/:username', (req, res) => {
-    const username = req.params.username;
-    let user = users.find((u) => u.username === username);
-
-    /* for (let i = 0; i < users.length; i++) {
-      const dbUsername = users[i].username
-      if (dbUsername === username) {
-         user = users[i]
-         lastId = users[i].id
-      }
-   } */
-
-/* res.status(200).send(user);
-}); */
 app.get('/users/:id/:username', (req, res) => {
    const id = +req.params.id;
    const username = req.params.username;

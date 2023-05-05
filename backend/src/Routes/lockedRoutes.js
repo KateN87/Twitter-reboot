@@ -32,108 +32,68 @@ router.post('/tweets', async (req, res) => {
       likes: [],
       hashtags: []
 
-   })
+    tweets.push(newTweet);
+      allHashtags.push(...hashtags);
 
-   try {
-      const savedTweet = await newTweet.save();
-      res.status(200).send(savedTweet);
-   } catch (error) {
-      console.error(error);
-      res.status(500).send('Error saving tweet to database');
-   }
-});
-
-router.get('/followtweet', (req, res) => {
-   const following = req.user.following;
-   const tweetList = [];
-   try {
-      tweetList.push(
-         ...tweets.filter((tweet) => following.includes(tweet.username))
-      );
-
-      res.status(200).send(tweetList);
-   } catch (error) {
-      res.status(401).json({ error: error.message });
-   }
-});
-
-router.patch('/follow', async (req, res) => {
-   //Get loggedin-users id från authorization middleware
-   const mainId = req.user.id;
-   //The name of the person you want to follow
-   const followingUsername = req.body.username;
-   const followedUserObj = users.find((u) => u.username === followingUsername);
-   try {
-      let followListUser = users.find((user) => user.id === mainId);
-
-      if (!followListUser) {
-         throw Error('User not found');
+      try {
+         const savedTweet = await newTweet.save();
+         res.status(200).send(savedTweet);
+      } catch(error) {
+         console.error(error);
+         res.status(500).send('Error saving tweet to database');
       }
+   });
 
-      // check if logged in user is already following - might not need this
-      const isFollowingIndex =
-         followListUser.following.indexOf(followingUsername);
-      const followersIndex =
-         followedUserObj.followers.indexOf(followingUsername);
+   router.get('/followtweet', (req, res) => {
+      const following = req.user.following;
+      const tweetList = [];
+      try {
+         tweetList.push(
+            ...tweets.filter((tweet) => following.includes(tweet.username))
+         );
 
-      if (isFollowingIndex !== -1) {
-         followListUser.following.splice(isFollowingIndex, 1);
-         followedUserObj.followers.splice(followersIndex, 1);
-         await db.write();
-         return res.status(200).json(followingUsername);
+         res.status(200).send(tweetList);
+      } catch (error) {
+         res.status(401).json({ error: error.message });
       }
+   });
 
-      // Add requested follow to logged in users following-array
-      followListUser.following.push(followingUsername);
-      //Add one extra to followers
-      followedUserObj.followers.push(req.user.username);
-      await db.write();
+   //DENNA KLAR GÄLLANDE MONGODB
+   router.patch('/follow', async (req, res) => {
+      //Get loggedin-users id från authorization middleware
+      const mainId = req.user.id;
+      //The name of the person you want to follow
+      const followingUsername = req.body.username;
+      const followedUserObj = users.find((u) => u.username === followingUsername);
+      try {
+         let followListUser = users.find((user) => user.id === mainId);
 
-      res.status(201).json(followingUsername);
-   } catch (error) {
-      res.status(400).json({ error: error.message });
-   }
-});
-export default router;
+         if (!followListUser) {
+            throw Error('User not found');
+         }
 
-/*
-    const id = +req.params.id;
-    const i = users.findIndex((i) => i.id === id);
-    const username = req.body.username;
-    let following = users[i].following;
-    let found = following.includes(username);
+         // check if logged in user is already following - might not need this
+         const isFollowingIndex =
+            followListUser.following.indexOf(followingUsername);
+         const followersIndex =
+            followedUserObj.followers.indexOf(followingUsername);
 
-    if (i != undefined && !found) {
-        let followlist = users[i].following;
-        followlist.push(username);
-
-        for (let index = 0; index < users.length; index++) {
-            if (users[index].username === username) {
-                let followers = users[index].followers;
-                users[index].followers += 1;
-                console.log(followers);
-                await db.write();
-                return followers;
-            }
+         if (isFollowingIndex !== -1) {
+            followListUser.following.splice(isFollowingIndex, 1);
+            followedUserObj.followers.splice(followersIndex, 1);
             await db.write();
-        }
+            return res.status(200).json(followingUsername);
+         }
 
-        res.status(201).send('updated');
-    } else if (found) {
-        let followList = users[i].following;
-        let found = followList.indexOf(username);
+         // Add requested follow to logged in users following-array
+         followListUser.following.push(followingUsername);
+         //Add one extra to followers
+         followedUserObj.followers.push(req.user.username);
+         await db.write();
 
-        followList.splice(found, 1);
-        for (let index = 0; index < users.length; index++) {
-            if (users[index].username === username) {
-                let followers = users[index].followers;
-                users[index].followers -= 1;
-                console.log(followers);
-                await db.write();
-                return followers;
-            }
-        }
-        await db.write();
-    } else {
-        res.status(400).send('Bad request');
-    } */
+         res.status(201).json(followingUsername);
+      } catch (error) {
+         res.status(400).json({ error: error.message });
+      }
+   });
+   export default router;

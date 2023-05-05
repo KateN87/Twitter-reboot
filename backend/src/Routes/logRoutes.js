@@ -1,9 +1,7 @@
 import express from 'express';
-import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import fileUpload from 'express-fileupload';
-import { db } from '../database.js';
-import validateSignup from '../../validate/validateSignup.js';
+import User from '../models/userModel.js';
 
 const router = express.Router();
 
@@ -21,6 +19,7 @@ const createToken = (id) => {
     return jwt.sign({ id }, process.env.SECRET, { expiresIn: '1d' });
 };
 
+//KLAR GÄLLANDE MONGODB
 router.post('/signup', async (req, res) => {
     const {
         username,
@@ -34,12 +33,6 @@ router.post('/signup', async (req, res) => {
     } = req.body;
 
     try {
-        //Validates info
-        validateSignup(req);
-        //Encrypt password
-        const salt = await bcrypt.genSalt(10);
-        const hash = await bcrypt.hash(password, salt);
-        const id = db.data.users.length + 1;
         let image = {};
         //Gets image-objekt from req.files(by middleware)
 
@@ -59,7 +52,7 @@ router.post('/signup', async (req, res) => {
             image.mv('public/images/' + image.name);
         }
 
-        const user = {
+        const newUser = {
             id,
             username: `@${username}`,
             password: hash,
@@ -67,25 +60,23 @@ router.post('/signup', async (req, res) => {
             email,
             nickname,
             following: [],
-            followers: 0,
+            followers: [],
             about,
             occupation,
             hometown,
             website,
-            joined: new Date(),
         };
 
         //add user to db
-        db.data.users.push(user);
-        await db.write();
-        const token = createToken(id);
-
-        res.status(200).json({ ...user, token });
+        const user = await User.signup(newUser);
+        const token = createToken(user._id);
+        res.status(200).json({ user, token });
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
 });
 
+//KLAR GÄLLANDE MONGODB
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
     let addedUsername = username;
@@ -94,21 +85,13 @@ router.post('/login', async (req, res) => {
     }
 
     try {
-        // kollar om användare existerar
-        let user = db.data.users.find(
-            (u) => u.username === addedUsername || u.email === addedUsername
-        );
-        if (!user) throw new Error('User not found');
+        const user = await User.login(addedUsername, password);
 
-        // kollar om lösenordet stämmer check
-        const isMatch = await bcrypt.compare(password, user.password);
-        if (!isMatch) throw Error('Invalid password');
+        const token = createToken(user._id);
 
-        const token = createToken(user.id);
-        res.status(200).json({ ...user, token });
+        res.status(200).json({ user, token });
     } catch (error) {
-        console.error(error);
-        res.status(401).json({ error: error.message });
+        res.status(400).json({ error: error.message });
     }
 });
 
