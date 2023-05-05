@@ -28,16 +28,12 @@ app.use('/locked', lockedRoutes);
 //Routes
 
 app.get('/users', async (req, res) => {
-    const users = await User.find({ username: '@Matilda' });
+    const users = await User.find({});
     res.send(users);
 });
 
-app.get('/tweets', (req, res) => {
-    let tweetslist = [];
-    for (let i = 0; i < tweets.length; i++) {
-        let tweet = tweets[i];
-        tweetslist.push(tweet);
-    }
+app.get('/tweets', async (req, res) => {
+    const users = await Tweet.find({});
     res.send(tweetslist);
 });
 
