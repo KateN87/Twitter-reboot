@@ -14,6 +14,8 @@ const userReducer = (state = null, action) => {
                 ...state,
                 following: state.following.filter((u) => u !== action.payload),
             };
+        case 'NO_USER':
+            return null;
         default:
             return state;
     }
