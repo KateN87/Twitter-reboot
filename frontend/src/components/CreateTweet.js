@@ -1,9 +1,16 @@
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/createTweet.css';
 
 export default function CreateTweet() {
     const dispatch = useDispatch();
     const user = useSelector((state) => state.userReducer);
+    const [characters, setCharacters] = useState("")
+
+    const handleCharacters = () => {
+        let text = characters.length;
+        return text;
+    }
 
     async function submitTweet(event) {
         event.preventDefault();
@@ -55,7 +62,7 @@ export default function CreateTweet() {
     return (
         <div className='tweet-component'>
             <form onSubmit={submitTweet} className='tweet-form' action=''>
-                <textarea
+                <textarea onChange={(e) => setCharacters(e.target.value) }
                     className='textarea'
                     id='tweet'
                     name='tweet'
@@ -63,8 +70,10 @@ export default function CreateTweet() {
                     maxLength='140'
                     placeholder='Write tweet...'
                 ></textarea>
+                
                 <button type='submit'>Tweet</button>
             </form>
+            <span id="characters">{handleCharacters()}/140</span>
         </div>
     );
 }

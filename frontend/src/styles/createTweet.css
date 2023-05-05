@@ -49,3 +49,8 @@ button[type="submit"]:hover {
   height: 45px;
   color: white;
 }
+
+#characters {
+  font-size: 12px;
+  transform: translate(750%, -360%);
+}

@@ -363,6 +363,15 @@
       "hashtags": [
         "test1"
       ]
+    },
+    {
+      "username": "@Lovisa",
+      "timestamp": "2023-05-05T13:04:28.191Z",
+      "tweet": "Fixade characters nu jaoooo",
+      "likedBy": [],
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
     }
   ],
   "allHashtags": [
