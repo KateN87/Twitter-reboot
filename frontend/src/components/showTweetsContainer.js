@@ -1,12 +1,11 @@
 import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
-import {useSelector} from 'react-redux'
-import "../styles/showTweets.css"
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import '../styles/showTweets.css';
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
-    const [liked, setliked] = useState(false)
+    const dispatch = useDispatch();
     const navigate = useNavigate();
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
@@ -24,22 +23,26 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         const username = user.username
         const options = {
             method: 'PATCH',
-            body: JSON.stringify({username}),
-            headers:{
-                "Content-Type" : "application/json",
-            }
+            body: JSON.stringify({ username }),
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        };
+        const response = await fetch(
+            'http://localhost:3001/liketweet/' + tweet.id,
+            options
+        );
+        const data = await response.json();
+        if (response.status === 200) {
+            dispatch({ type: 'CHANGE_LIKE', payload: data });
         }
-        const response = await fetch('http://localhost:3001/liketweet/' + tweet.id, options)
-        if(response.status === 200){
-            console.log("liked tweet!")
-        }
-    }
+    };
 
     const seeLikes = (tweet) => {
-        const likedByList = tweet.likedBy
-        const likes = likedByList?.length
-        return likes
-    }
+        const likedByList = tweet.likedBy;
+        const likes = likedByList?.length;
+        return likes;
+    };
 
     return (
         <div className='tweet-big-container'>
@@ -55,7 +58,8 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                                 className='tweetName'
                                 onClick={() => goToProfile(tweet)}
                             >
-                                {tweet.username}{tweet.nickname}{' '}
+                                {tweet.username}
+                                {tweet.nickname}{' '}
                                 <span id='time'>{returntimestamp(tweet)}</span>
                             </p>
                             <p className='tweetp'>{tweet.tweet}</p>
@@ -64,14 +68,16 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                                     <i className='fas fa-comment'></i>
                                 </li>
                                 <li>
-                                    <i className='fas fa-retweet'></i>
-                                    0
+                                    <i className='fas fa-retweet'></i>0
                                 </li>
                                 <li>
-                                    <i className='fas fa-heart' onClick={() => likeTweet(tweet)}></i>
+                                    <i
+                                        className='fas fa-heart'
+                                        onClick={() => likeTweet(tweet)}
+                                    ></i>
                                     <span>{seeLikes(tweet)}</span>
                                 </li>
-                                
+
                                 <li>
                                     <i className='fas fa-share'></i>
                                 </li>

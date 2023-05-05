@@ -19,6 +19,7 @@
     padding: 0;
     height: 100vh;
     overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 li {
@@ -36,7 +37,7 @@ img {
     flex-direction: column;
 }
 .middle-main-container{
-    border: 2px solid wheat;
+    border: 0.5px solid rgb(84, 84, 82);
 }
 
 .link{

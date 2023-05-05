@@ -1,5 +1,5 @@
 import express from 'express';
-
+import validator from 'validator';
 import requireAuth from '../middleware/authorization.js';
 import { db, users, tweets, allHashtags } from '../database.js';
 
@@ -88,6 +88,47 @@ router.patch('/follow', async (req, res) => {
         await db.write();
 
         res.status(201).json(followingUsername);
+    } catch (error) {
+        res.status(400).json({ error: error.message });
+    }
+});
+
+router.patch('/editprofile', async (req, res) => {
+    const userId = req.user.id;
+    const { email, nickname, about, occupation, hometown, website } = req.body;
+    const userToEditIndex = users.findIndex((u) => u.id === userId);
+
+    try {
+        if (
+            !email ||
+            !nickname ||
+            !about ||
+            !occupation ||
+            !hometown ||
+            !website
+        ) {
+            throw Error('All fields must be filled');
+        }
+        if (!validator.isEmail(email)) {
+            throw Error('Please enter a valid email address');
+        }
+        if (userToEditIndex === -1) {
+            throw Error('User not found');
+        }
+        const userToEdit = users.find((user) => user.id === userId);
+        const updatedUser = {
+            ...userToEdit,
+            email: email,
+            nickname: nickname,
+            about: about,
+            occupation: occupation,
+            hometown: hometown,
+            website: website,
+        };
+
+        users[userToEditIndex] = updatedUser;
+        await db.write();
+        res.status(200).send(updatedUser);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }

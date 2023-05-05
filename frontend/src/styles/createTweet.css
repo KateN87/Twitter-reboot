@@ -44,3 +44,8 @@ button[type="submit"]:hover {
 .textarea{
   background-color: #2b303a;
 }
+
+#tweet {
+  height: 45px;
+  color: white;
+}

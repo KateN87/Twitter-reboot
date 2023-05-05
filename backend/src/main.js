@@ -89,11 +89,11 @@ app.get('/trending', (req, res) => {
             //Iterate over each hashtag in hashtag-array
             for (const hashtag of tweet.hashtags) {
                 //If the hashtag is already in occuringHashtags, add one to the count
-                if (occuringHashtags.hasOwnProperty(hashtag.toLowerCase())) {
-                    occuringHashtags[hashtag.toLowerCase()]++;
+                if (occuringHashtags.hasOwnProperty(hashtag)) {
+                    occuringHashtags[hashtag]++;
                 } else {
                     //If the hashtag is already there, add the hashtag and set it to one
-                    occuringHashtags[hashtag.toLowerCase()] = 1;
+                    occuringHashtags[hashtag] = 1;
                 }
             }
         }
@@ -107,7 +107,7 @@ app.get('/trending', (req, res) => {
             }
         );
         //Sort the array based on number, if b[1] is greater than a[1], then b is placed before a
-        occuringHashtagsArray.sort((a, b) => b[1] - a[1]);
+        occuringHashtagsArray.sort((a, b) => b.occurance - a.occurance);
         const topFive = occuringHashtagsArray.slice(0, 5);
         res.status(200).send(topFive);
     } catch (error) {
@@ -116,23 +116,23 @@ app.get('/trending', (req, res) => {
 });
 
 app.patch('/liketweet/:id', async (req, res) => {
-	const id = +req.params.id
-	const username = req.body.username
-	const i = tweets.findIndex((i) => i.id === id)
-	const tweetToLike = tweets[i]
-	let likedByList = tweetToLike.likedBy
-	let found = likedByList.includes(username)
-	if(!found){
-		likedByList.push(username)
-		await db.write()
-		res.sendStatus(200)
-	} else {
-		let remove = likedByList.indexOf(username)
-		likedByList.splice(remove, 1)
-		await db.write()
-		res.sendStatus(200)
-	}
-})
+    const id = +req.params.id;
+    const username = req.body.username;
+    const i = tweets.findIndex((i) => i.id === id);
+    const tweetToLike = tweets[i];
+    let likedByList = tweetToLike.likedBy;
+    let found = likedByList.includes(username);
+    if (!found) {
+        likedByList.push(username);
+        await db.write();
+        res.status(200).send(tweetToLike);
+    } else {
+        let remove = likedByList.indexOf(username);
+        likedByList.splice(remove, 1);
+        await db.write();
+        res.status(200).send(tweetToLike);
+    }
+});
 
 //kollar id:et på användaren med det användarnamnet
 /* app.get('/:username', (req, res) => {

@@ -48,8 +48,8 @@
       "password": "$2b$10$mwu/BVWCL4FrC2EEzscyGejMwekcrzKYFA0Qr0bjqWyJU7Itg1ljS",
       "avatar": "default-user-avatar.png",
       "email": "lovisa@lovisa.com",
-      "nickname": "TheLovisa",
-      "about": "I am Lovisa",
+      "nickname": "Lovisa",
+      "about": "Jag gillar att koda",
       "following": [
         "@Kingen",
         "@Kate",
@@ -316,6 +316,7 @@
       "timestamp": "2023-04-25T13:54:03.213Z",
       "tweet": "okej nu testar vi igen #test1 #test2\ntest3 #test4\n#test5",
       "likedBy": [
+        "@Kate",
         "@Lovisa"
       ],
       "retweets": 0,
@@ -333,7 +334,7 @@
       "timestamp": "2023-04-25T16:08:38.103Z",
       "tweet": "Hallå där",
       "likedBy": [
-        "@Lovisa"
+        "@Kate"
       ],
       "retweets": 0,
       "comments": [],
@@ -344,7 +345,9 @@
       "username": "@Aylin",
       "timestamp": "2023-04-27T12:29:53.009Z",
       "tweet": "hejsansvensjan",
-      "likedBy": [],
+      "likedBy": [
+        "@Kate"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": []
