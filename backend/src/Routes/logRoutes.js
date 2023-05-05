@@ -18,7 +18,7 @@ router.use(
 );
 
 const createToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRET, { expiresIn: '5s' });
+    return jwt.sign({ id }, process.env.SECRET, { expiresIn: '1d' });
 };
 
 router.post('/signup', async (req, res) => {
