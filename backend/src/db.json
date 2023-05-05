@@ -354,9 +354,7 @@
       "username": "@Kate",
       "timestamp": "2023-05-02T18:28:12.580Z",
       "tweet": "This is a tweet #test1",
-      "likedBy": [
-        "@Lovisa"
-      ],
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": [

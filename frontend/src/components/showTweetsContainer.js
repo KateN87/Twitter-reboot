@@ -2,9 +2,11 @@ import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
 import {useSelector} from 'react-redux'
 import "../styles/showTweets.css"
+import { useState } from 'react';
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
+    const [liked, setliked] = useState(false)
     const navigate = useNavigate();
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
@@ -17,6 +19,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
     };
 
     const likeTweet = async (tweet) => {
+        
         const user = JSON.parse(localStorage.getItem("user"))
         const username = user.username
         const options = {
