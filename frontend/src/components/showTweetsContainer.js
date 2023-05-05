@@ -19,9 +19,8 @@ const ShowTweetsContainer = ({ tweetsList }) => {
     };
 
     const likeTweet = async (tweet) => {
-        
-        const user = JSON.parse(localStorage.getItem("user"))
-        const username = user.username
+        const user = JSON.parse(localStorage.getItem('user'));
+        const username = user.username;
         const options = {
             method: 'PATCH',
             body: JSON.stringify({ username }),
@@ -73,7 +72,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                                 </li>
                                 <li>
                                     <i
-                                        className='fas fa-heart' 
+                                        className='fas fa-heart'
                                         onClick={() => likeTweet(tweet)}
                                     ></i>
                                     <span>{seeLikes(tweet)}</span>
