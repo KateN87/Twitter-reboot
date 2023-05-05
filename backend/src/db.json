@@ -345,9 +345,7 @@
       "username": "@Aylin",
       "timestamp": "2023-04-27T12:29:53.009Z",
       "tweet": "hejsansvensjan",
-      "likedBy": [
-        "@Kate"
-      ],
+      "likedBy": [],
       "retweets": 0,
       "comments": [],
       "hashtags": []
@@ -358,7 +356,8 @@
       "timestamp": "2023-05-02T18:28:12.580Z",
       "tweet": "This is a tweet #test1",
       "likedBy": [
-        "@Lovisa"
+        "@Lovisa",
+        "@Kate"
       ],
       "retweets": 0,
       "comments": [],
@@ -381,6 +380,26 @@
       "username": "@Lovisa",
       "timestamp": "2023-05-05T17:56:00.517Z",
       "tweet": "Test",
+      "likedBy": [],
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
+    },
+    {
+      "id": 24,
+      "username": "@Kate",
+      "timestamp": "2023-05-05T19:09:55.741Z",
+      "tweet": "sdfsdfsdfsdf",
+      "likedBy": [],
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
+    },
+    {
+      "id": 25,
+      "username": "@Kate",
+      "timestamp": "2023-05-05T19:10:11.630Z",
+      "tweet": "new tweet",
       "likedBy": [],
       "retweets": 0,
       "comments": [],
