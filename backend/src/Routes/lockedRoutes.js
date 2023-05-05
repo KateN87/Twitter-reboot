@@ -15,26 +15,24 @@ router.get('/test', (req, res) => {
 
 // POST skapa ny tweet
 router.post('/tweets', async (req, res) => {
-
-   const date = new Date();
    // Validate tweet
-   /* if (!tweet || tweet.length > 140) {
+   const { tweet } = req.body;
+
+   if (!tweet || tweet.length > 140) {
       res.status(400).send(
          'Tweet cannot be empty or more than 140 characters'
       );
       return;
-   } */
+   }
 
    const newTweet = new Tweet({
       username: req.body.username,
-      timestamp: date,
       tweet: req.body.tweet,
-      likes: [],
-      hashtags: []
+      hashtags: req.body.hashtags
    })
 
    try {
-      const savedTweet = await newTweet.save();
+      const savedTweet = await newTweet.save({ timestamp: true });
       res.status(200).send(savedTweet);
    } catch (error) {
       console.error(error);
