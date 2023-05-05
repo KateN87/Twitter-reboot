@@ -3,7 +3,7 @@ import express from 'express';
 import requireAuth from '../middleware/authorization.js';
 import { db, users, tweets, allHashtags } from '../database.js';
 
-import Tweet from '../models/tweetModel.js'
+import Tweet from '../models/tweetModel.js';
 
 const router = express.Router();
 
