@@ -3,6 +3,7 @@ import cors from 'cors';
 
 import { db, users, tweets, allHashtags } from './database.js';
 import User from './models/userModel.js'
+import Tweets from './models/tweetModel.js'
 import logRoutes from './Routes/logRoutes.js';
 import lockedRoutes from './Routes/lockedRoutes.js';
 
@@ -27,17 +28,13 @@ app.use('/locked', lockedRoutes);
 //Routes
 
 app.get('/users', async (req, res) => {
-   const users = await User.find({ username: '@Matilda' })
+   const users = await User.find({})
    res.send(users);
 });
 
-app.get('/tweets', (req, res) => {
-   let tweetslist = [];
-   for (let i = 0; i < tweets.length; i++) {
-      let tweet = tweets[i];
-      tweetslist.push(tweet);
-   }
-   res.send(tweetslist);
+app.get('/tweets', async (req, res) => {
+   const tweets = await Tweets.find({})
+   res.send(tweets);
 });
 
 app.get('/tweets/:user', (req, res) => {
