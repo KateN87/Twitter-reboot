@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import returntimestamp from '../formatTimestamp';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/showTweets.css';
+import { useEffect, useState } from 'react';
 
 //Containern som visar tweets
 const ShowTweetsContainer = ({ tweetsList }) => {
@@ -72,7 +73,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                                 </li>
                                 <li>
                                     <i
-                                        className='fas fa-heart'
+                                        className='fas fa-heart' 
                                         onClick={() => likeTweet(tweet)}
                                     ></i>
                                     <span>{seeLikes(tweet)}</span>

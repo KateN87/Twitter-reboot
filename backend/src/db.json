@@ -357,7 +357,9 @@
       "username": "@Kate",
       "timestamp": "2023-05-02T18:28:12.580Z",
       "tweet": "This is a tweet #test1",
-      "likedBy": [],
+      "likedBy": [
+        "@Lovisa"
+      ],
       "retweets": 0,
       "comments": [],
       "hashtags": [
@@ -365,9 +367,20 @@
       ]
     },
     {
+      "id": 21,
       "username": "@Lovisa",
       "timestamp": "2023-05-05T13:04:28.191Z",
       "tweet": "Fixade characters nu jaoooo",
+      "likedBy": [],
+      "retweets": 0,
+      "comments": [],
+      "hashtags": []
+    },
+    {
+      "id": 22,
+      "username": "@Lovisa",
+      "timestamp": "2023-05-05T17:56:00.517Z",
+      "tweet": "Test",
       "likedBy": [],
       "retweets": 0,
       "comments": [],

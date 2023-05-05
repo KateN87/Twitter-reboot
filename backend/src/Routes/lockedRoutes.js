@@ -23,8 +23,10 @@ router.post('/tweets', async (req, res) => {
         );
         return;
     }
-
+    let maxId = Math.max(0,...tweets.map(object => object.id))
+    let id = maxId + 1
     const newTweet = {
+        id: id,
         username,
         timestamp: date,
         tweet,

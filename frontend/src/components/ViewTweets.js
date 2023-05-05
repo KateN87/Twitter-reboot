@@ -25,7 +25,7 @@ export const ViewTweet = () => {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${checkUser.token}`,
-                    },
+                    }
                 }
             );
             const tweets = await response.json();
