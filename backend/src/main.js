@@ -1,8 +1,9 @@
 import express from 'express';
 import cors from 'cors';
 
-import { users, tweets } from './database.js';
+import { db, users, tweets, allHashtags } from './database.js';
 import User from './models/userModel.js';
+import Tweets from './models/tweetModel.js';
 import logRoutes from './Routes/logRoutes.js';
 import lockedRoutes from './Routes/lockedRoutes.js';
 import Tweet from './models/tweetModel.js';
@@ -33,8 +34,8 @@ app.get('/users', async (req, res) => {
 });
 
 app.get('/tweets', async (req, res) => {
-    const users = await Tweet.find({});
-    res.send(tweetslist);
+    const tweets = await Tweets.find({});
+    res.send(tweets);
 });
 
 app.get('/tweets/:user', (req, res) => {

@@ -2,7 +2,8 @@ import express from 'express';
 
 import requireAuth from '../middleware/authorization.js';
 import { db, users, tweets, allHashtags } from '../database.js';
-import User from '../models/userModel.js';
+
+import Tweet from '../models/tweetModel.js';
 
 const router = express.Router();
 
@@ -14,31 +15,29 @@ router.get('/test', (req, res) => {
 
 // POST skapa ny tweet
 router.post('/tweets', async (req, res) => {
-    const { username, tweet, hashtags } = req.body;
     const date = new Date();
-
     // Validate tweet
-    if (!tweet || tweet.length > 140) {
-        res.status(400).send(
-            'Tweet cannot be empty or more than 140 characters'
-        );
-        return;
+    /* if (!tweet || tweet.length > 140) {
+      res.status(400).send(
+         'Tweet cannot be empty or more than 140 characters'
+      );
+      return;
+   } */
+
+    const newTweet = new Tweet({
+        username: req.body.username,
+        tweet: req.body.tweet,
+        likes: [],
+        hashtags: [],
+    });
+
+    try {
+        const savedTweet = await newTweet.save();
+        res.status(200).send(savedTweet);
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Error saving tweet to database');
     }
-
-    const newTweet = {
-        username,
-        timestamp: date,
-        tweet,
-        likes: 0,
-        retweets: 0,
-        comments: [],
-        hashtags,
-    };
-
-    tweets.push(newTweet);
-
-    await db.write();
-    res.status(200).send(newTweet);
 });
 
 router.get('/followtweet', (req, res) => {
@@ -58,54 +57,35 @@ router.get('/followtweet', (req, res) => {
 //DENNA KLAR GÄLLANDE MONGODB
 router.patch('/follow', async (req, res) => {
     //Get loggedin-users id från authorization middleware
-    const loggedInUsername = req.user.username;
-
+    const mainId = req.user.id;
     //The name of the person you want to follow
     const followingUsername = req.body.username;
-    /* const followedUserObj = users.find((u) => u.username === followingUsername); */
+    const followedUserObj = users.find((u) => u.username === followingUsername);
     try {
-        const { following } = await User.findOne({
-            username: loggedInUsername,
-        });
+        let followListUser = users.find((user) => user.id === mainId);
 
-        // check if logged in user is already following
-        const isFollowingIndex = following.indexOf(followingUsername);
+        if (!followListUser) {
+            throw Error('User not found');
+        }
+
+        // check if logged in user is already following - might not need this
+        const isFollowingIndex =
+            followListUser.following.indexOf(followingUsername);
+        const followersIndex =
+            followedUserObj.followers.indexOf(followingUsername);
 
         if (isFollowingIndex !== -1) {
-            await User.findOneAndUpdate(
-                { username: loggedInUsername },
-                { $pull: { following: followingUsername } },
-                { new: true }
-            );
-            await User.findOneAndUpdate(
-                { username: followingUsername },
-                { $pull: { followers: loggedInUsername } },
-                { new: true }
-            );
+            followListUser.following.splice(isFollowingIndex, 1);
+            followedUserObj.followers.splice(followersIndex, 1);
+            await db.write();
             return res.status(200).json(followingUsername);
         }
 
         // Add requested follow to logged in users following-array
-        const updatedList = [...following, followingUsername];
-
-        //Update the user in db
-        await User.findOneAndUpdate(
-            { username: loggedInUsername },
-            { following: updatedList },
-            { new: true }
-        );
-        //Updated followingUsernames followed-list with loggedIn-user
-        const { followers } = await User.findOne({
-            username: followingUsername,
-        });
-
-        const updatedFollowersList = [...followers, loggedInUsername];
-
-        await User.findOneAndUpdate(
-            { username: followingUsername },
-            { followers: updatedFollowersList },
-            { new: true }
-        );
+        followListUser.following.push(followingUsername);
+        //Add one extra to followers
+        followedUserObj.followers.push(req.user.username);
+        await db.write();
 
         res.status(201).json(followingUsername);
     } catch (error) {
