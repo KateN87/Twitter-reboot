@@ -24,6 +24,7 @@ router.post('/signup', async (req, res) => {
     const {
         username,
         password,
+        verifyPass,
         email,
         nickname,
         about,
@@ -34,9 +35,10 @@ router.post('/signup', async (req, res) => {
 
     try {
         let image = {};
+        console.log(req.files);
         //Gets image-objekt from req.files(by middleware)
 
-        if (req.files === null) {
+        if (req.files === undefined) {
             //If no image, set default image
             image.name = 'default-user-avatar.png';
         } else {
@@ -53,14 +55,12 @@ router.post('/signup', async (req, res) => {
         }
 
         const newUser = {
-            id,
             username: `@${username}`,
-            password: hash,
+            password,
+            verifyPass,
             avatar: image.name,
             email,
             nickname,
-            following: [],
-            followers: [],
             about,
             occupation,
             hometown,
