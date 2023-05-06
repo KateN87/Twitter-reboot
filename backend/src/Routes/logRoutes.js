@@ -15,8 +15,8 @@ router.use(
     })
 );
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRET, { expiresIn: '1d' });
+const createToken = (_id) => {
+    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '1d' });
 };
 
 //KLAR GÄLLANDE MONGODB
