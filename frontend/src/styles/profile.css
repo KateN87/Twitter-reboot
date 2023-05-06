@@ -1,0 +1,149 @@
+.profile {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  /* background-color: #fff; */
+  padding: 20px;
+}
+
+
+
+.nickname {
+  font-size: 24px;
+  font-weight: bold;
+  /* margin-bottom: 10px; */
+}
+
+.icon-container {
+  display: flex;
+  align-items: center;
+  /* margin-bottom: 10px; */
+}
+
+.icon {
+  font-size: 24px;
+  color: #888;
+  /* margin-right: 10px; */
+}
+
+.followers {
+  color: #ffffff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.followers:hover {
+  color: #888;
+}
+
+.following {
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.following:hover {
+  color: #888;
+}
+
+.about-container {
+  /* margin-bottom: 20px; */
+  display: flex;
+  flex-direction: column;
+  float: left;
+}
+
+.about {
+  color: #888;
+  font-size: 16px;
+  line-height: 1.5;
+  text-align: center;
+  display: inline-block;
+}
+
+.email,
+.occupation,
+.hometown,
+.website,
+.joined {
+  color: #888;
+  margin-left: 10px;
+  font-size: 16px;
+  line-height: 0.5;
+  display: inline-block;
+  float: left;
+}
+
+.website{
+  color: blue;
+}
+
+.login-form {
+  text-align: left;
+}
+
+.login-form h1 {
+  font-size: 25px;
+  margin-bottom: 30px;
+}
+
+.selection {
+  margin-bottom: 20px;
+}
+
+ input {
+  border: none;
+  background-color: rgba(136, 136, 136, 0.195);
+  color: var(--fontcolor);
+}
+
+#cancel{
+  width: 100px;
+  height: 40px;
+  border-radius: 20px;
+  margin-left: 10px;
+  background-color: var(--background);
+  color: var(--fontcolor);
+  border: 0.5 px solid rgb(147, 49, 49);
+}
+
+#editbtn {
+  border: 1px solid rgb(145, 42, 42);
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: var(--background);
+  color: rgba(255, 255, 255, 0.902);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#editbtn:hover{
+  background-color: white;
+  color: var(--background);
+}
+
+#topProfile h2 {
+    float: left;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+.username {
+  transform: translate(-95px,-30px);
+  color: #ffffff57;
+}
+#topProfile img {
+  margin-top: 10px;
+}
+
+#follow-container {
+  display: flex;
+  width: 100px;
+  transform: translateX(80%);
+}
+
+.about-container{
+  transform: translateY(-30px);
+  border-bottom:0.5px solid rgba(255, 255, 255, 0.391) ;
+  width: 345px;
+  color: var(--fontcolor);
+}

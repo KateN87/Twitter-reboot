@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import { db, users, tweets, allHashtags } from './database.js';
+import { users, tweets } from './database.js';
 import User from './models/userModel.js';
 import Tweets from './models/tweetModel.js';
 import logRoutes from './Routes/logRoutes.js';

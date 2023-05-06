@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-
 import { useSelector } from 'react-redux';
+
 import '../styles/ViewTweets.css';
 import ShowTweetsContainer from './showTweetsContainer.js';
 
@@ -16,7 +16,7 @@ export const ViewTweet = () => {
     //Useeffect som hämtar tweets som användaren följer. Dependency är på när view ändras.
     useEffect(() => {
         //Kollar om user (och token finns)
-        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const checkToken = JSON.parse(localStorage.getItem('user'));
         const fetchForYouTweets = async () => {
             //Gör request för att hämta tweets
             const response = await fetch(
@@ -24,7 +24,7 @@ export const ViewTweet = () => {
                 {
                     headers: {
                         'Content-Type': 'application/json',
-                        Authorization: `Bearer ${checkUser.token}`,
+                        Authorization: `Bearer ${checkToken}`,
                     },
                 }
             );
@@ -55,7 +55,6 @@ export const ViewTweet = () => {
         );
     };
 
-    //Headercomponenter ("knapparna") som bestämmer vilket view som ska visas
     return (
         <div className='main-tweet-container'>
             <div className='nav-container'>

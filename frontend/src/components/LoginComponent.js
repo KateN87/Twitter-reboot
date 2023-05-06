@@ -26,8 +26,8 @@ export default function LoginComponent() {
 
         if (response.ok) {
             const data = await response.json();
-            localStorage.setItem('user', JSON.stringify(data));
-            dispatch({ type: 'LOGIN_USER', payload: data });
+            localStorage.setItem('user', JSON.stringify(data.token));
+            dispatch({ type: 'LOGIN_USER', payload: data.user });
             navigate('/');
         } else {
             setPasswordError('Invalid username or password');

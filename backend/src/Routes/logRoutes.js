@@ -15,8 +15,8 @@ router.use(
     })
 );
 
-const createToken = (id) => {
-    return jwt.sign({ id }, process.env.SECRET, { expiresIn: '1d' });
+const createToken = (_id) => {
+    return jwt.sign({ _id }, process.env.SECRET, { expiresIn: '1d' });
 };
 
 //KLAR GÄLLANDE MONGODB
@@ -24,6 +24,7 @@ router.post('/signup', async (req, res) => {
     const {
         username,
         password,
+        verifyPass,
         email,
         nickname,
         about,
@@ -34,9 +35,10 @@ router.post('/signup', async (req, res) => {
 
     try {
         let image = {};
+        console.log(req.files);
         //Gets image-objekt from req.files(by middleware)
 
-        if (req.files === null) {
+        if (req.files === undefined) {
             //If no image, set default image
             image.name = 'default-user-avatar.png';
         } else {
@@ -53,14 +55,12 @@ router.post('/signup', async (req, res) => {
         }
 
         const newUser = {
-            id,
             username: `@${username}`,
-            password: hash,
+            password,
+            verifyPass,
             avatar: image.name,
             email,
             nickname,
-            following: [],
-            followers: [],
             about,
             occupation,
             hometown,
@@ -72,6 +72,7 @@ router.post('/signup', async (req, res) => {
         const token = createToken(user._id);
         res.status(200).json({ user, token });
     } catch (error) {
+        console.log('THIS IS ERROR', error);
         res.status(400).json({ error: error.message });
     }
 });
@@ -79,6 +80,7 @@ router.post('/signup', async (req, res) => {
 //KLAR GÄLLANDE MONGODB
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log(username, password);
     let addedUsername = username;
     if (!username.includes('@')) {
         addedUsername = `@${username}`;
@@ -86,7 +88,6 @@ router.post('/login', async (req, res) => {
 
     try {
         const user = await User.login(addedUsername, password);
-
         const token = createToken(user._id);
 
         res.status(200).json({ user, token });

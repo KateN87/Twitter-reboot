@@ -1,14 +1,15 @@
 import { React, useState, useEffect } from 'react';
+import '../styles/profile.css';
 import {
     IoMdPin,
     IoMdMail,
-    IoMdPerson,
     IoMdCalendar,
     IoIosPaperPlane,
     IoMdBriefcase,
 } from 'react-icons/io';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import EditProfile from './EditProfile';
 
 export default function ProfileInformation() {
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export default function ProfileInformation() {
     const [isFollowing, setIsFollowing] = useState(false);
     const [isLoading, setIsLoading] = useState(null);
     const [showFollowers, setShowFollowers] = useState(false);
+    const [editMode, setEditMode] = useState(false);
 
     const user = useSelector((state) => state.userReducer);
     const idparam = useParams().id;
@@ -31,12 +33,11 @@ export default function ProfileInformation() {
                 'http://localhost:3001/users/' + idparam
             );
             const data = await response.json();
-
+            console.log(data);
             setProfile(data);
             setFollowing(data.following);
-            /* const checkUser = JSON.parse(localStorage.getItem('user')); */
-            /* const loggedinId = checkUser.id; */
-            if (user.id === data.id) {
+
+            if (user._id === data._id) {
                 setOwnProfile(true);
             }
 
@@ -53,7 +54,7 @@ export default function ProfileInformation() {
     }, [idparam, user]);
 
     const followUser = async () => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const checkToken = JSON.parse(localStorage.getItem('user'));
         const username = profile.username;
         setIsLoading(true);
         const options = {
@@ -61,7 +62,7 @@ export default function ProfileInformation() {
             body: JSON.stringify({ username }),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${checkUser.token}`,
+                Authorization: `Bearer ${checkToken}`,
             },
         };
         const response = await fetch(
@@ -92,74 +93,92 @@ export default function ProfileInformation() {
 
     return (
         <div className='profile'>
-            <img
-                src={`http://localhost:3001/images/${user.avatar}`}
-                alt='Profile avatar'
-                className='avatar'
-            />
+            {!editMode && (
+                <>
+                    <div id='topProfile'>
+                        <img
+                            src={`http://localhost:3001/images/${user.avatar}`}
+                            alt='Profile avatar'
+                            className='avatar'
+                        />
 
-            <h2 className='nickname'>{profile.nickname}</h2>
+                        <h2 className='nickname'>{profile.nickname}</h2>
+                        {ownProfile && (
+                            <button
+                                id='editbtn'
+                                onClick={() => setEditMode(true)}
+                            >
+                                Edit profile info
+                            </button>
+                        )}
+                    </div>
+                    <p className='username'>{profile.username}</p>
+                    <div>
+                        <div className='about-container'>
+                            <p className='about'>{profile.about}</p>
+                        </div>
+                        <div id='follow-container'>
+                            <p onClick={() => setShowFollowers(!showFollowers)}>
+                                {profile.followers.length} Followers
+                            </p>
+                            <ul>
+                                {showFollowers &&
+                                    profile.followers.map((follow) => (
+                                        <li key={follow}>{follow}</li>
+                                    ))}
+                            </ul>
+                            <p onClick={() => setFollowlist(!followList)}>
+                                {checkFollowing(profile)} Following
+                            </p>
+                            <ul>
+                                {followList &&
+                                    following.map((follow) => (
+                                        <li key={follow}>{follow}</li>
+                                    ))}
+                            </ul>
+                        </div>
+                    </div>
 
-            <div className='icon-container'>
-                <IoMdPerson className='icon' />
-                <p className='username'>{profile.username}</p>
-            </div>
-            <div>
-                <p onClick={() => setShowFollowers(!showFollowers)}>
-                    Followers {profile.followers.length}
-                </p>
-                <ul>
-                    {showFollowers &&
-                        profile.followers.map((follow) => (
-                            <li key={follow}>{follow}</li>
-                        ))}
-                </ul>
-                <p onClick={() => setFollowlist(!followList)}>
-                    Following {checkFollowing(profile)}
-                </p>
-                <ul>
-                    {followList &&
-                        following.map((follow) => (
-                            <li key={follow}>{follow}</li>
-                        ))}
-                </ul>
-            </div>
+                    <div className='icon-container'>
+                        <IoMdMail className='icon' />
+                        <p className='email'>{profile.email}</p>
+                    </div>
 
-            <div className='about-container'>
-                <p className='about'>{profile.about}</p>
-            </div>
+                    <div className='icon-container'>
+                        <IoMdBriefcase className='icon' />
+                        <p className='occupation'>{profile.occupation}</p>
+                    </div>
 
-            <div className='icon-container'>
-                <IoMdMail className='icon' />
-                <p className='email'>{profile.email}</p>
-            </div>
+                    <div className='icon-container'>
+                        <IoMdPin className='icon' />
+                        <p className='hometown'>{profile.hometown}</p>
+                    </div>
 
-            <div className='icon-container'>
-                <IoMdBriefcase className='icon' />
-                <p className='occupation'>{profile.occupation}</p>
-            </div>
+                    <div className='icon-container'>
+                        <IoIosPaperPlane className='icon' />
+                        <a
+                            href={`https://${profile.website}`}
+                            className='website'
+                        >
+                            {profile.website}
+                        </a>
+                    </div>
 
-            <div className='icon-container'>
-                <IoMdPin className='icon' />
-                <p className='hometown'>{profile.hometown}</p>
-            </div>
-
-            <div className='icon-container'>
-                <IoIosPaperPlane className='icon' />
-                <a href={`https://${profile.website}`} className='website'>
-                    {profile.website}
-                </a>
-            </div>
-
-            <div className='icon-container'>
-                <IoMdCalendar className='icon' />
-                <p className='joined'>{profile.joined}</p>
-            </div>
-            {!ownProfile && (
-                <button onClick={() => followUser()} disabled={isLoading}>
-                    {isFollowing ? 'Unfollow' : 'Follow'}
-                </button>
+                    <div className='icon-container'>
+                        <IoMdCalendar className='icon' />
+                        <p className='joined'>{profile.joined}</p>
+                    </div>
+                    {!ownProfile && (
+                        <button
+                            onClick={() => followUser()}
+                            disabled={isLoading}
+                        >
+                            {isFollowing ? 'Unfollow' : 'Follow'}
+                        </button>
+                    )}
+                </>
             )}
+            {editMode && <EditProfile setEditMode={setEditMode} />}
         </div>
     );
 }

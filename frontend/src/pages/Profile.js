@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 
 import ProfileInformation from '../components/ProfileInformation.js';
 import { OwnTweets } from '../components/OwnTweets';
@@ -10,7 +9,7 @@ export default function Profile() {
     const user = useSelector((state) => state.userReducer);
     const idparam = useParams().id;
 
-    const ownProfile = user.id === Number(idparam);
+    const ownProfile = user._id === Number(idparam);
 
     return (
         <>
