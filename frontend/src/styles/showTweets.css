@@ -1,26 +1,19 @@
 .tweet-big-container {
-  width: 100%;
-  max-width: 700px;
+  max-width: 600px;
   margin: 0 auto;
   margin-top: 15px;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 0px 0px 20px 20px;
   margin-bottom: 500px;
-  /* background-color: #fff; */
-  
   border-radius: 10px;
-  /*box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);*/
   height: 62vh;
-  
 }
 
 .tweet-container {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
-  border-bottom: 1px solid white;
+  border-bottom: 1px solid rgb(122, 131, 141);
   padding-bottom: 10px;
-  /* align-items: flex-start; */
 }
 
 .tweetp {
@@ -29,18 +22,18 @@
   margin: 0;
   cursor: pointer;
   text-align: left;
-  
 }
-.tweetName{
+.tweetName {
   font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-    cursor: pointer;
-    text-align: left;
-    color: #657786;
+  font-weight: bold;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+  color: #657786;
 }
-.tweetName:hover{
+.tweetName:hover {
   color: wheat;
+  transition: 0.4s;
 }
 
 #time {
@@ -48,9 +41,7 @@
   font-weight: normal;
   color: #657786;
   margin-left: 10px;
-  text-align: left
-  
-
+  text-align: left;
 }
 
 #viewtweet {
@@ -65,7 +56,6 @@
   margin-top: 10px;
   padding: 0;
   list-style: none;
-  
 }
 
 #tweetfeatures li {
@@ -80,9 +70,9 @@
 
 #tweetfeatures li:hover {
   color: #1da1f2;
+  transition: 0.5s;
 }
 
 #tweetfeatures li i {
   margin-right: 5px;
-  
 }
