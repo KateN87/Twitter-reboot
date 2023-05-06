@@ -90,14 +90,14 @@ const Searchbar = () => {
             </form>
             <ul>
                 {users.map((user) => (
-                    <div key={user.id} className='user-info'>
+                    <div key={user._id} className='user-info'>
                         <p>
                             <img
                                 src={`http://localhost:3001/images/${user.avatar}`}
                                 alt='Profile avatar'
                                 className='avatar'
                             />
-                            <Link className='link' to={`/profile/${user.id}`}>
+                            <Link className='link' to={`/profile/${user._id}`}>
                                 {user.username}
                             </Link>
                         </p>

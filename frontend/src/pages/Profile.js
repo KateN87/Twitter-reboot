@@ -9,7 +9,7 @@ export default function Profile() {
     const user = useSelector((state) => state.userReducer);
     const idparam = useParams().id;
 
-    const ownProfile = user.id === Number(idparam);
+    const ownProfile = user._id === Number(idparam);
 
     return (
         <>

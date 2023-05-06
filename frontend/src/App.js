@@ -22,8 +22,8 @@ function App() {
             const tweets = await response.json();
 
             tweets.sort(function (a, b) {
-                var c = new Date(a.timestamp);
-                var d = new Date(b.timestamp);
+                var c = new Date(a.createdAt);
+                var d = new Date(b.createdAt);
                 return d - c;
             });
             dispatch({ type: 'GET_TWEETS', payload: tweets });

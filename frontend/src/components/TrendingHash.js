@@ -30,7 +30,6 @@ const TrendingHash = () => {
             const response = await fetch('http://localhost:3001/trending');
             const data = await response.json();
             setTrendingList(data);
-            console.log('SHOOOT');
         };
         getTrending();
     }, [tweets]);

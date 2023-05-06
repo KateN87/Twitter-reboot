@@ -12,7 +12,7 @@ export const Header = () => {
                 <button>Home</button>
             </Link>
             {user && (
-                <Link to={`/profile/${user.id}`}>
+                <Link to={`/profile/${user._id}`}>
                     <button>My profile</button>
                 </Link>
             )}

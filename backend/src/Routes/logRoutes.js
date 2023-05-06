@@ -70,7 +70,7 @@ router.post('/signup', async (req, res) => {
         //add user to db
         const user = await User.signup(newUser);
         const token = createToken(user._id);
-        res.status(200).json({ user, token });
+        res.status(200).json(user, token);
     } catch (error) {
         console.log('THIS IS ERROR', error);
         res.status(400).json({ error: error.message });
@@ -80,6 +80,7 @@ router.post('/signup', async (req, res) => {
 //KLAR GÄLLANDE MONGODB
 router.post('/login', async (req, res) => {
     const { username, password } = req.body;
+    console.log(username, password);
     let addedUsername = username;
     if (!username.includes('@')) {
         addedUsername = `@${username}`;

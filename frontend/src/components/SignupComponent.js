@@ -40,9 +40,9 @@ const SignupComponent = () => {
             setError(json.error);
         } else {
             //Adds user with token to localstorage
-            localStorage.setItem('user', JSON.stringify(json));
+            localStorage.setItem('user', JSON.stringify(json.token));
             //Login user to reducer-state
-            dispatch({ type: 'LOGIN_USER', payload: json });
+            dispatch({ type: 'LOGIN_USER', payload: json.user });
             navigate('/');
         }
         return false;

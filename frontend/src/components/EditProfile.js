@@ -56,43 +56,49 @@ const EditProfile = ({ setEditMode }) => {
                 <h1>Edit your profile</h1>
 
                 <div className='selection'>
-                <label htmlFor='email'>Email:</label>
-                <input type='text' name='email' defaultValue={user.email} />
+                    <label htmlFor='email'>Email:</label>
+                    <input type='text' name='email' defaultValue={user.email} />
                 </div>
                 <div className='selection'>
-                <label htmlFor='nickname'>Nickname:</label>
-                <input
-                    type='text'
-                    name='nickname'
-                    defaultValue={user.nickname}
-                />
-                    </div>
-                    <div className='selection'>
-                <label htmlFor='about'>About:</label>
-                <input type='text' name='about' defaultValue={user.about} />
-                    </div>
-                    <div className='selection'>
-                <label htmlFor='occupation'>Occupation:</label>
-                <input
-                    type='text'
-                    name='occupation'
-                    defaultValue={user.occupation}
-                />
+                    <label htmlFor='nickname'>Nickname:</label>
+                    <input
+                        type='text'
+                        name='nickname'
+                        defaultValue={user.nickname}
+                    />
                 </div>
                 <div className='selection'>
-                <label htmlFor='hometown'>Hometown:</label>
-                <input
-                    type='text'
-                    name='hometown'
-                    defaultValue={user.hometown}
-                />
+                    <label htmlFor='about'>About:</label>
+                    <input type='text' name='about' defaultValue={user.about} />
                 </div>
                 <div className='selection'>
-                <label htmlFor='website'>Website:</label>
-                <input type='text' name='website' defaultValue={user.website} />
+                    <label htmlFor='occupation'>Occupation:</label>
+                    <input
+                        type='text'
+                        name='occupation'
+                        defaultValue={user.occupation}
+                    />
+                </div>
+                <div className='selection'>
+                    <label htmlFor='hometown'>Hometown:</label>
+                    <input
+                        type='text'
+                        name='hometown'
+                        defaultValue={user.hometown}
+                    />
+                </div>
+                <div className='selection'>
+                    <label htmlFor='website'>Website:</label>
+                    <input
+                        type='text'
+                        name='website'
+                        defaultValue={user.website}
+                    />
                 </div>
                 <button type='submit'>Save Edit</button>
-                <button id="cancel" onClick={() => setEditMode(false)}>Cancel</button>
+                <button id='cancel' onClick={() => setEditMode(false)}>
+                    Cancel
+                </button>
                 {/* Om error INTE är null visas denna*/}
                 {error && <div className='error'>{error}</div>}
             </form>

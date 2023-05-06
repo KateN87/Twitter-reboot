@@ -37,7 +37,7 @@ export default function ProfileInformation() {
             setProfile(data);
             setFollowing(data.following);
 
-            if (user.id === data.id) {
+            if (user._id === data._id) {
                 setOwnProfile(true);
             }
 

@@ -13,7 +13,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         const username = tweet.username;
         const response = await fetch('http://localhost:3001/users/' + username);
         const user = await response.json();
-        const foundId = user.id;
+        const foundId = user._id;
         navigate('/profile/' + foundId);
     };
 
@@ -28,7 +28,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
             },
         };
         const response = await fetch(
-            'http://localhost:3001/liketweet/' + tweet.id,
+            'http://localhost:3001/liketweet/' + tweet._id,
             options
         );
         const data = await response.json();
