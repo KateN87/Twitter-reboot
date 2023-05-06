@@ -2,12 +2,13 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: rgb(90, 98, 108);
+  background: rgb(79, 87, 95);
+}
+::-webkit-scrollbar-thumb {
+  background: #333a45;
+  border-radius: 5px;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #2b303a;
-}
 .tweet-big-container {
   height: 100vh;
   overflow-y: scroll;
