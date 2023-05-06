@@ -50,7 +50,6 @@ const SignupComponent = () => {
 
     return (
         <div className='login-container signup-container'>
-            {/*added enctype to send form with both text and file */}
             <form
                 className='login-form'
                 onSubmit={(e) => {

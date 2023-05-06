@@ -118,16 +118,22 @@ app.get('/trending', async (req, res) => {
     }
 });
 
-app.get('/users/:id/:username', (req, res) => {
+app.patch('/liketweet/:id', async (req, res) => {
     const id = +req.params.id;
-    const username = req.params.username;
-    console.log(username);
-    const i = users.findIndex((i) => i.id === id);
-    const followList = users[i].following;
-    if (followList.includes(username)) {
-        res.sendStatus(200);
+    const username = req.body.username;
+    const i = tweets.findIndex((i) => i.id === id);
+    const tweetToLike = tweets[i];
+    let likedByList = tweetToLike.likedBy;
+    let found = likedByList.includes(username);
+    if (!found) {
+        likedByList.push(username);
+        await db.write();
+        res.status(200).send(tweetToLike);
     } else {
-        res.sendStatus(404);
+        let remove = likedByList.indexOf(username);
+        likedByList.splice(remove, 1);
+        await db.write();
+        res.status(200).send(tweetToLike);
     }
 });
 

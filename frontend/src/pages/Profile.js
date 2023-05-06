@@ -1,6 +1,5 @@
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { useState } from 'react';
 
 import ProfileInformation from '../components/ProfileInformation.js';
 import { OwnTweets } from '../components/OwnTweets';
