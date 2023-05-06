@@ -15,7 +15,7 @@ export default function CreateTweet() {
     async function submitTweet(event) {
         event.preventDefault();
         const textInput = event.target.tweet.value;
-        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const checkToken = JSON.parse(localStorage.getItem('user'));
 
         const wordsArray = textInput.split(/[\s\n]+/);
         const foundHashtag = wordsArray.filter((word) => word.startsWith('#'));
@@ -23,7 +23,7 @@ export default function CreateTweet() {
             hashtag.replace(/^#/, '').toLowerCase()
         );
 
-        if (!checkUser) {
+        if (!checkToken) {
             console.log('User not authenticated');
             return;
         }
@@ -39,7 +39,7 @@ export default function CreateTweet() {
             body: JSON.stringify(newTweetReq),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${checkUser.token}`,
+                Authorization: `Bearer ${checkToken}`,
             },
         };
 

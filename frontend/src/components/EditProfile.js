@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const EditProfile = ({ setEditMode }) => {
     const [error, setError] = useState(null);
     const dispatch = useDispatch();
-    const checkUser = JSON.parse(localStorage.getItem('user'));
+    const checkToken = JSON.parse(localStorage.getItem('user'));
     const user = useSelector((state) => state.userReducer);
 
     const handleSubmit = async (e) => {
@@ -29,7 +29,7 @@ const EditProfile = ({ setEditMode }) => {
                 body: JSON.stringify(editedUser),
                 headers: {
                     'Content-Type': 'application/json',
-                    Authorization: `Bearer ${checkUser.token}`,
+                    Authorization: `Bearer ${checkToken}`,
                 },
             }
         );

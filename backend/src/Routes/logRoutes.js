@@ -70,7 +70,7 @@ router.post('/signup', async (req, res) => {
         //add user to db
         const user = await User.signup(newUser);
         const token = createToken(user._id);
-        res.status(200).json(user, token);
+        res.status(200).json({ user, token });
     } catch (error) {
         console.log('THIS IS ERROR', error);
         res.status(400).json({ error: error.message });

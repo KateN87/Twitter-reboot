@@ -153,4 +153,32 @@ router.patch('/editprofile', async (req, res) => {
         res.status(400).json({ error: error.message });
     }
 });
+
+router.patch('/liketweet/:id', async (req, res) => {
+    const id = req.params.id;
+    const username = req.user.username;
+    const tweetToLike = await Tweet.findById(id);
+    const { likes } = tweetToLike;
+    const isLikedIndex = likes.indexOf(username);
+
+    if (isLikedIndex === -1) {
+        const updatedLikeList = [...likes, username];
+        await Tweet.findOneAndUpdate(
+            { _id: id },
+            { likes: updatedLikeList },
+            { new: true }
+        );
+
+        return res.status(201).json(tweetToLike);
+    }
+
+    await Tweet.findOneAndUpdate(
+        { _id: id },
+        { $pull: { likes: username } },
+        { new: true }
+    );
+
+    console.log(isLikedIndex);
+    return res.status(200).json(tweetToLike);
+});
 export default router;

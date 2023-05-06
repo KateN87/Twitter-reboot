@@ -32,15 +32,15 @@ function App() {
     }, []);
 
     useEffect(() => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const checkToken = JSON.parse(localStorage.getItem('user'));
 
-        if (checkUser) {
+        if (checkToken) {
             const checkJwt = async () => {
                 const response = await fetch(
                     'http://localhost:3001/locked/test',
                     {
                         headers: {
-                            Authorization: `Bearer ${checkUser.token}`,
+                            Authorization: `Bearer ${checkToken}`,
                             'Content-Type': 'application/json',
                         },
                     }

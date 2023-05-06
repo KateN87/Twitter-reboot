@@ -18,13 +18,12 @@ const ShowTweetsContainer = ({ tweetsList }) => {
     };
 
     const likeTweet = async (tweet) => {
-        const user = JSON.parse(localStorage.getItem('user'));
-        const username = user.username;
+        const checkToken = JSON.parse(localStorage.getItem('user'));
         const options = {
             method: 'PATCH',
-            body: JSON.stringify({ username }),
             headers: {
                 'Content-Type': 'application/json',
+                Authorization: `Bearer ${checkToken}`,
             },
         };
         const response = await fetch(

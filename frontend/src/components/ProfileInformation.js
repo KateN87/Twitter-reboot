@@ -33,7 +33,7 @@ export default function ProfileInformation() {
                 'http://localhost:3001/users/' + idparam
             );
             const data = await response.json();
-
+            console.log(data);
             setProfile(data);
             setFollowing(data.following);
 
@@ -54,7 +54,7 @@ export default function ProfileInformation() {
     }, [idparam, user]);
 
     const followUser = async () => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
+        const checkToken = JSON.parse(localStorage.getItem('user'));
         const username = profile.username;
         setIsLoading(true);
         const options = {
@@ -62,7 +62,7 @@ export default function ProfileInformation() {
             body: JSON.stringify({ username }),
             headers: {
                 'Content-Type': 'application/json',
-                Authorization: `Bearer ${checkUser.token}`,
+                Authorization: `Bearer ${checkToken}`,
             },
         };
         const response = await fetch(
