@@ -38,6 +38,7 @@ img {
 }
 .middle-main-container {
   border: 0.5px solid rgb(84, 84, 82);
+  max-width: 600px;
 }
 
 .link {
