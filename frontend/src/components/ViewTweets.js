@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-
 import { useSelector } from 'react-redux';
+
 import '../styles/ViewTweets.css';
 import ShowTweetsContainer from './showTweetsContainer.js';
 
@@ -25,7 +25,7 @@ export const ViewTweet = () => {
                     headers: {
                         'Content-Type': 'application/json',
                         Authorization: `Bearer ${checkUser.token}`,
-                    }
+                    },
                 }
             );
             const tweets = await response.json();

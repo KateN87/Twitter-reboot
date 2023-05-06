@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import '../styles/createTweet.css';
 
@@ -31,7 +31,7 @@ export default function CreateTweet() {
         const newTweetReq = {
             tweet: textInput,
             username: user.username,
-            hashtags: hashtagsWithout /* .toLowerCase() */,
+            hashtags: hashtagsWithout,
         };
 
         const options = {

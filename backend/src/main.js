@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 
-import { db, users, tweets, allHashtags } from './database.js';
+import { db, users, tweets } from './database.js';
 import logRoutes from './Routes/logRoutes.js';
 import lockedRoutes from './Routes/lockedRoutes.js';
 
@@ -28,9 +28,6 @@ app.use('/locked', lockedRoutes);
 app.get('/users', (req, res) => {
     res.send(db.data.users);
 });
-app.get('/hashtags', (req, res) => {
-    res.send(allHashtags);
-});
 
 app.get('/tweets', (req, res) => {
     let tweetslist = [];
@@ -40,7 +37,6 @@ app.get('/tweets', (req, res) => {
     }
     res.send(tweetslist);
 });
-
 
 app.get('/tweets/:user', (req, res) => {
     const poster = req.params.user;
@@ -132,34 +128,6 @@ app.patch('/liketweet/:id', async (req, res) => {
         likedByList.splice(remove, 1);
         await db.write();
         res.status(200).send(tweetToLike);
-    }
-});
-
-//kollar id:et på användaren med det användarnamnet
-/* app.get('/:username', (req, res) => {
-    const username = req.params.username;
-    let user = users.find((u) => u.username === username);
-
-    /* for (let i = 0; i < users.length; i++) {
-      const dbUsername = users[i].username
-      if (dbUsername === username) {
-         user = users[i]
-         lastId = users[i].id
-      }
-   } */
-
-/* res.status(200).send(user);
-}); */
-app.get('/users/:id/:username', (req, res) => {
-    const id = +req.params.id;
-    const username = req.params.username;
-    console.log(username);
-    const i = users.findIndex((i) => i.id === id);
-    const followList = users[i].following;
-    if (followList.includes(username)) {
-        res.sendStatus(200);
-    } else {
-        res.sendStatus(404);
     }
 });
 

@@ -4,19 +4,15 @@ import { RegisterLoginDialogue } from '../components/RegisterLoginDialogue';
 import CreateTweet from '../components/CreateTweet';
 import TrendingHash from '../components/TrendingHash';
 
-import ShowTweetsContainer from '../components/showTweetsContainer';
-import { useSelector } from 'react-redux';
-
-export default function Home({ setId, id }) {
+export default function Home() {
     const user = JSON.parse(localStorage.getItem('user'));
-    const tweetsList = useSelector((state) => state.matchingTweetsReducer);
 
     return (
         <>
             <div className='middle-main-container'>
                 {user && <CreateTweet />}
 
-                <ViewTweet setId={setId} id={id} />
+                <ViewTweet />
             </div>
             <div className='right-main-container'>
                 <Searchbar />
@@ -24,9 +20,7 @@ export default function Home({ setId, id }) {
                 <h3 className='hashtag' id='explore'>
                     Trending hashtags
                 </h3>
-                {/*             {tweetsList !== undefined && tweetsList.length !== 0 ? <ShowTweetsContainer tweetsList={tweetsList} /> : */}{' '}
                 <TrendingHash />
-                {/* } */}
             </div>
         </>
     );

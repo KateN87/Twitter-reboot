@@ -23,7 +23,7 @@ router.post('/tweets', async (req, res) => {
         );
         return;
     }
-    /* let maxId = Math.max(0,...tweets.map(object => object.id)) */
+
     let id = tweets.length + 1;
     const newTweet = {
         id: id,
@@ -136,45 +136,3 @@ router.patch('/editprofile', async (req, res) => {
     }
 });
 export default router;
-
-/*
-    const id = +req.params.id;
-    const i = users.findIndex((i) => i.id === id);
-    const username = req.body.username;
-    let following = users[i].following;
-    let found = following.includes(username);
-
-    if (i != undefined && !found) {
-        let followlist = users[i].following;
-        followlist.push(username);
-
-        for (let index = 0; index < users.length; index++) {
-            if (users[index].username === username) {
-                let followers = users[index].followers;
-                users[index].followers += 1;
-                console.log(followers);
-                await db.write();
-                return followers;
-            }
-            await db.write();
-        }
-
-        res.status(201).send('updated');
-    } else if (found) {
-        let followList = users[i].following;
-        let found = followList.indexOf(username);
-
-        followList.splice(found, 1);
-        for (let index = 0; index < users.length; index++) {
-            if (users[index].username === username) {
-                let followers = users[index].followers;
-                users[index].followers -= 1;
-                console.log(followers);
-                await db.write();
-                return followers;
-            }
-        }
-        await db.write();
-    } else {
-        res.status(400).send('Bad request');
-    } */

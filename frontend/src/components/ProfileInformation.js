@@ -3,7 +3,6 @@ import '../styles/profile.css';
 import {
     IoMdPin,
     IoMdMail,
-    IoMdPerson,
     IoMdCalendar,
     IoIosPaperPlane,
     IoMdBriefcase,
@@ -96,47 +95,49 @@ export default function ProfileInformation() {
         <div className='profile'>
             {!editMode && (
                 <>
-                <div id="topProfile">
-                    <img
-                        src={`http://localhost:3001/images/${user.avatar}`}
-                        alt='Profile avatar'
-                        className='avatar'
-                    />
+                    <div id='topProfile'>
+                        <img
+                            src={`http://localhost:3001/images/${user.avatar}`}
+                            alt='Profile avatar'
+                            className='avatar'
+                        />
 
-                    <h2 className='nickname'>{profile.nickname}</h2>
-                    {ownProfile && (
-                        <button id="editbtn" onClick={() => setEditMode(true)}>
-                            Edit profile info
-                        </button>
-                    )}</div>
-                        <p className='username'>{profile.username}</p>
+                        <h2 className='nickname'>{profile.nickname}</h2>
+                        {ownProfile && (
+                            <button
+                                id='editbtn'
+                                onClick={() => setEditMode(true)}
+                            >
+                                Edit profile info
+                            </button>
+                        )}
+                    </div>
+                    <p className='username'>{profile.username}</p>
                     <div>
-                         <div className='about-container'>
-                        <p className='about'>{profile.about}</p>
+                        <div className='about-container'>
+                            <p className='about'>{profile.about}</p>
+                        </div>
+                        <div id='follow-container'>
+                            <p onClick={() => setShowFollowers(!showFollowers)}>
+                                {profile.followers.length} Followers
+                            </p>
+                            <ul>
+                                {showFollowers &&
+                                    profile.followers.map((follow) => (
+                                        <li key={follow}>{follow}</li>
+                                    ))}
+                            </ul>
+                            <p onClick={() => setFollowlist(!followList)}>
+                                {checkFollowing(profile)} Following
+                            </p>
+                            <ul>
+                                {followList &&
+                                    following.map((follow) => (
+                                        <li key={follow}>{follow}</li>
+                                    ))}
+                            </ul>
+                        </div>
                     </div>
-                        <div id="follow-container">
-                        <p onClick={() => setShowFollowers(!showFollowers)}>
-                            {profile.followers.length} Followers
-                        </p>
-                        <ul>
-                            {showFollowers &&
-                                profile.followers.map((follow) => (
-                                    <li key={follow}>{follow}</li>
-                                ))}
-                        </ul>
-                        <p onClick={() => setFollowlist(!followList)}>
-                            {checkFollowing(profile)} Following
-                        </p>
-                        <ul>
-                            {followList &&
-                                following.map((follow) => (
-                                    <li key={follow}>{follow}</li>
-                                ))}
-                        </ul>
-                    </div>
-                    </div>
-
-                   
 
                     <div className='icon-container'>
                         <IoMdMail className='icon' />
