@@ -1,42 +1,49 @@
 ::-webkit-scrollbar {
-  width: 10px;
-  background-color: rgb(71, 81, 93);
+    width: 10px;
 }
+::-webkit-scrollbar-track {
+    background: rgb(79, 87, 95);
+}
+::-webkit-scrollbar-thumb {
+    background: #333a45;
+    border-radius: 5px;
+}
+
 .tweet-big-container {
-  height: 100vh;
-  overflow-y: scroll;
+    height: 100vh;
+    overflow-y: scroll;
 }
 
 .nav-container {
-  text-align: center;
-  margin-top: 0px;
-  border-bottom: 1px solid gray;
-  padding-bottom: 10px;
+    text-align: center;
+    margin-top: 0px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 10px;
 }
 
 .nav-link {
-  background-color: var(--background);
-  color: var(--color);
-  border: none;
-  cursor: pointer;
+    background-color: var(--background);
+    color: var(--color);
+    border: none;
+    cursor: pointer;
 }
 
 .active {
-  text-decoration: underline 2px var(--error);
+    text-decoration: underline 2px var(--error);
 }
 
 #viewtweet {
-  height: 550px;
-  /* overflow-y: scroll; */
+    height: 550px;
+    /* overflow-y: scroll; */
 }
 @media only screen and (max-width: 800px) {
-  .tweet-container {
-    border-bottom: 0.5px solid grey;
-    padding-left: 10%;
-  }
+    .tweet-container {
+        border-bottom: 0.5px solid grey;
+        padding-left: 10%;
+    }
 }
 .tweet-container {
-  border-bottom: 0.5px solid grey;
-  padding-left: 5%;
-  margin-left: -30px;
+    border-bottom: 0.5px solid grey;
+    padding-left: 5%;
+    margin-left: -30px;
 }
