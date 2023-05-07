@@ -11,9 +11,9 @@ const ShowTweetsContainer = ({ tweetsList }) => {
     const [liked, setliked] = useState([])
 
     useEffect(() => {
-
-            const user = JSON.parse(localStorage.getItem('user'));
-            const username = user.username;
+        const checkUser = JSON.parse(localStorage.getItem('user'));
+        if(checkUser){
+            const username = checkUser.username;
             let newlikes = []
             for(let i = 0; i < tweetsList.length; i++){
                 let id = tweetsList[i].id
@@ -25,6 +25,8 @@ const ShowTweetsContainer = ({ tweetsList }) => {
             }
             setliked(newlikes)
             return
+        }
+            
     }, [tweetsList])
 
     //Funktion för att gå till en profil
