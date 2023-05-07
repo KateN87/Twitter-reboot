@@ -6,7 +6,7 @@ This is a Twitter clone application built with Node.js and Express, using the lo
 
 To get started with this project, follow these steps:
 
-1. Clone the repository: git clone https://github.com/your-username/twitter-clone.git
+1. Clone the repository: git clone https://github.com/KateN87/Twitter-reboot.git
 2. Install the dependencies: npm install
 3. Start the server: npm start
 4. Open the app in your browser: http://localhost:3000
