@@ -8,6 +8,27 @@ import { useEffect, useState } from 'react';
 const ShowTweetsContainer = ({ tweetsList }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [liked, setliked] = useState([])
+
+    useEffect(() => {
+        const checkUser = JSON.parse(localStorage.getItem('user'));
+        if(checkUser){
+            const username = checkUser.username;
+            let newlikes = []
+            for(let i = 0; i < tweetsList.length; i++){
+                let id = tweetsList[i].id
+                let likedByList = tweetsList[i].likedBy
+                if(likedByList.includes(username)){
+                    newlikes.push(id)
+                }
+                
+            }
+            setliked(newlikes)
+            return
+        }
+            
+    }, [tweetsList])
+
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
         const username = tweet.username;
@@ -44,6 +65,17 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         return likes;
     };
 
+    const checkLike = (tweet) => {
+        let id = tweet.id
+        let found = liked.includes(id)
+        switch(found){
+            case true:
+                return "liked";
+                default:
+                    return "notliked";
+        }
+    }
+
     return (
         <div className='tweet-big-container'>
             {tweetsList.length === 0 ? (
@@ -70,7 +102,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
                                 <li>
                                     <i className='fas fa-retweet'></i>0
                                 </li>
-                                <li>
+                                <li id={checkLike(tweet)}>
                                     <i
                                         className='fas fa-heart'
                                         onClick={() => likeTweet(tweet)}

@@ -11,9 +11,10 @@ export const RegisterLoginDialogue = () => {
 				{" "}
 				<button id='skapakonto'>Skapa ett konto</button>
 			</Link>
+			<br></br>
 			<Link to='/login'>
 				{" "}
-				<button id='skapakonto'>Logga in</button>
+				<button id='loggain'>Logga in</button>
 			</Link>
 		</div>
 	);

@@ -61,10 +61,13 @@ export default function LoginComponent() {
                     <form
                         className='login-form'
                         onSubmit={handleUsernameSubmit}
+                        id="loginpage"
                     >
                         <h1>Login</h1>
                         <label>
-                            Username or Email:
+                            Username or Email
+                            <br></br>
+                            <br></br>
                             <input
                                 type='text'
                                 value={username}
@@ -75,6 +78,7 @@ export default function LoginComponent() {
                             <div className='error'>{usernameError}</div>
                         )}
                         <br />
+                        <br></br>
                         <button type='submit'>Next</button>
                         <p>Don't have an account?</p>
                         <Link className='link' to='/signup'>
@@ -84,10 +88,11 @@ export default function LoginComponent() {
                 );
             case 'password':
                 return (
-                    <form className='login-form' onSubmit={handleSubmit}>
+                    <form className='login-form' onSubmit={handleSubmit} id="loginpage">
                         <h1>Login</h1>
                         <label>
-                            Password:
+                            Password
+                            <br></br>
                             <input
                                 type='password'
                                 value={password}
@@ -98,8 +103,10 @@ export default function LoginComponent() {
                             <div className='error'>{passwordError}</div>
                         )}
                         <br />
+                        <br></br>
                         <button type='submit'>Login</button>
                         <br />
+                        <br></br>
                         <button type='submit' onClick={handleReturn}>
                             Return
                         </button>

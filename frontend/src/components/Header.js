@@ -7,7 +7,7 @@ import MiniUserInfo from './MiniUserInfo.js';
 export const Header = () => {
     const user = useSelector((state) => state.userReducer);
     return (
-        <nav>
+        <nav id="header">
             <Link to={`/`}>
                 <button>Home</button>
             </Link>
