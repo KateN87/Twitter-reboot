@@ -37,7 +37,7 @@ export const ViewTweet = () => {
             fetchForYouTweets();
         }
         //Dependency på när view ändras
-    }, [view]);
+    }, [trendingTweets, view]);
 
     //Om view är trending är tweetsList trendingTweets, annars forYouTweets
     const tweetsList = view === 'DISCOVER' ? trendingTweets : forYouTweets;

@@ -33,8 +33,7 @@ const ShowTweetsContainer = ({ tweetsList }) => {
             options
         );
         const data = await response.json();
-        console.log(data);
-        if (response.status === 200) {
+        if (response.ok) {
             dispatch({ type: 'CHANGE_LIKE', payload: data });
         }
     };

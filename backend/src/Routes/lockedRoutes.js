@@ -44,14 +44,10 @@ router.post('/tweets', async (req, res) => {
     }
 });
 
-router.get('/followtweet', (req, res) => {
+router.get('/followtweet', async (req, res) => {
     const following = req.user.following;
-    const tweetList = [];
     try {
-        tweetList.push(
-            ...tweets.filter((tweet) => following.includes(tweet.username))
-        );
-
+        const tweetList = await Tweet.find({ username: [...following] });
         res.status(200).send(tweetList);
     } catch (error) {
         res.status(401).json({ error: error.message });
@@ -119,7 +115,6 @@ router.patch('/follow', async (req, res) => {
 router.patch('/editprofile', async (req, res) => {
     const userId = req.user.id;
     const { email, nickname, about, occupation, hometown, website } = req.body;
-    const userToEditIndex = users.findIndex((u) => u.id === userId);
 
     try {
         if (
@@ -135,12 +130,8 @@ router.patch('/editprofile', async (req, res) => {
         if (!validator.isEmail(email)) {
             throw Error('Please enter a valid email address');
         }
-        if (userToEditIndex === -1) {
-            throw Error('User not found');
-        }
-        const userToEdit = users.find((user) => user.id === userId);
+
         const updatedUser = {
-            ...userToEdit,
             email: email,
             nickname: nickname,
             about: about,
@@ -149,9 +140,17 @@ router.patch('/editprofile', async (req, res) => {
             website: website,
         };
 
-        users[userToEditIndex] = updatedUser;
-        await db.write();
-        res.status(200).send(updatedUser);
+        const userToUpdate = await User.findOneAndUpdate(
+            { _id: userId },
+            { $set: updatedUser },
+            { new: true }
+        );
+
+        if (!userToUpdate) {
+            throw Error('User not found');
+        }
+
+        res.status(200).send(userToUpdate);
     } catch (error) {
         res.status(400).json({ error: error.message });
     }
@@ -171,7 +170,7 @@ router.patch('/liketweet/:id', async (req, res) => {
             { likedBy: updatedLikeList },
             { new: true }
         );
-
+        console.log('HELLO');
         return res.status(201).json(tweetToLike);
     }
 
@@ -181,7 +180,7 @@ router.patch('/liketweet/:id', async (req, res) => {
         { new: true }
     );
 
-    console.log(isLikedIndex);
+    console.log('GOODBYE');
     return res.status(200).json(tweetToLike);
 });
 export default router;

@@ -33,7 +33,6 @@ export default function ProfileInformation() {
                 'http://localhost:3001/users/' + idparam
             );
             const data = await response.json();
-            console.log(data);
             setProfile(data);
             setFollowing(data.following);
 
