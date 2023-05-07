@@ -13,7 +13,9 @@ const ShowTweetsContainer = ({ tweetsList }) => {
         const username = tweet.username;
         const response = await fetch('http://localhost:3001/users/' + username);
         const user = await response.json();
+
         const foundId = user._id;
+        console.log('FOUND ID', foundId);
         navigate('/profile/' + foundId);
     };
 
@@ -27,10 +29,11 @@ const ShowTweetsContainer = ({ tweetsList }) => {
             },
         };
         const response = await fetch(
-            'http://localhost:3001/liketweet/' + tweet._id,
+            'http://localhost:3001/locked/liketweet/' + tweet._id,
             options
         );
         const data = await response.json();
+        console.log(data);
         if (response.status === 200) {
             dispatch({ type: 'CHANGE_LIKE', payload: data });
         }
