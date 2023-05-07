@@ -1,7 +1,6 @@
 import express from 'express';
 import validator from 'validator';
 import requireAuth from '../middleware/authorization.js';
-import { db, users, tweets, allHashtags } from '../database.js';
 
 import Tweet from '../models/tweetModel.js';
 import User from '../models/userModel.js';
@@ -180,7 +179,7 @@ router.patch('/liketweet/:id', async (req, res) => {
         { new: true }
     );
 
-    console.log('GOODBYE');
+    console.log(tweetToLike);
     return res.status(200).json(tweetToLike);
 });
 export default router;
