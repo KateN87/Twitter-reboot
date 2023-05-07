@@ -164,22 +164,22 @@ router.patch('/liketweet/:id', async (req, res) => {
     const isLikedIndex = likedBy.indexOf(username);
     if (isLikedIndex === -1) {
         const updatedLikeList = [...likedBy, username];
-        await Tweet.findOneAndUpdate(
+        const updatedTweet = await Tweet.findOneAndUpdate(
             { _id: id },
             { likedBy: updatedLikeList },
             { new: true }
         );
-        console.log('HELLO');
-        return res.status(201).json(tweetToLike);
+        console.log(tweetToLike);
+        return res.status(201).json(updatedTweet);
     }
 
-    await Tweet.findOneAndUpdate(
+    const updatedTweet = await Tweet.findOneAndUpdate(
         { _id: id },
         { $pull: { likedBy: username } },
         { new: true }
     );
 
     console.log(tweetToLike);
-    return res.status(200).json(tweetToLike);
+    return res.status(200).json(updatedTweet);
 });
 export default router;
