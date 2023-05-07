@@ -6,7 +6,9 @@ const tweetReducer = (state = [], action) => {
             return [action.payload, ...state];
         case 'CHANGE_LIKE':
             return state.map((tweet) => {
-                if (tweet.id === action.payload.id) {
+                console.log(tweet._id);
+                console.log(action.payload._id);
+                if (tweet._id === action.payload._id) {
                     return action.payload;
                 } else {
                     return tweet;
