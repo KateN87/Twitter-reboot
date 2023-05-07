@@ -48,21 +48,48 @@ img {
 .viewtweet {
   height: 80vh;
 }
-@media only screen and (max-width: 800px) {
-  .right-main-container {
-    display: none;
-  }
-  .left-main-container {
-    border-right: 0.5px solid grey;
-    border-left: none;
-    border-top: none;
-  }
-  .middle-main-container {
-    width: 100vw;
-    text-align: left;
-  }
-}
 
 .middle-main-container {
   text-align: left;
+}
+
+#skapakonto {
+  border: 1px solid rgb(51, 218, 255);
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  background-color: var(--background);
+  color: rgba(255, 255, 255, 0.902);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#loggain{
+  border: 1px solid rgb(51, 218, 255);
+  width: 150px;
+  height: 40px;
+  border-radius: 25px;
+  background-color:rgb(51, 218, 255) ;
+  color: rgba(255, 255, 255, 0.902);
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+#header {
+  margin-top: 20px;
+}
+
+.hashtags{
+  font-weight: 700;
+  text-align: left;
+  margin-left: 23%;
+}
+
+#signuppage{
+  margin-left: 20%;
+  padding-bottom: 20px;
+}
+
+#loginpage {
+  text-align: center;
 }

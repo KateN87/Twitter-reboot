@@ -49,7 +49,7 @@ const SignupComponent = () => {
     };
 
     return (
-        <div className='login-container signup-container'>
+        <div className='login-container signup-container' id="signuppage">
             <form
                 className='login-form'
                 onSubmit={(e) => {
@@ -99,7 +99,10 @@ const SignupComponent = () => {
                 <input type='file' id='image' name='image' />
 
                 <br />
+                <br></br>
                 <button type='submit'>Sign up</button>
+                <br></br>
+                <br></br>
                 <Link to='/login'> Redan medlem? Logga in här. </Link>
 
                 {/* Om error INTE är null visas denna*/}

@@ -47,3 +47,7 @@
   padding-left: 5%;
   margin-left: -30px;
 }
+
+#liked i{
+  color: var(--error);
+}

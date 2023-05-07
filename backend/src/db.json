@@ -414,6 +414,18 @@
       "retweets": 0,
       "comments": [],
       "hashtags": []
+    },
+    {
+      "id": 27,
+      "username": "@Lovisa",
+      "timestamp": "2023-05-07T21:26:10.337Z",
+      "tweet": "Är så jävla trött #goingtobed",
+      "likedBy": [],
+      "retweets": 0,
+      "comments": [],
+      "hashtags": [
+        "goingtobed"
+      ]
     }
   ],
   "allHashtags": [
@@ -423,6 +435,7 @@
     "test1",
     "test2",
     "test1",
-    "test1"
+    "test1",
+    "goingtobed"
   ]
 }

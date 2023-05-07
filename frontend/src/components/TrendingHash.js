@@ -38,7 +38,7 @@ const TrendingHash = () => {
     return (
         <ul>
             {trendingList.map((trend) => (
-                <li
+                <li className='hashtags'
                     key={trend.hashtag}
                     onClick={() => handleClick(trend.hashtag)}
                 >
