@@ -8,8 +8,10 @@ To get started with this project, follow these steps:
 
 1. Clone the repository: git clone https://github.com/KateN87/Twitter-reboot.git
 2. Install the dependencies: npm install
-3. Start the server: npm start
-4. Open the app in your browser: http://localhost:3000
-5. That's it! You should now be able to create an account, post tweets, and view your own and other users' tweets in the application.
+3. Create a .env file in the root directory and add the following environment variables:
+   - SECRET= 'mysecretkey';
+4. Start the server: npm start
+5. Open the app in your browser: http://localhost:3000
+6. That's it! You should now be able to create an account, post tweets, and view your own and other users' tweets in the application.
 
 To use the app, simply create an account and start posting tweets!
