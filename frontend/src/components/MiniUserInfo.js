@@ -15,7 +15,9 @@ const MiniUserInfo = () => {
         localStorage.removeItem('user');
         dispatch({ type: 'LOGOUT_USER', payload: null });
         navigate('/');
+        window.location.reload(false);
     };
+
     return (
         <div className='Mini-userinfo'>
             {user && (
