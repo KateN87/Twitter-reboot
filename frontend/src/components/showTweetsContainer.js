@@ -8,26 +8,25 @@ import { useEffect, useState } from 'react';
 const ShowTweetsContainer = ({ tweetsList }) => {
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    const [liked, setliked] = useState([])
+    const user = useSelector((state) => state.userReducer);
+    const [liked, setliked] = useState([]);
 
     useEffect(() => {
-        const checkUser = JSON.parse(localStorage.getItem('user'));
-        if(checkUser){
-            const username = checkUser.username;
-            let newlikes = []
-            for(let i = 0; i < tweetsList.length; i++){
-                let id = tweetsList[i].id
-                let likedByList = tweetsList[i].likedBy
-                if(likedByList.includes(username)){
-                    newlikes.push(id)
+        console.log(user);
+        if (user) {
+            const username = user.username;
+            let newlikes = [];
+            for (let i = 0; i < tweetsList.length; i++) {
+                let id = tweetsList[i]._id;
+                let likedByList = tweetsList[i].likedBy;
+                if (likedByList.includes(username)) {
+                    newlikes.push(id);
                 }
-                
             }
-            setliked(newlikes)
-            return
+            setliked(newlikes);
+            return;
         }
-            
-    }, [tweetsList])
+    }, [tweetsList]);
 
     //Funktion för att gå till en profil
     const goToProfile = async (tweet) => {
@@ -66,15 +65,15 @@ const ShowTweetsContainer = ({ tweetsList }) => {
     };
 
     const checkLike = (tweet) => {
-        let id = tweet.id
-        let found = liked.includes(id)
-        switch(found){
+        let id = tweet._id;
+        let found = liked.includes(id);
+        switch (found) {
             case true:
-                return "liked";
-                default:
-                    return "notliked";
+                return 'liked';
+            default:
+                return 'notliked';
         }
-    }
+    };
 
     return (
         <div className='tweet-big-container'>
